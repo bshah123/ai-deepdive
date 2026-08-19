@@ -1,0 +1,110 @@
+{
+  "chapterId": "chapter-03",
+  "title": "Chapter 3 Quiz — Numbers, Strings & Booleans",
+  "questions": [
+    {
+      "id": "ch3-q1",
+      "type": "multiple-choice",
+      "question": "What is the result of `0.1 + 0.2 == 0.3` in Python?",
+      "options": [
+        "True — Python has exact decimal arithmetic",
+        "False — floating-point binary representation cannot represent 0.1 or 0.2 exactly",
+        "True — Python rounds results automatically",
+        "Error — cannot compare floats with =="
+      ],
+      "correctIndex": 1,
+      "explanation": "`0.1 + 0.2 == 0.3` is False because 0.1 and 0.2 cannot be represented exactly in IEEE 754 binary floating-point. The sum is 0.30000000000000004, not 0.3. Use `math.isclose(0.1 + 0.2, 0.3)` for safe comparison."
+    },
+    {
+      "id": "ch3-q2",
+      "type": "multiple-choice",
+      "question": "What is the result of `float('nan') == float('nan')`?",
+      "options": [
+        "True — same value",
+        "False — NaN is not equal to anything, including itself (IEEE 754)",
+        "Error — NaN cannot be compared",
+        "True — same object"
+      ],
+      "correctIndex": 1,
+      "explanation": "By the IEEE 754 standard, NaN (Not a Number) is not equal to anything, including itself. `nan == nan` is always False. Use `math.isnan(x)` to check for NaN. This is important in ML: a NaN in training data silently propagates through computations."
+    },
+    {
+      "id": "ch3-q3",
+      "type": "multiple-choice",
+      "question": "What is `len('Hello, 🐍!')` in Python?",
+      "options": [
+        "10 — one Unicode code point per character including emoji",
+        "13 — counts bytes in UTF-8 encoding",
+        "9 — doesn't count the exclamation mark",
+        "Error — cannot mix ASCII and Unicode"
+      ],
+      "correctIndex": 0,
+      "explanation": "`len()` on a Python string counts **Unicode code points**, not bytes. 'Hello, 🐍!' has 10 code points: H, e, l, l, o, comma, space, 🐍, !. But `len('Hello, 🐍!'.encode('utf-8'))` would be 13 bytes (the emoji uses 4 bytes in UTF-8)."
+    },
+    {
+      "id": "ch3-q4",
+      "type": "multiple-choice",
+      "question": "Which is the correct way to build a large string by concatenating many parts?",
+      "options": [
+        "`result = ''; for p in parts: result += p` — simple concatenation",
+        "`result = ''.join(parts)` — use join for O(n) performance",
+        "`result = str.concat(parts)` — use the built-in concat method",
+        "Both approaches are equally fast"
+      ],
+      "correctIndex": 1,
+      "explanation": "String concatenation with `+=` in a loop is O(n²) because each `+=` creates a new string object, copying all previous characters. `''.join(parts)` is O(n) — it calculates the total length once, allocates a single buffer, and fills it. For large strings, this can be 100x+ faster."
+    },
+    {
+      "id": "ch3-q5",
+      "type": "multiple-choice",
+      "question": "What is the result of `bool('False')` in Python?",
+      "options": [
+        "False — 'False' represents a false boolean value",
+        "True — any non-empty string is truthy",
+        "Error — cannot convert string 'False' to bool directly",
+        "False — Python recognizes common string representations of booleans"
+      ],
+      "correctIndex": 1,
+      "explanation": "`bool('False')` is `True` because `'False'` is a non-empty string, and all non-empty strings are truthy in Python. Python does NOT interpret the string content for boolean conversion. To parse a string boolean, use: `'False'.lower() == 'true'` (returns `False`)."
+    },
+    {
+      "id": "ch3-q6",
+      "type": "multiple-choice",
+      "question": "What does `True + True + False + True` evaluate to?",
+      "options": [
+        "True — boolean OR",
+        "3 — bool is a subclass of int; True=1, False=0",
+        "TypeError — cannot add booleans",
+        "1 — all booleans collapse to a single True"
+      ],
+      "correctIndex": 1,
+      "explanation": "`bool` is a subclass of `int` in Python. `True` equals 1 and `False` equals 0. Arithmetic operations on booleans work as integer operations. `True + True + False + True = 1 + 1 + 0 + 1 = 3`. This is useful for counting truthy values: `sum([True, False, True, True])` == 3."
+    },
+    {
+      "id": "ch3-q7",
+      "type": "multiple-choice",
+      "question": "What does `0 or 'default'` evaluate to?",
+      "options": [
+        "False — 0 is falsy so the whole expression is False",
+        "'default' — `or` returns the first truthy value, or the last value",
+        "0 — `or` always returns the left operand",
+        "True — the string is truthy so the result is True"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python's `or` operator returns the **first truthy operand** (not necessarily True). Since 0 is falsy, Python evaluates the second operand and returns it: `'default'`. This enables the idiom `value = user_input or 'default'` for providing fallback values. If both are falsy, `or` returns the last operand."
+    },
+    {
+      "id": "ch3-q8",
+      "type": "multiple-choice",
+      "question": "CPython's small integer cache covers which range?",
+      "options": [
+        "0 to 255 — byte values",
+        "-5 to 256 — chosen empirically for common values",
+        "-128 to 127 — signed byte range",
+        "-1 to 100 — small positive integers"
+      ],
+      "correctIndex": 1,
+      "explanation": "CPython pre-allocates integer objects for -5 to 256 at startup. -5 to -1 are common C API return values; 0 is universal; 1 to 255 cover byte values; 256 is included. Outside this range, `a is b` for the same integer value is False (different objects). This is a CPython implementation detail, not a language guarantee."
+    }
+  ]
+}

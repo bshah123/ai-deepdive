@@ -1,0 +1,110 @@
+{
+  "chapterId": "chapter-02",
+  "title": "Chapter 2 Quiz — Variables, Objects & Memory",
+  "questions": [
+    {
+      "id": "ch2-q1",
+      "type": "multiple-choice",
+      "question": "What does `b = a` do when `a` is a list?",
+      "options": [
+        "Creates a new list with the same elements",
+        "Creates a second name bound to the same list object",
+        "Creates a shallow copy of the list",
+        "Allocates new memory and copies all elements"
+      ],
+      "correctIndex": 1,
+      "explanation": "In Python, assignment (`=`) creates a name binding — it makes `b` point to the same object as `a`. No data is copied. Both names refer to the same list in memory. Mutating through `b` will be visible through `a`, and vice versa."
+    },
+    {
+      "id": "ch2-q2",
+      "type": "multiple-choice",
+      "question": "After `a = [1,2,3]; b = a; b.append(4)`, what does `print(a)` output?",
+      "options": [
+        "[1, 2, 3]",
+        "[1, 2, 3, 4]",
+        "TypeError — cannot append to aliased list",
+        "None"
+      ],
+      "correctIndex": 1,
+      "explanation": "`b = a` makes `b` an alias for the same list object as `a`. `b.append(4)` mutates that shared list object. Since `a` and `b` refer to the same object, `a` also shows `[1, 2, 3, 4]`."
+    },
+    {
+      "id": "ch2-q3",
+      "type": "multiple-choice",
+      "question": "Which of the following is a correct use of the `is` operator?",
+      "options": [
+        "`if count is 0:` — check if count is zero",
+        "`if name is 'Alice':` — check if name matches",
+        "`if value is None:` — check if value is missing",
+        "`if result is True:` — always better than `if result:`"
+      ],
+      "correctIndex": 2,
+      "explanation": "`is None` is the canonical and correct way to check for None, because None is a singleton. Using `is` with literals like `0` or `'Alice'` is unreliable — it depends on CPython's integer caching and string interning, which are implementation details, not language guarantees. Python 3.8+ issues a SyntaxWarning for `is` with literals."
+    },
+    {
+      "id": "ch2-q4",
+      "type": "multiple-choice",
+      "question": "What is the output of: `a = [1,[2,3]]; b = a.copy(); b[1].append(4); print(a)`?",
+      "options": [
+        "[1, [2, 3]]",
+        "[1, [2, 3, 4]]",
+        "[1, [2, 3], 4]",
+        "TypeError — cannot modify through a copy"
+      ],
+      "correctIndex": 1,
+      "explanation": "`a.copy()` creates a shallow copy — `b` is a new list, but `b[1]` is still the same list object as `a[1]`. Appending to `b[1]` mutates that shared inner list. Deep copy (`copy.deepcopy(a)`) would create fully independent objects."
+    },
+    {
+      "id": "ch2-q5",
+      "type": "multiple-choice",
+      "question": "Why can't Python lists be used as dictionary keys?",
+      "options": [
+        "Lists are too slow to hash",
+        "Lists are mutable, so their hash could change after insertion, breaking dictionary lookup",
+        "Python dictionaries only accept string keys",
+        "Lists don't implement `__eq__`"
+      ],
+      "correctIndex": 1,
+      "explanation": "Dictionary keys must be hashable — their hash must be stable for their lifetime. Since lists are mutable (their contents can change), their hash would change too, making it impossible to find the key again. Only immutable (or explicitly frozen) types are hashable in Python."
+    },
+    {
+      "id": "ch2-q6",
+      "type": "multiple-choice",
+      "question": "In CPython, when does an object's memory get freed?",
+      "options": [
+        "Whenever the garbage collector runs",
+        "When the `del` statement is called on the last reference to it",
+        "When its reference count (`ob_refcnt`) reaches zero",
+        "At the end of each function call"
+      ],
+      "correctIndex": 2,
+      "explanation": "CPython uses reference counting as its primary memory management strategy. When an object's `ob_refcnt` drops to 0 (the last reference is removed), `_Py_Dealloc()` is called immediately and the memory is freed. `del` removes a name binding, which may or may not bring the count to zero."
+    },
+    {
+      "id": "ch2-q7",
+      "type": "multiple-choice",
+      "question": "What problem do circular references cause that reference counting cannot solve?",
+      "options": [
+        "Objects in cycles crash Python with a RecursionError",
+        "Objects in cycles are never freed by reference counting, because their counts never reach zero",
+        "Circular references slow down dict lookups",
+        "Objects in cycles cannot be serialized with pickle"
+      ],
+      "correctIndex": 1,
+      "explanation": "If object A references object B and B references A, deleting all external references sets both counts to 1 (not 0) — they still reference each other. Neither count ever reaches 0, so reference counting alone cannot free them. Python's cyclic garbage collector detects and collects these cycles."
+    },
+    {
+      "id": "ch2-q8",
+      "type": "multiple-choice",
+      "question": "What does `sys.getrefcount(x)` return compared to the 'real' reference count?",
+      "options": [
+        "The exact number of references",
+        "One less than the real count (it excludes the local variable x)",
+        "One more than the real count (the function call creates a temporary reference)",
+        "The count in hexadecimal"
+      ],
+      "correctIndex": 2,
+      "explanation": "Passing `x` to `sys.getrefcount()` creates a temporary reference (the function argument). So the returned value is always one higher than the number of references you'd expect to count manually. Subtract 1 to get the 'real' count."
+    }
+  ]
+}

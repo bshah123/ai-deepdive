@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-08",
+  "title": "Chapter 8 Quiz \u2014 Scope, Closures & Decorators",
+  "questions": [
+    {
+      "id": "q8.1",
+      "question": "Key question regarding Scope, Closures & Decorators?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Scope, Closures & Decorators internal mechanisms."
+    }
+  ]
+}

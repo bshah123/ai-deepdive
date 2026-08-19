@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-09",
+  "title": "Chapter 9 Quiz \u2014 Iterators & Generators",
+  "questions": [
+    {
+      "id": "q9.1",
+      "question": "Key question regarding Iterators & Generators?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Iterators & Generators internal mechanisms."
+    }
+  ]
+}

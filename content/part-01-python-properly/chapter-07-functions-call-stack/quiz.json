@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-07",
+  "title": "Chapter 7 Quiz \u2014 Functions & Call Stack",
+  "questions": [
+    {
+      "id": "q7.1",
+      "question": "Key question regarding Functions & Call Stack?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Functions & Call Stack internal mechanisms."
+    }
+  ]
+}

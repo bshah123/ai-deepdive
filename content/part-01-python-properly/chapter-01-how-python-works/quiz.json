@@ -1,0 +1,110 @@
+{
+  "chapterId": "chapter-01",
+  "title": "Chapter 1 Quiz — How Python Actually Works",
+  "questions": [
+    {
+      "id": "ch1-q1",
+      "type": "multiple-choice",
+      "question": "What is the correct order of stages when Python runs a `.py` file?",
+      "options": [
+        "Tokenize → Parse → Execute → Compile",
+        "Tokenize → Parse (AST) → Compile → Execute (PVM)",
+        "Compile → Tokenize → Parse → Execute",
+        "Parse → Compile → Tokenize → Execute"
+      ],
+      "correctIndex": 1,
+      "explanation": "Python tokenizes the source text first, parses tokens into an AST, compiles the AST to bytecode, then executes the bytecode in the Python Virtual Machine (PVM). You can inspect each step using the `tokenize`, `ast`, and `dis` modules."
+    },
+    {
+      "id": "ch1-q2",
+      "type": "multiple-choice",
+      "question": "What is the value of `__name__` when a module `utils.py` is imported by another script?",
+      "options": [
+        "\"__main__\"",
+        "\"utils\"",
+        "None",
+        "\"utils.py\""
+      ],
+      "correctIndex": 1,
+      "explanation": "`__name__` is set to `\"__main__\"` only when a script is run directly. When imported, `__name__` is set to the module's name (the filename without `.py`). This is the basis for the `if __name__ == \"__main__\":` guard pattern."
+    },
+    {
+      "id": "ch1-q3",
+      "type": "multiple-choice",
+      "question": "Which Python implementation uses Just-In-Time compilation to speed up pure Python code?",
+      "options": [
+        "CPython",
+        "Cython",
+        "PyPy",
+        "MicroPython"
+      ],
+      "correctIndex": 2,
+      "explanation": "PyPy uses a JIT compiler that observes hot loops and compiles them to native machine code at runtime, achieving 5–50× speedups over CPython on pure Python code. CPython is the reference interpreter (no JIT). Cython is a language that compiles to C extensions."
+    },
+    {
+      "id": "ch1-q4",
+      "type": "multiple-choice",
+      "question": "What does the Global Interpreter Lock (GIL) in CPython prevent?",
+      "options": [
+        "Multiple processes from using the same Python installation",
+        "Multiple threads from executing Python bytecode simultaneously",
+        "Importing the same module twice",
+        "Accessing global variables from nested functions"
+      ],
+      "correctIndex": 1,
+      "explanation": "The GIL is a mutex that allows only one thread to execute Python bytecode at a time. It protects CPython's reference counting from race conditions. This means CPU-bound code cannot be parallelized with `threading` in CPython — use `multiprocessing` or CFFI/C extensions that release the GIL instead."
+    },
+    {
+      "id": "ch1-q5",
+      "type": "multiple-choice",
+      "question": "You run `python -m mypackage.script` from your project root. What is `sys.path[0]`?",
+      "options": [
+        "The directory containing `script.py`",
+        "The current working directory",
+        "The Python standard library directory",
+        "The `site-packages` directory"
+      ],
+      "correctIndex": 1,
+      "explanation": "With `python -m`, `sys.path[0]` is the current working directory (CWD). With `python path/to/script.py`, `sys.path[0]` is the directory containing the script. This distinction matters for relative imports within a package."
+    },
+    {
+      "id": "ch1-q6",
+      "type": "multiple-choice",
+      "question": "What does `dis.dis(my_function)` output?",
+      "options": [
+        "The AST of the function",
+        "The source code of the function",
+        "The bytecode instructions the PVM will execute",
+        "The function's memory address"
+      ],
+      "correctIndex": 2,
+      "explanation": "`dis.dis()` disassembles a function's code object and prints its bytecode instructions — operations like `LOAD_FAST`, `BINARY_OP`, and `RETURN_VALUE`. These are the actual instructions CPython's virtual machine executes."
+    },
+    {
+      "id": "ch1-q7",
+      "type": "multiple-choice",
+      "question": "What is the primary purpose of a Python virtual environment?",
+      "options": [
+        "To run Python faster using JIT compilation",
+        "To isolate package installations per project, preventing version conflicts",
+        "To encrypt Python source code",
+        "To enable multi-threading without the GIL"
+      ],
+      "correctIndex": 1,
+      "explanation": "A virtual environment creates an isolated directory with its own Python interpreter and `site-packages`. This means each project can have different versions of the same package without conflicts. It's the standard solution to dependency management in Python."
+    },
+    {
+      "id": "ch1-q8",
+      "type": "multiple-choice",
+      "question": "Which module lets you install a trace function to intercept every function call and line execution?",
+      "options": [
+        "inspect",
+        "traceback",
+        "sys",
+        "gc"
+      ],
+      "correctIndex": 2,
+      "explanation": "`sys.settrace()` installs a trace function that is called on every function call (`'call'` event), line (`'line'` event), and return (`'return'` event). This is how Python debuggers like `pdb` implement breakpoints."
+    }
+  ]
+}

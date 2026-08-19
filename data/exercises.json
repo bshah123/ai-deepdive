@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ex-2.1",
+    "chapterId": "chapter-02",
+    "title": "Predict Object Identity Behavior",
+    "difficulty": "beginner",
+    "description": "Given a list `a = [1, 2, 3]` and `b = a`, predict `id(a) == id(b)` and the output of modifying `b[0] = 99`.",
+    "solutionCode": "a = [1, 2, 3]\nb = a\nprint(a is b) # True\nb[0] = 99\nprint(a) # [99, 2, 3]"
+  },
+  {
+    "id": "ex-2.2",
+    "chapterId": "chapter-02",
+    "title": "Build a Simple Pointer Inspection Tool",
+    "difficulty": "intermediate",
+    "description": "Write a Python function using `ctypes` and `sys.getrefcount` to inspect the raw memory address and reference count of arbitrary objects.",
+    "solutionCode": "import sys, ctypes\n\ndef inspect_object(obj):\n    addr = id(obj)\n    refcnt = sys.getrefcount(obj) - 1\n    print(f\"Address: 0x{addr:x}, RefCount: {refcnt}\")"
+  },
+  {
+    "id": "ex-2.3",
+    "chapterId": "chapter-02",
+    "title": "Construct & Break a Reference Cycle",
+    "difficulty": "advanced",
+    "description": "Create two instances of a Node class pointing to each other. Verify that reference count alone fails to free them, then solve the cycle using `weakref`.",
+    "solutionCode": "import weakref, gc\n\nclass Node:\n    def __init__(self, name):\n        self.name = name\n        self.peer = None\n\n# Using weakref to break cycle\nn1 = Node('A')\nn2 = Node('B')\nn1.peer = weakref.ref(n2)\nn2.peer = weakref.ref(n1)"
+  }
+]

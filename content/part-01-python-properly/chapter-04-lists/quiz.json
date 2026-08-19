@@ -1,0 +1,54 @@
+{
+  "chapterId": "chapter-04",
+  "title": "Chapter 4 Quiz \u2014 Lists & Dynamic Arrays",
+  "questions": [
+    {
+      "id": "ch4-q1",
+      "question": "What is the amortized time complexity of `list.append()` in CPython?",
+      "options": [
+        {
+          "id": "a",
+          "text": "O(1) because CPython overallocates memory geometrically"
+        },
+        {
+          "id": "b",
+          "text": "O(n) because it always copies all elements"
+        },
+        {
+          "id": "c",
+          "text": "O(log n) due to binary tree allocation"
+        },
+        {
+          "id": "d",
+          "text": "O(1) strictly with zero reallocation"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "CPython uses an over-allocation growth factor (`new_allocated = size + (size >> 3) + ...`), making appends O(1) amortized across n operations."
+    },
+    {
+      "id": "ch4-q2",
+      "question": "Why is `queue.pop(0)` inefficient when implemented with a standard Python list?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It requires shifting all remaining n-1 pointers to the left in contiguous memory (O(n))"
+        },
+        {
+          "id": "b",
+          "text": "It frees the entire underlying array"
+        },
+        {
+          "id": "c",
+          "text": "It invokes garbage collection on every call"
+        },
+        {
+          "id": "d",
+          "text": "It converts the list to a tuple internally"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Because `PyListObject` maintains a contiguous array of pointers, deleting the first element requires moving all subsequent pointers one position left using memmove."
+    }
+  ]
+}

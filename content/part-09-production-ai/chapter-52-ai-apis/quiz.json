@@ -1,0 +1,54 @@
+{
+  "chapterId": "chapter-52",
+  "title": "Chapter 52 Quiz \u2014 AI APIs & Protocols",
+  "questions": [
+    {
+      "id": "q52.1",
+      "question": "What is the primary architectural mechanism in AI APIs & Protocols?",
+      "options": [
+        {
+          "id": "opt-0",
+          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+        },
+        {
+          "id": "opt-1",
+          "text": "Recursive overallocation on every function call"
+        },
+        {
+          "id": "opt-2",
+          "text": "Implicit string conversions for all numerical operations"
+        },
+        {
+          "id": "opt-3",
+          "text": "Single-threaded blocking execution without vectorization"
+        }
+      ],
+      "correctOptionId": "opt-0",
+      "explanation": "In AI APIs & Protocols, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+    },
+    {
+      "id": "q52.2",
+      "question": "How does AI APIs & Protocols optimize performance in modern AI systems?",
+      "options": [
+        {
+          "id": "opt-0",
+          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+        },
+        {
+          "id": "opt-1",
+          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+        },
+        {
+          "id": "opt-2",
+          "text": "By duplicating entire arrays in memory on every slice"
+        },
+        {
+          "id": "opt-3",
+          "text": "By executing all gradient calculations using finite difference numerical approximations"
+        }
+      ],
+      "correctOptionId": "opt-0",
+      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+    }
+  ]
+}

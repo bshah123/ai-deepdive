@@ -1,0 +1,4953 @@
+{
+  "parts": [
+    {
+      "id": "part-01",
+      "number": 1,
+      "title": "Python, Properly",
+      "subtitle": "Language Internals & Object System",
+      "description": "Understand Python from execution model and object identity to memory management, bytecode, and data models.",
+      "slug": "python-properly",
+      "chapters": [
+        {
+          "id": "chapter-01",
+          "number": "1",
+          "title": "How Python Actually Works",
+          "slug": "how-python-works",
+          "description": "Compilation, CPython runtime, bytecode, and execution loop.",
+          "estimatedHours": "1.5h",
+          "difficulty": "beginner",
+          "prerequisites": [],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "1.1",
+              "partId": "part-01",
+              "chapterId": "chapter-01",
+              "title": "Python Programs & Source Code",
+              "slug": "python-programs",
+              "file": "01-python-programs.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 15,
+              "tags": [
+                "python",
+                "source-code",
+                "syntax"
+              ],
+              "status": "published",
+              "contentShape": "concept-intro",
+              "openingType": "question"
+            },
+            {
+              "id": "1.2",
+              "partId": "part-01",
+              "chapterId": "chapter-01",
+              "title": "Running Python & Execution Pipeline",
+              "slug": "running-python",
+              "file": "02-running-python.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "cpython",
+                "bytecode",
+                "interpreter"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "1.3",
+              "partId": "part-01",
+              "chapterId": "chapter-01",
+              "title": "Python Implementations (CPython, PyPy, Jython)",
+              "slug": "python-implementations",
+              "file": "03-python-implementations.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 15,
+              "tags": [
+                "implementations",
+                "cpython",
+                "jit"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            },
+            {
+              "id": "1.4",
+              "partId": "part-01",
+              "chapterId": "chapter-01",
+              "title": "The Module Search Path (sys.path)",
+              "slug": "python-path",
+              "file": "04-python-path.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "imports",
+                "sys-path",
+                "modules"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "problem"
+            },
+            {
+              "id": "1.5",
+              "partId": "part-01",
+              "chapterId": "chapter-01",
+              "title": "Inspecting CPython Bytecode & dis Module",
+              "slug": "inspecting-python",
+              "file": "05-inspecting-python.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "dis",
+                "bytecode",
+                "opcodes"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "1.6",
+              "partId": "part-01",
+              "chapterId": "chapter-01",
+              "title": "Specializing Adaptive Interpreter & Tier-2 JIT (Python 3.11\u20133.13)",
+              "slug": "specializing-adaptive-interpreter-jit",
+              "file": "1.6-specializing-adaptive-interpreter-jit.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "prerequisites": [
+                "1.5"
+              ],
+              "tags": [
+                "jit",
+                "tier2",
+                "adaptive-interpreter",
+                "quickening",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-02",
+          "number": "2",
+          "title": "Variables, Objects & Memory",
+          "slug": "variables-objects-memory",
+          "description": "Object pointers, identity vs equality, mutability, reference counting, and garbage collection.",
+          "estimatedHours": "3h",
+          "difficulty": "beginner",
+          "prerequisites": [
+            "chapter-01"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "2.1",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "What Is a Variable in Python?",
+              "slug": "what-is-a-variable",
+              "file": "2.1-what-is-a-variable.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 15,
+              "tags": [
+                "variables",
+                "bindings",
+                "names"
+              ],
+              "status": "published",
+              "contentShape": "mental-model-first",
+              "openingType": "surprising-fact"
+            },
+            {
+              "id": "2.2",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "PyObject & Python's Object System",
+              "slug": "objects",
+              "file": "2.2-objects.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "objects",
+                "pyobject",
+                "struct"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "2.3",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Object Identity & id() Function",
+              "slug": "id",
+              "file": "2.3-id.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 15,
+              "tags": [
+                "identity",
+                "address",
+                "id"
+              ],
+              "status": "published",
+              "contentShape": "concept-intro",
+              "openingType": "code"
+            },
+            {
+              "id": "2.4",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Identity vs Equality (is vs ==)",
+              "slug": "is-vs-equals",
+              "file": "2.4-is-vs-equals.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "is",
+                "equality",
+                "identity"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "code"
+            },
+            {
+              "id": "2.5",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Object References & Aliasing",
+              "slug": "references",
+              "file": "2.5-references.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "references",
+                "aliasing",
+                "pointers"
+              ],
+              "status": "published",
+              "contentShape": "mental-model-first",
+              "openingType": "question"
+            },
+            {
+              "id": "2.6",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Mutable vs Immutable Objects",
+              "slug": "mutability",
+              "file": "2.6-mutability.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "mutability",
+                "immutability",
+                "copy"
+              ],
+              "status": "published",
+              "contentShape": "experiment-playground",
+              "openingType": "code"
+            },
+            {
+              "id": "2.7",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Reference Counting & sys.getrefcount()",
+              "slug": "reference-counting",
+              "file": "2.7-reference-counting.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "refcount",
+                "memory",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "2.8",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Garbage Collection & Cyclic GC",
+              "slug": "garbage-collection",
+              "file": "2.8-garbage-collection.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 25,
+              "tags": [
+                "gc",
+                "garbage-collector",
+                "cycles"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "problem"
+            },
+            {
+              "id": "2.9",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Circular References & Reference Cycles",
+              "slug": "circular-references",
+              "file": "2.9-circular-references.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 20,
+              "tags": [
+                "circular-refs",
+                "cycles",
+                "weakref"
+              ],
+              "status": "published",
+              "contentShape": "debugging-failure",
+              "openingType": "failure"
+            },
+            {
+              "id": "2.10",
+              "partId": "part-01",
+              "chapterId": "chapter-02",
+              "title": "Detecting & Preventing Memory Leaks",
+              "slug": "memory-leaks",
+              "file": "2.10-memory-leaks.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 25,
+              "tags": [
+                "memory-leaks",
+                "tracemalloc",
+                "debugging"
+              ],
+              "status": "published",
+              "contentShape": "debugging-failure",
+              "openingType": "problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-03",
+          "number": "3",
+          "title": "Numbers, Strings & Booleans",
+          "slug": "numbers-strings-booleans",
+          "description": "Arbitrary precision integers, IEEE 754 floats, Unicode strings, interning, and truthiness.",
+          "estimatedHours": "2h",
+          "difficulty": "beginner",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "3.1",
+              "partId": "part-01",
+              "chapterId": "chapter-03",
+              "title": "Integers & Arbitrary Precision Internals",
+              "slug": "integers",
+              "file": "3.1-integers.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "ints",
+                "bignum",
+                "pylongobject"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "surprising-fact"
+            },
+            {
+              "id": "3.2",
+              "partId": "part-01",
+              "chapterId": "chapter-03",
+              "title": "Floating Point & IEEE 754 Precision Traps",
+              "slug": "floats",
+              "file": "3.2-floats.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "floats",
+                "ieee754",
+                "precision"
+              ],
+              "status": "published",
+              "contentShape": "experiment-playground",
+              "openingType": "code"
+            },
+            {
+              "id": "3.3",
+              "partId": "part-01",
+              "chapterId": "chapter-03",
+              "title": "Strings, Unicode & String Interning",
+              "slug": "strings",
+              "file": "3.3-strings.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "strings",
+                "unicode",
+                "interning"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "3.4",
+              "partId": "part-01",
+              "chapterId": "chapter-03",
+              "title": "Booleans & Truth Value Testing",
+              "slug": "booleans",
+              "file": "3.4-booleans.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 15,
+              "tags": [
+                "booleans",
+                "truthiness",
+                "bool"
+              ],
+              "status": "published",
+              "contentShape": "concept-intro",
+              "openingType": "question"
+            },
+            {
+              "id": "3.5",
+              "partId": "part-01",
+              "chapterId": "chapter-03",
+              "title": "Small Integer Caching & Performance",
+              "slug": "small-int-cache",
+              "file": "3.5-small-int-cache.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "caching",
+                "optimization",
+                "internals"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-04",
+          "number": "4",
+          "title": "Lists & Dynamic Arrays",
+          "slug": "lists",
+          "description": "Contiguous memory pointers, over-allocation, and list slicing.",
+          "estimatedHours": "2h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "4.1",
+              "partId": "part-01",
+              "chapterId": "chapter-04",
+              "title": "PyListObject & Contiguous Pointers",
+              "slug": "dynamic-arrays",
+              "file": "4.1-dynamic-arrays.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "list",
+                "dynamic-array",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "4.2",
+              "partId": "part-01",
+              "chapterId": "chapter-04",
+              "title": "List Comprehensions & Bytecode Optimization",
+              "slug": "comprehensions",
+              "file": "4.2-comprehensions.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "comprehensions",
+                "bytecode",
+                "optimization"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "comparison"
+            },
+            {
+              "id": "4.3",
+              "partId": "part-01",
+              "chapterId": "chapter-04",
+              "title": "Timsort & Stable In-Place Sorting",
+              "slug": "timsort",
+              "file": "4.3-timsort.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "sort",
+                "timsort",
+                "algorithms"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "4.4",
+              "partId": "part-01",
+              "chapterId": "chapter-04",
+              "title": "Slicing, Memory Copies & itertools",
+              "slug": "slicing-itertools",
+              "file": "4.4-slicing-itertools.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "slicing",
+                "itertools",
+                "memory"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "code"
+            },
+            {
+              "id": "4.5",
+              "partId": "part-01",
+              "chapterId": "chapter-04",
+              "title": "collections.deque vs List for FIFO Queues",
+              "slug": "deque-vs-list",
+              "file": "4.5-deque-vs-list.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "deque",
+                "fifo",
+                "data-structures"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "problem"
+            },
+            {
+              "id": "4.6",
+              "partId": "part-01",
+              "chapterId": "chapter-04",
+              "title": "Timsort & Powersort: Natural Runs, Galloping Mode & Merge Invariants",
+              "slug": "timsort-powersort-internals",
+              "file": "4.6-timsort-powersort-internals.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "prerequisites": [
+                "4.3"
+              ],
+              "tags": [
+                "timsort",
+                "powersort",
+                "sorting",
+                "galloping",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-05",
+          "number": "5",
+          "title": "Tuples & Immutability",
+          "slug": "tuples",
+          "description": "Fixed size, immutability limits, and struct optimization.",
+          "estimatedHours": "1.5h",
+          "difficulty": "beginner",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "5.1",
+              "partId": "part-01",
+              "chapterId": "chapter-05",
+              "title": "PyTupleObject & Struct Optimization",
+              "slug": "tuples-vs-lists",
+              "file": "5.1-tuples-vs-lists.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 15,
+              "tags": [
+                "tuple",
+                "immutable",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "5.2",
+              "partId": "part-01",
+              "chapterId": "chapter-05",
+              "title": "Tuple Packing, Unpacking & Pattern Matching",
+              "slug": "tuple-unpacking",
+              "file": "5.2-tuple-unpacking.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "unpacking",
+                "syntax",
+                "pattern-matching"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "5.3",
+              "partId": "part-01",
+              "chapterId": "chapter-05",
+              "title": "namedtuple vs typing.NamedTuple vs dataclass",
+              "slug": "namedtuples",
+              "file": "5.3-namedtuples.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "namedtuple",
+                "dataclass",
+                "types"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            }
+          ]
+        },
+        {
+          "id": "chapter-06",
+          "number": "6",
+          "title": "Dictionaries & Hash Tables",
+          "slug": "dictionaries-hash-tables",
+          "description": "PyDictObject, hash functions, open addressing, and load factor.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "6.1",
+              "partId": "part-01",
+              "chapterId": "chapter-06",
+              "title": "Hash Table Foundations & __hash__",
+              "slug": "hash-table-foundations",
+              "file": "6.1-hash-table-foundations.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "hash",
+                "dict",
+                "hashable"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "question"
+            },
+            {
+              "id": "6.2",
+              "partId": "part-01",
+              "chapterId": "chapter-06",
+              "title": "Compact Dict Layout (PEP 468) & Sparse Indices",
+              "slug": "compact-dict",
+              "file": "6.2-compact-dict.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "pep468",
+                "cpython",
+                "memory"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "6.3",
+              "partId": "part-01",
+              "chapterId": "chapter-06",
+              "title": "Collision Resolution: Open Addressing & Probing",
+              "slug": "collision-resolution",
+              "file": "6.3-collision-resolution.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 25,
+              "tags": [
+                "probing",
+                "collisions",
+                "algorithms"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "6.4",
+              "partId": "part-01",
+              "chapterId": "chapter-06",
+              "title": "Dict Resizing, Load Factor & defaultdict/Counter",
+              "slug": "dict-resizing-collections",
+              "file": "6.4-dict-resizing-collections.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "collections",
+                "counter",
+                "resizing"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-07",
+          "number": "7",
+          "title": "Functions & Call Stack",
+          "slug": "functions-call-stack",
+          "description": "Frame objects, argument passing, and stack frames.",
+          "estimatedHours": "2h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "7.1",
+              "partId": "part-01",
+              "chapterId": "chapter-07",
+              "title": "PyFrameObject & The CPython Call Stack",
+              "slug": "call-stack",
+              "file": "7.1-call-stack.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "stack",
+                "frame",
+                "execution"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "7.2",
+              "partId": "part-01",
+              "chapterId": "chapter-07",
+              "title": "Argument Passing Mechanics (*args, **kwargs)",
+              "slug": "argument-passing",
+              "file": "7.2-argument-passing.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "arguments",
+                "varargs",
+                "kwargs"
+              ],
+              "status": "published",
+              "contentShape": "debugging-failure",
+              "openingType": "code"
+            },
+            {
+              "id": "7.3",
+              "partId": "part-01",
+              "chapterId": "chapter-07",
+              "title": "First-Class Functions, Lambdas & Higher-Order Functions",
+              "slug": "first-class-functions",
+              "file": "7.3-first-class-functions.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "lambda",
+                "functional",
+                "higher-order"
+              ],
+              "status": "published",
+              "contentShape": "concept-intro",
+              "openingType": "code"
+            },
+            {
+              "id": "7.4",
+              "partId": "part-01",
+              "chapterId": "chapter-07",
+              "title": "Recursion Limits & Stack Overflow Prevention",
+              "slug": "recursion-stack",
+              "file": "7.4-recursion-stack.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "recursion",
+                "sys-setrecursionlimit",
+                "stack"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-08",
+          "number": "8",
+          "title": "Scope, Closures & Decorators",
+          "slug": "scope-closures-decorators",
+          "description": "LEGB rule, free variables, and wrapper functions.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-07"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "8.1",
+              "partId": "part-01",
+              "chapterId": "chapter-08",
+              "title": "LEGB Scope & PyCellObject Internals",
+              "slug": "legb-scope",
+              "file": "8.1-legb-scope.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "scope",
+                "legb",
+                "closures"
+              ],
+              "status": "published",
+              "contentShape": "debugging-failure",
+              "openingType": "failure"
+            },
+            {
+              "id": "8.2",
+              "partId": "part-01",
+              "chapterId": "chapter-08",
+              "title": "Closures & Free Variables (__closure__)",
+              "slug": "closures",
+              "file": "8.2-closures.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "closures",
+                "cell",
+                "freevars"
+              ],
+              "status": "published",
+              "contentShape": "mental-model-first",
+              "openingType": "code"
+            },
+            {
+              "id": "8.3",
+              "partId": "part-01",
+              "chapterId": "chapter-08",
+              "title": "Function Decorators & functools.wraps",
+              "slug": "decorators",
+              "file": "8.3-decorators.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "decorators",
+                "wraps",
+                "metaprogramming"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "8.4",
+              "partId": "part-01",
+              "chapterId": "chapter-08",
+              "title": "Parameterized Decorators & Class Decorators",
+              "slug": "advanced-decorators",
+              "file": "8.4-advanced-decorators.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "decorators",
+                "classes",
+                "parameters"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-09",
+          "number": "9",
+          "title": "Iterators & Generators",
+          "slug": "iterators-generators",
+          "description": "Iteration protocol, yield, state retention, and memory efficiency.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-07"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "9.1",
+              "partId": "part-01",
+              "chapterId": "chapter-09",
+              "title": "The Iteration Protocol (__iter__ and __next__)",
+              "slug": "iteration-protocol",
+              "file": "9.1-iteration-protocol.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "iterator",
+                "protocol",
+                "next"
+              ],
+              "status": "published",
+              "contentShape": "mental-model-first",
+              "openingType": "question"
+            },
+            {
+              "id": "9.2",
+              "partId": "part-01",
+              "chapterId": "chapter-09",
+              "title": "Generators & The yield Keyword Internals",
+              "slug": "generators-yield",
+              "file": "9.2-generators-yield.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "generators",
+                "yield",
+                "frame-suspension"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "9.3",
+              "partId": "part-01",
+              "chapterId": "chapter-09",
+              "title": "Two-Way Generators: send(), throw(), and close()",
+              "slug": "two-way-generators",
+              "file": "9.3-two-way-generators.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "coroutine",
+                "send",
+                "throw"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "9.4",
+              "partId": "part-01",
+              "chapterId": "chapter-09",
+              "title": "itertools: Infinite, Combinatoric & Terminating Iterators",
+              "slug": "itertools-mastery",
+              "file": "9.4-itertools-mastery.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "itertools",
+                "chain",
+                "groupby"
+              ],
+              "status": "published",
+              "contentShape": "reference-style",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-10",
+          "number": "10",
+          "title": "Object-Oriented Python",
+          "slug": "oop",
+          "description": "Classes, MRO, descriptors, and inheritance.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "10.1",
+              "partId": "part-01",
+              "chapterId": "chapter-10",
+              "title": "Classes, Instances & __dict__ vs __slots__",
+              "slug": "classes-mro",
+              "file": "10.1-classes-mro.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "classes",
+                "slots",
+                "dict"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "comparison"
+            },
+            {
+              "id": "10.2",
+              "partId": "part-01",
+              "chapterId": "chapter-10",
+              "title": "Method Resolution Order (MRO) & C3 Linearization",
+              "slug": "mro-c3",
+              "file": "10.2-mro-c3.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "mro",
+                "c3",
+                "inheritance"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "10.3",
+              "partId": "part-01",
+              "chapterId": "chapter-10",
+              "title": "super() Mechanics & Cooperative Multiple Inheritance",
+              "slug": "super-mechanics",
+              "file": "10.3-super-mechanics.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 25,
+              "tags": [
+                "super",
+                "cooperative-inheritance"
+              ],
+              "status": "published",
+              "contentShape": "debugging-failure",
+              "openingType": "code"
+            },
+            {
+              "id": "10.4",
+              "partId": "part-01",
+              "chapterId": "chapter-10",
+              "title": "Property Descriptors (__get__, __set__, __delete__)",
+              "slug": "descriptors",
+              "file": "10.4-descriptors.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "descriptors",
+                "property",
+                "attributes"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "10.5",
+              "partId": "part-01",
+              "chapterId": "chapter-10",
+              "title": "The Descriptor Protocol, Attribute Lookup Precedence & Metaclasses",
+              "slug": "descriptors-metaclasses-internals",
+              "file": "10.5-descriptors-metaclasses-internals.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "prerequisites": [
+                "10.4"
+              ],
+              "tags": [
+                "descriptors",
+                "metaclasses",
+                "getattr",
+                "dunder-get",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-11",
+          "number": "11",
+          "title": "Python Data Model",
+          "slug": "python-data-model",
+          "description": "Dunder methods, protocols, and custom object behavior.",
+          "estimatedHours": "2h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-10"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "11.1",
+              "partId": "part-01",
+              "chapterId": "chapter-11",
+              "title": "Magic Methods: __getitem__, __len__, __call__",
+              "slug": "magic-methods",
+              "file": "11.1-magic-methods.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "dunder",
+                "magic-methods",
+                "protocols"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "11.2",
+              "partId": "part-01",
+              "chapterId": "chapter-11",
+              "title": "Context Managers & The with Statement (__enter__/__exit__)",
+              "slug": "context-managers",
+              "file": "11.2-context-managers.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "context-manager",
+                "with",
+                "contextlib"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "11.3",
+              "partId": "part-01",
+              "chapterId": "chapter-11",
+              "title": "Custom Container Emulation & Sequence Protocols",
+              "slug": "custom-containers",
+              "file": "11.3-custom-containers.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "containers",
+                "sequence",
+                "mapping"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-12",
+          "number": "12",
+          "title": "Exceptions & Debugging",
+          "slug": "exceptions-debugging",
+          "description": "Tracebacks, custom exceptions, pdb, and profiling.",
+          "estimatedHours": "2h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-07"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "12.1",
+              "partId": "part-01",
+              "chapterId": "chapter-12",
+              "title": "Exception Hierarchy & Stack Unwinding",
+              "slug": "exception-handling",
+              "file": "12.1-exception-handling.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "exceptions",
+                "try-except",
+                "stack-unwind"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "12.2",
+              "partId": "part-01",
+              "chapterId": "chapter-12",
+              "title": "Exception Chaining: raise ... from ...",
+              "slug": "exception-chaining",
+              "file": "12.2-exception-chaining.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "chaining",
+                "traceback",
+                "debugging"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "12.3",
+              "partId": "part-01",
+              "chapterId": "chapter-12",
+              "title": "Profiling & Tracing with cProfile and sys.settrace",
+              "slug": "profiling-tracing",
+              "file": "12.3-profiling-tracing.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "cprofile",
+                "tracing",
+                "performance"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-13",
+          "number": "13",
+          "title": "Modules, Packages & Environments",
+          "slug": "modules-packages-environments",
+          "description": "Import mechanism, virtual environments, and package publishing.",
+          "estimatedHours": "2h",
+          "difficulty": "beginner",
+          "prerequisites": [
+            "chapter-01"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "13.1",
+              "partId": "part-01",
+              "chapterId": "chapter-13",
+              "title": "The CPython Import Engine & sys.modules Cache",
+              "slug": "import-engine",
+              "file": "13.1-import-engine.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "import",
+                "sys-modules",
+                "cpython"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "13.2",
+              "partId": "part-01",
+              "chapterId": "chapter-13",
+              "title": "Packages, __init__.py & Relative vs Absolute Imports",
+              "slug": "packages-imports",
+              "file": "13.2-packages-imports.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "packages",
+                "init",
+                "namespaces"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "13.3",
+              "partId": "part-01",
+              "chapterId": "chapter-13",
+              "title": "Virtual Environments, Site-Packages & Package Resolution",
+              "slug": "venvs-packaging",
+              "file": "13.3-venvs-packaging.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "venv",
+                "site-packages",
+                "pip"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-14",
+          "number": "14",
+          "title": "Type Systems & Data Validation",
+          "slug": "type-systems",
+          "description": "Type hints, typing module, mypy, and Pydantic.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-10"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "14.1",
+              "partId": "part-01",
+              "chapterId": "chapter-14",
+              "title": "Python Type Annotations & Mypy Static Checking",
+              "slug": "type-annotations",
+              "file": "14.1-type-annotations.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "typing",
+                "mypy",
+                "type-hints"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "14.2",
+              "partId": "part-01",
+              "chapterId": "chapter-14",
+              "title": "Generics, TypeVar, Protocol & Structural Subtyping",
+              "slug": "generics-protocols",
+              "file": "14.2-generics-protocols.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "generics",
+                "protocol",
+                "typevar"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "14.3",
+              "partId": "part-01",
+              "chapterId": "chapter-14",
+              "title": "Data Validation with Pydantic V2 & Rust Backend",
+              "slug": "pydantic-validation",
+              "file": "14.3-pydantic-validation.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "pydantic",
+                "validation",
+                "rust"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-02",
+      "number": 2,
+      "title": "Scientific Python & Tensors",
+      "subtitle": "NumPy Memory Layout & PyTorch Autograd",
+      "description": "Explore strided arrays, vectorization, computational graphs, and automatic differentiation.",
+      "slug": "scientific-python",
+      "chapters": [
+        {
+          "id": "chapter-15",
+          "number": "15",
+          "title": "NumPy Internals",
+          "slug": "numpy-internals",
+          "description": "C-contiguous arrays, strides, broadcasting, and memory views.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-02"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "15.1",
+              "partId": "part-02",
+              "chapterId": "chapter-15",
+              "title": "NumPy Memory Layout: C-Contiguous, Fortran & Strides",
+              "slug": "numpy-strides",
+              "file": "15.1-numpy-strides.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "numpy",
+                "strides",
+                "memory-layout"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "15.2",
+              "partId": "part-02",
+              "chapterId": "chapter-15",
+              "title": "Broadcasting Semantics & Shape Alignment Rules",
+              "slug": "numpy-broadcasting",
+              "file": "15.2-numpy-broadcasting.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "broadcasting",
+                "shapes",
+                "numpy"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "15.3",
+              "partId": "part-02",
+              "chapterId": "chapter-15",
+              "title": "Universal Functions (ufuncs) & Vectorized C Loops",
+              "slug": "numpy-ufuncs",
+              "file": "15.3-numpy-ufuncs.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "ufuncs",
+                "vectorization",
+                "simd"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "15.4",
+              "partId": "part-02",
+              "chapterId": "chapter-15",
+              "title": "Views vs Copies, Slicing & Advanced Indexing",
+              "slug": "views-vs-copies",
+              "file": "15.4-views-vs-copies.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "views",
+                "copies",
+                "indexing"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-16",
+          "number": "16",
+          "title": "Pandas DataFrames",
+          "slug": "pandas",
+          "description": "BlockManager, Arrow backend, and memory optimization.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-15"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "16.1",
+              "partId": "part-02",
+              "chapterId": "chapter-16",
+              "title": "Pandas Memory Architecture & The BlockManager",
+              "slug": "pandas-blockmanager",
+              "file": "16.1-pandas-blockmanager.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "pandas",
+                "blockmanager",
+                "internals"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "16.2",
+              "partId": "part-02",
+              "chapterId": "chapter-16",
+              "title": "Apache Arrow Integration & Zero-Copy Columnar Formats",
+              "slug": "pandas-arrow",
+              "file": "16.2-pandas-arrow.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 25,
+              "tags": [
+                "arrow",
+                "columnar",
+                "parquet"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "16.3",
+              "partId": "part-02",
+              "chapterId": "chapter-16",
+              "title": "Memory Optimization: Categoricals, Downcasting & Chunking",
+              "slug": "pandas-optimization",
+              "file": "16.3-pandas-optimization.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "optimization",
+                "categoricals",
+                "chunking"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            },
+            {
+              "id": "16.4",
+              "partId": "part-02",
+              "chapterId": "chapter-16",
+              "title": "Free-Threaded Python (PEP 703): Biased Refcounting & Life Without the GIL",
+              "slug": "free-threaded-python-no-gil",
+              "file": "16.4-free-threaded-python-no-gil.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 45,
+              "prerequisites": [
+                "16.1"
+              ],
+              "tags": [
+                "gil",
+                "pep-703",
+                "free-threaded",
+                "multithreading",
+                "concurrency"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "16.5",
+              "partId": "part-02",
+              "chapterId": "chapter-16",
+              "title": "Zero-Copy Memory: The Python Buffer Protocol (Py_buffer) & memoryview",
+              "slug": "zerocopy-memoryview-buffer-protocol",
+              "file": "16.5-zerocopy-memoryview-buffer-protocol.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "prerequisites": [
+                "16.1",
+                "2.2"
+              ],
+              "tags": [
+                "buffer-protocol",
+                "memoryview",
+                "zero-copy",
+                "cpython",
+                "performance"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-17",
+          "number": "17",
+          "title": "PyTorch Fundamentals",
+          "slug": "pytorch-fundamentals",
+          "description": "Tensors, CPU/GPU memory transfers, and CUDA streams.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-15"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "17.1",
+              "partId": "part-02",
+              "chapterId": "chapter-17",
+              "title": "PyTorch Tensor Internals: THPVariable & Storage Buffers",
+              "slug": "pytorch-tensors",
+              "file": "17.1-pytorch-tensors.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "pytorch",
+                "storage",
+                "tensors"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "17.2",
+              "partId": "part-02",
+              "chapterId": "chapter-17",
+              "title": "CUDA Streams, Pinned Memory & Host-to-Device Transfers",
+              "slug": "cuda-transfers",
+              "file": "17.2-cuda-transfers.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "cuda",
+                "gpu",
+                "memory-transfers"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "17.3",
+              "partId": "part-02",
+              "chapterId": "chapter-17",
+              "title": "Tensor Operations: In-Place vs Out-of-Place & Memory Aliasing",
+              "slug": "tensor-ops-aliasing",
+              "file": "17.3-tensor-ops-aliasing.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "aliasing",
+                "in-place",
+                "tensors"
+              ],
+              "status": "published",
+              "contentShape": "experiment-playground",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-18",
+          "number": "18",
+          "title": "Autograd & Computational Graphs",
+          "slug": "autograd",
+          "description": "Forward pass, backward pass, grad_fn, and building a scalar autograd engine from scratch.",
+          "estimatedHours": "4h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-17"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "18.1",
+              "partId": "part-02",
+              "chapterId": "chapter-18",
+              "title": "Reverse-Mode Automatic Differentiation & GradTape",
+              "slug": "autograd-engine",
+              "file": "18.1-autograd-engine.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "autograd",
+                "backprop",
+                "grad_fn"
+              ],
+              "status": "published",
+              "contentShape": "mental-model-first",
+              "openingType": "visual"
+            },
+            {
+              "id": "18.2",
+              "partId": "part-02",
+              "chapterId": "chapter-18",
+              "title": "Building a Scalar Autograd Engine (Micrograd) From Scratch",
+              "slug": "micrograd-scratch",
+              "file": "18.2-micrograd-scratch.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "micrograd",
+                "computational-graph",
+                "from-scratch"
+              ],
+              "status": "published",
+              "contentShape": "from-scratch",
+              "openingType": "code"
+            },
+            {
+              "id": "18.3",
+              "partId": "part-02",
+              "chapterId": "chapter-18",
+              "title": "Custom PyTorch autograd.Function & Gradient Hooks",
+              "slug": "custom-autograd-function",
+              "file": "18.3-custom-autograd-function.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "custom-autograd",
+                "hooks",
+                "derivatives"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-03",
+      "number": 3,
+      "title": "Machine Learning & Natural Language Processing",
+      "subtitle": "Mathematical Foundations & Neural Architectures",
+      "description": "Linear algebra, calculus, loss functions, optimization, gradient descent, and word embeddings.",
+      "slug": "ml-nlp",
+      "chapters": [
+        {
+          "id": "chapter-19",
+          "number": "19",
+          "title": "Machine Learning Foundations",
+          "slug": "ml-foundations",
+          "description": "Supervised, unsupervised, loss functions, and bias-variance tradeoff.",
+          "estimatedHours": "2.5h",
+          "difficulty": "beginner",
+          "prerequisites": [
+            "chapter-15"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "19.1",
+              "partId": "part-03",
+              "chapterId": "chapter-19",
+              "title": "Machine Learning Problem Formulation & Empirical Risk",
+              "slug": "ml-problems",
+              "file": "19.1-ml-problems.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "erm",
+                "loss-functions",
+                "ml"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "mathematical-intuition"
+            },
+            {
+              "id": "19.2",
+              "partId": "part-03",
+              "chapterId": "chapter-19",
+              "title": "Loss Functions: MSE, Cross-Entropy & KL Divergence",
+              "slug": "loss-functions",
+              "file": "19.2-loss-functions.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "cross-entropy",
+                "kl-divergence",
+                "mse"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "mathematical-intuition"
+            },
+            {
+              "id": "19.3",
+              "partId": "part-03",
+              "chapterId": "chapter-19",
+              "title": "Bias-Variance Tradeoff, Overfitting & Regularization (L1/L2)",
+              "slug": "bias-variance-regularization",
+              "file": "19.3-bias-variance-regularization.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "bias-variance",
+                "regularization",
+                "generalization"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "surprising-fact"
+            }
+          ]
+        },
+        {
+          "id": "chapter-20",
+          "number": "20",
+          "title": "Mathematics for ML",
+          "slug": "math-for-ml",
+          "description": "Dot products, matrix multiplication, gradients, and SVD.",
+          "estimatedHours": "3.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "20.1",
+              "partId": "part-03",
+              "chapterId": "chapter-20",
+              "title": "Linear Algebra: Vector Spaces, Dot Products & Projections",
+              "slug": "linear-algebra",
+              "file": "20.1-linear-algebra.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "vectors",
+                "dot-product",
+                "projections"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            },
+            {
+              "id": "20.2",
+              "partId": "part-03",
+              "chapterId": "chapter-20",
+              "title": "Matrix Decompositions: Eigendecomposition & SVD",
+              "slug": "matrix-decomposition",
+              "file": "20.2-matrix-decomposition.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "svd",
+                "eigenvalues",
+                "pca"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "20.3",
+              "partId": "part-03",
+              "chapterId": "chapter-20",
+              "title": "Multivariable Calculus: Jacobians, Hessians & Taylor Series",
+              "slug": "calculus-gradients",
+              "file": "20.3-calculus-gradients.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "gradients",
+                "jacobians",
+                "hessian"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "mathematical-intuition"
+            }
+          ]
+        },
+        {
+          "id": "chapter-21",
+          "number": "21",
+          "title": "Neural Networks",
+          "slug": "neural-networks",
+          "description": "Perceptrons, activation functions, backpropagation, and Adam optimizer.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-18",
+            "chapter-20"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "21.1",
+              "partId": "part-03",
+              "chapterId": "chapter-21",
+              "title": "Perceptrons & Multi-Layer Perceptrons (MLP) From Scratch",
+              "slug": "mlp",
+              "file": "21.1-mlp.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
+              "tags": [
+                "mlp",
+                "neural-networks",
+                "forward-pass"
+              ],
+              "status": "published",
+              "contentShape": "from-scratch",
+              "openingType": "code"
+            },
+            {
+              "id": "21.2",
+              "partId": "part-03",
+              "chapterId": "chapter-21",
+              "title": "Activation Functions: ReLU, GeLU, SwiGLU & Vanishing Gradients",
+              "slug": "activation-functions",
+              "file": "21.2-activation-functions.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "gelu",
+                "swiglu",
+                "activations"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            },
+            {
+              "id": "21.3",
+              "partId": "part-03",
+              "chapterId": "chapter-21",
+              "title": "Optimizers: SGD, Momentum, RMSprop & AdamW Deep Dive",
+              "slug": "optimizers-adamw",
+              "file": "21.3-optimizers-adamw.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "adamw",
+                "optimizers",
+                "gradient-descent"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-22",
+          "number": "22",
+          "title": "Traditional NLP",
+          "slug": "traditional-nlp",
+          "description": "TF-IDF, Word2Vec, GloVe, and N-gram language models.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-20"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "22.1",
+              "partId": "part-03",
+              "chapterId": "chapter-22",
+              "title": "Statistical NLP: N-Grams, TF-IDF & Cosine Similarity",
+              "slug": "statistical-nlp",
+              "file": "22.1-statistical-nlp.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 25,
+              "tags": [
+                "tfidf",
+                "ngrams",
+                "nlp"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "mathematical-intuition"
+            },
+            {
+              "id": "22.2",
+              "partId": "part-03",
+              "chapterId": "chapter-22",
+              "title": "Word2Vec: Skip-Gram, CBOW & Negative Sampling Math",
+              "slug": "word2vec",
+              "file": "22.1-word2vec.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "word2vec",
+                "embeddings",
+                "skipgram"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "22.3",
+              "partId": "part-03",
+              "chapterId": "chapter-22",
+              "title": "GloVe & FastText: Subword Information & Pretrained Vectors",
+              "slug": "glove-fasttext",
+              "file": "22.3-glove-fasttext.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "glove",
+                "fasttext",
+                "subwords"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-04",
+      "number": 4,
+      "title": "Transformers & Large Language Models",
+      "subtitle": "Attention Mechanism to Decoders & Fine-Tuning",
+      "description": "Tokenization (BPE/WordPiece), Self-Attention, Multi-Head Attention, KV Cache, Quantization, and LoRA.",
+      "slug": "transformers-llms",
+      "chapters": [
+        {
+          "id": "chapter-23",
+          "number": "23",
+          "title": "Tokenization",
+          "slug": "tokenization",
+          "description": "BPE, WordPiece, SentencePiece, and building a BPE tokenizer.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-03"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "23.1",
+              "partId": "part-04",
+              "chapterId": "chapter-23",
+              "title": "Byte-Pair Encoding (BPE) Tokenization From Scratch",
+              "slug": "bpe-tokenizer",
+              "file": "23.1-bpe-tokenizer.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
+              "tags": [
+                "bpe",
+                "tokenization",
+                "subwords"
+              ],
+              "status": "published",
+              "contentShape": "from-scratch",
+              "openingType": "visual"
+            },
+            {
+              "id": "23.2",
+              "partId": "part-04",
+              "chapterId": "chapter-23",
+              "title": "WordPiece & SentencePiece (Unigram Language Model)",
+              "slug": "wordpiece-sentencepiece",
+              "file": "23.2-wordpiece-sentencepiece.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "sentencepiece",
+                "unigram",
+                "wordpiece"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "problem"
+            },
+            {
+              "id": "23.3",
+              "partId": "part-04",
+              "chapterId": "chapter-23",
+              "title": "Hugging Face tokenizers Library (Rust Core & Byte Fallback)",
+              "slug": "hf-tokenizers",
+              "file": "23.3-hf-tokenizers.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "rust",
+                "huggingface",
+                "tokenizers"
+              ],
+              "status": "published",
+              "contentShape": "reference-style",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-24",
+          "number": "24",
+          "title": "Embeddings & Positional Encodings",
+          "slug": "embeddings",
+          "description": "Token embeddings, Sinusoidal encodings, RoPE (Rotary Position Embedding).",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-20"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "24.1",
+              "partId": "part-04",
+              "chapterId": "chapter-24",
+              "title": "Token Embeddings & Weight Tying in Language Models",
+              "slug": "token-embeddings",
+              "file": "24.1-token-embeddings.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "embeddings",
+                "weight-tying",
+                "vram"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "24.2",
+              "partId": "part-04",
+              "chapterId": "chapter-24",
+              "title": "Sinusoidal Absolute Positional Encodings (Vaswani et al.)",
+              "slug": "sinusoidal-encodings",
+              "file": "24.2-sinusoidal-encodings.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "positional-encoding",
+                "attention",
+                "math"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            },
+            {
+              "id": "24.3",
+              "partId": "part-04",
+              "chapterId": "chapter-24",
+              "title": "Rotary Position Embeddings (RoPE) & Complex Rotation Math",
+              "slug": "rope",
+              "file": "24.1-rope.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "rope",
+                "rotary-embeddings",
+                "llama"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            },
+            {
+              "id": "24.4",
+              "partId": "part-04",
+              "chapterId": "chapter-24",
+              "title": "ALiBi & Relative Positional Biases for Length Extrapolation",
+              "slug": "alibi-relative-pos",
+              "file": "24.4-alibi-relative-pos.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "alibi",
+                "extrapolation",
+                "transformers"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-25",
+          "number": "25",
+          "title": "Attention Mechanism",
+          "slug": "attention",
+          "description": "Query, Key, Value matrices, Scaled Dot-Product, Multi-Head Attention, and Causal Masking.",
+          "estimatedHours": "4h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-20",
+            "chapter-24"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "25.1",
+              "partId": "part-04",
+              "chapterId": "chapter-25",
+              "title": "Scaled Dot-Product Attention Math & Softmax Scaling",
+              "slug": "self-attention-math",
+              "file": "25.1-self-attention-math.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "attention",
+                "qkv",
+                "softmax"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "mathematical-intuition"
+            },
+            {
+              "id": "25.2",
+              "partId": "part-04",
+              "chapterId": "chapter-25",
+              "title": "Multi-Head (MHA), Multi-Query (MQA) & Grouped-Query Attention (GQA)",
+              "slug": "mha-gqa-mqa",
+              "file": "25.2-mha-gqa-mqa.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "gqa",
+                "mqa",
+                "mha",
+                "kv-cache"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "visual"
+            },
+            {
+              "id": "25.3",
+              "partId": "part-04",
+              "chapterId": "chapter-25",
+              "title": "Causal Attention Masking & Autoregressive Decoding",
+              "slug": "causal-masking",
+              "file": "25.3-causal-masking.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "masking",
+                "autoregressive",
+                "decoding"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "25.4",
+              "partId": "part-04",
+              "chapterId": "chapter-25",
+              "title": "FlashAttention 1, 2 & 3: GPU SRAM Tiling & Online Softmax",
+              "slug": "flash-attention",
+              "file": "25.4-flash-attention.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "flash-attention",
+                "cuda",
+                "sram",
+                "online-softmax"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "problem"
+            },
+            {
+              "id": "25.5",
+              "partId": "part-04",
+              "chapterId": "chapter-25",
+              "title": "Multi-Head Latent Attention (MLA) & DeepSeek Architecture",
+              "slug": "multi-head-latent-attention-mla",
+              "file": "25.5-multi-head-latent-attention-mla.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "prerequisites": [
+                "25.2",
+                "24.1"
+              ],
+              "tags": [
+                "mla",
+                "deepseek",
+                "kv-cache",
+                "low-rank-compression",
+                "transformers"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-26",
+          "number": "26",
+          "title": "Transformer Architecture",
+          "slug": "transformer-architecture",
+          "description": "Encoder-Decoder, LayerNorm, Residual Connections, and Feed-Forward Networks.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-25"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "26.1",
+              "partId": "part-04",
+              "chapterId": "chapter-26",
+              "title": "The Complete Transformer Block: Encoder vs Decoder",
+              "slug": "transformer-block",
+              "file": "26.1-transformer-block.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "transformer",
+                "architecture",
+                "encoder-decoder"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            },
+            {
+              "id": "26.2",
+              "partId": "part-04",
+              "chapterId": "chapter-26",
+              "title": "Normalization: LayerNorm, Pre-LN vs Post-LN & RMSNorm",
+              "slug": "rmsnorm-layernorm",
+              "file": "26.2-rmsnorm-layernorm.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 25,
+              "tags": [
+                "rmsnorm",
+                "layernorm",
+                "normalization"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            },
+            {
+              "id": "26.3",
+              "partId": "part-04",
+              "chapterId": "chapter-26",
+              "title": "Feed-Forward Networks: Standard MLP, GeLU & SwiGLU Gating",
+              "slug": "swiglu-ffn",
+              "file": "26.3-swiglu-ffn.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "swiglu",
+                "ffn",
+                "mlp",
+                "gating"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "26.4",
+              "partId": "part-04",
+              "chapterId": "chapter-26",
+              "title": "Mixture of Experts (MoE), Top-2 Gating & Expert Parallelism",
+              "slug": "mixture-of-experts-moe",
+              "file": "26.4-mixture-of-experts-moe.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "prerequisites": [
+                "26.3"
+              ],
+              "tags": [
+                "moe",
+                "deepseek-moe",
+                "mixtral",
+                "routing",
+                "load-balancing"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-27",
+          "number": "27",
+          "title": "GPT / Decoder-Only LLMs",
+          "slug": "gpt-decoder-llms",
+          "description": "Autoregressive generation, causal attention, and logit sampling.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-26"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "27.1",
+              "partId": "part-04",
+              "chapterId": "chapter-27",
+              "title": "Building NanoGPT from Scratch in PyTorch",
+              "slug": "nanogpt-scratch",
+              "file": "27.1-nanogpt-scratch.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 45,
+              "tags": [
+                "nanogpt",
+                "gpt",
+                "pytorch",
+                "from-scratch"
+              ],
+              "status": "published",
+              "contentShape": "from-scratch",
+              "openingType": "code"
+            },
+            {
+              "id": "27.2",
+              "partId": "part-04",
+              "chapterId": "chapter-27",
+              "title": "Autoregressive Generation Loop & KV Caching Mechanics",
+              "slug": "generation-kvcache",
+              "file": "27.2-generation-kvcache.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "kv-cache",
+                "generation",
+                "sampling"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "27.3",
+              "partId": "part-04",
+              "chapterId": "chapter-27",
+              "title": "Logit Sampling Strategies: Temperature, Top-K, Top-P (Nucleus) & Min-P",
+              "slug": "logit-sampling",
+              "file": "27.3-logit-sampling.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "sampling",
+                "temperature",
+                "top-p",
+                "top-k"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-28",
+          "number": "28",
+          "title": "LLM Training & Pre-training",
+          "slug": "llm-training",
+          "description": "Pre-training, SFT, RLHF, DPO, and distributed data parallelism.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-27"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "28.1",
+              "partId": "part-04",
+              "chapterId": "chapter-28",
+              "title": "Pre-training at Scale: Chinchilla Scaling Laws & Compute Budgets",
+              "slug": "scaling-laws",
+              "file": "28.1-scaling-laws.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "scaling-laws",
+                "chinchilla",
+                "pre-training"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "surprising-fact"
+            },
+            {
+              "id": "28.2",
+              "partId": "part-04",
+              "chapterId": "chapter-28",
+              "title": "Distributed Training: DDP, FSDP (ZeRO-1/2/3) & Pipeline Parallelism",
+              "slug": "distributed-fsdp",
+              "file": "28.2-distributed-fsdp.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "fsdp",
+                "ddp",
+                "zero",
+                "distributed"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "28.3",
+              "partId": "part-04",
+              "chapterId": "chapter-28",
+              "title": "Post-Training: SFT, RLHF (PPO) & Direct Preference Optimization (DPO)",
+              "slug": "sft-rlhf-dpo",
+              "file": "28.3-sft-rlhf-dpo.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "dpo",
+                "rlhf",
+                "sft",
+                "alignment"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "comparison"
+            },
+            {
+              "id": "28.4",
+              "partId": "part-04",
+              "chapterId": "chapter-28",
+              "title": "Group Relative Policy Optimization (GRPO) & Pure RL for Reasoning",
+              "slug": "grpo-deepseek-r1",
+              "file": "28.4-grpo-deepseek-r1.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 45,
+              "prerequisites": [
+                "28.3"
+              ],
+              "tags": [
+                "grpo",
+                "deepseek-r1",
+                "reinforcement-learning",
+                "reasoning",
+                "alignment"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "mathematical-intuition"
+            }
+          ]
+        },
+        {
+          "id": "chapter-29",
+          "number": "29",
+          "title": "LLM Inference & KV Cache",
+          "slug": "llm-inference",
+          "description": "KV Caching, Speculative Decoding, PagedAttention, and vLLM.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-27"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "29.1",
+              "partId": "part-04",
+              "chapterId": "chapter-29",
+              "title": "KV Cache Memory Footprint Math & Memory Bandwidth Bound",
+              "slug": "kv-cache-math",
+              "file": "29.1-kv-cache-math.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "kv-cache",
+                "memory-bandwidth",
+                "vram"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "29.2",
+              "partId": "part-04",
+              "chapterId": "chapter-29",
+              "title": "PagedAttention & Virtual Memory Management (vLLM)",
+              "slug": "paged-attention-vllm",
+              "file": "29.2-paged-attention-vllm.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "paged-attention",
+                "vllm",
+                "virtual-memory"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "29.3",
+              "partId": "part-04",
+              "chapterId": "chapter-29",
+              "title": "Speculative Decoding & Medusa Multi-Head Verification",
+              "slug": "speculative-decoding",
+              "file": "29.3-speculative-decoding.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "speculative-decoding",
+                "inference",
+                "acceleration"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-30",
+          "number": "30",
+          "title": "Hugging Face Transformers",
+          "slug": "huggingface",
+          "description": "AutoModel, AutoTokenizer, Pipelines, and Trainer API.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-27"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "30.1",
+              "partId": "part-04",
+              "chapterId": "chapter-30",
+              "title": "Hugging Face Architecture: PreTrainedModel & AutoModel Dispatch",
+              "slug": "hf-automodel",
+              "file": "30.1-hf-automodel.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "huggingface",
+                "automodel",
+                "transformers"
+              ],
+              "status": "published",
+              "contentShape": "reference-style",
+              "openingType": "visual"
+            },
+            {
+              "id": "30.2",
+              "partId": "part-04",
+              "chapterId": "chapter-30",
+              "title": "GenerationConfig, Stopping Criteria & Custom Generation Loops",
+              "slug": "hf-generation-loop",
+              "file": "30.2-hf-generation-loop.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "generation",
+                "stopping-criteria",
+                "logits"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "30.3",
+              "partId": "part-04",
+              "chapterId": "chapter-30",
+              "title": "Trainer API, Accelerate & Custom Dataset Streaming",
+              "slug": "hf-trainer-accelerate",
+              "file": "30.3-hf-trainer-accelerate.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "trainer",
+                "accelerate",
+                "streaming"
+              ],
+              "status": "published",
+              "contentShape": "reference-style",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-31",
+          "number": "31",
+          "title": "Fine-Tuning & PEFT",
+          "slug": "fine-tuning",
+          "description": "LoRA, QLoRA, Prefix Tuning, and PEFT library.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-28"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "31.1",
+              "partId": "part-04",
+              "chapterId": "chapter-31",
+              "title": "Low-Rank Adaptation (LoRA) Mathematics: W_0 + B*A",
+              "slug": "lora-math",
+              "file": "31.1-lora-math.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "lora",
+                "peft",
+                "low-rank",
+                "math"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "31.2",
+              "partId": "part-04",
+              "chapterId": "chapter-31",
+              "title": "QLoRA: NormalFloat4 (NF4), Double Quantization & Paged Optimizers",
+              "slug": "qlora-nf4",
+              "file": "31.2-qlora-nf4.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "qlora",
+                "nf4",
+                "double-quantization"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "31.3",
+              "partId": "part-04",
+              "chapterId": "chapter-31",
+              "title": "PEFT Implementation & Multi-LoRA Adapter Serving",
+              "slug": "peft-multi-lora",
+              "file": "31.3-peft-multi-lora.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "peft",
+                "multi-lora",
+                "adapters"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-32",
+          "number": "32",
+          "title": "LLM Optimization & Quantization",
+          "slug": "llm-optimization",
+          "description": "INT8, INT4, AWQ, GPTQ, GGUF, and llama.cpp.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-29"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "32.1",
+              "partId": "part-04",
+              "chapterId": "chapter-32",
+              "title": "Quantization Foundations: FP16, INT8, INT4 & Zero-Point/Scale Math",
+              "slug": "quantization-basics",
+              "file": "32.1-quantization-basics.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "quantization",
+                "int8",
+                "int4",
+                "scale-factor"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "32.2",
+              "partId": "part-04",
+              "chapterId": "chapter-32",
+              "title": "Post-Training Quantization: AWQ vs GPTQ vs SmoothQuant",
+              "slug": "awq-gptq-smoothquant",
+              "file": "32.2-awq-gptq-smoothquant.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "awq",
+                "gptq",
+                "ptq"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            },
+            {
+              "id": "32.3",
+              "partId": "part-04",
+              "chapterId": "chapter-32",
+              "title": "GGUF Format, GGML & llama.cpp CPU/Metal Acceleration",
+              "slug": "gguf-llama-cpp",
+              "file": "32.3-gguf-llama-cpp.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "gguf",
+                "llama-cpp",
+                "metal",
+                "quantization"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "code"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-05",
+      "number": 5,
+      "title": "Information Retrieval & Vector Search",
+      "subtitle": "Lexical Search to Approximate Nearest Neighbors",
+      "description": "Inverted indices, TF-IDF, BM25, Cosine Similarity, HNSW, IVF-PQ, and Vector Databases.",
+      "slug": "information-retrieval",
+      "chapters": [
+        {
+          "id": "chapter-33",
+          "number": "33",
+          "title": "Search Engines & Inverted Indices",
+          "slug": "search-engines",
+          "description": "Tokenization, posting lists, boolean search, and TF-IDF.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-06"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "33.1",
+              "partId": "part-05",
+              "chapterId": "chapter-33",
+              "title": "Inverted Index Construction & Postings List Compression",
+              "slug": "inverted-index",
+              "file": "33.1-inverted-index.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "inverted-index",
+                "postings",
+                "search"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "33.2",
+              "partId": "part-05",
+              "chapterId": "chapter-33",
+              "title": "BM25 Scoring Function Mathematics & Term Saturation",
+              "slug": "bm25-math",
+              "file": "33.2-bm25-math.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "bm25",
+                "lexical-search",
+                "ranking"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "33.3",
+              "partId": "part-05",
+              "chapterId": "chapter-33",
+              "title": "Building a Fast Pure-Python BM25 Engine from Scratch",
+              "slug": "bm25-engine-scratch",
+              "file": "33.3-bm25-engine-scratch.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "bm25",
+                "from-scratch",
+                "retrieval"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            }
+          ]
+        },
+        {
+          "id": "chapter-34",
+          "number": "34",
+          "title": "BM25 Scoring Algorithm",
+          "slug": "bm25",
+          "description": "Term frequency saturation, document length normalization, and Okapi BM25.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-33"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "34.1",
+              "partId": "part-05",
+              "chapterId": "chapter-34",
+              "title": "Dense Embeddings: Sentence-Transformers & Bi-Encoder Architecture",
+              "slug": "dense-bi-encoder",
+              "file": "34.1-dense-bi-encoder.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "embeddings",
+                "bi-encoder",
+                "sentence-transformers"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "visual"
+            },
+            {
+              "id": "34.2",
+              "partId": "part-05",
+              "chapterId": "chapter-34",
+              "title": "Contrastive Learning & InfoNCE / MultipleNegativesRanking Loss",
+              "slug": "contrastive-infonce",
+              "file": "34.2-contrastive-infonce.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "infonce",
+                "contrastive-learning",
+                "loss"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "34.3",
+              "partId": "part-05",
+              "chapterId": "chapter-34",
+              "title": "Matryoshka Representation Learning (MRL) & Truncated Embeddings",
+              "slug": "matryoshka-embeddings",
+              "file": "34.3-matryoshka-embeddings.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "matryoshka",
+                "mrl",
+                "compression"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "comparison"
+            }
+          ]
+        },
+        {
+          "id": "chapter-35",
+          "number": "35",
+          "title": "Vector Search Foundations",
+          "slug": "vector-search",
+          "description": "Dense embeddings, Euclidean distance, Cosine similarity, Dot product.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-20",
+            "chapter-24"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "35.1",
+              "partId": "part-05",
+              "chapterId": "chapter-35",
+              "title": "Exact Search (Flat Index) vs Approximate Nearest Neighbors (ANN)",
+              "slug": "flat-vs-ann",
+              "file": "35.1-flat-vs-ann.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "ann",
+                "vector-search",
+                "similarity"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "problem"
+            },
+            {
+              "id": "35.2",
+              "partId": "part-05",
+              "chapterId": "chapter-35",
+              "title": "Inverted File with Product Quantization (IVF-PQ) Mechanics",
+              "slug": "ivf-pq",
+              "file": "35.2-ivf-pq.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "ivf-pq",
+                "product-quantization",
+                "compression"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "35.3",
+              "partId": "part-05",
+              "chapterId": "chapter-35",
+              "title": "Hierarchical Navigable Small World (HNSW) Graphs Deep Dive",
+              "slug": "hnsw-graphs",
+              "file": "35.3-hnsw-graphs.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "hnsw",
+                "graph-search",
+                "vector-database"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "35.4",
+              "partId": "part-05",
+              "chapterId": "chapter-35",
+              "title": "Vector Databases in Production: Milvus, Qdrant, Chroma & Pgvector",
+              "slug": "vector-databases-production",
+              "file": "35.4-vector-databases-production.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "qdrant",
+                "pgvector",
+                "milvus",
+                "chroma"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-36",
+          "number": "36",
+          "title": "ANN Algorithms (HNSW & IVF-PQ)",
+          "slug": "ann-algorithms",
+          "description": "Hierarchical Navigable Small World, Inverted File Product Quantization, and FAISS.",
+          "estimatedHours": "4h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-35"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "36.1",
+              "partId": "part-05",
+              "chapterId": "chapter-36",
+              "title": "Lexical vs Dense Retrieval: Strengths, Weaknesses & Failure Modes",
+              "slug": "lexical-vs-dense",
+              "file": "36.1-lexical-vs-dense.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "hybrid",
+                "bm25",
+                "dense"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "problem"
+            },
+            {
+              "id": "36.2",
+              "partId": "part-05",
+              "chapterId": "chapter-36",
+              "title": "Reciprocal Rank Fusion (RRF) & Score Normalization Math",
+              "slug": "rrf-fusion",
+              "file": "36.2-rrf-fusion.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "rrf",
+                "rank-fusion",
+                "hybrid-search"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "36.3",
+              "partId": "part-05",
+              "chapterId": "chapter-36",
+              "title": "Building a Production Hybrid Search Pipeline",
+              "slug": "production-hybrid-search",
+              "file": "36.3-production-hybrid-search.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "hybrid-search",
+                "pipeline",
+                "qdrant"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-06",
+      "number": 6,
+      "title": "Retrieval-Augmented Generation (RAG)",
+      "subtitle": "Ingestion, Chunking, Hybrid Search & Reranking",
+      "description": "Document parsing, semantic chunking, dense/sparse hybrid retrieval, cross-encoders, and evaluation.",
+      "slug": "rag",
+      "chapters": [
+        {
+          "id": "chapter-37",
+          "number": "37",
+          "title": "RAG Fundamentals",
+          "slug": "rag-fundamentals",
+          "description": "The RAG pipeline, hallucination reduction, grounding, and minimal RAG from scratch.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-35"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "37.1",
+              "partId": "part-06",
+              "chapterId": "chapter-37",
+              "title": "RAG Foundations: Why Vector Search is Not RAG",
+              "slug": "rag-foundations",
+              "file": "37.1-rag-foundations.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "rag",
+                "architecture",
+                "grounding"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "37.2",
+              "partId": "part-06",
+              "chapterId": "chapter-37",
+              "title": "The End-to-End RAG Lifecycle: Ingestion, Retrieval, Generation",
+              "slug": "rag-lifecycle",
+              "file": "37.2-rag-lifecycle.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 25,
+              "tags": [
+                "lifecycle",
+                "ingestion",
+                "generation"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "failure"
+            },
+            {
+              "id": "37.3",
+              "partId": "part-06",
+              "chapterId": "chapter-37",
+              "title": "Building a Minimalist Zero-Framework RAG System in Pure Python",
+              "slug": "pure-python-rag",
+              "file": "37.3-pure-python-rag.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "pure-python",
+                "zero-framework",
+                "rag"
+              ],
+              "status": "published",
+              "contentShape": "from-scratch",
+              "openingType": "code"
+            }
+          ]
+        },
+        {
+          "id": "chapter-38",
+          "number": "38",
+          "title": "Document Ingestion & Parsing",
+          "slug": "document-ingestion",
+          "description": "PDF, HTML, Markdown parsing, tables, OCR, and unstructured data.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-37"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "38.1",
+              "partId": "part-06",
+              "chapterId": "chapter-38",
+              "title": "Document Parsing: PDFs, Tables, Markdown & Layout Preservation",
+              "slug": "document-parsing",
+              "file": "38.1-document-parsing.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "pdf",
+                "parsing",
+                "tables"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "visual"
+            },
+            {
+              "id": "38.2",
+              "partId": "part-06",
+              "chapterId": "chapter-38",
+              "title": "Chunking Strategies: Fixed-Size, Recursive Character & Semantic Chunking",
+              "slug": "chunking-strategies",
+              "file": "38.2-chunking-strategies.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "chunking",
+                "semantic-chunking",
+                "splitters"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "problem"
+            },
+            {
+              "id": "38.3",
+              "partId": "part-06",
+              "chapterId": "chapter-38",
+              "title": "Metadata Extraction, Hierarchical Chunking & Parent-Child Retrieval",
+              "slug": "parent-child-chunking",
+              "file": "38.3-parent-child-chunking.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "parent-child",
+                "metadata",
+                "hierarchical"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-39",
+          "number": "39",
+          "title": "Re-ranking & Cross-Encoders",
+          "slug": "chunking",
+          "description": "Bi-encoders vs Cross-encoders, Cohere Rerank, BGE reranker.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-37"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "39.1",
+              "partId": "part-06",
+              "chapterId": "chapter-39",
+              "title": "Re-ranking Foundations & The Bi-Encoder vs Cross-Encoder Tradeoff",
+              "slug": "reranking-foundations",
+              "file": "39.1-reranking-foundations.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "reranking",
+                "cross-encoder",
+                "relevance"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "visual"
+            },
+            {
+              "id": "39.2",
+              "partId": "part-06",
+              "chapterId": "chapter-39",
+              "title": "Cross-Encoder Models: BGE-Reranker, Cohere & MonoT5",
+              "slug": "cross-encoder-models",
+              "file": "39.2-cross-encoder-models.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "bge-reranker",
+                "cohere",
+                "monot5"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "39.3",
+              "partId": "part-06",
+              "chapterId": "chapter-39",
+              "title": "Late Interaction & ColBERT (Token-Level MaxSim Scoring)",
+              "slug": "colbert-late-interaction",
+              "file": "39.3-colbert-late-interaction.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "colbert",
+                "late-interaction",
+                "maxsim"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-40",
+          "number": "40",
+          "title": "Prompt Compression & Context Window Optimization",
+          "slug": "embedding-indexing",
+          "description": "Lost-in-the-middle phenomena, LLMLingua, and KV cache context caching.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-35",
+            "chapter-39"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "40.1",
+              "partId": "part-06",
+              "chapterId": "chapter-40",
+              "title": "Context Window Traps: 'Lost in the Middle' & Attention Degradation",
+              "slug": "lost-in-the-middle",
+              "file": "40.1-lost-in-the-middle.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "lost-in-the-middle",
+                "context-window",
+                "attention"
+              ],
+              "status": "published",
+              "contentShape": "compare-choose",
+              "openingType": "comparison"
+            },
+            {
+              "id": "40.2",
+              "partId": "part-06",
+              "chapterId": "chapter-40",
+              "title": "Prompt Compression: LLMLingua & Extractive Summarization",
+              "slug": "prompt-compression",
+              "file": "40.2-prompt-compression.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "llmlingua",
+                "compression",
+                "token-budget"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "code"
+            },
+            {
+              "id": "40.3",
+              "partId": "part-06",
+              "chapterId": "chapter-40",
+              "title": "Context Caching (Anthropic, Gemini, OpenAI) & Cost Optimization",
+              "slug": "context-caching",
+              "file": "40.3-context-caching.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "context-caching",
+                "pricing",
+                "latency"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-41",
+          "number": "41",
+          "title": "Advanced RAG: HyDE, Self-RAG & CRAG",
+          "slug": "retrieval",
+          "description": "Query transformations, self-reflection tokens, and corrective RAG fallbacks.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-34",
+            "chapter-35"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "41.1",
+              "partId": "part-06",
+              "chapterId": "chapter-41",
+              "title": "Query Transformation: HyDE (Hypothetical Document Embeddings)",
+              "slug": "hyde-query-transform",
+              "file": "41.1-hyde-query-transform.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "hyde",
+                "query-transformation",
+                "expansion"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "problem"
+            },
+            {
+              "id": "41.2",
+              "partId": "part-06",
+              "chapterId": "chapter-41",
+              "title": "Self-RAG: Adaptive Retrieval with Reflection & Critique Tokens",
+              "slug": "self-rag",
+              "file": "41.2-self-rag.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "self-rag",
+                "critique",
+                "reflection"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "41.3",
+              "partId": "part-06",
+              "chapterId": "chapter-41",
+              "title": "Corrective RAG (CRAG) & Web Search Fallback Routing",
+              "slug": "corrective-rag",
+              "file": "41.3-corrective-rag.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "crag",
+                "web-search",
+                "corrective-rag"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-42",
+          "number": "42",
+          "title": "GraphRAG & Knowledge Graphs",
+          "slug": "reranking",
+          "description": "Property graphs, Microsoft GraphRAG hierarchical Leiden detection, Cypher traversal.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-41"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "42.1",
+              "partId": "part-06",
+              "chapterId": "chapter-42",
+              "title": "Knowledge Graphs & Property Graph Schemas for AI",
+              "slug": "knowledge-graph-schemas",
+              "file": "42.1-knowledge-graph-schemas.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "knowledge-graph",
+                "neo4j",
+                "entities"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "42.2",
+              "partId": "part-06",
+              "chapterId": "chapter-42",
+              "title": "Microsoft GraphRAG: Hierarchical Leiden Community Detection",
+              "slug": "microsoft-graphrag",
+              "file": "42.2-microsoft-graphrag.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "graphrag",
+                "leiden",
+                "communities",
+                "summaries"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "42.3",
+              "partId": "part-06",
+              "chapterId": "chapter-42",
+              "title": "Hybrid Vector + Cypher Graph Traversal Pipelines",
+              "slug": "hybrid-graph-vector",
+              "file": "42.3-hybrid-graph-vector.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "cypher",
+                "neo4j",
+                "graph-rag"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-43",
+          "number": "43",
+          "title": "LangChain Core & LCEL Composition",
+          "slug": "advanced-rag",
+          "description": "Runnable interface, LCEL pipelines, streaming batching, and LangSmith tracing.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-41"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "43.1",
+              "partId": "part-06",
+              "chapterId": "chapter-43",
+              "title": "LangChain 0.3 Core: Runnable Interface & LCEL Pipeline Composition",
+              "slug": "lcel-runnables",
+              "file": "43.1-lcel-runnables.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "lcel",
+                "runnables",
+                "langchain"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "43.2",
+              "partId": "part-06",
+              "chapterId": "chapter-43",
+              "title": "Streaming, Async Execution & Batching with RunnableParallel",
+              "slug": "streaming-async-lcel",
+              "file": "43.2-streaming-async-lcel.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "async",
+                "streaming",
+                "runnableparallel"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "43.3",
+              "partId": "part-06",
+              "chapterId": "chapter-43",
+              "title": "Debugging & Profiling LangChain Chains with LangSmith Tracing",
+              "slug": "langsmith-tracing",
+              "file": "43.3-langsmith-tracing.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 20,
+              "tags": [
+                "langsmith",
+                "tracing",
+                "observability"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-44",
+          "number": "44",
+          "title": "LlamaIndex Core & Query Engines",
+          "slug": "graph-rag",
+          "description": "Node abstractions, VectorStoreIndex, QueryEngines, and SubQuestion routing.",
+          "estimatedHours": "4h",
+          "difficulty": "research",
+          "prerequisites": [
+            "chapter-43"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "44.1",
+              "partId": "part-06",
+              "chapterId": "chapter-44",
+              "title": "LlamaIndex Core Architecture: Nodes, Indices & Retrievers",
+              "slug": "llamaindex-core",
+              "file": "44.1-llamaindex-core.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "llamaindex",
+                "nodes",
+                "indices"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "44.2",
+              "partId": "part-06",
+              "chapterId": "chapter-44",
+              "title": "Query Engines, Chat Engines & Response Synthesizers",
+              "slug": "query-engines-synthesizers",
+              "file": "44.2-query-engines-synthesizers.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "query-engine",
+                "synthesis",
+                "chat"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "44.3",
+              "partId": "part-06",
+              "chapterId": "chapter-44",
+              "title": "SubQuestionQueryEngine & RouterQueryEngine for Complex Queries",
+              "slug": "subquestion-router-engines",
+              "file": "44.3-subquestion-router-engines.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "subquestion",
+                "router",
+                "complex-rag"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        },
+        {
+          "id": "chapter-45",
+          "number": "45",
+          "title": "Semantic Kernel & Function Orchestration",
+          "slug": "rag-evaluation",
+          "description": "Native plugins, kernel memory, and automated plan orchestration.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-37"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "45.1",
+              "partId": "part-06",
+              "chapterId": "chapter-45",
+              "title": "Microsoft Semantic Kernel: Native Function Plugins & Kernels",
+              "slug": "semantic-kernel-plugins",
+              "file": "45.1-semantic-kernel-plugins.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "semantic-kernel",
+                "plugins",
+                "csharp-python"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            },
+            {
+              "id": "45.2",
+              "partId": "part-06",
+              "chapterId": "chapter-45",
+              "title": "Semantic Kernel Planners & Automatic Function Orchestration",
+              "slug": "semantic-kernel-planners",
+              "file": "45.2-semantic-kernel-planners.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "planners",
+                "orchestration",
+                "auto-invoke"
+              ],
+              "status": "published",
+              "contentShape": "problem-solution",
+              "openingType": "real-world-problem"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-07",
+      "number": 7,
+      "title": "LLM Application Frameworks",
+      "subtitle": "LangChain & LlamaIndex Internals",
+      "description": "LCEL, Runnables, prompt templates, memory managers, indices, and node parsers.",
+      "slug": "frameworks",
+      "chapters": [
+        {
+          "id": "chapter-46",
+          "number": "46",
+          "title": "DSPy & Programmatic LLM Optimization",
+          "slug": "langchain-fundamentals",
+          "description": "Signatures, modules, teleprompters, and MIPROv2 prompt compilation.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-10"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "46.1",
+              "partId": "part-07",
+              "chapterId": "chapter-46",
+              "title": "DSPy Foundations: Programming with Foundation Models",
+              "slug": "dspy-foundations",
+              "file": "46.1-dspy-foundations.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "dspy",
+                "signatures",
+                "modules"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "46.2",
+              "partId": "part-07",
+              "chapterId": "chapter-46",
+              "title": "DSPy Signatures, Modules & ChainOfThought",
+              "slug": "dspy-signatures-modules",
+              "file": "46.2-dspy-signatures-modules.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "signatures",
+                "chainofthought",
+                "dspy"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "46.3",
+              "partId": "part-07",
+              "chapterId": "chapter-46",
+              "title": "DSPy Teleprompters & Automatic Prompt Optimization (MIPROv2 / BootstrapFewShot)",
+              "slug": "dspy-optimizers",
+              "file": "46.3-dspy-optimizers.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "teleprompter",
+                "mipro",
+                "prompt-compiler"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-47",
+          "number": "47",
+          "title": "Tool Calling & Structured Outputs",
+          "slug": "langchain-internals",
+          "description": "JSON schema specifications, function calling execution loops, and grammar constraints.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-46"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "47.1",
+              "partId": "part-07",
+              "chapterId": "chapter-47",
+              "title": "JSON Schema Specification for Function Calling",
+              "slug": "json-schema-tools",
+              "file": "47.1-json-schema-tools.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "json-schema",
+                "tools",
+                "openai"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "47.2",
+              "partId": "part-07",
+              "chapterId": "chapter-47",
+              "title": "The Function Calling Loop: Call Detection, Argument Parsing & Tool Execution",
+              "slug": "function-calling-loop",
+              "file": "47.2-function-calling-loop.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "tool-use",
+                "execution-loop",
+                "pydantic"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "47.3",
+              "partId": "part-07",
+              "chapterId": "chapter-47",
+              "title": "Parallel Tool Calling & Structured Outputs Enforcement",
+              "slug": "parallel-tool-calling",
+              "file": "47.3-parallel-tool-calling.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "parallel-tools",
+                "structured-outputs",
+                "grammars"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-48",
+          "number": "48",
+          "title": "Agent Cognitive Architectures",
+          "slug": "llamaindex",
+          "description": "ReAct reason+act loops, Plan-and-Solve decomposition, and Reflexion evaluation.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-37"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "48.1",
+              "partId": "part-07",
+              "chapterId": "chapter-48",
+              "title": "Agent Cognitive Architectures: ReAct (Reason + Act) Loop",
+              "slug": "react-loop",
+              "file": "48.1-react-loop.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "react",
+                "agents",
+                "thought-action"
+              ],
+              "status": "published",
+              "contentShape": "mental-model-first",
+              "openingType": "visual"
+            },
+            {
+              "id": "48.2",
+              "partId": "part-07",
+              "chapterId": "chapter-48",
+              "title": "Plan-and-Solve & Hierarchical Task Decomposition",
+              "slug": "plan-and-solve",
+              "file": "48.2-plan-and-solve.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "planning",
+                "decomposition",
+                "agents"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "code"
+            },
+            {
+              "id": "48.3",
+              "partId": "part-07",
+              "chapterId": "chapter-48",
+              "title": "Self-Reflection, Reflexion & Evaluator-Optimizer Loops",
+              "slug": "agent-reflexion",
+              "file": "48.3-agent-reflexion.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "reflexion",
+                "evaluator-optimizer",
+                "self-correction"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-08",
+      "number": 8,
+      "title": "Autonomous Agents & Tool Calling",
+      "subtitle": "Function Calling, ReAct Loops & Multi-Agent Orchestration",
+      "description": "JSON schema tool definitions, ReAct prompting loop, stateful agents, and supervisor patterns.",
+      "slug": "agents",
+      "chapters": [
+        {
+          "id": "chapter-49",
+          "number": "49",
+          "title": "Agent Memory & Context State",
+          "slug": "tool-calling",
+          "description": "Short-term buffer summarization, long-term vector episodic memory, and entity graphs.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-14"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "49.1",
+              "partId": "part-08",
+              "chapterId": "chapter-49",
+              "title": "Short-Term Context Window Management & Sliding Summarization",
+              "slug": "short-term-memory",
+              "file": "49.1-short-term-memory.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "memory",
+                "context-window",
+                "summarization"
+              ],
+              "status": "published",
+              "contentShape": "under-the-hood",
+              "openingType": "visual"
+            },
+            {
+              "id": "49.2",
+              "partId": "part-08",
+              "chapterId": "chapter-49",
+              "title": "Long-Term Episodic & Semantic Memory with Vector Stores",
+              "slug": "long-term-memory",
+              "file": "49.2-long-term-memory.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "episodic-memory",
+                "semantic-memory",
+                "mem0"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "code"
+            },
+            {
+              "id": "49.3",
+              "partId": "part-08",
+              "chapterId": "chapter-49",
+              "title": "Entity Memory & Graph-Based User Profiling",
+              "slug": "entity-memory",
+              "file": "49.3-entity-memory.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "entity-memory",
+                "user-profiling",
+                "kg-memory"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-50",
+          "number": "50",
+          "title": "Multi-Agent Systems & Collaboration",
+          "slug": "agent-architectures",
+          "description": "Supervisor architectures, agent consensus protocols, CrewAI, and AutoGen.",
+          "estimatedHours": "4h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-49"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "50.1",
+              "partId": "part-08",
+              "chapterId": "chapter-50",
+              "title": "Multi-Agent Topology: Supervisor, Hierarchical & Peer-to-Peer",
+              "slug": "multi-agent-topologies",
+              "file": "50.1-multi-agent-topologies.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "multi-agent",
+                "supervisor",
+                "orchestration"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            },
+            {
+              "id": "50.2",
+              "partId": "part-08",
+              "chapterId": "chapter-50",
+              "title": "Agent Communication Protocols & Consensus Mechanisms",
+              "slug": "agent-protocols",
+              "file": "50.2-agent-protocols.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "consensus",
+                "communication",
+                "hand-off"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "problem"
+            },
+            {
+              "id": "50.3",
+              "partId": "part-08",
+              "chapterId": "chapter-50",
+              "title": "Building a Multi-Agent Team with CrewAI & AutoGen",
+              "slug": "crewai-autogen",
+              "file": "50.3-crewai-autogen.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "crewai",
+                "autogen",
+                "multi-agent"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-51",
+          "number": "51",
+          "title": "LangGraph: State Machines & HITL",
+          "slug": "multi-agent-systems",
+          "description": "StateGraph channels, cyclic routing, checkpointers, and human-in-the-loop debugging.",
+          "estimatedHours": "4h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-50"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "51.1",
+              "partId": "part-08",
+              "chapterId": "chapter-51",
+              "title": "LangGraph Core: StateGraph, Nodes, Edges & Reducers",
+              "slug": "langgraph-core",
+              "file": "51.1-langgraph-core.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "langgraph",
+                "stategraph",
+                "nodes",
+                "edges"
+              ],
+              "status": "published",
+              "contentShape": "code-transformation",
+              "openingType": "visual"
+            },
+            {
+              "id": "51.2",
+              "partId": "part-08",
+              "chapterId": "chapter-51",
+              "title": "Conditional Routing, Subgraphs & Cyclic State Machines",
+              "slug": "conditional-routing-cycles",
+              "file": "51.2-conditional-routing-cycles.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "conditional-edges",
+                "cycles",
+                "subgraphs"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "code"
+            },
+            {
+              "id": "51.3",
+              "partId": "part-08",
+              "chapterId": "chapter-51",
+              "title": "Human-in-the-Loop (HITL), Checkpointers & Time Travel Debugging",
+              "slug": "hitl-checkpointers",
+              "file": "51.3-hitl-checkpointers.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "hitl",
+                "checkpointer",
+                "time-travel",
+                "langgraph"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-09",
+      "number": 9,
+      "title": "Production AI & System Design",
+      "subtitle": "FastAPI, Serving, Docker & AI Architecture",
+      "description": "High-throughput serving, vLLM/TGI deployment, rate-limiting, streaming responses, and system design.",
+      "slug": "production-ai",
+      "chapters": [
+        {
+          "id": "chapter-52",
+          "number": "52",
+          "title": "Autonomous Agent Case Studies",
+          "slug": "ai-apis",
+          "description": "Architecting real-world autonomous coding and deep research agents.",
+          "estimatedHours": "2.5h",
+          "difficulty": "intermediate",
+          "prerequisites": [],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "52.1",
+              "partId": "part-09",
+              "chapterId": "chapter-52",
+              "title": "Architecting an Autonomous Coding & Repository Agent",
+              "slug": "coding-agent-case-study",
+              "file": "52.1-coding-agent-case-study.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "coding-agent",
+                "repo-tools",
+                "swe-bench"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "52.2",
+              "partId": "part-09",
+              "chapterId": "chapter-52",
+              "title": "Architecting a Deep Research & Report Generation Agent",
+              "slug": "research-agent-case-study",
+              "file": "52.2-research-agent-case-study.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "research-agent",
+                "synthesis",
+                "search-loop"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-53",
+          "number": "53",
+          "title": "LLM Performance & Serving Metrics",
+          "slug": "fastapi-ai",
+          "description": "TTFT, ITL, token throughput math, and production benchmark profiles.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-14",
+            "chapter-52"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "53.1",
+              "partId": "part-09",
+              "chapterId": "chapter-53",
+              "title": "LLM Performance Metrics: TTFT, ITL, Tokens/Sec & Throughput",
+              "slug": "performance-metrics-ttft",
+              "file": "53.1-performance-metrics-ttft.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "ttft",
+                "itl",
+                "throughput",
+                "latency"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "53.2",
+              "partId": "part-09",
+              "chapterId": "chapter-53",
+              "title": "Continuous Batching & In-Flight Request Scheduling",
+              "slug": "continuous-batching",
+              "file": "53.2-continuous-batching.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "continuous-batching",
+                "scheduling",
+                "vllm"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "53.3",
+              "partId": "part-09",
+              "chapterId": "chapter-53",
+              "title": "Prefix Caching & Prompt KV Sharing in Production Serving",
+              "slug": "prefix-caching-production",
+              "file": "53.3-prefix-caching-production.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "prefix-caching",
+                "radix-tree",
+                "vllm"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-54",
+          "number": "54",
+          "title": "High-Throughput Model Serving: vLLM & SGLang",
+          "slug": "llm-serving",
+          "description": "PagedAttention, continuous batching, chunked prefill, and vLLM deployment.",
+          "estimatedHours": "3.5h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-29"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "54.1",
+              "partId": "part-09",
+              "chapterId": "chapter-54",
+              "title": "Deploying High-Throughput vLLM Model Servers",
+              "slug": "deploying-vllm",
+              "file": "54.1-deploying-vllm.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "vllm",
+                "serving",
+                "fastapi"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "visual"
+            },
+            {
+              "id": "54.2",
+              "partId": "part-09",
+              "chapterId": "chapter-54",
+              "title": "Triton Inference Server & TensorRT-LLM Engine Compilation",
+              "slug": "triton-tensorrt-llm",
+              "file": "54.2-triton-tensorrt-llm.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "tensorrt-llm",
+                "triton",
+                "nvidia"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "54.3",
+              "partId": "part-09",
+              "chapterId": "chapter-54",
+              "title": "Ollama, Local Inference & Edge Model Deployment",
+              "slug": "ollama-edge-deployment",
+              "file": "54.3-ollama-edge-deployment.md",
+              "difficulty": "beginner",
+              "estimatedMinutes": 20,
+              "tags": [
+                "ollama",
+                "edge",
+                "local-llm"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-55",
+          "number": "55",
+          "title": "LLM Security, Injections & Guardrails",
+          "slug": "docker-deployment",
+          "description": "Prompt injections, jailbreak vectors, NeMo Guardrails, and Llama Guard.",
+          "estimatedHours": "3h",
+          "difficulty": "intermediate",
+          "prerequisites": [
+            "chapter-53"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "55.1",
+              "partId": "part-09",
+              "chapterId": "chapter-55",
+              "title": "Adversarial Attacks: Prompt Injection, Jailbreaking & Data Exfiltration",
+              "slug": "prompt-injection-attacks",
+              "file": "55.1-prompt-injection-attacks.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "security",
+                "prompt-injection",
+                "jailbreak"
+              ],
+              "status": "published",
+              "contentShape": "debugging-failure",
+              "openingType": "failure"
+            },
+            {
+              "id": "55.2",
+              "partId": "part-09",
+              "chapterId": "chapter-55",
+              "title": "Guardrail Architectures: Llama-Guard, NeMo Guardrails & Regex Filters",
+              "slug": "guardrail-architectures",
+              "file": "55.2-guardrail-architectures.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
+              "tags": [
+                "llama-guard",
+                "nemo",
+                "guardrails"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "55.3",
+              "partId": "part-09",
+              "chapterId": "chapter-55",
+              "title": "PII Redaction, Content Moderation & Safe Structured Encodings",
+              "slug": "pii-content-moderation",
+              "file": "55.3-pii-content-moderation.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "pii",
+                "moderation",
+                "presidio"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-56",
+          "number": "56",
+          "title": "AI Observability, Tracing & Cost Budgeting",
+          "slug": "ai-system-design",
+          "description": "OpenTelemetry tracing, Langfuse observability, and token cost accounting.",
+          "estimatedHours": "4h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-37",
+            "chapter-50",
+            "chapter-53"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "56.1",
+              "partId": "part-09",
+              "chapterId": "chapter-56",
+              "title": "LLM Tracing & Distributed OpenTelemetry Instrumentation",
+              "slug": "opentelemetry-tracing",
+              "file": "56.1-opentelemetry-tracing.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "opentelemetry",
+                "tracing",
+                "spans"
+              ],
+              "status": "published",
+              "contentShape": "real-world-application",
+              "openingType": "visual"
+            },
+            {
+              "id": "56.2",
+              "partId": "part-09",
+              "chapterId": "chapter-56",
+              "title": "Production Observability with Langfuse, Phoenix & Arize",
+              "slug": "langfuse-phoenix",
+              "file": "56.2-langfuse-phoenix.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "langfuse",
+                "phoenix",
+                "monitoring"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "56.3",
+              "partId": "part-09",
+              "chapterId": "chapter-56",
+              "title": "Cost Accounting, Token Budgeting & Dynamic Fallback Routing",
+              "slug": "cost-token-budgeting",
+              "file": "56.3-cost-token-budgeting.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "cost-optimization",
+                "fallback-routing",
+                "budgets"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-10",
+      "number": 10,
+      "title": "Evaluation, Safety & Research",
+      "subtitle": "Benchmarks, Alignment & Frontiers",
+      "description": "MMLU, GSM8K, HumanEval, red teaming, jailbreaks, prompt injection, and frontier AI research.",
+      "slug": "evaluation-research",
+      "chapters": [
+        {
+          "id": "chapter-57",
+          "number": "57",
+          "title": "RAG & Agent Evaluation: RAG Triad & Benchmarks",
+          "slug": "llm-benchmarks",
+          "description": "RAG triad metrics, Ragas framework, and agent task trajectory evaluation.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-28"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": false,
+          "lessons": [
+            {
+              "id": "57.1",
+              "partId": "part-10",
+              "chapterId": "chapter-57",
+              "title": "The RAG Triad: Context Relevance, Groundedness & Answer Relevance",
+              "slug": "rag-triad-ragas",
+              "file": "57.1-rag-triad-ragas.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "ragas",
+                "rag-triad",
+                "groundedness"
+              ],
+              "status": "published",
+              "contentShape": "mathematical-derivation",
+              "openingType": "visual"
+            },
+            {
+              "id": "57.2",
+              "partId": "part-10",
+              "chapterId": "chapter-57",
+              "title": "LLM-as-a-Judge: G-Eval, Alignment & Position Bias Mitigation",
+              "slug": "llm-as-a-judge",
+              "file": "57.2-llm-as-a-judge.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "llm-judge",
+                "g-eval",
+                "bias"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "57.3",
+              "partId": "part-10",
+              "chapterId": "chapter-57",
+              "title": "Standard Benchmarks: MMLU, GSM8K, HumanEval & Arena Elo Ratings",
+              "slug": "standard-benchmarks",
+              "file": "57.3-standard-benchmarks.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "benchmarks",
+                "mmlu",
+                "humaneval"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-58",
+          "number": "58",
+          "title": "Synthetic Data & Knowledge Distillation",
+          "slug": "rag-agent-eval",
+          "description": "Self-Instruct generation, UltraChat pipelines, and SLM knowledge distillation.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-45",
+            "chapter-50"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "58.1",
+              "partId": "part-10",
+              "chapterId": "chapter-58",
+              "title": "Synthetic Data Generation: Self-Instruct & Evol-Instruct Pipelines",
+              "slug": "synthetic-data-generation",
+              "file": "58.1-synthetic-data-generation.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "synthetic-data",
+                "self-instruct",
+                "evol-instruct"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "58.2",
+              "partId": "part-10",
+              "chapterId": "chapter-58",
+              "title": "Knowledge Distillation: Training Compact SLMs from Frontier Models",
+              "slug": "knowledge-distillation",
+              "file": "58.2-knowledge-distillation.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "distillation",
+                "slm",
+                "student-teacher"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "58.3",
+              "partId": "part-10",
+              "chapterId": "chapter-58",
+              "title": "Data Filtering, De-duplication (MinHash LSH) & Quality Classifiers",
+              "slug": "data-curation-minhash",
+              "file": "58.3-data-curation-minhash.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 30,
+              "tags": [
+                "minhash",
+                "dedup",
+                "curation"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-59",
+          "number": "59",
+          "title": "Frontier Reasoning Models: o1 & DeepSeek-R1",
+          "slug": "llm-safety",
+          "description": "System 1 vs System 2, test-time compute, MCTS, OpenAI o1, and DeepSeek-R1.",
+          "estimatedHours": "3h",
+          "difficulty": "advanced",
+          "prerequisites": [
+            "chapter-52"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "59.1",
+              "partId": "part-10",
+              "chapterId": "chapter-59",
+              "title": "Chain-of-Thought (CoT) & System 1 vs System 2 Reasoning",
+              "slug": "chain-of-thought",
+              "file": "59.1-chain-of-thought.md",
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
+              "tags": [
+                "cot",
+                "reasoning",
+                "system-2"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "59.2",
+              "partId": "part-10",
+              "chapterId": "chapter-59",
+              "title": "Test-Time Compute & Search: Tree-of-Thoughts, MCTS & Process Rewards",
+              "slug": "test-time-compute-mcts",
+              "file": "59.2-test-time-compute-mcts.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "mcts",
+                "test-time-compute",
+                "prm",
+                "orm"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "59.3",
+              "partId": "part-10",
+              "chapterId": "chapter-59",
+              "title": "Reasoning Model Architectures: OpenAI o1 & DeepSeek-R1 Deep Dive",
+              "slug": "o1-deepseek-r1",
+              "file": "59.3-o1-deepseek-r1.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 40,
+              "tags": [
+                "o1",
+                "deepseek-r1",
+                "reinforcement-learning"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            }
+          ]
+        },
+        {
+          "id": "chapter-60",
+          "number": "60",
+          "title": "Multimodal Frontiers: Vision & Audio LLMs",
+          "slug": "research-llm-systems",
+          "description": "CLIP alignments, LLaVA visual projectors, Whisper audio tokens, and video LLMs.",
+          "estimatedHours": "4h",
+          "difficulty": "research",
+          "prerequisites": [
+            "chapter-26",
+            "chapter-29"
+          ],
+          "hasSummary": true,
+          "hasQuiz": true,
+          "hasProject": true,
+          "lessons": [
+            {
+              "id": "60.1",
+              "partId": "part-10",
+              "chapterId": "chapter-60",
+              "title": "Vision-Language Models (VLM): CLIP Contrastive Pretraining & Vision Encoders",
+              "slug": "vlm-clip",
+              "file": "60.1-vlm-clip.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "vlm",
+                "clip",
+                "vision-encoder"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            },
+            {
+              "id": "60.2",
+              "partId": "part-10",
+              "chapterId": "chapter-60",
+              "title": "Cross-Attention & Projector Architectures: LLaVA, MLP vs Q-Former",
+              "slug": "llava-projectors",
+              "file": "60.2-llava-projectors.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "llava",
+                "q-former",
+                "cross-attention"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "60.3",
+              "partId": "part-10",
+              "chapterId": "chapter-60",
+              "title": "Audio & Video Tokenization: Whisper, Speech LLMs & 3D Convolutions",
+              "slug": "audio-video-tokenization",
+              "file": "60.3-audio-video-tokenization.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 35,
+              "tags": [
+                "whisper",
+                "audio-tokens",
+                "video-llm"
+              ],
+              "status": "published",
+              "contentShape": "case-study",
+              "openingType": "visual"
+            },
+            {
+              "id": "60.4",
+              "partId": "part-10",
+              "chapterId": "chapter-60",
+              "title": "Diffusion Transformers (DiT) & Latent Generative Video (Sora)",
+              "slug": "diffusion-transformers-dit",
+              "file": "60.4-diffusion-transformers-dit.md",
+              "difficulty": "advanced",
+              "estimatedMinutes": 45,
+              "prerequisites": [
+                "60.1",
+                "26.1"
+              ],
+              "tags": [
+                "dit",
+                "diffusion-transformers",
+                "sora",
+                "generative-video",
+                "adaln-zero"
+              ],
+              "status": "published",
+              "contentShape": "visual-spatial",
+              "openingType": "visual"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

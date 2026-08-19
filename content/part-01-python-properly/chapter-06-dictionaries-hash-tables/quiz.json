@@ -1,0 +1,30 @@
+{
+  "chapterId": "chapter-06",
+  "title": "Chapter 6 Quiz \u2014 Dictionaries & Hash Tables",
+  "questions": [
+    {
+      "id": "ch6-q1",
+      "question": "Why do Python dictionaries preserve insertion order in Python 3.7+?",
+      "options": [
+        {
+          "id": "a",
+          "text": "They use a compact array of entries appended sequentially plus a sparse indices table"
+        },
+        {
+          "id": "b",
+          "text": "They use an internal doubly-linked list connecting all entries"
+        },
+        {
+          "id": "c",
+          "text": "They sort keys alphabetically during every insertion"
+        },
+        {
+          "id": "d",
+          "text": "They record timestamp metadata inside PyObject"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "PEP 468 compact dict layout separates the sparse hash index table from the dense array of entries. Keys are stored in insertion order in the dense entries array."
+    }
+  ]
+}

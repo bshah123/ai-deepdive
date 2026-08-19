@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-11",
+  "title": "Chapter 11 Quiz \u2014 Python Data Model",
+  "questions": [
+    {
+      "id": "q11.1",
+      "question": "Key question regarding Python Data Model?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Python Data Model internal mechanisms."
+    }
+  ]
+}

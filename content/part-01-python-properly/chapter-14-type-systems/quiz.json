@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-14",
+  "title": "Chapter 14 Quiz \u2014 Type Systems & Data Validation",
+  "questions": [
+    {
+      "id": "q14.1",
+      "question": "Key question regarding Type Systems & Data Validation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Type Systems & Data Validation internal mechanisms."
+    }
+  ]
+}

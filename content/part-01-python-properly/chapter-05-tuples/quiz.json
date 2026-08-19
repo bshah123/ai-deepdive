@@ -1,0 +1,30 @@
+{
+  "chapterId": "chapter-05",
+  "title": "Chapter 5 Quiz \u2014 Tuples & Immutability",
+  "questions": [
+    {
+      "id": "ch5-q1",
+      "question": "When is a Python tuple hashable and usable as a dictionary key?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Only when all of its contained items are also hashable"
+        },
+        {
+          "id": "b",
+          "text": "Always, because tuples are immutable objects"
+        },
+        {
+          "id": "c",
+          "text": "Never, only strings and ints can be dictionary keys"
+        },
+        {
+          "id": "d",
+          "text": "Only if created with the namedtuple constructor"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "If a tuple contains a mutable object (e.g. `(1, [2, 3])`), `hash(t)` raises `TypeError: unhashable type: 'list'`."
+    }
+  ]
+}

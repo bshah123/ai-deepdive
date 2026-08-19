@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-12",
+  "title": "Chapter 12 Quiz \u2014 Exceptions & Debugging",
+  "questions": [
+    {
+      "id": "q12.1",
+      "question": "Key question regarding Exceptions & Debugging?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Exceptions & Debugging internal mechanisms."
+    }
+  ]
+}

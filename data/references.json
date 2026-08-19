@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ref-cpython-doc",
+    "chapterId": "chapter-01",
+    "title": "CPython Architecture & Internal Design",
+    "url": "https://docs.python.org/3/c-api/structures.html",
+    "type": "documentation"
+  },
+  {
+    "id": "ref-python-data-model",
+    "chapterId": "chapter-02",
+    "title": "Python Data Model Specification",
+    "url": "https://docs.python.org/3/reference/datamodel.html",
+    "type": "specification"
+  },
+  {
+    "id": "ref-attention-paper",
+    "chapterId": "chapter-25",
+    "title": "Attention Is All You Need (Vaswani et al., 2017)",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "type": "paper"
+  },
+  {
+    "id": "ref-hnsw-paper",
+    "chapterId": "chapter-36",
+    "title": "Efficient and Robust Approximate Nearest Neighbor Search using HNSW Graphs (Malkov & Yashunin, 2018)",
+    "url": "https://arxiv.org/abs/1603.09320",
+    "type": "paper"
+  }
+]

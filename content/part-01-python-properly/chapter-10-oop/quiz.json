@@ -1,0 +1,22 @@
+{
+  "chapterId": "chapter-10",
+  "title": "Chapter 10 Quiz \u2014 Object-Oriented Python",
+  "questions": [
+    {
+      "id": "q10.1",
+      "question": "Key question regarding Object-Oriented Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Correct conceptual model option"
+        },
+        {
+          "id": "b",
+          "text": "Incorrect option"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Explanation of Object-Oriented Python internal mechanisms."
+    }
+  ]
+}

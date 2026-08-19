@@ -1,0 +1,116 @@
+[
+  {
+    "id": "pyobject",
+    "term": "PyObject",
+    "definition": "The C structure underlying all Python objects in CPython, containing reference count (ob_refcnt) and type pointer (ob_type).",
+    "simpleExplanation": "Every value in Python (numbers, lists, functions) is wrapped inside a PyObject header in memory.",
+    "technicalExplanation": "Defined in CPython header files, PyObject holds ob_refcnt (8 bytes) and *ob_type pointer (8 bytes), ensuring uniform memory management across dynamic types.",
+    "curriculumReferences": [
+      { "lessonId": "2.2", "lessonTitle": "PyObject & Python's Object System" }
+    ]
+  },
+  {
+    "id": "object-identity",
+    "term": "Object Identity",
+    "definition": "The unique memory address of a Python object, returned by id(). Tested using the 'is' operator.",
+    "simpleExplanation": "Identity tests whether two variables point to the exact same physical memory block.",
+    "technicalExplanation": "In CPython, id(obj) returns the memory address pointer cast as an integer. 'a is b' evaluates to '((uintptr_t)a == (uintptr_t)b)'.",
+    "curriculumReferences": [
+      { "lessonId": "2.3", "lessonTitle": "Object Identity & id() Function" },
+      { "lessonId": "2.4", "lessonTitle": "Identity vs Equality (is vs ==)" }
+    ]
+  },
+  {
+    "id": "reference-counting",
+    "term": "Reference Counting",
+    "definition": "CPython's primary memory management strategy where objects maintain a counter of active references.",
+    "simpleExplanation": "Python counts how many variables point to an object. When the count drops to zero, the object is immediately deallocated.",
+    "technicalExplanation": "Incremented on assignment or parameter passing (Py_INCREF) and decremented on scope exit or reassignment (Py_DECREF). When ob_refcnt == 0, tp_dealloc is invoked.",
+    "curriculumReferences": [
+      { "lessonId": "2.7", "lessonTitle": "Reference Counting & sys.getrefcount()" }
+    ]
+  },
+  {
+    "id": "garbage-collection",
+    "term": "Garbage Collection (GC)",
+    "definition": "CPython's secondary cycle-detecting garbage collector that identifies self-referential object cycles.",
+    "simpleExplanation": "A background cleaner that destroys isolated islands of objects pointing to each other.",
+    "technicalExplanation": "Operates on 3 generations (Gen 0, 1, 2) using trial-deletion algorithms to calculate effective reference counts (gc_refs).",
+    "curriculumReferences": [
+      { "lessonId": "2.8", "lessonTitle": "Garbage Collection & Cyclic GC" },
+      { "lessonId": "2.9", "lessonTitle": "Circular References & Reference Cycles" }
+    ]
+  },
+  {
+    "id": "mutability",
+    "term": "Mutability",
+    "definition": "The property of an object allowing its internal state or payload to be modified in-place without changing its identity.",
+    "simpleExplanation": "Mutable objects (lists, dicts) can be changed after creation. Immutable objects (ints, strings, tuples) cannot.",
+    "technicalExplanation": "Immutable objects retain fixed payload memory. Modifications to immutable types instantiate new objects with different memory addresses.",
+    "curriculumReferences": [
+      { "lessonId": "2.6", "lessonTitle": "Mutable vs Immutable Objects" }
+    ]
+  },
+  {
+    "id": "bytecode",
+    "term": "Bytecode",
+    "definition": "Platform-independent intermediate representation compiled from Python source files (.pyc), executed by the CPython virtual machine loop.",
+    "simpleExplanation": "Low-level instructions created by Python compiler before running code line by line.",
+    "technicalExplanation": "Bytecode opcodes (e.g. LOAD_FAST, BINARY_OP) are dispatched by PyEval_EvalFrameDefault loop in CPython C codebase.",
+    "curriculumReferences": [
+      { "lessonId": "1.2", "lessonTitle": "Running Python & Execution Pipeline" },
+      { "lessonId": "1.5", "lessonTitle": "Inspecting CPython Bytecode & dis Module" }
+    ]
+  },
+  {
+    "id": "attention",
+    "term": "Attention Mechanism",
+    "definition": "A mathematical technique allowing models to dynamically weigh the importance of different tokens in a sequence relative to a target token.",
+    "simpleExplanation": "A way for a neural network to focus on specific context words when processing text.",
+    "technicalExplanation": "Computes Softmax((Q @ K.T) / sqrt(d_k)) @ V to produce contextualized token representations.",
+    "curriculumReferences": [
+      { "lessonId": "25.1", "lessonTitle": "Self-Attention Mathematics & Implementation" }
+    ]
+  },
+  {
+    "id": "embedding",
+    "term": "Embedding",
+    "definition": "A dense numerical vector representation of high-dimensional semantic data in a continuous vector space.",
+    "simpleExplanation": "Converting words or documents into lists of numbers where similar meanings are close together.",
+    "technicalExplanation": "Maps discrete token IDs into R^d dense vector space where spatial distance (e.g., Cosine) correlates with semantic similarity.",
+    "curriculumReferences": [
+      { "lessonId": "24.1", "lessonTitle": "Rotary Position Embeddings (RoPE)" },
+      { "lessonId": "35.1", "lessonTitle": "Brute-Force Exact Vector Search Engine" }
+    ]
+  },
+  {
+    "id": "rag",
+    "term": "Retrieval-Augmented Generation (RAG)",
+    "definition": "An architecture combining external document retrieval with an LLM generator to ground answers in authoritative facts.",
+    "simpleExplanation": "Giving an AI an open textbook (retriever) to read before answering questions (generator).",
+    "technicalExplanation": "Query -> Dense/Sparse Retrieval -> Top-K Passages -> Prompt Construction -> LLM Generation -> Verified Response.",
+    "curriculumReferences": [
+      { "lessonId": "37.1", "lessonTitle": "Building Minimal RAG from Scratch" }
+    ]
+  },
+  {
+    "id": "hnsw",
+    "term": "HNSW (Hierarchical Navigable Small World)",
+    "definition": "A multi-layer graph-based Approximate Nearest Neighbor (ANN) search algorithm offering logarithmic search complexity.",
+    "simpleExplanation": "A fast highway system for searching billions of vectors in milliseconds.",
+    "technicalExplanation": "Organizes vectors into multi-layer skip graphs where top layers allow long-distance greedy hops and bottom layers pinpoint nearest neighbors.",
+    "curriculumReferences": [
+      { "lessonId": "36.1", "lessonTitle": "HNSW Graph Index Deep Dive" }
+    ]
+  },
+  {
+    "id": "kv-cache",
+    "term": "KV Cache",
+    "definition": "An inference optimization technique that stores Key and Value attention matrices for previous tokens to avoid recomputation during autoregressive decoding.",
+    "simpleExplanation": "Saving past token calculations so the LLM doesn't redo work for every generated word.",
+    "technicalExplanation": "Reduces decoding time complexity per token from O(N^2) to O(N) by caching past K and V tensor projections across transformer layers.",
+    "curriculumReferences": [
+      { "lessonId": "29.1", "lessonTitle": "KV Cache Mechanics & Memory Footprint" }
+    ]
+  }
+]
