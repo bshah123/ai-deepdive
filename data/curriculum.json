@@ -1829,6 +1829,54 @@
               "status": "published",
               "contentShape": "case-study",
               "openingType": "surprising-fact"
+            },
+            {
+              "id": "19.4",
+              "title": "Statistical Learning Theory: Concentration Inequalities (Markov, Chebyshev, Hoeffding)",
+              "slug": "concentration-inequalities",
+              "file": "content/part-03-ml-nlp/chapter-19-ml-foundations/19.4-concentration-inequalities.md",
+              "difficulty": "advanced",
+              "estimated_minutes": 40,
+              "partId": "part-03",
+              "chapterId": "chapter-19",
+              "tags": [
+                "machine-learning",
+                "deep-dive"
+              ],
+              "estimatedMinutes": 40,
+              "status": "published"
+            },
+            {
+              "id": "19.5",
+              "title": "PAC Learning, Empirical Risk Minimization & VC Dimension",
+              "slug": "pac-learning-vc-dimension",
+              "file": "content/part-03-ml-nlp/chapter-19-ml-foundations/19.5-pac-learning-vc-dimension.md",
+              "difficulty": "advanced",
+              "estimated_minutes": 45,
+              "partId": "part-03",
+              "chapterId": "chapter-19",
+              "tags": [
+                "machine-learning",
+                "deep-dive"
+              ],
+              "estimatedMinutes": 45,
+              "status": "published"
+            },
+            {
+              "id": "19.6",
+              "title": "Energy-Based Models (EBM), Energy Surfaces & Margin Losses",
+              "slug": "energy-based-models",
+              "file": "content/part-03-ml-nlp/chapter-19-ml-foundations/19.6-energy-based-models.md",
+              "difficulty": "advanced",
+              "estimated_minutes": 45,
+              "partId": "part-03",
+              "chapterId": "chapter-19",
+              "tags": [
+                "machine-learning",
+                "deep-dive"
+              ],
+              "estimatedMinutes": 45,
+              "status": "published"
             }
           ]
         },
@@ -1898,6 +1946,38 @@
               "status": "published",
               "contentShape": "mathematical-derivation",
               "openingType": "mathematical-intuition"
+            },
+            {
+              "id": "20.4",
+              "title": "Matrix Condition Number, Numerical Stability & Sensitivity Bounds",
+              "slug": "matrix-condition-number-sensitivity",
+              "file": "content/part-03-ml-nlp/chapter-20-math-for-ml/20.4-matrix-condition-number-sensitivity.md",
+              "difficulty": "advanced",
+              "estimated_minutes": 45,
+              "partId": "part-03",
+              "chapterId": "chapter-20",
+              "tags": [
+                "machine-learning",
+                "deep-dive"
+              ],
+              "estimatedMinutes": 45,
+              "status": "published"
+            },
+            {
+              "id": "20.5",
+              "title": "Quadratic Forms, Positive Definiteness & Rayleigh Quotient Optimization",
+              "slug": "quadratic-forms-rayleigh-quotient",
+              "file": "content/part-03-ml-nlp/chapter-20-math-for-ml/20.5-quadratic-forms-rayleigh-quotient.md",
+              "difficulty": "advanced",
+              "estimated_minutes": 45,
+              "partId": "part-03",
+              "chapterId": "chapter-20",
+              "tags": [
+                "machine-learning",
+                "deep-dive"
+              ],
+              "estimatedMinutes": 45,
+              "status": "published"
             }
           ]
         },
@@ -1970,6 +2050,22 @@
               "status": "published",
               "contentShape": "mathematical-derivation",
               "openingType": "visual"
+            },
+            {
+              "id": "21.4",
+              "title": "The Perceptron Learning Algorithm (PLA) & Novikoff's Convergence Theorem Proof",
+              "slug": "perceptron-convergence-theorem",
+              "file": "content/part-03-ml-nlp/chapter-21-neural-networks/21.4-perceptron-convergence-theorem.md",
+              "difficulty": "advanced",
+              "estimated_minutes": 45,
+              "partId": "part-03",
+              "chapterId": "chapter-21",
+              "tags": [
+                "machine-learning",
+                "deep-dive"
+              ],
+              "estimatedMinutes": 45,
+              "status": "published"
             }
           ]
         },

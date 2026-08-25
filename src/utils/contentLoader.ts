@@ -1,16 +1,21 @@
 import { parseFrontmatter, extractHeadings, ParsedMarkdown } from './markdownParser';
 
 // Use Vite's import.meta.glob to load all markdown content files at build/runtime
-const markdownModules = import.meta.glob('/content/**/*.md', { as: 'raw', eager: true });
+const markdownModules = import.meta.glob('/content/**/*.md', { query: '?raw', import: 'default', eager: true });
 const quizModules = import.meta.glob('/content/**/*.json', { eager: true });
 
 export function getLessonContent(lessonId: string): ParsedMarkdown | null {
+  const targetId = String(lessonId).trim();
+
   // Search through loaded markdown modules
   for (const path in markdownModules) {
-    const rawText = markdownModules[path] as string;
+    const rawVal = markdownModules[path];
+    const rawText = typeof rawVal === 'string' ? rawVal : (rawVal as any)?.default || '';
+    if (!rawText) continue;
+
     const { frontmatter, body } = parseFrontmatter(rawText);
 
-    if (frontmatter.id === lessonId) {
+    if (String(frontmatter.id).trim() === targetId) {
       const headings = extractHeadings(body);
       return {
         frontmatter,
@@ -20,6 +25,26 @@ export function getLessonContent(lessonId: string): ParsedMarkdown | null {
       };
     }
   }
+
+  // Fallback: match by file path basename (e.g. ".../19.4-concentration-inequalities.md")
+  for (const path in markdownModules) {
+    const filename = path.split('/').pop() || '';
+    if (filename.startsWith(`${targetId}-`) || filename.startsWith(`${targetId}.`)) {
+      const rawVal = markdownModules[path];
+      const rawText = typeof rawVal === 'string' ? rawVal : (rawVal as any)?.default || '';
+      if (!rawText) continue;
+
+      const { frontmatter, body } = parseFrontmatter(rawText);
+      const headings = extractHeadings(body);
+      return {
+        frontmatter: { ...frontmatter, id: targetId },
+        contentHtml: body,
+        headings,
+        rawContent: rawText
+      };
+    }
+  }
+
   return null;
 }
 

@@ -43,6 +43,7 @@ venv/
 ENV/
 .pytest_cache/
 scripts/*.json
+scratch/
 
 # Gemini / Antigravity Agent metadata
 .gemini/

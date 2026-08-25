@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Sun, Moon, Bookmark, BarChart2, BookOpen, Layers, Eye, Compass } from 'lucide-react';
+import { Search, Sun, Moon, Bookmark, BarChart2, BookOpen, Layers, Eye, Compass, GraduationCap, Sparkles } from 'lucide-react';
 import { ReadingMode } from '../types/curriculum';
 
 interface HeaderProps {
@@ -47,6 +47,13 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Layers className="w-3.5 h-3.5" />
               <span>Curriculum</span>
+            </Link>
+            <Link
+              to="/course"
+              className={`px-3 py-1.5 rounded-md transition-colors flex items-center space-x-1.5 ${location.pathname.startsWith('/course') ? 'bg-slate-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 font-semibold' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'}`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+              <span>Visual Lab</span>
             </Link>
             <Link
               to="/glossary"

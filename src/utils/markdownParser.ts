@@ -60,7 +60,10 @@ export function parseFrontmatter(markdown: string): { frontmatter: ParsedFrontma
         value = value.slice(1, -1);
       } else if (value.startsWith("'") && value.endsWith("'")) {
         value = value.slice(1, -1);
-      } else if (!isNaN(Number(value))) {
+      } else if (key === 'id' || key === 'slug' || key === 'title' || key === 'difficulty' || key === 'status') {
+        // String identifiers (e.g. "1.10", "19.4") must remain string!
+        value = String(value).trim();
+      } else if (!isNaN(Number(value)) && key !== 'id') {
         value = Number(value);
       } else if (value.startsWith('[') && value.endsWith(']')) {
         try {
@@ -72,6 +75,10 @@ export function parseFrontmatter(markdown: string): { frontmatter: ParsedFrontma
       frontmatter[key] = value;
     }
   });
+
+  if (frontmatter.id !== undefined) {
+    frontmatter.id = String(frontmatter.id).trim();
+  }
 
   return { frontmatter, body };
 }

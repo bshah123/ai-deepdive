@@ -11,6 +11,7 @@ import { ChapterPage } from './pages/ChapterPage';
 import { GlossaryPage } from './pages/GlossaryPage';
 import { BookmarksPage } from './pages/BookmarksPage';
 import { ProgressPage } from './pages/ProgressPage';
+import { CourseHubPage } from './pages/CourseHubPage';
 import { ScrollToTop } from './components/ScrollToTop';
 import curriculumData from '../data/curriculum.json';
 import { Part, ReadingMode } from './types/curriculum';
@@ -81,6 +82,8 @@ export const App: React.FC = () => {
               <Route path="/glossary" element={<GlossaryPage />} />
               <Route path="/bookmarks" element={<BookmarksPage />} />
               <Route path="/progress" element={<ProgressPage />} />
+              <Route path="/course" element={<CourseHubPage />} />
+              <Route path="/syllabus" element={<Navigate to="/course" replace />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

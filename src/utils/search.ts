@@ -34,12 +34,12 @@ export function initializeSearchEngine(): MiniSearch {
           type: 'lesson',
           title: `${lesson.id} ${lesson.title}`,
           subtitle: `Part ${part.number} • Chapter ${chapter.number} (${chapter.title})`,
-          body: `${lesson.title} ${lesson.tags.join(' ')} ${chapter.title} ${part.title}`,
+          body: `${lesson.title} ${(lesson.tags || []).join(' ')} ${chapter.title} ${part.title}`,
           url: `/lesson/${lesson.id}`,
           partNumber: part.number,
           chapterNumber: chapter.number,
           lessonId: lesson.id,
-          tags: lesson.tags
+          tags: lesson.tags || []
         });
       });
     });

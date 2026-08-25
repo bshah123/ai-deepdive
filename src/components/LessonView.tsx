@@ -471,7 +471,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
           </h1>
 
           <div className="flex flex-wrap gap-1.5 mt-4">
-            {activeLesson.tags.map((tag: string) => (
+            {(activeLesson.tags || []).map((tag: string) => (
               <span key={tag} className="flex items-center gap-1 text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                 <Tag className="w-3 h-3" />
                 <span>{tag}</span>

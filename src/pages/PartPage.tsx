@@ -6,7 +6,13 @@ import { parseInlineText } from '../utils/textParser';
 export const PartPage: React.FC = () => {
   const { partId } = useParams();
 
-  const part = curriculumData.parts.find(p => p.id === partId) || curriculumData.parts[0];
+  const part = curriculumData.parts.find(
+    p =>
+      p.id === partId ||
+      p.number.toString() === partId ||
+      `part-${p.number}` === partId ||
+      `part-0${p.number}` === partId
+  ) || curriculumData.parts[0];
 
   return (
     <div className="py-8 px-4 max-w-4xl mx-auto space-y-8">

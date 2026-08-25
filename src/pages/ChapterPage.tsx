@@ -14,7 +14,13 @@ export const ChapterPage: React.FC = () => {
 
   curriculumData.parts.forEach(p => {
     p.chapters.forEach(c => {
-      if (c.id === chapterId) {
+      if (
+        c.id === chapterId ||
+        c.number.toString() === chapterId ||
+        c.id === `chapter-${chapterId}` ||
+        `chapter-${c.number}` === chapterId ||
+        c.slug === chapterId
+      ) {
         foundChapter = c;
         foundPart = p;
       }
@@ -22,7 +28,15 @@ export const ChapterPage: React.FC = () => {
   });
 
   if (!foundChapter) {
-    return <div className="p-8 text-center text-slate-500">Chapter not found.</div>;
+    return (
+      <div className="p-12 text-center text-slate-500 max-w-xl mx-auto space-y-4">
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">Chapter Not Found</h2>
+        <p className="text-xs text-slate-400">Chapter identifier "{chapterId}" was not found in the curriculum.</p>
+        <Link to="/curriculum" className="inline-block px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs rounded-xl shadow transition">
+          Browse Full Curriculum
+        </Link>
+      </div>
+    );
   }
 
   const completedCount = foundChapter.lessons.filter((l: any) =>

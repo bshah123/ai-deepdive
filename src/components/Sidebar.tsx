@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ChevronRight, ChevronDown, CheckCircle2, Circle } from 'lucide-react';
+import { ChevronRight, ChevronDown, CheckCircle2, Circle, GraduationCap, Sparkles } from 'lucide-react';
 import { Part, UserProgress } from '../types/curriculum';
 import { parseInlineText } from '../utils/textParser';
 
@@ -27,6 +27,27 @@ export const Sidebar: React.FC<SidebarProps> = ({ parts, progress }) => {
   return (
     <aside className="w-72 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-y-auto h-[calc(100vh-3.5rem)] text-xs select-none">
       <div className="p-4 space-y-6">
+        {/* Quick Course Portal Hub Link */}
+        <Link
+          to="/course"
+          className={`flex items-center justify-between p-3 rounded-xl border transition group ${
+            location.pathname.startsWith('/course')
+              ? 'bg-indigo-600 text-white border-indigo-500 shadow-md shadow-indigo-500/20'
+              : 'bg-indigo-50/50 dark:bg-indigo-950/30 border-indigo-200/60 dark:border-indigo-800/40 text-indigo-950 dark:text-indigo-200 hover:bg-indigo-100/60 dark:hover:bg-indigo-900/40'
+          }`}
+        >
+          <div className="flex items-center gap-2.5">
+            <div className="p-1.5 rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="font-bold text-xs">Visual Explainer Lab</div>
+              <div className="text-[10px] text-indigo-400/90 dark:text-indigo-300/80 font-sans">Interactive Math Simulators</div>
+            </div>
+          </div>
+          <Sparkles className="w-3.5 h-3.5 text-amber-400 group-hover:scale-110 transition-transform" />
+        </Link>
+
         <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
           <span className="font-bold text-slate-500 uppercase tracking-wider text-[10px]">
             Table of Contents (60 Chapters)
