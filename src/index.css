@@ -118,3 +118,36 @@
 .prose-deepdive code:not(pre code) {
   @apply px-1.5 py-0.5 rounded-md text-xs font-mono bg-slate-100 dark:bg-slate-800/80 text-indigo-600 dark:text-indigo-400 border border-slate-200 dark:border-slate-700/60 font-semibold;
 }
+
+/* ---------- Hand-drawn lesson diagrams (scripts/diagrams/*.mjs) ---------- */
+:root {
+  --sk-ink: #1e293b;
+  --sk-muted: #64748b;
+  --sk-blue: #2563eb;
+  --sk-amber: #d97706;
+  --sk-green: #059669;
+  --sk-rose: #e11d48;
+  --sk-violet: #7c3aed;
+  --sk-note: #fef3c7;
+  --sk-blue-soft: #dbeafe;
+  --sk-amber-soft: #fef3c7;
+  --sk-green-soft: #d1fae5;
+  --sk-rose-soft: #ffe4e6;
+}
+.dark {
+  --sk-ink: #e2e8f0;
+  --sk-muted: #94a3b8;
+  --sk-blue: #60a5fa;
+  --sk-amber: #fbbf24;
+  --sk-green: #34d399;
+  --sk-rose: #fb7185;
+  --sk-violet: #a78bfa;
+  --sk-note: rgba(251, 191, 36, 0.14);
+  --sk-blue-soft: rgba(96, 165, 250, 0.16);
+  --sk-amber-soft: rgba(251, 191, 36, 0.16);
+  --sk-green-soft: rgba(52, 211, 153, 0.16);
+  --sk-rose-soft: rgba(251, 113, 133, 0.16);
+}
+.sk-hand { font-family: 'Caveat', 'Comic Sans MS', cursive; }
+.sk-mono { font-family: 'Fira Code', ui-monospace, monospace; }
+.sketch-figure svg { width: 100%; height: auto; display: block; }

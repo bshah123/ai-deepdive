@@ -17,7 +17,8 @@ import {
   Code
 } from 'lucide-react';
 import curriculumData from '../../data/curriculum.json';
-import { getLessonContent, getChapterQuiz } from '../utils/contentLoader';
+import { getLessonContent, getChapterQuiz, resolveContentPath } from '../utils/contentLoader';
+import { SketchFigure } from './SketchFigure';
 import {
   getStoredProgress,
   toggleLessonCompleted,
@@ -251,7 +252,8 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
               <ChevronRight className="w-4 h-4 text-slate-400 group-open:rotate-90 transition-transform duration-200" />
             </summary>
             <div className="wpsolution-content space-y-2">
-              {detailLines.map((dl, di) => (dl.trim() ? <p key={di}>{parseInline(dl)}</p> : null))}
+              {/* Render the solution body as full markdown so code, math and lists work inside it. */}
+              {renderMarkdownBody(detailLines.join('\n'))}
             </div>
           </details>
         );
@@ -288,6 +290,22 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
           <div key={`math-${i}`} className="my-6 p-4 bg-slate-100/80 dark:bg-slate-900/80 rounded-2xl border border-slate-200 dark:border-slate-800 text-center overflow-x-auto shadow-sm">
             <MathRenderer math={mathLines.join('\n')} block />
           </div>
+        );
+        i++;
+        continue;
+      }
+
+      // Standalone figure: ![alt text](diagrams/file.svg "optional caption")
+      const figMatch = line.trim().match(/^!\[([^\]]*)\]\(\s*([^\s)]+\.svg)(?:\s+"([^"]*)")?\s*\)$/);
+      if (figMatch) {
+        const [, alt, src, caption] = figMatch;
+        elements.push(
+          <SketchFigure
+            key={`fig-${i}`}
+            src={resolveContentPath(parsedContent?.path || '', src)}
+            alt={alt}
+            caption={caption}
+          />
         );
         i++;
         continue;

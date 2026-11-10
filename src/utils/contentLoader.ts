@@ -3,6 +3,26 @@ import { parseFrontmatter, extractHeadings, ParsedMarkdown } from './markdownPar
 // Use Vite's import.meta.glob to load all markdown content files at build/runtime
 const markdownModules = import.meta.glob('/content/**/*.md', { query: '?raw', import: 'default', eager: true });
 const quizModules = import.meta.glob('/content/**/*.json', { eager: true });
+// Diagrams are loaded lazily so they don't bloat the main bundle.
+const svgModules = import.meta.glob('/content/**/*.svg', { query: '?raw', import: 'default' });
+
+/** Resolve a path written in a lesson (relative to the lesson file) to a content-root path. */
+export function resolveContentPath(lessonPath: string, src: string): string {
+  if (src.startsWith('/content/')) return src;
+  const parts = lessonPath.split('/').slice(0, -1);
+  for (const seg of src.split('/')) {
+    if (seg === '..') parts.pop();
+    else if (seg !== '.' && seg !== '') parts.push(seg);
+  }
+  return parts.join('/');
+}
+
+/** Load the raw SVG text for a diagram, or null if it does not exist. */
+export async function loadSvg(contentPath: string): Promise<string | null> {
+  const loader = svgModules[contentPath];
+  if (!loader) return null;
+  return (await loader()) as string;
+}
 
 export function getLessonContent(lessonId: string): ParsedMarkdown | null {
   const targetId = String(lessonId).trim();
@@ -21,7 +41,8 @@ export function getLessonContent(lessonId: string): ParsedMarkdown | null {
         frontmatter,
         contentHtml: body,
         headings,
-        rawContent: rawText
+        rawContent: rawText,
+        path
       };
     }
   }
@@ -40,7 +61,8 @@ export function getLessonContent(lessonId: string): ParsedMarkdown | null {
         frontmatter: { ...frontmatter, id: targetId },
         contentHtml: body,
         headings,
-        rawContent: rawText
+        rawContent: rawText,
+        path
       };
     }
   }

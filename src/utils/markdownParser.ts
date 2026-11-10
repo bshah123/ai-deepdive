@@ -23,6 +23,8 @@ export interface ParsedMarkdown {
   contentHtml: string;
   headings: TocHeading[];
   rawContent: string;
+  /** Content-root path of the lesson file, e.g. /content/part-04-.../25.1-x.md */
+  path?: string;
 }
 
 export function parseFrontmatter(markdown: string): { frontmatter: ParsedFrontmatter; body: string } {
