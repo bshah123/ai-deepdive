@@ -177,11 +177,11 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
 
         if (rawType === 'BEST-PRACTICE' || rawType === 'TIP') {
           calloutClass = 'callout-best-practice';
-          title = 'BEST PRACTICE';
+          title = rawType === 'TIP' ? 'TIP' : 'BEST PRACTICE';
           icon = <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />;
         } else if (rawType === 'WARNING' || rawType === 'CAUTION' || rawType === 'TRAP') {
           calloutClass = 'callout-warning';
-          title = 'WARNING';
+          title = rawType === 'TRAP' ? 'COMMON TRAP' : 'WARNING';
           icon = <AlertTriangle className="w-3.5 h-3.5 text-rose-500" />;
         } else if (rawType === 'KEY-INSIGHT' || rawType === 'KEY-TAKEAWAY') {
           calloutClass = 'callout-key-insight';
@@ -231,6 +231,8 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
       if (line.trim().startsWith('<details>') || line.trim().startsWith('<details')) {
         const detailLines: string[] = [];
         let summaryText = 'Show Solution';
+        const openSummary = line.match(/<summary>(.*?)<\/summary>/);
+        if (openSummary) summaryText = openSummary[1];
         i++;
         while (i < lines.length && !lines[i].trim().includes('</details>')) {
           const dl = lines[i];
