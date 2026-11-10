@@ -48,7 +48,7 @@ Open your browser at `http://localhost:3000`.
 
 - **Offline-First**: Runs entirely on your local machine using client-side MiniSearch index and `localStorage`.
 - **Command Palette (`Cmd + K`)**: Global fast search across all 60 chapters, headings, tags, and glossary definitions.
-- **Interactive Sandbox Code Blocks**: Copy code, trigger simulated runtime executions, and view output panels.
+- **Interactive Code Blocks**: Copy code and run Python (standard library + NumPy) in your browser via WebAssembly (Pyodide). Code that needs PyTorch, SciPy, etc. is not simulated: it tells you to run it locally.
 - **Interactive Quizzes**: Chapter-end quizzes with instant correctness feedback and deep-dive explanations.
 - **Reading Modes**: Toggle between **Standard**, **Focus (Learning Mode)**, and **Reference Mode**.
 - **Personal Notes & Bookmarks**: Store notes and bookmark lessons locally.

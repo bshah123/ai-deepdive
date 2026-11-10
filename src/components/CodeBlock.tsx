@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Copy, Check, Play, Terminal, Loader2, RotateCcw, Edit3, Eye, ChevronDown, ChevronUp, Cpu, Zap } from 'lucide-react';
-import { runPythonCode, PyExecutionResult } from '../utils/pyodideRunner';
+import { runPythonCode, findUnsupportedImports, PyExecutionResult } from '../utils/pyodideRunner';
 
 interface CodeBlockProps {
   language: string;
@@ -89,7 +89,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     }
   };
 
-  const isTorchOrAI = /import\s+(torch|transformers|vllm|faiss|triton|sentence_transformers|langchain|llama_index|scipy|sklearn|jax|cupy)/.test(currentCode);
+  const needsLocal = isPython && findUnsupportedImports(currentCode).length > 0;
 
   return (
     <div className="my-6 rounded-xl border border-slate-700/70 bg-slate-900/95 shadow-xl overflow-hidden text-slate-100 font-mono text-xs transition-all">
@@ -108,7 +108,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           {isPython && (
             <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 flex items-center gap-1">
               <Zap className="w-2.5 h-2.5 text-amber-400" />
-              {isTorchOrAI ? 'AI-simulated output (not a real run)' : 'Python 3.12 (WASM)'}
+              {needsLocal ? 'Run locally (not supported in browser)' : 'Python 3.12 (WASM)'}
             </span>
           )}
         </div>
@@ -222,12 +222,12 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
                       : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
                   }`}
                 >
-                  {execResult.success ? '✓ Exit Code: 0' : '✕ Traceback'}
+                  {execResult.success ? '✓ Exit Code: 0' : execResult.notRun ? 'Not run' : '✕ Traceback'}
                 </span>
               )}
               {execResult && (
                 <span className="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.2 rounded border border-slate-700/50">
-                  {execResult.engine === 'WASM (Python 3.12)' ? execResult.engine : 'AI-simulated, not a real run'} ({execResult.executionTimeMs}ms)
+                  {execResult.engine} ({execResult.executionTimeMs}ms)
                 </span>
               )}
             </div>
@@ -254,7 +254,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             {isRunning && (
               <div className="flex items-center gap-2 text-indigo-400 py-2">
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>{isTorchOrAI ? 'Asking an AI model to simulate this code (it is not executed)...' : 'Executing in Python 3.12 WASM sandbox...'}</span>
+                <span>Executing in Python 3.12 WASM sandbox...</span>
               </div>
             )}
 
