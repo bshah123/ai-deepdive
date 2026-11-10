@@ -7,9 +7,11 @@ import { parseInlineText } from '../utils/textParser';
 interface SidebarProps {
   parts: Part[];
   progress: UserProgress;
+  isCollapsed?: boolean;
+  onToggleCollapse?: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ parts, progress }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ parts, progress, isCollapsed = false, onToggleCollapse }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -24,8 +26,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ parts, progress }) => {
     setExpandedChapters(prev => ({ ...prev, [chapterId]: !prev[chapterId] }));
   };
 
+  if (isCollapsed) {
+    return null;
+  }
+
   return (
-    <aside className="w-72 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-y-auto h-[calc(100vh-3.5rem)] text-xs select-none">
+    <aside className="w-72 flex-shrink-0 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 overflow-y-auto h-[calc(100vh-3.5rem)] text-xs select-none transition-all duration-200">
       <div className="p-4 space-y-6">
         {/* Quick Course Portal Hub Link */}
         <Link
@@ -52,9 +58,21 @@ export const Sidebar: React.FC<SidebarProps> = ({ parts, progress }) => {
           <span className="font-bold text-slate-500 uppercase tracking-wider text-[10px]">
             Table of Contents (60 Chapters)
           </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 font-semibold">
-            {progress.completedLessons.length} Done
-          </span>
+          <div className="flex items-center space-x-1.5">
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 font-semibold">
+              {progress.completedLessons.length} Done
+            </span>
+            {onToggleCollapse && (
+              <button
+                onClick={onToggleCollapse}
+                className="p-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                title="Hide sidebar ([)"
+                aria-label="Hide sidebar"
+              >
+                <ChevronDown className="w-3.5 h-3.5 rotate-90" />
+              </button>
+            )}
+          </div>
         </div>
 
         {parts.map(part => (

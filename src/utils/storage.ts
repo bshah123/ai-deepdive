@@ -96,3 +96,11 @@ export function getStoredReadingMode(): ReadingMode {
 export function setStoredReadingMode(mode: ReadingMode): void {
   localStorage.setItem(MODE_KEY, mode);
 }
+
+export function getStoredSidebarCollapsed(): boolean {
+  return localStorage.getItem('ai_deepdive_sidebar_collapsed') === 'true';
+}
+
+export function setStoredSidebarCollapsed(collapsed: boolean): void {
+  localStorage.setItem('ai_deepdive_sidebar_collapsed', collapsed ? 'true' : 'false');
+}

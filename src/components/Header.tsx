@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Sun, Moon, Bookmark, BarChart2, BookOpen, Layers, Eye, Compass, GraduationCap, Sparkles } from 'lucide-react';
+import { Search, Sun, Moon, Bookmark, BarChart2, BookOpen, Layers, Eye, Compass, GraduationCap, Sparkles, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import { ReadingMode } from '../types/curriculum';
 
 interface HeaderProps {
@@ -9,6 +9,8 @@ interface HeaderProps {
   onToggleTheme: () => void;
   readingMode: ReadingMode;
   onChangeReadingMode: (mode: ReadingMode) => void;
+  isSidebarCollapsed?: boolean;
+  onToggleSidebar?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -16,7 +18,9 @@ export const Header: React.FC<HeaderProps> = ({
   theme,
   onToggleTheme,
   readingMode,
-  onChangeReadingMode
+  onChangeReadingMode,
+  isSidebarCollapsed = false,
+  onToggleSidebar
 }) => {
   const location = useLocation();
 
@@ -24,7 +28,22 @@ export const Header: React.FC<HeaderProps> = ({
     <header className="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md transition-colors">
       <div className="flex items-center justify-between h-14 px-4 max-w-7xl mx-auto">
         {/* Brand logo & tagline */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-3 sm:space-x-5">
+          {onToggleSidebar && (
+            <button
+              onClick={onToggleSidebar}
+              className="p-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              title={isSidebarCollapsed ? "Open navigation sidebar ([)" : "Close navigation sidebar ([)"}
+              aria-label={isSidebarCollapsed ? "Open sidebar" : "Close sidebar"}
+            >
+              {isSidebarCollapsed ? (
+                <PanelLeftOpen className="w-4 h-4 text-brand-600 dark:text-brand-400" />
+              ) : (
+                <PanelLeftClose className="w-4 h-4" />
+              )}
+            </button>
+          )}
+
           <Link to="/" className="flex items-center space-x-2.5 group">
             <div className="w-8 h-8 rounded-lg bg-brand-600 dark:bg-brand-500 flex items-center justify-center text-white font-bold text-base shadow-sm group-hover:scale-105 transition-transform">
               AI

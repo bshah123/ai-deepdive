@@ -20,7 +20,9 @@ import {
   getStoredTheme,
   setStoredTheme,
   getStoredReadingMode,
-  setStoredReadingMode
+  setStoredReadingMode,
+  getStoredSidebarCollapsed,
+  setStoredSidebarCollapsed
 } from './utils/storage';
 
 export const App: React.FC = () => {
@@ -28,6 +30,34 @@ export const App: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(getStoredTheme());
   const [readingMode, setReadingMode] = useState<ReadingMode>(getStoredReadingMode());
   const [progress, setProgress] = useState(getStoredProgress());
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState<boolean>(getStoredSidebarCollapsed());
+
+  const handleToggleSidebar = () => {
+    setIsSidebarCollapsed(prev => {
+      const next = !prev;
+      setStoredSidebarCollapsed(next);
+      return next;
+    });
+  };
+
+  // Keyboard shortcut: '[' toggles sidebar
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.target instanceof HTMLInputElement ||
+        e.target instanceof HTMLTextAreaElement ||
+        (e.target as HTMLElement)?.isContentEditable
+      ) {
+        return;
+      }
+      if (e.key === '[') {
+        e.preventDefault();
+        handleToggleSidebar();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Apply dark class to <html> tag
   useEffect(() => {
@@ -60,12 +90,19 @@ export const App: React.FC = () => {
           onToggleTheme={handleToggleTheme}
           readingMode={readingMode}
           onChangeReadingMode={handleChangeReadingMode}
+          isSidebarCollapsed={isSidebarCollapsed}
+          onToggleSidebar={handleToggleSidebar}
         />
 
         {/* Main Application Content Area */}
         <div className="flex-1 flex min-w-0">
           {/* Collapsible Left Sidebar */}
-          <Sidebar parts={curriculumData.parts as Part[]} progress={progress} />
+          <Sidebar
+            parts={curriculumData.parts as Part[]}
+            progress={progress}
+            isCollapsed={isSidebarCollapsed}
+            onToggleCollapse={handleToggleSidebar}
+          />
 
           {/* Main Route View */}
           <div
