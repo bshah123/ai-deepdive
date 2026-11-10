@@ -1,0 +1,599 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 550" role="img" aria-label="GPT-2 byte-to-character table: 188 bytes keep their own character, 68 are moved to U+0100 and up" class="sketch"><title>GPT-2 byte-to-character table: 188 bytes keep their own character, 68 are moved to U+0100 and up</title>
+<g style="font-variant-ligatures:none;font-feature-settings:'liga' 0,'calt' 0">
+<text x="270" y="30" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="270" dy="0">all 256 byte values, as 16 rows × 16 columns</tspan></text>
+<text x="44" y="83" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">0_</tspan></text>
+<text x="67.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="67.5" dy="0">_0</tspan></text>
+<text x="44" y="110" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">1_</tspan></text>
+<text x="94.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="94.5" dy="0">_1</tspan></text>
+<text x="44" y="137" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">2_</tspan></text>
+<text x="121.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="121.5" dy="0">_2</tspan></text>
+<text x="44" y="164" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">3_</tspan></text>
+<text x="148.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="148.5" dy="0">_3</tspan></text>
+<text x="44" y="191" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">4_</tspan></text>
+<text x="175.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="175.5" dy="0">_4</tspan></text>
+<text x="44" y="218" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">5_</tspan></text>
+<text x="202.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="202.5" dy="0">_5</tspan></text>
+<text x="44" y="245" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">6_</tspan></text>
+<text x="229.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="229.5" dy="0">_6</tspan></text>
+<text x="44" y="272" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">7_</tspan></text>
+<text x="256.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="256.5" dy="0">_7</tspan></text>
+<text x="44" y="299" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">8_</tspan></text>
+<text x="283.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="283.5" dy="0">_8</tspan></text>
+<text x="44" y="326" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">9_</tspan></text>
+<text x="310.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="310.5" dy="0">_9</tspan></text>
+<text x="44" y="353" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">A_</tspan></text>
+<text x="337.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="337.5" dy="0">_A</tspan></text>
+<text x="44" y="380" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">B_</tspan></text>
+<text x="364.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="364.5" dy="0">_B</tspan></text>
+<text x="44" y="407" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">C_</tspan></text>
+<text x="391.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="391.5" dy="0">_C</tspan></text>
+<text x="44" y="434" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">D_</tspan></text>
+<text x="418.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="418.5" dy="0">_D</tspan></text>
+<text x="44" y="461" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">E_</tspan></text>
+<text x="445.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="445.5" dy="0">_E</tspan></text>
+<text x="44" y="488" class="sk-mono" font-size="12" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="44" dy="0">F_</tspan></text>
+<text x="472.5" y="56" class="sk-mono" font-size="12" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="472.5" dy="0">_F</tspan></text>
+<rect x="54" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="81" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="108" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="135" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="162" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="189" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="216" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="243" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="270" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="297" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="324" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="351" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="378" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="405" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="432" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="459" y="64" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="54" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="81" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="108" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="135" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="162" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="189" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="216" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="243" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="270" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="297" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="324" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="351" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="378" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="405" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="432" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="459" y="91" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="54" y="118" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="81" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="118" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="145" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="172" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="199" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="226" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="253" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="253" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="54" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="81" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="108" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="135" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="162" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="189" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="216" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="243" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="270" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="297" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="324" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="351" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="378" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="405" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="432" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="459" y="280" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="54" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="81" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="108" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="135" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="162" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="189" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="216" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="243" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="270" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="297" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="324" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="351" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="378" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="405" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="432" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="459" y="307" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="54" y="334" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="81" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="334" width="27" height="27" style="fill:var(--sk-amber-soft);stroke:none"/>
+<rect x="432" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="334" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="361" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="388" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="415" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="442" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="54" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="81" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="108" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="135" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="162" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="189" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="216" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="243" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="270" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="297" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="324" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="351" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="378" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="405" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="432" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<rect x="459" y="469" width="27" height="27" style="fill:var(--sk-blue-soft);stroke:none"/>
+<path d="M54.0 64.2 C144.3 63.2, 236.2 62.6, 486.2 63.8 M54.2 63.8 C146.2 65.4, 238.7 65.1, 486.0 64.1 M486.3 63.6 C487.2 164.0, 487.6 265.2, 486.0 495.9 M486.1 63.8 C486.9 222.5, 486.8 381.3, 485.8 495.9 M486.1 495.4 C328.8 496.4, 171.7 496.4, 54.1 495.6 M486.3 496.2 C398.2 494.3, 310.0 494.5, 54.2 495.9 M53.6 495.8 C55.8 354.6, 55.3 214.2, 54.2 63.4 M54.2 496.3 C55.1 380.9, 55.3 265.3, 54.1 63.7" style="stroke:var(--sk-ink);fill:none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.6 90.9 C144.8 91.3, 235.5 90.9, 486.5 91.5 M53.7 91.2 C155.9 90.1, 257.5 90.2, 486.1 91.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.5 117.6 C145.4 119.3, 235.9 119.3, 485.7 118.0 M53.8 118.0 C164.9 117.9, 275.7 117.8, 486.3 117.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.2 145.5 C144.6 144.1, 236.4 144.5, 486.1 144.5 M53.9 144.7 C174.0 145.8, 294.5 145.5, 485.8 144.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.8 172.2 C145.2 172.1, 235.6 172.8, 486.4 172.3 M54.0 172.1 C183.0 170.4, 312.6 170.6, 485.9 171.8" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.5 198.9 C144.5 198.2, 236.0 198.0, 485.6 198.8 M54.1 198.9 C192.7 198.3, 331.4 198.3, 486.0 198.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.4 225.5 C145.0 226.2, 236.5 226.3, 485.9 226.5 M54.2 226.3 C201.7 226.1, 349.6 226.6, 486.2 226.3" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.0 253.5 C145.5 254.2, 235.7 254.7, 486.3 253.0 M53.7 253.0 C210.8 254.0, 367.7 254.3, 486.3 253.2" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.6 280.1 C144.8 279.0, 236.1 279.9, 485.4 279.5 M53.8 279.8 C220.5 279.2, 386.5 278.7, 485.8 280.1" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.5 306.8 C145.3 307.0, 235.3 308.2, 485.8 307.3 M53.9 307.2 C143.1 307.1, 231.9 307.0, 485.9 307.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.2 333.5 C144.6 333.1, 235.8 332.1, 486.2 333.8 M54.1 334.0 C152.2 334.9, 250.7 334.7, 486.1 334.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.8 361.4 C145.1 361.1, 236.2 360.5, 486.6 361.5 M54.2 360.8 C161.2 359.6, 268.8 359.8, 486.2 360.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.5 388.1 C144.4 389.1, 235.4 388.8, 485.7 388.0 M54.3 388.1 C170.9 387.4, 287.6 387.5, 485.7 387.8" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.4 414.8 C144.9 413.9, 235.9 414.0, 486.1 414.5 M53.8 414.9 C179.9 415.3, 305.8 415.2, 485.8 414.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M54.0 441.5 C145.4 443.2, 236.3 442.4, 486.4 442.2 M53.9 441.7 C189.0 443.1, 324.6 443.4, 486.0 442.3" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.6 469.4 C144.7 468.0, 235.6 467.5, 485.6 468.8 M54.0 469.1 C198.6 467.8, 342.7 467.9, 486.1 469.2" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M81.5 64.1 C82.0 155.1, 81.9 245.9, 81.0 496.5 M81.1 63.9 C80.7 217.4, 80.9 371.0, 81.2 496.1" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M108.2 63.7 C108.6 154.8, 109.6 246.0, 108.3 496.0 M108.2 64.2 C108.8 226.6, 108.9 389.8, 107.7 496.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M134.8 63.4 C136.4 154.5, 136.1 246.0, 134.5 495.5 M135.3 64.0 C133.6 235.8, 133.6 408.0, 134.9 496.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M161.5 64.3 C164.2 155.5, 163.8 246.1, 161.8 496.2 M161.8 63.8 C162.3 159.1, 162.2 254.1, 162.0 495.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M189.4 64.0 C187.5 155.3, 187.1 246.2, 189.2 495.7 M188.9 64.2 C190.4 168.3, 190.1 272.3, 189.1 495.8" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M216.0 63.7 C215.3 155.0, 214.8 246.3, 216.6 496.5 M216.0 64.0 C215.2 177.5, 215.5 290.5, 216.2 495.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M242.6 64.6 C241.9 154.7, 242.5 246.4, 242.7 496.0 M243.1 63.7 C243.9 186.6, 243.5 309.3, 242.8 496.3" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M270.5 64.3 C269.7 154.5, 269.0 246.5, 270.1 495.5 M270.2 64.1 C268.8 195.8, 268.8 327.5, 269.9 496.2" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M297.2 64.0 C296.2 155.5, 296.7 245.3, 297.5 496.2 M296.7 63.9 C296.8 205.0, 296.8 345.8, 297.0 496.1" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M323.8 63.6 C324.0 155.2, 324.4 245.4, 323.6 495.7 M323.8 64.3 C324.9 214.1, 325.3 364.6, 324.1 496.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M350.5 64.6 C351.8 155.0, 350.9 245.5, 351.0 496.5 M350.9 64.1 C350.4 223.3, 350.1 382.8, 351.3 496.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M378.4 64.2 C378.4 154.7, 378.6 245.6, 378.3 496.0 M378.0 63.8 C378.4 232.5, 378.7 401.6, 377.8 495.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M405.0 63.9 C406.2 154.4, 406.3 245.7, 404.5 495.5 M405.2 64.2 C403.3 155.2, 403.4 247.1, 404.9 495.8" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M431.6 63.6 C432.7 155.4, 432.8 245.8, 431.9 496.2 M432.3 64.0 C432.0 165.0, 431.4 265.3, 432.0 495.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M459.5 64.5 C460.5 155.2, 460.5 245.9, 459.2 495.7 M458.8 63.8 C460.0 174.2, 459.9 284.1, 459.2 496.3" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="67.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="67.5" dy="0">Ā</tspan></text>
+<text x="94.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="94.5" dy="0">ā</tspan></text>
+<text x="121.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="121.5" dy="0">Ă</tspan></text>
+<text x="148.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="148.5" dy="0">ă</tspan></text>
+<text x="175.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="175.5" dy="0">Ą</tspan></text>
+<text x="202.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="202.5" dy="0">ą</tspan></text>
+<text x="229.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="229.5" dy="0">Ć</tspan></text>
+<text x="256.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="256.5" dy="0">ć</tspan></text>
+<text x="283.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="283.5" dy="0">Ĉ</tspan></text>
+<text x="310.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="310.5" dy="0">ĉ</tspan></text>
+<text x="337.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="337.5" dy="0">Ċ</tspan></text>
+<text x="364.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="364.5" dy="0">ċ</tspan></text>
+<text x="391.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="391.5" dy="0">Č</tspan></text>
+<text x="418.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="418.5" dy="0">č</tspan></text>
+<text x="445.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="445.5" dy="0">Ď</tspan></text>
+<text x="472.5" y="83" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="472.5" dy="0">ď</tspan></text>
+<text x="67.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="67.5" dy="0">Đ</tspan></text>
+<text x="94.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="94.5" dy="0">đ</tspan></text>
+<text x="121.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="121.5" dy="0">Ē</tspan></text>
+<text x="148.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="148.5" dy="0">ē</tspan></text>
+<text x="175.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="175.5" dy="0">Ĕ</tspan></text>
+<text x="202.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="202.5" dy="0">ĕ</tspan></text>
+<text x="229.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="229.5" dy="0">Ė</tspan></text>
+<text x="256.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="256.5" dy="0">ė</tspan></text>
+<text x="283.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="283.5" dy="0">Ę</tspan></text>
+<text x="310.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="310.5" dy="0">ę</tspan></text>
+<text x="337.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="337.5" dy="0">Ě</tspan></text>
+<text x="364.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="364.5" dy="0">ě</tspan></text>
+<text x="391.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="391.5" dy="0">Ĝ</tspan></text>
+<text x="418.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="418.5" dy="0">ĝ</tspan></text>
+<text x="445.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="445.5" dy="0">Ğ</tspan></text>
+<text x="472.5" y="110" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="472.5" dy="0">ğ</tspan></text>
+<text x="67.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="67.5" dy="0">Ġ</tspan></text>
+<text x="94.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">!</tspan></text>
+<text x="121.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">"</tspan></text>
+<text x="148.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">#</tspan></text>
+<text x="175.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">$</tspan></text>
+<text x="202.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">%</tspan></text>
+<text x="229.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">&amp;</tspan></text>
+<text x="256.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">'</tspan></text>
+<text x="283.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">(</tspan></text>
+<text x="310.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">)</tspan></text>
+<text x="337.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">*</tspan></text>
+<text x="364.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">+</tspan></text>
+<text x="391.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">,</tspan></text>
+<text x="418.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">-</tspan></text>
+<text x="445.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">.</tspan></text>
+<text x="472.5" y="137" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">/</tspan></text>
+<text x="67.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">0</tspan></text>
+<text x="94.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">1</tspan></text>
+<text x="121.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">2</tspan></text>
+<text x="148.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">3</tspan></text>
+<text x="175.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">4</tspan></text>
+<text x="202.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">5</tspan></text>
+<text x="229.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">6</tspan></text>
+<text x="256.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">7</tspan></text>
+<text x="283.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">8</tspan></text>
+<text x="310.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">9</tspan></text>
+<text x="337.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">:</tspan></text>
+<text x="364.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">;</tspan></text>
+<text x="391.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">&lt;</tspan></text>
+<text x="418.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">=</tspan></text>
+<text x="445.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">&gt;</tspan></text>
+<text x="472.5" y="164" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">?</tspan></text>
+<text x="67.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">@</tspan></text>
+<text x="94.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">A</tspan></text>
+<text x="121.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">B</tspan></text>
+<text x="148.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">C</tspan></text>
+<text x="175.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">D</tspan></text>
+<text x="202.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">E</tspan></text>
+<text x="229.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">F</tspan></text>
+<text x="256.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">G</tspan></text>
+<text x="283.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">H</tspan></text>
+<text x="310.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">I</tspan></text>
+<text x="337.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">J</tspan></text>
+<text x="364.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">K</tspan></text>
+<text x="391.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">L</tspan></text>
+<text x="418.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">M</tspan></text>
+<text x="445.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">N</tspan></text>
+<text x="472.5" y="191" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">O</tspan></text>
+<text x="67.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">P</tspan></text>
+<text x="94.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">Q</tspan></text>
+<text x="121.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">R</tspan></text>
+<text x="148.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">S</tspan></text>
+<text x="175.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">T</tspan></text>
+<text x="202.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">U</tspan></text>
+<text x="229.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">V</tspan></text>
+<text x="256.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">W</tspan></text>
+<text x="283.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">X</tspan></text>
+<text x="310.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">Y</tspan></text>
+<text x="337.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">Z</tspan></text>
+<text x="364.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">[</tspan></text>
+<text x="391.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">\</tspan></text>
+<text x="418.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">]</tspan></text>
+<text x="445.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">^</tspan></text>
+<text x="472.5" y="218" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">_</tspan></text>
+<text x="67.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">`</tspan></text>
+<text x="94.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">a</tspan></text>
+<text x="121.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">b</tspan></text>
+<text x="148.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">c</tspan></text>
+<text x="175.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">d</tspan></text>
+<text x="202.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">e</tspan></text>
+<text x="229.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">f</tspan></text>
+<text x="256.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">g</tspan></text>
+<text x="283.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">h</tspan></text>
+<text x="310.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">i</tspan></text>
+<text x="337.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">j</tspan></text>
+<text x="364.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">k</tspan></text>
+<text x="391.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">l</tspan></text>
+<text x="418.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">m</tspan></text>
+<text x="445.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">n</tspan></text>
+<text x="472.5" y="245" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">o</tspan></text>
+<text x="67.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">p</tspan></text>
+<text x="94.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">q</tspan></text>
+<text x="121.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">r</tspan></text>
+<text x="148.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">s</tspan></text>
+<text x="175.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">t</tspan></text>
+<text x="202.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">u</tspan></text>
+<text x="229.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">v</tspan></text>
+<text x="256.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">w</tspan></text>
+<text x="283.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">x</tspan></text>
+<text x="310.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">y</tspan></text>
+<text x="337.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">z</tspan></text>
+<text x="364.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">{</tspan></text>
+<text x="391.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">|</tspan></text>
+<text x="418.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">}</tspan></text>
+<text x="445.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">~</tspan></text>
+<text x="472.5" y="272" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="472.5" dy="0">ġ</tspan></text>
+<text x="67.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="67.5" dy="0">Ģ</tspan></text>
+<text x="94.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="94.5" dy="0">ģ</tspan></text>
+<text x="121.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="121.5" dy="0">Ĥ</tspan></text>
+<text x="148.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="148.5" dy="0">ĥ</tspan></text>
+<text x="175.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="175.5" dy="0">Ħ</tspan></text>
+<text x="202.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="202.5" dy="0">ħ</tspan></text>
+<text x="229.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="229.5" dy="0">Ĩ</tspan></text>
+<text x="256.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="256.5" dy="0">ĩ</tspan></text>
+<text x="283.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="283.5" dy="0">Ī</tspan></text>
+<text x="310.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="310.5" dy="0">ī</tspan></text>
+<text x="337.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="337.5" dy="0">Ĭ</tspan></text>
+<text x="364.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="364.5" dy="0">ĭ</tspan></text>
+<text x="391.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="391.5" dy="0">Į</tspan></text>
+<text x="418.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="418.5" dy="0">į</tspan></text>
+<text x="445.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="445.5" dy="0">İ</tspan></text>
+<text x="472.5" y="299" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="472.5" dy="0">ı</tspan></text>
+<text x="67.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="67.5" dy="0">Ĳ</tspan></text>
+<text x="94.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="94.5" dy="0">ĳ</tspan></text>
+<text x="121.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="121.5" dy="0">Ĵ</tspan></text>
+<text x="148.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="148.5" dy="0">ĵ</tspan></text>
+<text x="175.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="175.5" dy="0">Ķ</tspan></text>
+<text x="202.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="202.5" dy="0">ķ</tspan></text>
+<text x="229.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="229.5" dy="0">ĸ</tspan></text>
+<text x="256.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="256.5" dy="0">Ĺ</tspan></text>
+<text x="283.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="283.5" dy="0">ĺ</tspan></text>
+<text x="310.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="310.5" dy="0">Ļ</tspan></text>
+<text x="337.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="337.5" dy="0">ļ</tspan></text>
+<text x="364.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="364.5" dy="0">Ľ</tspan></text>
+<text x="391.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="391.5" dy="0">ľ</tspan></text>
+<text x="418.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="418.5" dy="0">Ŀ</tspan></text>
+<text x="445.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="445.5" dy="0">ŀ</tspan></text>
+<text x="472.5" y="326" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="472.5" dy="0">Ł</tspan></text>
+<text x="67.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="67.5" dy="0">ł</tspan></text>
+<text x="94.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">¡</tspan></text>
+<text x="121.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">¢</tspan></text>
+<text x="148.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">£</tspan></text>
+<text x="175.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">¤</tspan></text>
+<text x="202.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">¥</tspan></text>
+<text x="229.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">¦</tspan></text>
+<text x="256.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">§</tspan></text>
+<text x="283.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">¨</tspan></text>
+<text x="310.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">©</tspan></text>
+<text x="337.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">ª</tspan></text>
+<text x="364.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">«</tspan></text>
+<text x="391.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">¬</tspan></text>
+<text x="418.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="418.5" dy="0">Ń</tspan></text>
+<text x="445.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">®</tspan></text>
+<text x="472.5" y="353" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">¯</tspan></text>
+<text x="67.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">°</tspan></text>
+<text x="94.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">±</tspan></text>
+<text x="121.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">²</tspan></text>
+<text x="148.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">³</tspan></text>
+<text x="175.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">´</tspan></text>
+<text x="202.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">µ</tspan></text>
+<text x="229.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">¶</tspan></text>
+<text x="256.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">·</tspan></text>
+<text x="283.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">¸</tspan></text>
+<text x="310.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">¹</tspan></text>
+<text x="337.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">º</tspan></text>
+<text x="364.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">»</tspan></text>
+<text x="391.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">¼</tspan></text>
+<text x="418.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">½</tspan></text>
+<text x="445.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">¾</tspan></text>
+<text x="472.5" y="380" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">¿</tspan></text>
+<text x="67.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">À</tspan></text>
+<text x="94.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">Á</tspan></text>
+<text x="121.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">Â</tspan></text>
+<text x="148.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">Ã</tspan></text>
+<text x="175.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">Ä</tspan></text>
+<text x="202.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">Å</tspan></text>
+<text x="229.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">Æ</tspan></text>
+<text x="256.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">Ç</tspan></text>
+<text x="283.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">È</tspan></text>
+<text x="310.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">É</tspan></text>
+<text x="337.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">Ê</tspan></text>
+<text x="364.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">Ë</tspan></text>
+<text x="391.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">Ì</tspan></text>
+<text x="418.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">Í</tspan></text>
+<text x="445.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">Î</tspan></text>
+<text x="472.5" y="407" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">Ï</tspan></text>
+<text x="67.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">Ð</tspan></text>
+<text x="94.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">Ñ</tspan></text>
+<text x="121.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">Ò</tspan></text>
+<text x="148.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">Ó</tspan></text>
+<text x="175.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">Ô</tspan></text>
+<text x="202.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">Õ</tspan></text>
+<text x="229.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">Ö</tspan></text>
+<text x="256.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">×</tspan></text>
+<text x="283.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">Ø</tspan></text>
+<text x="310.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">Ù</tspan></text>
+<text x="337.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">Ú</tspan></text>
+<text x="364.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">Û</tspan></text>
+<text x="391.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">Ü</tspan></text>
+<text x="418.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">Ý</tspan></text>
+<text x="445.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">Þ</tspan></text>
+<text x="472.5" y="434" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">ß</tspan></text>
+<text x="67.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">à</tspan></text>
+<text x="94.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">á</tspan></text>
+<text x="121.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">â</tspan></text>
+<text x="148.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">ã</tspan></text>
+<text x="175.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">ä</tspan></text>
+<text x="202.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">å</tspan></text>
+<text x="229.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">æ</tspan></text>
+<text x="256.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">ç</tspan></text>
+<text x="283.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">è</tspan></text>
+<text x="310.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">é</tspan></text>
+<text x="337.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">ê</tspan></text>
+<text x="364.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">ë</tspan></text>
+<text x="391.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">ì</tspan></text>
+<text x="418.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">í</tspan></text>
+<text x="445.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">î</tspan></text>
+<text x="472.5" y="461" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">ï</tspan></text>
+<text x="67.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="67.5" dy="0">ð</tspan></text>
+<text x="94.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="94.5" dy="0">ñ</tspan></text>
+<text x="121.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="121.5" dy="0">ò</tspan></text>
+<text x="148.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="148.5" dy="0">ó</tspan></text>
+<text x="175.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="175.5" dy="0">ô</tspan></text>
+<text x="202.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="202.5" dy="0">õ</tspan></text>
+<text x="229.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="229.5" dy="0">ö</tspan></text>
+<text x="256.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="256.5" dy="0">÷</tspan></text>
+<text x="283.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="283.5" dy="0">ø</tspan></text>
+<text x="310.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="310.5" dy="0">ù</tspan></text>
+<text x="337.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="337.5" dy="0">ú</tspan></text>
+<text x="364.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="364.5" dy="0">û</tspan></text>
+<text x="391.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="391.5" dy="0">ü</tspan></text>
+<text x="418.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="418.5" dy="0">ý</tspan></text>
+<text x="445.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="445.5" dy="0">þ</tspan></text>
+<text x="472.5" y="488" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="472.5" dy="0">ÿ</tspan></text>
+<path d="M322.4 62.4 C327.2 61.8, 336.4 61.9, 354.4 63.0 M321.7 62.4 C330.5 62.5, 338.6 62.0, 353.7 62.5 M352.1 60.8 C352.7 72.5, 351.9 84.7, 353.9 92.2 M353.5 61.7 C352.2 70.7, 353.3 79.5, 353.6 92.8 M352.2 94.0 C346.6 94.1, 338.9 93.4, 321.6 93.0 M353.5 92.5 C344.5 93.4, 337.4 93.5, 322.5 92.9 M320.9 93.4 C320.8 86.9, 321.1 79.2, 322.7 61.2 M322.2 93.6 C321.5 81.7, 321.8 71.9, 322.6 62.5" style="stroke:var(--sk-rose);fill:none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M51.6 115.7 C58.4 115.4, 64.6 116.3, 82.4 115.9 M51.9 115.8 C60.7 116.5, 70.7 115.6, 82.6 116.3 M81.8 115.0 C82.2 129.3, 81.9 140.0, 83.5 147.0 M83.0 115.8 C83.4 126.9, 82.5 138.5, 83.2 146.3 M84.3 146.4 C75.4 146.5, 65.4 145.5, 51.5 148.2 M83.6 147.1 C75.9 147.1, 68.8 147.1, 52.4 147.7 M51.8 145.8 C53.1 138.5, 52.3 129.3, 51.7 115.7 M51.6 147.6 C51.3 137.1, 51.8 128.2, 52.2 116.5" style="stroke:var(--sk-rose);fill:none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M518.8 83.0 C526.5 82.5, 531.5 84.2, 546.2 82.8 M520.2 83.3 C528.8 84.1, 536.1 84.2, 545.9 84.1 M547.3 83.2 C544.7 89.2, 544.8 93.2, 546.0 106.8 M545.5 83.9 C545.7 88.9, 545.5 93.6, 545.8 106.3 M546.7 106.7 C538.7 106.8, 530.4 105.4, 519.3 105.5 M546.6 106.7 C539.9 105.4, 535.2 106.6, 520.4 106.0 M520.7 106.0 C520.7 98.7, 518.6 88.7, 518.7 84.3 M520.5 106.6 C519.6 99.9, 520.5 94.4, 519.9 84.5" style="stroke:var(--sk-rose);fill:none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="558" y="102" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="558" dy="0">two examples (rose boxes):</tspan></text>
+<text x="558" y="130" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="558" dy="0">row 0_, col _A: newline 0x0A → Ċ</tspan></text>
+<text x="558" y="156" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="558" dy="0">row 2_, col _0: space 0x20 → Ġ</tspan></text>
+<path d="M520.1 208.8 L544.6 208.5 L546.6 232.1 L518.6 231.3" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M521.4 211.8 C524.4 211.6, 528.8 211.0, 547.9 210.8 M520.7 210.4 C529.1 210.1, 538.3 209.6, 546.3 209.9 M547.7 208.9 C547.0 215.0, 548.1 220.3, 545.3 229.9 M546.7 210.1 C546.8 216.6, 545.2 223.7, 544.9 231.7 M546.0 230.5 C537.1 230.8, 529.3 232.5, 518.7 233.0 M547.1 231.7 C536.0 232.9, 525.9 232.2, 520.6 230.9 M518.0 234.1 C520.3 223.9, 519.5 217.4, 520.9 211.4 M519.9 233.0 C519.7 227.0, 519.5 222.3, 519.1 210.8" style="stroke:var(--sk-blue);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="558" y="228" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="558" dy="0">188 printable bytes keep their character</tspan></text>
+<path d="M520.6 248.5 L548.2 246.2 L544.5 270.3 L522.1 268.7" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M520.0 248.6 C526.5 248.1, 530.5 248.8, 544.5 246.9 M521.2 247.5 C528.9 248.1, 538.3 249.3, 546.8 247.6 M547.1 247.2 C546.1 252.5, 548.0 259.5, 544.6 269.2 M545.9 248.4 C546.3 256.2, 546.0 263.5, 546.6 268.9 M544.8 270.7 C535.5 270.9, 528.9 272.0, 518.5 268.1 M547.2 270.8 C537.7 269.7, 526.9 271.1, 520.5 270.1 M519.5 269.4 C519.5 260.5, 521.5 254.2, 519.3 245.6 M518.9 271.0 C520.1 261.8, 520.5 253.2, 520.8 248.8" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="558" y="266" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="558" dy="0">68 bytes (controls, space, 0x7F–0xA0, 0xAD)</tspan></text>
+<text x="558" y="288" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="558" dy="0">move to U+0100 … U+0143</tspan></text>
+<g transform="rotate(1 685 376)">
+<path d="M520.8 331.6 L850.8 328.5 L850.9 422.5 L520.6 420.6" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M519.3 329.7 C588.6 329.5, 659.7 330.5, 850.0 330.9 M519.6 330.5 C645.7 328.0, 772.9 328.3, 849.4 329.6 M850.4 329.6 C849.6 352.8, 851.6 379.3, 848.4 422.4 M849.3 330.5 C849.2 351.5, 849.9 372.9, 849.9 422.4 M848.8 421.0 C742.4 420.1, 633.2 420.4, 519.1 422.0 M849.4 421.7 C738.7 420.5, 627.4 419.9, 520.2 421.5 M520.8 423.1 C519.6 398.2, 519.5 374.3, 521.8 328.9 M520.3 422.7 C520.7 389.4, 519.7 356.0, 520.1 330.6" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="534" y="357" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="534" dy="0">Why? Every token stays a printable</tspan><tspan x="534" dy="20.900000000000002">string, and the map is one-to-one,</tspan><tspan x="534" dy="20.900000000000002">so decoding gives back the exact bytes.</tspan></text>
+</g>
+<text x="270" y="530" class="sk-mono" font-size="14" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="270" dy="0">é = bytes C3 A9 → "Ã©"    space+cat → "Ġcat"</tspan></text>
+</g>
+</svg>

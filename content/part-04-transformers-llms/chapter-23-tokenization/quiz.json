@@ -1,54 +1,126 @@
 {
   "chapterId": "chapter-23",
-  "title": "Chapter 23 Quiz \u2014 Tokenization",
+  "title": "Chapter 23 Quiz — Tokenization",
   "questions": [
     {
       "id": "q23.1",
-      "question": "What is the primary architectural mechanism in Tokenization?",
+      "question": "Train BPE on the toy corpus low ×5, lower ×2, newest ×6, widest ×3 (each word split into characters plus `</w>`). Before any merge, the pair `w e` has count 8. Merge 1 is `e + s`. What is the count of `w e` after that merge?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        { "id": "a", "text": "8: a merge only adds the new symbol `es`, it does not change other pair counts" },
+        { "id": "b", "text": "6: only the occurrences in \"lower\" disappear" },
+        { "id": "c", "text": "2: \"newest\" became `n e w es t </w>`, so `w e` survives only in \"lower\"" },
+        { "id": "d", "text": "0: every `e` that followed a `w` was absorbed into `es`" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Tokenization, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "In \"newest\" the `e` after `w` is the one that merged with `s`, so those 6 occurrences of `w e` are gone; the 2 in \"lower\" remain. This is why BPE must recount after every merge, and why merge 4 is `l + o` (7), not `w + e` (Lesson 23.1)."
     },
     {
       "id": "q23.2",
-      "question": "How does Tokenization optimize performance in modern AI systems?",
+      "question": "You train a byte-level BPE starting from the 256 single-byte tokens. The final vocabulary must have exactly 32,000 entries, including 4 special tokens that you add by hand. How many merges must training learn?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        { "id": "a", "text": "31,740" },
+        { "id": "b", "text": "31,744" },
+        { "id": "c", "text": "31,996" },
+        { "id": "d", "text": "32,000" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "a",
+      "explanation": "Each merge adds exactly one entry, so vocabulary size = starting alphabet + merges + hand-added special tokens. 32,000 − 256 − 4 = 31,740. GPT-2 follows the same arithmetic: 50,257 entries = 256 bytes + 50,000 merges + 1 special token, <|endoftext|> (Lesson 23.1)."
+    },
+    {
+      "id": "q23.3",
+      "question": "In the same toy corpus without `</w>` (WordPiece style: `l ##o ##w`, ...), `##e ##s` occurs 9 times, `##e` 17 times and `##s` 9 times; `w ##i` occurs 3 times, and `w` and `##i` each occur 3 times. Using the score count(ab) / (count(a)·count(b)), which pair does WordPiece merge first?",
+      "options": [
+        { "id": "a", "text": "`##e ##s`, because its count of 9 is higher" },
+        { "id": "b", "text": "`##s ##t`: it ties `##e ##s` at count 9 but has the higher score, 9 / 81 = 0.111" },
+        { "id": "c", "text": "Neither: the two scores tie, so the first pair seen wins" },
+        { "id": "d", "text": "`w ##i`: its score is 3 / 9 = 0.333, against 9 / 153 = 0.059 for `##e ##s`" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The score divides by the product of the parts' counts, so it rewards pairs whose parts rarely occur apart. `w` and `##i` never appear apart, giving 0.333, the top score (tied with `##i ##d`, and seen first); `##e` is common everywhere, so `##e ##s` gets only 0.059. Option a is the BPE rule, which does pick `##e ##s` first (Lesson 23.2)."
+    },
+    {
+      "id": "q23.4",
+      "question": "A WordPiece vocabulary contains `un`, `##aff`, `##able`, `aff`, `u`, `b`, `##u`, `##n`, `##s` and `[UNK]`, but no piece containing `z`. What does greedy longest-match-first encoding return for the word \"unzip\"?",
+      "options": [
+        { "id": "a", "text": "`['un', '[UNK]']`: only the part that cannot be matched becomes unknown" },
+        { "id": "b", "text": "`['[UNK]']`: the whole word becomes one unknown token" },
+        { "id": "c", "text": "`['un', '[UNK]', '[UNK]', '[UNK]']`: one unknown token per unmatched character" },
+        { "id": "d", "text": "`['u', '##n', '[UNK]']`: the matcher backs off to single characters before giving up" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "`un` matches, then nothing matches at position 2 (no `##z...` piece), and BERT's WordPiece then gives up on the whole word and outputs a single `[UNK]`. The matcher never backtracks. BPE with an unknown token would mark only the unknown characters, as the pipeline in Lesson 23.3 does (Lesson 23.2)."
+    },
+    {
+      "id": "q23.5",
+      "question": "A Unigram model has p(hug) = 0.15, p(s) = 0.10, p(hu) = 0.05, p(gs) = 0.05, p(ug) = 0.10 and p(h) = p(u) = p(g) = 0.05, so Viterbi encodes \"hugs\" as `hug s`. If p(hug) drops to 0.02 and every other probability stays fixed, what does Viterbi return?",
+      "options": [
+        { "id": "a", "text": "`hug s`: the longest piece always wins" },
+        { "id": "b", "text": "`h ug s`, with probability 0.0005" },
+        { "id": "c", "text": "`hu gs`: 0.05 × 0.05 = 0.0025 now beats 0.02 × 0.10 = 0.002" },
+        { "id": "d", "text": "`h u g s`: with `hug` this unlikely, the model falls back to characters" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Viterbi picks the segmentation with the highest product of piece probabilities. `hug s` wins only while 0.10 · p(hug) > 0.0025, i.e. p(hug) > 0.025. At 0.02 it scores 0.002, below `hu gs` at 0.0025; the other segmentations stay at or below 0.0005 (Lesson 23.2)."
+    },
+    {
+      "id": "q23.6",
+      "question": "A SentencePiece Unigram model, trained on sentences whose names never contain the letter Z, encodes \"Zoe\" with `out_type=str` as `['▁', 'Z', 'o', 'e']`. Decoding the ids gives ' ⁇ oe'. What is going on?",
+      "options": [
+        { "id": "a", "text": "The piece string shows `Z`, but its id is 0, the unknown id; the model never sees a Z. Byte fallback would spell it as UTF-8 byte tokens instead" },
+        { "id": "b", "text": "The default `nmt_nfkc` normalization rewrote Z into a compatibility character that has no piece" },
+        { "id": "c", "text": "Z was split into its UTF-8 bytes, and the decoder cannot join bytes back together" },
+        { "id": "d", "text": "Sampling was left on, so a rare segmentation was drawn for this call" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "In the lesson's run, `sp.encode(\"Zoe\")` returns [3, 0, 16, 8] and `sp.unk_id()` is 0. The piece string hides the problem; the id and the decoded ⁇ (the default `unk_surface`) reveal it. Byte fallback, which LLaMA enables, decomposes unknown characters into `<0xNN>` byte tokens (Lessons 23.2 and 23.3)."
+    },
+    {
+      "id": "q23.7",
+      "question": "A colleague says: \"LLaMA's tokenizer is a SentencePiece model, so it is a Unigram language model and supports subword sampling.\" What is wrong with this?",
+      "options": [
+        { "id": "a", "text": "Nothing: SentencePiece is the name of Kudo's Unigram algorithm" },
+        { "id": "b", "text": "SentencePiece is a WordPiece implementation, so LLaMA uses `##` continuation pieces" },
+        { "id": "c", "text": "SentencePiece only works for languages written without spaces" },
+        { "id": "d", "text": "SentencePiece is a library that implements both BPE and Unigram; the original LLaMA uses its BPE mode, so check `model_type` first" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "WordPiece and Unigram are algorithms; SentencePiece is a library whose `model_type` can be \"unigram\" (the default) or \"bpe\". Touvron et al. (2023) say LLaMA uses BPE with the SentencePiece implementation, while T5's released model records UNIGRAM. Probabilities over segmentations, and so sampling, come from the Unigram model (Lesson 23.2)."
+    },
+    {
+      "id": "q23.8",
+      "question": "A tokenizer knows the characters `t` and `h`, plus all 256 byte tokens `<0x00>` to `<0xFF>`, with byte fallback switched on. How does it tokenize \"thé🤗\"? (é is 2 UTF-8 bytes; 🤗 is 4.)",
+      "options": [
+        { "id": "a", "text": "4 tokens: t, h and one `<unk>` for each unknown character" },
+        { "id": "b", "text": "6 tokens: t, h, then all the bytes of é and of 🤗 as one fused byte token each" },
+        { "id": "c", "text": "8 tokens: t, h, `<0xC3>`, `<0xA9>` and the four bytes of 🤗, and it decodes back to \"thé🤗\" exactly" },
+        { "id": "d", "text": "8 tokens: every character, t and h included, is spelled as bytes first" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Byte fallback keeps known characters as one token each and spells only unknown characters as their UTF-8 bytes: 2 + 2 + 4 = 8 tokens, fully reversible with the `ByteFallback` decoder. Option a is the plain unknown-token behaviour, which loses the text. Option d describes byte-level BPE, which turns every character into bytes before the model sees it (Lesson 23.3)."
+    },
+    {
+      "id": "q23.9",
+      "question": "A GPT-2-style tokenizer is built with `models.BPE()` (no `unk_token`), a `ByteLevel` pre-tokenizer and decoder, and `BpeTrainer(vocab_size=300)`, trained on four short English sentences. It decodes \"The café 🤗\" as \"The ca \" without any error. What is the cause?",
+      "options": [
+        { "id": "a", "text": "`decode` skips special tokens by default, so the `[UNK]` tokens were removed" },
+        { "id": "b", "text": "The trainer was not given `initial_alphabet=pre_tokenizers.ByteLevel.alphabet()`, so bytes absent from the corpus have no id, and with no `unk_token` they are dropped" },
+        { "id": "c", "text": "`vocab_size=300` is too small to hold all 256 bytes plus the merges" },
+        { "id": "d", "text": "The `ByteLevel` decoder cannot reassemble multi-byte UTF-8 characters" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Byte-level BPE is lossless only if all 256 bytes are in the vocabulary. Without `initial_alphabet`, the trainer keeps only bytes that occurred in the corpus (vocabulary 37 in the lesson's run); `f`, é and 🤗 vanish. With the full alphabet the same text round-trips exactly. Option a cannot apply: this model has no `[UNK]` (Lessons 23.1 and 23.3)."
+    },
+    {
+      "id": "q23.10",
+      "question": "In Lesson 23.3's benchmark (one machine, synthetic text), where did most of the Hugging Face `tokenizers` speed come from?",
+      "options": [
+        { "id": "a", "text": "A single Rust thread: one-thread `encode_batch` was about 20× faster than cached pure Python" },
+        { "id": "b", "text": "Releasing the GIL, which is what allows Rayon's worker threads to run in parallel" },
+        { "id": "c", "text": "Spreading `encode_batch` over all 10 cores (about 6× over one thread), and skipping offsets with `encode_batch_fast`" },
+        { "id": "d", "text": "Raising the word cache from 10,000 to 200,000 entries" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "One Rust thread ran at 8.5 MB/s, the same as cold-cache Python (8.7 MB/s). All cores gave 51.9 MB/s, and `encode_batch_fast` reached 68.3 MB/s. Rayon's workers run pure Rust and never need the GIL; releasing it only lets your other Python threads run. A larger cache moved one-thread speed only from 8.5 to 9.0 MB/s."
     }
   ]
 }
