@@ -29,11 +29,13 @@
               "slug": "python-programs",
               "file": "1.1-python-programs.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 15,
+              "estimatedMinutes": 25,
               "tags": [
                 "python",
                 "source-code",
-                "syntax"
+                "tokens",
+                "syntax-tree",
+                "indentation"
               ],
               "status": "published",
               "contentShape": "concept-intro",
@@ -47,11 +49,13 @@
               "slug": "running-python",
               "file": "1.2-running-python.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 30,
               "tags": [
                 "cpython",
                 "bytecode",
-                "interpreter"
+                "interpreter",
+                "pyc",
+                "sys.argv"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -65,11 +69,14 @@
               "slug": "python-implementations",
               "file": "1.3-python-implementations.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 15,
+              "estimatedMinutes": 30,
               "tags": [
                 "implementations",
                 "cpython",
-                "jit"
+                "pypy",
+                "jython",
+                "jit",
+                "garbage-collection"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -82,12 +89,14 @@
               "title": "The Module Search Path (sys.path)",
               "slug": "python-path",
               "file": "1.4-python-path.md",
-              "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "difficulty": "beginner",
+              "estimatedMinutes": 25,
               "tags": [
                 "imports",
                 "sys-path",
-                "modules"
+                "modules",
+                "packages",
+                "virtual-environments"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -101,11 +110,13 @@
               "slug": "inspecting-python",
               "file": "1.5-inspecting-python.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 35,
               "tags": [
                 "dis",
                 "bytecode",
-                "opcodes"
+                "code-object",
+                "opcodes",
+                "cpython"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -124,11 +135,12 @@
                 "1.5"
               ],
               "tags": [
+                "specialization",
+                "inline-cache",
                 "jit",
                 "tier2",
-                "adaptive-interpreter",
-                "quickening",
-                "cpython"
+                "cpython",
+                "dis"
               ],
               "status": "published",
               "contentShape": "under-the-hood",

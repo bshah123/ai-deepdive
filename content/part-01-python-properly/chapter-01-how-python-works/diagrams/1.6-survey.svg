@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 542" role="img" aria-label="Nine source constructs, the generic instruction the compiler emits for each, and the specialized instruction CPython 3.12 runs after 200 warm-up calls with one type of data." class="sketch"><title>Nine source constructs, the generic instruction the compiler emits for each, and the specialized instruction CPython 3.12 runs after 200 warm-up calls with one type of data.</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">What warm-up turns each instruction into</tspan></text>
+<text x="30" y="82" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="30" dy="0">source</tspan></text>
+<text x="210" y="82" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="210" dy="0">compiled as</tspan></text>
+<text x="420" y="82" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="420" dy="0">runs as (3.12, after warm-up)</tspan></text>
+<path d="M29.9 94.5 C194.5 99.3, 359.5 99.5, 849.3 94.0 M30.1 93.6 C259.7 92.6, 489.8 92.1, 849.7 94.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="126" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">for v in xs</tspan></text>
+<text x="210" y="126" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">FOR_ITER</tspan></text>
+<path d="M358.3 121.1 C371.9 121.7, 377.8 118.7, 409.8 119.0 M360.7 121.5 C374.0 121.7, 389.2 120.0, 409.8 121.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.7 120.5 C408.1 121.6, 406.9 121.6, 403.3 124.8 M410.5 120.8 C407.9 122.2, 405.5 123.3, 402.9 124.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.1 120.0 C409.0 119.9, 407.6 119.1, 402.0 117.1 M409.7 121.4 C407.5 119.9, 404.8 118.4, 403.1 117.5" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="126" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">FOR_ITER_LIST</tspan></text>
+<text x="30" y="164" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">t += v</tspan></text>
+<text x="210" y="164" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">BINARY_OP</tspan></text>
+<path d="M359.0 160.2 C368.4 157.0, 378.2 158.0, 409.4 160.8 M359.6 159.2 C377.6 158.8, 397.1 159.8, 408.9 158.7" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.0 159.0 C408.7 160.3, 407.0 160.0, 403.1 162.4 M410.0 158.7 C407.6 160.2, 404.2 161.6, 402.6 162.2" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.4 158.5 C409.5 158.6, 407.8 157.4, 403.7 154.7 M410.2 159.3 C408.7 158.1, 407.3 157.3, 402.8 155.1" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="164" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">BINARY_OP_ADD_INT</tspan></text>
+<text x="30" y="202" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">i &lt; 10</tspan></text>
+<text x="210" y="202" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">COMPARE_OP</tspan></text>
+<path d="M359.7 199.2 C369.6 197.1, 378.6 197.2, 408.9 197.8 M360.9 197.0 C371.1 195.9, 382.6 197.3, 410.4 198.2" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.3 197.4 C409.2 197.2, 407.2 198.5, 402.9 200.0 M409.6 196.6 C407.8 197.4, 406.8 198.6, 403.2 200.8" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.7 196.9 C408.1 195.4, 407.9 195.8, 403.5 194.2 M409.7 197.2 C408.3 196.4, 406.0 195.5, 402.4 193.8" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="202" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">COMPARE_OP_INT</tspan></text>
+<text x="30" y="240" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">p.x</tspan></text>
+<text x="210" y="240" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">LOAD_ATTR</tspan></text>
+<path d="M360.4 233.5 C370.9 237.2, 379.0 236.5, 408.4 234.8 M359.7 234.7 C374.7 235.4, 390.5 234.8, 409.5 235.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.6 235.8 C407.8 235.9, 407.4 236.9, 402.8 237.6 M410.1 234.5 C407.4 236.4, 405.4 236.9, 402.8 238.5" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.1 235.3 C408.5 234.0, 408.0 234.1, 403.3 231.8 M410.2 235.1 C408.0 234.0, 404.7 232.9, 403.0 231.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="240" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">LOAD_ATTR_INSTANCE_VALUE</tspan></text>
+<text x="30" y="278" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">len</tspan></text>
+<text x="210" y="278" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">LOAD_GLOBAL</tspan></text>
+<path d="M361.1 272.6 C372.1 271.0, 379.4 274.3, 408.0 271.9 M361.0 272.5 C378.3 272.5, 396.0 272.2, 411.0 272.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.9 272.3 C408.2 274.6, 407.5 275.2, 402.6 277.2 M409.6 273.4 C407.1 274.4, 404.2 275.3, 402.4 276.1" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.3 273.8 C409.1 272.7, 406.3 270.6, 403.2 269.4 M409.8 273.0 C408.2 272.2, 407.3 271.8, 402.6 269.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="278" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">LOAD_GLOBAL_BUILTIN</tspan></text>
+<text x="30" y="316" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">len(xs)</tspan></text>
+<text x="210" y="316" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">CALL</tspan></text>
+<path d="M361.7 311.6 C368.6 311.1, 379.8 308.8, 412.3 308.9 M359.9 310.2 C371.9 311.1, 381.6 311.1, 410.1 311.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.1 310.8 C408.7 311.3, 407.7 311.7, 402.4 314.8 M410.1 311.3 C408.3 311.7, 406.8 313.2, 403.1 314.7" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.6 310.3 C407.7 309.7, 406.5 309.1, 403.0 307.0 M410.3 310.9 C407.8 309.7, 406.0 309.3, 403.3 307.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="316" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">CALL_NO_KW_LEN</tspan></text>
+<text x="30" y="354" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">xs[0]</tspan></text>
+<text x="210" y="354" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">BINARY_SUBSCR</tspan></text>
+<path d="M357.6 350.7 C369.8 351.1, 380.2 348.0, 411.9 350.7 M361.1 348.0 C375.5 348.2, 389.5 348.6, 409.2 349.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.4 349.2 C409.3 350.0, 407.8 350.0, 402.2 352.4 M409.7 349.2 C408.0 350.4, 405.5 351.4, 402.7 352.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.9 348.7 C408.1 348.3, 406.6 347.5, 402.8 344.7 M409.8 348.8 C407.5 348.2, 405.6 346.7, 402.9 345.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="354" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">BINARY_SUBSCR_LIST_INT</tspan></text>
+<text x="30" y="392" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">p.get</tspan></text>
+<text x="210" y="392" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">LOAD_ATTR</tspan></text>
+<path d="M358.3 385.0 C371.1 386.4, 380.5 387.3, 411.4 387.7 M360.0 388.1 C376.7 387.7, 395.0 386.1, 410.8 386.1" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.7 387.6 C407.9 387.0, 408.0 388.6, 402.0 390.0 M410.2 387.1 C407.7 388.4, 404.2 389.7, 402.3 390.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.1 387.1 C408.6 387.0, 406.7 385.8, 402.6 384.2 M410.3 386.8 C407.3 385.8, 404.4 384.2, 402.5 383.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="392" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">LOAD_ATTR_METHOD_WITH_VALUES</tspan></text>
+<text x="30" y="430" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">p.get()</tspan></text>
+<text x="210" y="430" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="210" dy="0">CALL</tspan></text>
+<path d="M359.0 424.1 C372.3 426.5, 380.9 426.5, 411.0 424.7 M358.9 425.9 C370.2 424.9, 380.5 425.9, 409.9 425.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M409.1 424.1 C408.3 425.7, 406.2 426.9, 401.8 427.6 M409.7 425.0 C407.9 425.7, 406.8 426.7, 402.9 428.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410.4 425.5 C409.2 423.8, 406.9 424.2, 402.4 421.8 M409.9 424.7 C408.4 423.8, 406.0 422.8, 403.1 421.5" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="430" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">CALL_PY_EXACT_ARGS</tspan></text>
+<g transform="rotate(-1.5 440 488)">
+<path d="M28.5 461.4 L849.7 461.7 L850.4 514.8 L30.7 516.6" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29.9 460.0 C194.3 456.8, 359.8 458.0, 850.2 459.6 M30.0 460.2 C258.1 458.2, 486.4 458.6, 849.7 459.9 M851.4 461.7 C851.6 478.3, 851.7 497.2, 851.4 517.8 M850.8 459.4 C850.3 474.5, 849.8 488.8, 849.7 515.4 M850.4 515.7 C527.7 519.0, 204.2 519.1, 29.6 515.6 M849.9 516.2 C522.3 515.7, 195.2 515.7, 29.8 516.0 M28.5 514.4 C30.4 494.8, 31.3 471.9, 30.9 461.5 M29.7 516.6 C30.1 499.5, 30.7 484.7, 30.2 460.6" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="485" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="44" dy="0">In 3.13 the same site is named CALL_LEN (measured), so these names are not a stable interface.</tspan></text>
+</g>
+</svg>

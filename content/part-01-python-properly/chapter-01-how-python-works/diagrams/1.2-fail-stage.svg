@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" role="img" aria-label="Two files with the same first line. The file with a syntax error prints nothing; the file with a runtime error prints its first line before failing." class="sketch"><title>Two files with the same first line. The file with a syntax error prints nothing; the file with a runtime error prints its first line before failing.</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Same first line, different outcome</tspan></text>
+<text x="230" y="80" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="230" dy="0">syn.py</tspan></text>
+<path d="M38.5 95.3 L421.9 94.7 L421.1 168.3 L38.7 171.2" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.0 95.7 C115.5 96.8, 193.6 96.1, 420.9 97.3 M39.9 95.5 C118.3 97.3, 195.4 97.6, 420.1 96.6 M421.8 96.7 C420.8 120.9, 421.2 147.8, 419.6 169.9 M419.2 95.4 C420.0 121.6, 418.6 147.4, 420.8 170.0 M418.9 170.0 C301.2 167.9, 183.3 169.1, 38.6 170.6 M419.9 169.6 C320.9 172.6, 221.5 173.2, 39.7 170.1 M37.7 169.6 C40.3 140.5, 41.0 112.1, 37.8 94.6 M39.5 170.9 C40.4 141.0, 40.1 112.8, 40.9 95.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="56" y="126" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="56" dy="0">print("line 1 ran")</tspan></text>
+<text x="56" y="154" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="56" dy="0">print("oops"</tspan></text>
+<path d="M231.7 174.3 C230.8 180.9, 228.9 187.1, 228.1 206.3 M230.3 176.7 C230.0 182.9, 230.7 189.6, 230.7 206.7" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230.2 207.1 C227.8 202.6, 228.3 201.3, 224.5 194.2 M230.4 205.9 C228.2 203.3, 227.1 200.2, 224.1 195.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M229.4 206.3 C231.0 204.9, 233.5 201.5, 235.8 195.9 M230.7 205.3 C232.2 202.9, 233.5 200.6, 234.8 195.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="56" y="232" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="56" dy="0">stdout:</tspan></text>
+<text x="150" y="232" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="150" dy="0">(empty)</tspan></text>
+<text x="56" y="264" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="56" dy="0">stderr:</tspan></text>
+<text x="150" y="264" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="150" dy="0">SyntaxError: '(' was</tspan></text>
+<text x="150" y="286" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="150" dy="0">never closed</tspan></text>
+<text x="650" y="80" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="650" dy="0">run.py</tspan></text>
+<path d="M460.4 97.3 L842.1 93.8 L842.4 169.4 L458.3 168.9" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M458.6 95.6 C537.4 94.6, 612.0 94.2, 838.6 95.6 M459.5 96.2 C570.6 97.6, 680.6 97.8, 839.9 95.9 M839.5 97.9 C841.4 112.4, 840.4 125.5, 841.5 170.6 M840.6 96.3 C840.1 112.9, 841.3 128.8, 840.3 169.3 M839.0 169.4 C697.5 170.0, 556.5 169.7, 461.0 169.4 M840.1 170.6 C701.3 168.3, 562.1 168.1, 459.5 170.2 M459.0 168.2 C460.6 146.7, 457.8 120.8, 460.7 93.6 M460.6 170.9 C458.6 153.4, 458.3 134.7, 460.6 95.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="476" y="126" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="476" dy="0">print("line 1 ran")</tspan></text>
+<text x="476" y="154" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="476" dy="0">print(undefined_name)</tspan></text>
+<path d="M651.0 174.1 C649.5 181.7, 651.3 188.4, 649.1 208.2 M649.5 175.5 C649.3 184.6, 650.7 195.9, 650.4 205.5" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M649.8 207.0 C649.6 203.1, 646.6 202.1, 645.1 195.4 M650.0 206.6 C647.8 201.8, 646.6 199.0, 645.3 194.7" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M649.0 206.2 C650.0 202.4, 651.8 202.2, 656.4 194.2 M650.2 206.1 C652.3 202.9, 653.0 198.0, 654.6 194.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="476" y="232" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="476" dy="0">stdout:</tspan></text>
+<text x="570" y="232" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="570" dy="0">line 1 ran</tspan></text>
+<text x="476" y="264" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="476" dy="0">stderr:</tspan></text>
+<text x="570" y="264" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-amber)"><tspan x="570" dy="0">NameError: name</tspan></text>
+<text x="570" y="286" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-amber)"><tspan x="570" dy="0">'undefined_name' is not defined</tspan></text>
+</svg>

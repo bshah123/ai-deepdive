@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" role="img" aria-label="Real dis output for function bill, with column names above it. Three arguments are followed to the tables they index: co_varnames, co_names and co_consts." class="sketch"><title>Real dis output for function bill, with column names above it. Three arguments are followed to the tables they index: co_varnames, co_names and co_consts.</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Reading one function: dis output and the tables behind it</tspan></text>
+<path d="M22.0 62.8 L516.3 63.8 L512.0 103.6 L23.7 101.3" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24.7 62.8 C122.2 60.1, 220.4 59.6, 514.1 61.6 M24.0 62.0 C134.0 64.8, 243.2 64.8, 514.2 61.8 M514.1 61.8 C516.5 73.8, 512.2 81.7, 516.4 102.9 M515.1 61.2 C514.4 75.3, 512.7 88.4, 513.3 101.0 M513.5 101.9 C334.2 99.6, 155.7 100.6, 24.7 101.5 M513.8 102.1 C336.6 99.8, 158.5 100.3, 23.9 102.2 M23.0 103.8 C22.3 91.1, 25.2 76.4, 25.6 64.3 M25.1 102.9 C24.5 88.0, 22.6 75.7, 24.7 61.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="88" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="40" dy="0">line</tspan></text>
+<text x="110" y="88" class="sk-hand" font-size="17" text-anchor="end" style="fill:var(--sk-ink)" font-weight="700"><tspan x="110" dy="0">offset</tspan></text>
+<text x="150" y="88" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">opname</tspan></text>
+<text x="336" y="88" class="sk-hand" font-size="17" text-anchor="end" style="fill:var(--sk-ink)" font-weight="700"><tspan x="336" dy="0">arg</tspan></text>
+<text x="348" y="88" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="348" dy="0">argrepr</tspan></text>
+<text x="40" y="130" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0">3</tspan></text>
+<text x="118" y="130" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">0</tspan></text>
+<text x="150" y="130" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">RESUME</tspan></text>
+<text x="330" y="130" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">0</tspan></text>
+<text x="348" y="130" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0"></tspan></text>
+<text x="40" y="160" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0">4</tspan></text>
+<text x="118" y="160" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">2</tspan></text>
+<text x="150" y="160" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">LOAD_FAST</tspan></text>
+<text x="330" y="160" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">0</tspan></text>
+<text x="348" y="160" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(price)</tspan></text>
+<text x="40" y="190" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="190" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">4</tspan></text>
+<text x="150" y="190" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">LOAD_FAST</tspan></text>
+<text x="330" y="190" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">1</tspan></text>
+<text x="348" y="190" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(qty)</tspan></text>
+<text x="40" y="220" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="220" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">6</tspan></text>
+<text x="150" y="220" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">BINARY_OP</tspan></text>
+<text x="330" y="220" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">5</tspan></text>
+<text x="348" y="220" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(*)</tspan></text>
+<text x="40" y="250" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="250" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">10</tspan></text>
+<text x="150" y="250" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">STORE_FAST</tspan></text>
+<text x="330" y="250" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">2</tspan></text>
+<text x="348" y="250" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(total)</tspan></text>
+<text x="40" y="280" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0">5</tspan></text>
+<text x="118" y="280" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">12</tspan></text>
+<text x="150" y="280" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">LOAD_GLOBAL</tspan></text>
+<text x="330" y="280" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">1</tspan></text>
+<text x="348" y="280" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(NULL + round)</tspan></text>
+<text x="40" y="310" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="310" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">22</tspan></text>
+<text x="150" y="310" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">LOAD_FAST</tspan></text>
+<text x="330" y="310" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">2</tspan></text>
+<text x="348" y="310" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(total)</tspan></text>
+<text x="40" y="340" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="340" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">24</tspan></text>
+<text x="150" y="340" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">LOAD_CONST</tspan></text>
+<text x="330" y="340" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">1</tspan></text>
+<text x="348" y="340" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0">(2)</tspan></text>
+<text x="40" y="370" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="370" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">26</tspan></text>
+<text x="150" y="370" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">CALL</tspan></text>
+<text x="330" y="370" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0">2</tspan></text>
+<text x="348" y="370" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0"></tspan></text>
+<text x="40" y="400" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0"></tspan></text>
+<text x="118" y="400" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="118" dy="0">34</tspan></text>
+<text x="150" y="400" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">RETURN_VALUE</tspan></text>
+<text x="330" y="400" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="330" dy="0"></tspan></text>
+<text x="348" y="400" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="348" dy="0"></tspan></text>
+<text x="580" y="118" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="580" dy="0">co_varnames</tspan></text>
+<path d="M578.5 127.7 L851.1 131.5 L850.7 159.9 L578.4 156.7" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M580.3 130.5 C635.5 129.5, 689.2 129.7, 851.3 131.5 M580.4 129.3 C646.1 128.8, 712.7 128.2, 850.7 129.5 M849.5 130.1 C851.6 138.5, 848.1 145.3, 851.6 160.2 M850.3 129.4 C850.1 141.4, 849.6 151.2, 851.0 158.6 M848.1 159.5 C745.5 156.7, 641.8 154.2, 581.1 158.6 M849.6 157.2 C758.2 158.4, 667.1 159.1, 579.7 157.4 M580.6 157.1 C582.2 149.0, 578.2 137.5, 579.9 128.4 M580.2 158.9 C578.7 149.3, 579.8 141.8, 580.0 129.0" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602" y="150" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="602" dy="0">0</tspan></text>
+<text x="624" y="150" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="624" dy="0">price</tspan></text>
+<path d="M579.0 161.4 L850.0 163.3 L848.6 192.2 L581.9 188.2" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M579.2 161.5 C633.3 166.9, 686.8 164.4, 848.7 162.0 M580.7 162.5 C651.3 162.3, 723.4 161.2, 849.3 161.2 M848.9 162.4 C849.9 170.1, 852.1 178.7, 850.9 188.8 M849.5 161.7 C848.9 169.9, 849.6 177.0, 850.3 189.9 M851.0 189.4 C744.1 186.6, 633.6 187.4, 580.9 188.4 M849.7 190.0 C765.6 188.9, 679.9 189.3, 579.7 190.4 M582.1 191.1 C581.5 179.9, 580.2 173.7, 578.3 161.4 M579.2 190.9 C579.1 182.8, 580.8 175.9, 579.3 161.0" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602" y="182" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="602" dy="0">1</tspan></text>
+<text x="624" y="182" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="624" dy="0">qty</tspan></text>
+<path d="M579.5 195.1 L848.8 195.1 L851.3 219.7 L580.6 219.6" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M578.1 192.5 C634.9 194.4, 688.1 192.9, 849.8 192.5 M579.2 193.8 C658.4 195.9, 735.9 196.1, 849.6 194.9 M848.4 194.7 C849.0 201.6, 852.0 212.1, 850.2 222.1 M851.0 193.9 C850.1 204.0, 849.7 211.7, 849.6 221.1 M850.1 223.1 C793.0 220.3, 733.5 220.5, 580.8 221.9 M849.7 222.8 C771.1 223.6, 692.7 223.7, 579.6 221.5 M578.8 220.4 C579.9 210.0, 581.3 203.4, 581.4 194.3 M580.7 222.9 C579.5 216.2, 579.5 210.1, 581.0 193.0" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602" y="214" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="602" dy="0">2</tspan></text>
+<text x="624" y="214" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="624" dy="0">total</tspan></text>
+<text x="580" y="262" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-violet)" font-weight="700"><tspan x="580" dy="0">co_names</tspan></text>
+<path d="M579.9 272.0 L847.7 274.9 L849.2 299.9 L579.4 303.8" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M580.8 275.3 C632.7 276.1, 689.5 275.6, 850.9 274.8 M579.5 273.1 C663.7 271.3, 746.6 271.0, 850.0 274.6 M847.8 275.0 C848.2 281.2, 852.0 293.5, 849.4 303.5 M850.2 274.1 C849.7 280.5, 850.5 285.6, 848.9 302.7 M849.2 301.0 C787.8 298.2, 725.3 301.7, 580.6 303.4 M849.8 301.7 C778.4 302.1, 705.5 302.0, 579.6 302.5 M580.4 302.4 C579.1 293.8, 578.5 287.6, 579.7 275.3 M579.7 302.9 C580.0 292.0, 580.5 281.0, 580.4 273.0" style="stroke:var(--sk-violet);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602" y="294" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="602" dy="0">0</tspan></text>
+<text x="624" y="294" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="624" dy="0">round</tspan></text>
+<text x="580" y="346" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-green)" font-weight="700"><tspan x="580" dy="0">co_consts</tspan></text>
+<path d="M580.4 357.7 L851.3 358.6 L851.9 384.2 L578.1 387.3" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M579.7 358.3 C634.3 355.6, 687.1 356.2, 848.3 357.3 M579.8 358.3 C668.9 356.9, 759.1 356.1, 850.4 358.4 M852.1 359.3 C852.1 369.6, 852.0 374.1, 848.7 384.1 M849.3 358.4 C851.0 366.5, 850.6 372.2, 850.6 385.9 M848.3 386.7 C782.7 383.8, 717.1 383.1, 580.5 385.1 M849.8 386.5 C783.9 388.8, 718.3 388.4, 579.5 385.6 M581.9 383.7 C578.3 375.9, 580.4 364.5, 578.0 360.2 M578.8 386.9 C579.6 377.5, 580.7 367.2, 579.7 357.0" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602" y="378" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="602" dy="0">0</tspan></text>
+<text x="624" y="378" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="624" dy="0">None</tspan></text>
+<path d="M580.9 391.4 L850.2 390.4 L849.8 416.5 L581.6 418.7" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M578.7 389.4 C635.9 389.3, 688.4 390.9, 849.4 391.5 M580.1 389.6 C676.0 390.4, 769.8 391.0, 850.8 390.2 M851.5 391.6 C850.4 401.1, 851.1 407.6, 848.0 417.4 M850.9 390.6 C849.8 400.6, 850.6 409.3, 849.9 417.2 M851.2 416.6 C781.3 417.5, 709.0 416.2, 580.3 418.6 M849.9 417.5 C791.3 417.4, 733.0 418.7, 579.5 418.5 M578.6 417.8 C582.4 411.6, 582.4 405.5, 581.1 388.4 M580.3 418.9 C580.0 408.5, 579.3 401.3, 579.0 388.9" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="602" y="410" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="602" dy="0">1</tspan></text>
+<text x="624" y="410" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="624" dy="0">2</tspan></text>
+<path d="M518.5 186.1 C523.2 185.4, 537.3 182.1, 546.7 180.6 C556.2 179.1, 570.7 177.8, 575.3 177.1 M520.5 185.3 C525.8 184.9, 540.3 184.1, 549.4 182.3 C558.5 180.6, 570.8 175.5, 575.1 174.8" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M574.2 176.9 C572.9 178.1, 569.4 179.6, 565.7 182.0 M574.6 176.1 C570.1 178.5, 566.2 182.3, 564.2 182.9" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M573.4 176.2 C570.8 175.4, 569.6 175.5, 561.7 173.5 M573.4 175.5 C571.0 174.8, 569.6 174.7, 562.5 172.5" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="548" y="208" class="sk-hand" font-size="15" text-anchor="middle" style="fill:var(--sk-blue)"><tspan x="548" dy="0">arg 1</tspan></text>
+<path d="M520.9 274.5 C525.7 275.2, 538.6 277.9, 547.4 280.4 C556.1 282.9, 568.8 288.1, 573.5 289.4 M519.6 277.0 C524.3 277.1, 537.1 276.3, 545.9 278.0 C554.7 279.6, 567.2 285.2, 572.2 287.2" style="stroke:var(--sk-violet);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M574.6 286.7 C570.3 287.2, 568.7 289.9, 563.2 290.9 M573.9 287.9 C571.1 289.2, 568.6 289.5, 562.8 290.5" style="stroke:var(--sk-violet);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M573.8 288.8 C572.1 287.4, 570.9 286.0, 564.2 279.8 M574.2 287.4 C571.2 286.2, 569.0 283.3, 564.8 280.3" style="stroke:var(--sk-violet);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="540" y="322" class="sk-hand" font-size="15" text-anchor="middle" style="fill:var(--sk-violet)"><tspan x="540" dy="0">1 &gt;&gt; 1 = 0</tspan></text>
+<path d="M520.4 335.0 C525.3 338.9, 539.0 349.9, 548.1 361.2 C557.1 372.4, 570.5 395.5, 574.6 402.6 M518.7 337.6 C523.6 341.9, 537.7 348.2, 546.9 359.1 C556.1 370.1, 569.7 395.8, 573.9 403.5" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M575.0 403.3 C571.5 402.5, 569.8 400.2, 564.8 397.9 M574.7 403.8 C571.1 401.9, 567.7 399.8, 564.2 397.5" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M574.2 402.6 C574.6 401.0, 574.5 398.3, 571.7 391.4 M573.5 404.7 C573.8 399.9, 573.0 395.4, 573.5 392.0" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="530" y="372" class="sk-hand" font-size="15" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="530" dy="0">arg 1</tspan></text>
+<g transform="rotate(-1.5 440 494)">
+<path d="M24.7 447.5 L854.7 446.6 L854.5 541.0 L22.7 539.9" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M23.7 448.3 C190.5 447.9, 357.5 448.2, 855.8 448.5 M23.9 448.1 C328.1 447.6, 632.8 447.9, 855.7 447.9 M856.6 447.9 C856.5 479.0, 856.0 509.2, 856.2 538.9 M855.7 448.5 C856.9 468.8, 856.0 489.4, 856.0 540.7 M855.9 540.1 C675.2 537.1, 494.0 537.5, 23.5 540.2 M856.2 540.0 C541.8 536.8, 228.3 537.1, 24.3 540.4 M23.7 540.9 C23.5 513.3, 25.9 483.6, 22.9 446.7 M24.4 540.6 C23.7 508.6, 24.1 475.4, 23.6 447.1" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="38" y="473" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="38" dy="0">Offsets jump by more than 2: CACHE slots are hidden. 6 to 10: 1 slot. 12 to 22: 4 slots. 26 to 34: 3 slots.</tspan><tspan x="38" dy="18.700000000000003">10 instructions + 8 cache slots = 18 slots x 2 bytes = 36 bytes of code.</tspan><tspan x="38" dy="18.700000000000003">LOAD_GLOBAL: low bit of arg means "also push NULL", so arg 1 reads co_names[0].</tspan></text>
+</g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="Four ways to start Python and what sys.argv, __file__ and sys.path[0] hold in each" class="sketch"><title>Four ways to start Python and what sys.argv, __file__ and sys.path[0] hold in each</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Four ways to start a program</tspan></text>
+<text x="30" y="78" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="30" dy="0">command</tspan></text>
+<text x="260" y="78" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="260" dy="0">sys.argv</tspan></text>
+<text x="520" y="78" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="520" dy="0">__file__</tspan></text>
+<text x="700" y="78" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="700" dy="0">sys.path[0]</tspan></text>
+<path d="M30.7 91.3 C194.8 87.2, 358.5 87.2, 849.2 92.1 M30.1 92.3 C215.6 96.3, 401.4 96.3, 850.3 92.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="130" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">python probe.py a b</tspan></text>
+<text x="260" y="130" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="260" dy="0">['probe.py','a','b']</tspan></text>
+<text x="520" y="130" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">D/probe.py</tspan></text>
+<text x="700" y="130" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">D  (file's folder)</tspan></text>
+<path d="M30.1 152.7 C193.7 150.5, 359.2 151.1, 849.8 151.4 M30.3 151.9 C232.8 149.4, 436.0 149.1, 849.5 152.2" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="182" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">python -m pkg.tool a</tspan></text>
+<text x="260" y="182" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="260" dy="0">['D/pkg/tool.py','a']</tspan></text>
+<text x="520" y="182" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">D/pkg/tool.py</tspan></text>
+<text x="700" y="182" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">D  (current folder)</tspan></text>
+<path d="M29.6 204.2 C194.5 207.8, 359.9 207.0, 850.4 204.5 M30.4 203.6 C251.0 204.0, 471.5 204.4, 849.7 204.0" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="234" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">python -c CODE a</tspan></text>
+<text x="260" y="234" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="260" dy="0">['-c','a']</tspan></text>
+<text x="520" y="234" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">(no __file__)</tspan></text>
+<text x="700" y="234" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">''  (current folder)</tspan></text>
+<path d="M29.0 255.7 C195.3 253.7, 358.7 253.5, 849.0 255.7 M29.6 256.2 C268.3 258.6, 506.1 258.7, 849.9 255.9" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="286" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="30" dy="0">python - a  &lt; stdin</tspan></text>
+<text x="260" y="286" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="260" dy="0">['-','a']</tspan></text>
+<text x="520" y="286" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">&lt;stdin&gt;</tspan></text>
+<text x="700" y="286" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">''  (current folder)</tspan></text>
+<g transform="rotate(-1.5 440 348)">
+<path d="M30.7 318.7 L850.7 318.2 L850.2 375.8 L31.4 374.8" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.3 319.4 C194.2 320.8, 359.2 321.0, 849.7 320.7 M29.9 319.9 C285.5 316.8, 541.5 317.4, 850.1 319.9 M849.2 321.6 C849.2 332.7, 849.1 344.6, 850.5 377.4 M849.8 320.4 C850.7 336.7, 850.6 351.6, 849.7 376.7 M850.6 376.3 C529.5 374.5, 209.1 374.2, 30.4 376.3 M850.1 375.9 C570.8 377.7, 290.6 377.6, 29.7 375.8 M30.4 376.2 C30.0 365.1, 30.0 349.8, 29.2 318.9 M29.7 376.7 C29.5 354.5, 29.7 331.1, 30.0 319.5" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="346" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="44" dy="0">In all four rows __name__ is "__main__". D means the absolute path of the folder in this experiment.</tspan></text>
+</g>
+</svg>
