@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" role="img" aria-label="Worked example: a 4 by 4 score matrix, the same matrix with every entry above the diagonal set to minus infinity, and the softmax weights, which are lower triangular with rows summing to 1" class="sketch"><title>Worked example: a 4 by 4 score matrix, the same matrix with every entry above the diagonal set to minus infinity, and the softmax weights, which are lower triangular with rows summing to 1</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">The causal mask on the worked example</tspan></text>
+<text x="182" y="72" class="sk-hand" font-size="21" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="182" dy="0">1. scaled scores</tspan></text>
+<text x="98" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="98" dy="0">the</tspan></text>
+<text x="154" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="154" dy="0">cat</tspan></text>
+<text x="210" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="210" dy="0">sat</tspan></text>
+<text x="266" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="266" dy="0">down</tspan></text>
+<path d="M70.6 118.5 C117.7 118.8, 164.5 120.9, 294.6 119.4 M70.6 121.0 C128.6 119.0, 187.6 120.6, 293.5 119.1 M295.0 120.4 C294.2 191.8, 293.2 261.0, 292.8 344.8 M294.7 119.2 C294.0 203.8, 293.5 289.5, 293.2 344.9 M293.7 345.6 C229.7 344.7, 166.5 344.5, 69.9 344.3 M294.3 343.0 C247.3 347.3, 199.9 345.9, 70.4 345.0 M71.5 345.4 C66.7 299.1, 68.2 255.7, 70.5 120.2 M70.9 344.5 C68.8 285.8, 68.1 230.2, 71.0 120.7" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M69.4 177.6 C115.4 176.1, 165.9 179.4, 295.9 177.8 M71.0 176.2 C132.8 176.4, 198.2 177.4, 293.9 176.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M68.3 232.5 C117.1 232.0, 163.3 232.3, 293.0 232.2 M69.3 231.5 C139.1 230.3, 206.9 228.7, 294.3 232.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M71.2 287.4 C118.8 289.4, 164.8 286.7, 294.2 286.5 M69.6 288.8 C143.3 287.6, 215.5 287.5, 294.8 288.4" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M126.0 118.4 C125.9 167.1, 128.4 213.0, 127.5 345.0 M126.0 120.0 C125.6 198.6, 126.3 275.9, 125.1 344.1" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M180.8 121.4 C184.1 166.3, 182.2 213.2, 180.6 343.3 M182.3 119.3 C185.2 203.2, 183.5 284.7, 181.6 343.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M239.8 120.4 C238.1 165.4, 240.2 213.5, 237.9 345.8 M238.7 120.6 C237.3 207.8, 237.2 295.6, 238.0 343.6" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="98" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="98" dy="0">2</tspan></text>
+<text x="154" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="154" dy="0">1</tspan></text>
+<text x="210" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="210" dy="0">0</tspan></text>
+<text x="266" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="266" dy="0">3</tspan></text>
+<text x="98" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="98" dy="0">1</tspan></text>
+<text x="154" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="154" dy="0">0</tspan></text>
+<text x="210" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="210" dy="0">2</tspan></text>
+<text x="266" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="266" dy="0">1</tspan></text>
+<text x="98" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="98" dy="0">0</tspan></text>
+<text x="154" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="154" dy="0">1</tspan></text>
+<text x="210" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="210" dy="0">2</tspan></text>
+<text x="266" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="266" dy="0">4</tspan></text>
+<text x="98" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="98" dy="0">1</tspan></text>
+<text x="154" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="154" dy="0">1</tspan></text>
+<text x="210" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="210" dy="0">1</tspan></text>
+<text x="266" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="266" dy="0">1</tspan></text>
+<text x="440" y="72" class="sk-hand" font-size="21" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="440" dy="0">2. future set to −∞</tspan></text>
+<text x="356" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="356" dy="0">the</tspan></text>
+<text x="412" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="412" dy="0">cat</tspan></text>
+<text x="468" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="468" dy="0">sat</tspan></text>
+<text x="524" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="524" dy="0">down</tspan></text>
+<rect x="384" y="120" width="56" height="56" style="fill:var(--sk-rose-soft)"/>
+<rect x="440" y="120" width="56" height="56" style="fill:var(--sk-rose-soft)"/>
+<rect x="496" y="120" width="56" height="56" style="fill:var(--sk-rose-soft)"/>
+<rect x="440" y="176" width="56" height="56" style="fill:var(--sk-rose-soft)"/>
+<rect x="496" y="176" width="56" height="56" style="fill:var(--sk-rose-soft)"/>
+<rect x="496" y="232" width="56" height="56" style="fill:var(--sk-rose-soft)"/>
+<path d="M328.6 119.3 C375.5 119.8, 424.6 117.6, 553.1 120.1 M327.0 119.8 C375.4 119.6, 422.5 119.2, 552.4 119.4 M553.7 118.1 C549.2 173.0, 553.1 224.8, 550.6 344.7 M551.8 120.7 C550.5 177.7, 549.2 234.4, 551.0 344.4 M553.1 342.0 C464.4 345.2, 377.6 345.2, 326.7 343.4 M552.7 343.0 C498.7 345.5, 444.4 346.3, 328.0 344.3 M326.3 345.4 C327.3 296.6, 324.6 251.5, 326.5 121.8 M327.4 344.5 C328.2 298.3, 327.1 252.9, 327.0 120.6" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M327.4 174.2 C377.2 177.2, 422.0 176.1, 550.2 174.5 M327.4 175.1 C379.6 177.0, 433.2 178.1, 552.9 175.1" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M326.3 233.3 C374.8 229.0, 423.5 229.0, 551.5 233.0 M327.7 232.4 C385.8 228.9, 441.8 229.3, 551.2 232.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M329.2 288.2 C376.6 286.3, 420.8 287.5, 552.7 287.3 M328.1 287.6 C390.0 286.2, 452.5 286.1, 551.7 288.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M384.0 119.1 C381.4 169.4, 382.1 214.9, 385.9 345.8 M384.5 120.9 C382.0 185.9, 382.2 254.0, 384.1 344.4" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M438.8 118.1 C439.6 168.5, 440.1 215.2, 439.1 344.1 M440.8 120.1 C441.7 190.5, 441.5 262.8, 440.5 344.2" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M497.8 121.1 C493.7 167.6, 493.9 215.5, 496.3 342.4 M495.1 119.4 C493.7 197.2, 493.1 271.6, 497.0 343.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="356" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="356" dy="0">2</tspan></text>
+<text x="412" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="412" dy="0">−∞</tspan></text>
+<text x="468" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="468" dy="0">−∞</tspan></text>
+<text x="524" y="154" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="524" dy="0">−∞</tspan></text>
+<text x="356" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="356" dy="0">1</tspan></text>
+<text x="412" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="412" dy="0">0</tspan></text>
+<text x="468" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="468" dy="0">−∞</tspan></text>
+<text x="524" y="210" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="524" dy="0">−∞</tspan></text>
+<text x="356" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="356" dy="0">0</tspan></text>
+<text x="412" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="412" dy="0">1</tspan></text>
+<text x="468" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="468" dy="0">2</tspan></text>
+<text x="524" y="266" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="524" dy="0">−∞</tspan></text>
+<text x="356" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="356" dy="0">1</tspan></text>
+<text x="412" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="412" dy="0">1</tspan></text>
+<text x="468" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="468" dy="0">1</tspan></text>
+<text x="524" y="322" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="524" dy="0">1</tspan></text>
+<text x="698" y="72" class="sk-hand" font-size="21" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="698" dy="0">3. softmax of each row</tspan></text>
+<text x="614" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="614" dy="0">the</tspan></text>
+<text x="670" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="670" dy="0">cat</tspan></text>
+<text x="726" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="726" dy="0">sat</tspan></text>
+<text x="782" y="110" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="782" dy="0">down</tspan></text>
+<rect x="586" y="120" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="586" y="176" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="642" y="176" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="586" y="232" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="642" y="232" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="698" y="232" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="586" y="288" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="642" y="288" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="698" y="288" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<rect x="754" y="288" width="56" height="56" style="fill:var(--sk-green-soft)"/>
+<path d="M586.6 120.1 C633.3 116.7, 680.7 118.4, 811.6 120.9 M585.5 120.7 C666.9 120.3, 749.1 119.9, 809.3 119.7 M808.4 119.9 C808.3 199.0, 809.0 282.2, 808.3 344.6 M810.9 120.0 C810.5 194.3, 810.4 270.9, 810.9 343.8 M808.4 342.5 C743.8 341.5, 674.2 341.7, 587.7 342.6 M809.0 343.0 C748.0 345.8, 686.9 344.7, 585.6 343.5 M585.3 345.4 C583.9 294.2, 585.2 247.3, 586.7 119.3 M585.9 344.5 C587.7 265.9, 588.1 188.0, 585.1 120.5" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M585.4 175.0 C635.0 174.1, 682.1 176.9, 808.7 175.3 M585.8 175.9 C671.1 177.7, 757.7 176.7, 809.8 175.4" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M584.3 234.0 C632.6 235.6, 679.5 235.3, 809.9 233.7 M586.2 231.2 C632.6 235.1, 676.8 235.5, 810.2 231.1" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M587.2 289.0 C634.3 287.4, 681.0 288.3, 811.2 288.1 M586.6 288.5 C636.8 286.9, 687.5 286.8, 810.6 289.0" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M642.0 119.9 C642.4 167.5, 645.6 212.8, 640.3 342.4 M642.9 119.7 C644.0 175.3, 643.7 230.0, 641.0 344.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M696.8 118.8 C700.6 166.6, 699.4 213.0, 697.5 344.9 M697.2 121.0 C696.0 179.9, 697.4 240.9, 697.4 344.4" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M755.8 121.9 C753.3 165.7, 751.8 213.3, 754.8 343.2 M753.6 120.3 C755.7 184.5, 754.6 249.7, 753.9 344.2" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="614" y="154" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="614" dy="0">1.000</tspan></text>
+<text x="670" y="154" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="670" dy="0">0</tspan></text>
+<text x="726" y="154" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="726" dy="0">0</tspan></text>
+<text x="782" y="154" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="782" dy="0">0</tspan></text>
+<text x="614" y="210" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="614" dy="0">0.731</tspan></text>
+<text x="670" y="210" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="670" dy="0">0.269</tspan></text>
+<text x="726" y="210" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="726" dy="0">0</tspan></text>
+<text x="782" y="210" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="782" dy="0">0</tspan></text>
+<text x="614" y="266" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="614" dy="0">0.090</tspan></text>
+<text x="670" y="266" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="670" dy="0">0.245</tspan></text>
+<text x="726" y="266" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="726" dy="0">0.665</tspan></text>
+<text x="782" y="266" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="782" dy="0">0</tspan></text>
+<text x="614" y="322" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="614" dy="0">0.250</tspan></text>
+<text x="670" y="322" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="670" dy="0">0.250</tspan></text>
+<text x="726" y="322" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="726" dy="0">0.250</tspan></text>
+<text x="782" y="322" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="782" dy="0">0.250</tspan></text>
+<text x="62" y="154" class="sk-mono" font-size="15" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="62" dy="0">the</tspan></text>
+<text x="62" y="210" class="sk-mono" font-size="15" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="62" dy="0">cat</tspan></text>
+<text x="62" y="266" class="sk-mono" font-size="15" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="62" dy="0">sat</tspan></text>
+<text x="62" y="322" class="sk-mono" font-size="15" text-anchor="end" style="fill:var(--sk-muted)"><tspan x="62" dy="0">down</tspan></text>
+<path d="M298.7 233.0 C302.9 234.1, 306.2 230.9, 325.3 234.0 M297.9 231.4 C305.7 231.2, 314.2 230.7, 323.4 231.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M322.6 231.8 C321.6 233.7, 318.0 233.7, 311.6 237.2 M323.2 232.6 C318.9 233.1, 315.6 235.6, 312.7 237.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M321.8 231.1 C320.1 230.8, 319.1 229.3, 312.5 225.6 M323.5 232.0 C319.7 229.3, 315.8 227.8, 311.6 226.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M557.4 234.0 C562.1 230.5, 564.6 231.3, 582.9 233.0 M554.8 231.2 C565.7 232.8, 574.6 232.7, 580.5 231.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M581.0 232.5 C577.5 231.9, 576.2 234.2, 569.3 236.6 M580.5 232.4 C576.5 234.5, 573.1 236.1, 570.2 237.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M580.2 231.7 C578.8 231.8, 577.3 229.9, 570.2 227.9 M580.8 231.9 C578.1 231.1, 576.4 229.1, 570.5 227.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="182" y="382" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="182" dy="0">row = the token asking,</tspan><tspan x="182" dy="19.8">column = the token it reads</tspan></text>
+<text x="440" y="382" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="440" dy="0">e^(−∞) = 0, so these</tspan><tspan x="440" dy="19.8">entries get zero weight</tspan></text>
+<text x="698" y="382" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="698" dy="0">every row still sums to 1;</tspan><tspan x="698" dy="19.8">"the" can only read itself</tspan></text>
+</svg>

@@ -1,54 +1,246 @@
 {
   "chapterId": "chapter-25",
-  "title": "Chapter 25 Quiz \u2014 Attention Mechanism",
+  "title": "Chapter 25 Quiz — Attention",
   "questions": [
     {
       "id": "q25.1",
-      "question": "What is the primary architectural mechanism in Attention Mechanism?",
+      "question": "A head has $d_k = 256$ and you remove the $1/\\sqrt{d_k}$ scaling. Assume the components of $q$ and $k$ are independent with mean 0 and variance 1. What is the standard deviation of a raw score $q \\cdot k$?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "1, because each component has variance 1"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "256, because the variance is $d_k$"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "16, because the variance is $d_k = 256$"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "4, because it grows like $\\sqrt{\\sqrt{d_k}}$"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Attention Mechanism, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "Each product $q_i k_i$ has variance 1 and the $d_k$ terms are independent, so $\\mathrm{Var}(q \\cdot k) = d_k = 256$ and the standard deviation is $\\sqrt{256} = 16$. Scores that spread out push softmax towards one-hot, where its gradient is nearly zero (Lesson 25.1)."
     },
     {
       "id": "q25.2",
-      "question": "How does Attention Mechanism optimize performance in modern AI systems?",
+      "question": "A student's attention returns weights whose columns sum to 1 instead of rows: `A = softmax(Q @ K.T / np.sqrt(d_k), axis=0)`. What is the fix?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "Use `axis=-1`, so each query's weights are normalised over the keys"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "Use `axis=1` on $V$ instead of on the scores"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "Transpose $Q$ before the softmax"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "Divide by $\\sqrt{n}$ instead of $\\sqrt{d_k}$"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "a",
+      "explanation": "Row $i$ of the score matrix belongs to query $i$ and its columns are the keys, so the softmax must run along the last axis. `axis=0` normalises over queries. After the fix, `A.sum(axis=-1)` is all ones (Lesson 25.1)."
+    },
+    {
+      "id": "q25.3",
+      "question": "A model has 24 layers, $d_{\\text{model}} = 2048$, 16 query heads, 4 key/value heads and stores 16-bit floats. How much KV cache does one token add?",
+      "options": [
+        {
+          "id": "a",
+          "text": "192 KiB"
+        },
+        {
+          "id": "b",
+          "text": "48 KiB"
+        },
+        {
+          "id": "c",
+          "text": "12 KiB"
+        },
+        {
+          "id": "d",
+          "text": "96 KiB"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "$d_{\\text{head}} = 2048 / 16 = 128$. Bytes per token: $2 \\times 24 \\times 4 \\times 128 \\times 2 = 49{,}152 = 48$ KiB. 192 KiB is what 16 key/value heads (full multi-head attention) would cost, 12 KiB is one key/value head, and 96 KiB would be 32-bit floats (Lesson 25.2)."
+    },
+    {
+      "id": "q25.4",
+      "question": "Compared with multi-head attention with the same number of query heads, what does grouped-query attention (GQA) reduce?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The number of score matrices computed per layer, from $h$ to $h_{kv}$"
+        },
+        {
+          "id": "b",
+          "text": "The number of query vectors each token produces"
+        },
+        {
+          "id": "c",
+          "text": "The width of each head's score matrix, from $n \\times n$ to $n \\times h_{kv}$"
+        },
+        {
+          "id": "d",
+          "text": "The KV cache and the $W_K$, $W_V$ matrices, while still computing $h$ score matrices of size $n \\times n$"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Every query head keeps its own queries and its own $n \\times n$ weights. Only the key and value heads are shared, so what shrinks is the stored cache (by $h / h_{kv}$) and the two projection matrices. The attention arithmetic does not shrink (Lesson 25.2)."
+    },
+    {
+      "id": "q25.5",
+      "question": "You build a causal mask with `np.triu(np.ones((n, n), dtype=bool))` and no `k` argument, then fill the masked scores with $-\\infty$. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nothing: the diagonal is allowed, so the mask is the standard one"
+        },
+        {
+          "id": "b",
+          "text": "The first row has no allowed entry and gives `nan`; every other token attends only to strictly earlier tokens"
+        },
+        {
+          "id": "c",
+          "text": "Every token can also see the next token, so the mask leaks one position"
+        },
+        {
+          "id": "d",
+          "text": "All rows are masked, so the output is all zeros"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The default is `k=0`, which includes the diagonal, so each token is hidden from itself. Row 1 becomes all $-\\infty$, and its softmax is $0/0 = $ `nan`. Use `k=1` (`diagonal=1` in PyTorch) to hide only the strict future (Lesson 25.3)."
+    },
+    {
+      "id": "q25.6",
+      "question": "A one-layer model trained on uniformly random tokens, with no causal mask, reaches loss 0.01 at positions 1 to 7 but 2.92 at the last position, while chance is $\\ln 16 \\approx 2.77$. What does this show?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The model found real structure in the random tokens, and the last position is just noisy"
+        },
+        {
+          "id": "b",
+          "text": "The loss at the last position is higher because it has the fewest tokens to attend to, and training would fix it"
+        },
+        {
+          "id": "c",
+          "text": "Each position can read its target, the next input, and copy it; the last position has nothing to copy, so the model fails exactly where generation happens"
+        },
+        {
+          "id": "d",
+          "text": "The learning rate was too high for the last position"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Random tokens cannot be predicted, so a loss near 0 means the answer leaked. Without a mask, position $i$ attends to input $i+1$, which is its target. At the last position there is no next input, so the loss is about chance or worse, and generation always predicts at the last position (Lesson 25.3)."
+    },
+    {
+      "id": "q25.7",
+      "question": "Online softmax processes scores $[1, 1, 2]$ with values $4$, $8$, $10$ in two blocks (the first two keys, then the third). What is the final output $\\mathrm{acc} / \\ell$?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8.30"
+        },
+        {
+          "id": "b",
+          "text": "8.00"
+        },
+        {
+          "id": "c",
+          "text": "7.33"
+        },
+        {
+          "id": "d",
+          "text": "12.68"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Block 1: $m = 1$, $\\ell = 2$, $\\mathrm{acc} = 12$. Block 2: the max rises to 2, so shrink by $e^{-1} = 0.368$: $\\ell = 0.368 \\cdot 2 + 1 = 1.736$ and $\\mathrm{acc} = 0.368 \\cdot 12 + 10 = 14.415$, giving $8.30$, the same as the ordinary softmax. 8.00 averages the two per-block outputs (6 and 10), which is the per-tile normalisation trap, 7.33 is the plain mean of the values, and 12.68 is the result when `acc` is not rescaled (Lesson 25.4)."
+    },
+    {
+      "id": "q25.8",
+      "question": "Which statement about FlashAttention (versions 1 and 2) is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It approximates softmax attention with a small error to gain speed"
+        },
+        {
+          "id": "b",
+          "text": "It makes attention time linear in sequence length $N$"
+        },
+        {
+          "id": "c",
+          "text": "It is faster because it performs fewer floating-point operations"
+        },
+        {
+          "id": "d",
+          "text": "It returns the same output as ordinary attention up to rounding, needs extra memory proportional to $N$, and its time is still proportional to $N^2$"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Online softmax makes the tiled computation exact. The $N \\times N$ matrix is never stored, so extra memory is $O(N)$, but every query still meets every key. It even does more FLOPs than the standard version (it recomputes tiles in the backward pass), and wins by moving less data between slow and fast memory (Lesson 25.4)."
+    },
+    {
+      "id": "q25.9",
+      "question": "A 40-layer MLA model has $n_h = 32$, $d_h = 128$, $d_c = 512$, $d_R = 64$. How many numbers does one token add to the cache?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20,480"
+        },
+        {
+          "id": "b",
+          "text": "327,680"
+        },
+        {
+          "id": "c",
+          "text": "23,040"
+        },
+        {
+          "id": "d",
+          "text": "8,192"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Per layer MLA caches the latent and the shared positional key: $d_c + d_R = 576$ numbers. Over 40 layers: $576 \\times 40 = 23{,}040$. 20,480 forgets $k^R$, 327,680 is full multi-head keys and values ($2 \\times 32 \\times 128 \\times 40$), and 8,192 is that same multi-head cost for a single layer (Lesson 25.5)."
+    },
+    {
+      "id": "q25.10",
+      "question": "Why can't MLA simply apply RoPE to the keys rebuilt from the latent and keep absorbing $W_{UK}$ into the query?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RoPE needs the keys to have full rank, and the latent has low rank"
+        },
+        {
+          "id": "b",
+          "text": "A rotation that depends on the key's position sits between $q$ and $W_{UK}$, so $W_{UK}$ cannot be folded into the query once for all cached tokens"
+        },
+        {
+          "id": "c",
+          "text": "RoPE only works on values, not on keys"
+        },
+        {
+          "id": "d",
+          "text": "Rotations are not linear, so the latent can no longer be up-projected"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The score becomes $q^\\top R_{j-t} W_{UK} c_j$ and $R_{j-t}$ is different for every cached token $j$, and matrix products do not commute. Decoupled RoPE therefore puts position in a separate small key $k^R$ shared by all heads and cached next to the latent (Lesson 25.5)."
     }
   ]
 }

@@ -2358,15 +2358,16 @@
               "id": "25.2",
               "partId": "part-04",
               "chapterId": "chapter-25",
-              "title": "Multi-Head (MHA), Multi-Query (MQA) & Grouped-Query Attention (GQA)",
+              "title": "Multi-Head, Multi-Query & Grouped-Query Attention",
               "slug": "mha-gqa-mqa",
               "file": "25.2-mha-gqa-mqa.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
-                "gqa",
-                "mqa",
-                "mha",
+                "attention",
+                "multi-head-attention",
+                "grouped-query-attention",
+                "multi-query-attention",
                 "kv-cache"
               ],
               "status": "published",
@@ -2381,11 +2382,13 @@
               "slug": "causal-masking",
               "file": "25.3-causal-masking.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 35,
               "tags": [
-                "masking",
+                "attention",
+                "causal-mask",
                 "autoregressive",
-                "decoding"
+                "decoding",
+                "teacher-forcing"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2402,9 +2405,10 @@
               "estimatedMinutes": 40,
               "tags": [
                 "flash-attention",
-                "cuda",
-                "sram",
-                "online-softmax"
+                "online-softmax",
+                "tiling",
+                "gpu-memory",
+                "attention"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -2427,8 +2431,8 @@
                 "mla",
                 "deepseek",
                 "kv-cache",
-                "low-rank-compression",
-                "transformers"
+                "low-rank",
+                "rope"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
