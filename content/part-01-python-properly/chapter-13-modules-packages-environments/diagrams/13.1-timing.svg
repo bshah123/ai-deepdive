@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" role="img" aria-label="Bar chart on a log scale: a fresh import takes about 750 times longer than a cache hit" class="sketch"><title>Bar chart on a log scale: a fresh import takes about 750 times longer than a cache hit</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Cold import versus cache hit (log scale)</tspan></text>
+<text x="60" y="120" class="sk-hand" font-size="20" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">first import</tspan></text>
+<text x="60" y="146" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="60" dy="0">(fresh file)</tspan></text>
+<path d="M299.0 97.8 L707.3 97.5 L706.6 143.1 L301.1 144.4" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M299.9 97.3 C384.2 99.6, 466.7 101.6, 705.0 99.1 M299.4 98.0 C398.5 98.2, 496.8 97.6, 705.7 98.4 M707.8 98.9 C705.0 106.2, 707.1 116.6, 704.7 144.4 M704.6 98.9 C706.0 115.1, 704.4 134.4, 705.1 144.4 M704.8 143.8 C610.6 146.1, 512.5 148.3, 300.5 143.9 M706.1 143.7 C547.7 144.2, 389.8 144.2, 299.6 143.7 M298.0 142.8 C298.1 126.8, 299.2 108.1, 302.0 99.5 M299.1 144.8 C299.8 128.2, 299.7 112.6, 299.7 97.3" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="717.5819014515396" y="128" class="sk-mono" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="717.5819014515396" dy="0">240 µs</tspan></text>
+<text x="60" y="220" class="sk-hand" font-size="20" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">cache hit</tspan></text>
+<text x="60" y="246" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="60" dy="0">(sys.modules)</tspan></text>
+<path d="M299.5 199.5 L361.3 197.3 L359.7 243.4 L299.8 243.9" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M298.5 200.2 C311.0 199.9, 326.3 195.4, 361.2 198.0 M299.4 197.2 C315.4 198.4, 333.0 199.1, 361.5 198.5 M362.5 199.2 C358.1 210.8, 361.0 218.6, 359.2 245.8 M361.3 199.1 C361.1 209.3, 360.8 221.2, 361.9 243.6 M363.1 245.8 C346.3 245.0, 328.8 243.4, 300.7 245.7 M361.8 244.5 C337.7 243.8, 317.1 243.5, 299.2 244.7 M299.5 244.8 C302.2 232.6, 301.2 216.3, 300.4 195.7 M300.5 244.8 C299.0 230.2, 299.5 216.1, 299.0 197.3" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="372.78060388858466" y="228" class="sk-mono" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="372.78060388858466" dy="0">321 ns</tspan></text>
+<path d="M300.8 280.4 C399.0 281.6, 496.8 280.2, 780.8 279.2 M299.9 280.3 C437.6 277.4, 574.1 277.4, 779.5 280.1" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M300.2 279.9 C299.0 281.8, 299.9 282.7, 299.4 288.4 M300.1 279.9 C300.1 282.2, 300.4 285.4, 299.7 288.0" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="300" y="312" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="300" dy="0">100 ns</tspan></text>
+<path d="M419.7 279.4 C419.8 281.4, 420.6 282.8, 420.0 287.6 M420.3 279.6 C420.0 282.3, 420.0 285.3, 419.9 287.8" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="420" y="312" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="420" dy="0">1 µs</tspan></text>
+<path d="M539.1 280.8 C540.6 281.0, 539.4 282.9, 540.6 288.8 M540.4 280.2 C539.5 282.4, 539.5 285.3, 540.1 287.7" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="540" y="312" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="540" dy="0">10 µs</tspan></text>
+<path d="M660.5 280.3 C659.6 282.5, 660.1 283.0, 659.2 288.0 M659.6 279.8 C660.3 283.4, 660.1 286.3, 660.3 287.6" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="660" y="312" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="660" dy="0">100 µs</tspan></text>
+<path d="M779.9 279.8 C780.4 282.1, 780.8 283.2, 779.8 287.2 M779.8 280.4 C780.1 283.5, 779.7 286.2, 779.6 288.5" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="780" y="312" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="780" dy="0">1 ms</tspan></text>
+</svg>

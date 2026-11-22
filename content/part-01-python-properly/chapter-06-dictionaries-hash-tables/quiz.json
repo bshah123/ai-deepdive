@@ -1,30 +1,126 @@
 {
   "chapterId": "chapter-06",
-  "title": "Chapter 6 Quiz \u2014 Dictionaries & Hash Tables",
+  "title": "Chapter 6 Quiz — Dictionaries & Hash Tables",
   "questions": [
     {
-      "id": "ch6-q1",
-      "question": "Why do Python dictionaries preserve insertion order in Python 3.7+?",
+      "id": "q6.1",
+      "question": "A list and a dict each hold 1,000 distinct instances of a class whose __eq__ is written in Python. You look up one key that is in neither. Roughly how many __eq__ calls does each structure make?",
       "options": [
-        {
-          "id": "a",
-          "text": "They use a compact array of entries appended sequentially plus a sparse indices table"
-        },
-        {
-          "id": "b",
-          "text": "They use an internal doubly-linked list connecting all entries"
-        },
-        {
-          "id": "c",
-          "text": "They sort keys alphabetically during every insertion"
-        },
-        {
-          "id": "d",
-          "text": "They record timestamp metadata inside PyObject"
-        }
+        {"id": "a", "text": "Both make 1,000 calls, one per stored key"},
+        {"id": "b", "text": "The list makes 500 calls and the dict makes 500"},
+        {"id": "c", "text": "The list makes 1 call and the dict makes 0"},
+        {"id": "d", "text": "The list makes 1,000 calls and the dict makes 0"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "A list compares the key with each element, so it calls __eq__ 1,000 times. A dict calls __eq__ only for an entry whose stored hash equals the lookup key's hash. In Lesson 6.1 the absent key Key(-1) matched no stored hash, and the measured count was 0. These are counts, so they do not depend on the machine."
+    },
+    {
+      "id": "q6.2",
+      "question": "A dict has 16 slots. Which slot does the key 27 use, and how is it found?",
+      "options": [
+        {"id": "a", "text": "27, because the slot is the hash itself"},
+        {"id": "b", "text": "3, because 27 mod 8 = 3"},
+        {"id": "c", "text": "11, because 27 AND 15 = 11"},
+        {"id": "d", "text": "12, because 27 mod 15 = 12"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The mask for 16 slots is 15 (binary 1111). 27 is 11011 in binary, and 11011 AND 01111 = 01011, which is 11. For a power-of-two table, this keeps the low bits, the same as 27 mod 16. Lesson 6.1 worked the same mask on 13."
+    },
+    {
+      "id": "q6.3",
+      "question": "A class defines __eq__ but not __hash__. What happens when you put one of its instances into a set?",
+      "options": [
+        {"id": "a", "text": "The instance is stored, but later lookups always fail"},
+        {"id": "b", "text": "Python raises TypeError, because the class's __hash__ is set to None"},
+        {"id": "c", "text": "Python uses the object's id as its hash, so the set works"},
+        {"id": "d", "text": "The set keeps the first instance and silently drops the rest"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Defining __eq__ in a class sets __hash__ to None, so the instances are unhashable and the set raises TypeError: unhashable type. The fix is a __hash__ that agrees with __eq__ and uses only fields that do not change while the object is stored."
+    },
+    {
+      "id": "q6.4",
+      "question": "A key's name changes after the key is inserted into a dict, and its __hash__ is computed from name. What happens?",
+      "options": [
+        {"id": "a", "text": "The dict raises KeyError on the next lookup"},
+        {"id": "b", "text": "The dict rehashes every key on the next lookup"},
+        {"id": "c", "text": "The entry moves to the slot for the new hash"},
+        {"id": "d", "text": "The entry stays in its old slot; key in d returns False and len(d) is unchanged"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The stored hash is not checked after insertion, so the entry stays where it was. A lookup goes to the slot for the new hash, finds nothing, and reports a miss. Lesson 6.1 printed p in table: False and len: 1, and no error was raised."
+    },
+    {
+      "id": "q6.5",
+      "question": "A size-8 table holds keys 3, 11, 19 and 5, inserted in that order. Using CPython's probe recurrence, in which slot does the key 27 end up?",
+      "options": [
+        {"id": "a", "text": "Slot 3, because 27 AND 7 = 3 and the slot is free"},
+        {"id": "b", "text": "Slot 6, after probing slots 3, 0 and 1"},
+        {"id": "c", "text": "Slot 0, after a single probe"},
+        {"id": "d", "text": "Slot 4, because 27 mod 8 = 3 and the next slot is 4"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "27 AND 7 = 3, which key 3 already holds. Because 27 >> 5 = 0, each later probe is i = (5i + 1) AND 7, so the probes go 3, 0, 1, 6. Slots 3, 0 and 1 are taken and slot 6 is empty. Lesson 6.2 measured the index [1, 2, -1, 0, -1, 3, 4, -1] on CPython 3.12."
+    },
+    {
+      "id": "q6.6",
+      "question": "You delete 999 of the 1,000 int keys from a dict and then call sys.getsizeof on it. What does it report?",
+      "options": [
+        {"id": "a", "text": "36,952 bytes, the same as before the deletions"},
+        {"id": "b", "text": "352 bytes, the size of a 16-slot table"},
+        {"id": "c", "text": "24,000 bytes, the used entries only"},
+        {"id": "d", "text": "8,760 bytes, the spare entry slots only"}
       ],
       "correctOptionId": "a",
-      "explanation": "PEP 468 compact dict layout separates the sparse hash index table from the dense array of entries. Keys are stored in insertion order in the dense entries array."
+      "explanation": "Deleting leaves holes in the entries array, and the table keeps its 2,048 slots until a resize. Lesson 6.2 measured 36,952 bytes after the deletions. Lesson 6.4 shows that a later resize can shrink the table, and copy() removes the holes."
+    },
+    {
+      "id": "q6.7",
+      "question": "A 5-slot table uses linear probing, and delete empties the slot it removes. You insert 1 (home slot 1, so slot 1), then insert 6 (home slot 1 is taken, so slot 2). You then delete 1. What does search(6) return?",
+      "options": [
+        {"id": "a", "text": "'Six', because search skips empty slots"},
+        {"id": "b", "text": "KeyError, because slot 1 is now missing"},
+        {"id": "c", "text": "None, because the search stops at the empty slot 1"},
+        {"id": "d", "text": "6, read from slot 2"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The search for 6 starts at its home slot 1. Slot 1 is empty, which the search reads as the end of the probe chain, so it returns None although 6 sits in slot 2. With a tombstone in slot 1 the search continues to slot 2 and returns 'Six'. Lesson 6.3 shows the same failure with a different key set."
+    },
+    {
+      "id": "q6.8",
+      "question": "A 10-slot table uses triangular probing, with offsets 0, 1, 3, 6, 10, ... from the home slot. Starting from home slot 0, how many distinct slots can the probe sequence reach?",
+      "options": [
+        {"id": "a", "text": "4"},
+        {"id": "b", "text": "6"},
+        {"id": "c", "text": "8"},
+        {"id": "d", "text": "10"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The offsets mod 10 are 0, 1, 3, 6, 0, 5, 1, 8, 6, 5, and so on. They reach slots 0, 1, 3, 5, 6 and 8, so slots 2, 4, 7 and 9 are never reached from home 0. The power-of-two size in Lesson 6.3 reached every slot in the check that was run, but that check does not prove it for every size."
+    },
+    {
+      "id": "q6.9",
+      "question": "A dict has 8 slots and has just taken its 6th insert, which resized it to 16 slots. At which insert does the next resize happen, and how many slots does the table have after it?",
+      "options": [
+        {"id": "a", "text": "Insert 10, to 32 slots"},
+        {"id": "b", "text": "Insert 11, to 16 slots"},
+        {"id": "c", "text": "Insert 16, to 64 slots"},
+        {"id": "d", "text": "Insert 11, to 32 slots"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "A 16-slot table has 10 usable entries (two thirds of 16, rounded down), so the 11th insert finds it full. The new size is the smallest power of two at least 3 × 10 = 30, which is 32. The model in Lesson 6.4 prints insert 11: 16 -> 32 slots."
+    },
+    {
+      "id": "q6.10",
+      "question": "groups = defaultdict(list). For a key that is not yet in groups, what does has = groups[key] != [] do, and what is len(groups) afterwards?",
+      "options": [
+        {"id": "a", "text": "It inserts an empty list under the key, so len is 1"},
+        {"id": "b", "text": "It returns False without inserting anything, so len is 0"},
+        {"id": "c", "text": "It raises KeyError, so len is 0"},
+        {"id": "d", "text": "It calls get(), which inserts nothing, so len is 0"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "groups[key] is a read through []. For a missing key, defaultdict calls list(), stores the result under the key, and returns it. The comparison [] != [] is False, but the entry now exists. To check without inserting, use key in groups or groups.get(key), as Lesson 6.4 shows."
     }
   ]
 }

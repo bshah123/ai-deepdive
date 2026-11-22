@@ -1,0 +1,73 @@
+{
+ "python": "3.12.13",
+ "platform": "darwin",
+ "outer_in_venv": true,
+ "outer_sitepackages_count": 1,
+ "outer_pyvenv_cfg_keys": [
+  "home",
+  "implementation",
+  "uv",
+  "version_info",
+  "include-system-site-packages"
+ ],
+ "venv_create_exit": [
+  0,
+  0
+ ],
+ "venv_cfg_a": [
+  "home = /Users/bshah/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin",
+  "include-system-site-packages = false",
+  "version = 3.12.13",
+  "executable = /Users/bshah/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/bin/python3.12",
+  "command = /Users/bshah/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12 -m venv /private/tmp/claude-501/-Users-bshah-Documents-Trial-Learning/deaeed1b-fae8-473f-9e77-febb5da77a6e/scratchpad/13.3-work/venv_a"
+ ],
+ "venv_cfg_b_system_site": [
+  "include-system-site-packages = true"
+ ],
+ "a_in_venv": true,
+ "a_prefix": "<work>/venv_a",
+ "a_base_prefix": "~/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none",
+ "a_sys_path": [
+  "(cwd)",
+  "~/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python312.zip",
+  "~/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12",
+  "~/.local/share/uv/python/cpython-3.12-macos-aarch64-none/lib/python3.12/lib-dynload",
+  "<work>/venv_a/lib/python3.12/site-packages"
+ ],
+ "a_sitepackages": [
+  "<work>/venv_a/lib/python3.12/site-packages"
+ ],
+ "a_sys_path_len": 5,
+ "a_sitepackages_index": 4,
+ "b_sitepackages": [
+  "<work>/venv_b/lib/python3.12/site-packages",
+  "~/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/site-packages",
+  "~/.local/share/uv/python/cpython-3.12-macos-aarch64-none/lib/python3.12/site-packages"
+ ],
+ "b_sitepackages_count": 3,
+ "b_extra_system_entries": 2,
+ "b_sys_path_len": 7,
+ "pip_version_line": "pip 25.0.1 from <work>/venv_a/lib/python3.12/site-packages/pip (python 3.12)",
+ "a_pip_list": [
+  "pip"
+ ],
+ "a_file_count": 862,
+ "a_total_kib": 63807,
+ "a_site_packages_top": [
+  "pip"
+ ],
+ "no_activate_in_venv": true,
+ "no_activate_path_has_venv_bin": false,
+ "shadow_import_stdout": "loaded local random.py\n<work>/shadow/random.py\nFalse",
+ "shadow_import_rc": 0,
+ "isolated_import_stdout": "~/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/random.py",
+ "shadow_randint_stderr_last": "AttributeError: module 'random' has no attribute 'randint'",
+ "shadow_randint_rc": 1,
+ "pth_entry_index": 5,
+ "pth_sitepackages_index": 4,
+ "moved_python_rc": 0,
+ "moved_python_prefix": "<work>/venv_moved",
+ "moved_pip_shebang": "#!/private/tmp/claude-501/-Users-bshah-Documents-Trial-Learning/deaeed1b-fae8-473f-9e77-febb5da77a6e/scratchpad/13.3-work/venv_a/bin/python3.12",
+ "moved_pip_exists": true,
+ "moved_pip_error": "FileNotFoundError: No such file or directory"
+}

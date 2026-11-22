@@ -1,22 +1,222 @@
 {
   "chapterId": "chapter-08",
-  "title": "Chapter 8 Quiz \u2014 Scope, Closures & Decorators",
+  "title": "Chapter 8 Quiz — Scope, Closures & Decorators",
   "questions": [
     {
       "id": "q8.1",
-      "question": "Key question regarding Scope, Closures & Decorators?",
+      "question": "What does this program print?\n\nx = \"global\"\ndef outer():\n    x = \"enclosing\"\n    def inner():\n        return x\n    x = \"changed\"\n    return inner\nprint(outer()())",
       "options": [
         {
           "id": "a",
-          "text": "Correct conceptual model option"
+          "text": "global"
         },
         {
           "id": "b",
-          "text": "Incorrect option"
+          "text": "changed"
+        },
+        {
+          "id": "c",
+          "text": "enclosing"
+        },
+        {
+          "id": "d",
+          "text": "UnboundLocalError"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "inner has no local x, so the lookup goes to the enclosing scope (E in LEGB). outer binds x twice before inner is called, and inner reads the cell when it runs, so it sees the last value, 'changed'. The global x is never reached."
+    },
+    {
+      "id": "q8.2",
+      "question": "What happens when this code runs?\n\ntotal = 0\ndef add(n):\n    total += n\n    return total\nadd(5)",
+      "options": [
+        {
+          "id": "a",
+          "text": "It prints 5."
+        },
+        {
+          "id": "b",
+          "text": "NameError: name 'total' is not defined"
+        },
+        {
+          "id": "c",
+          "text": "UnboundLocalError on the line total += n"
+        },
+        {
+          "id": "d",
+          "text": "It prints 0 and leaves total unchanged."
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The augmented assignment is a binding, so the compiler makes total local to add. The read in total += n then happens before the local is bound, which raises UnboundLocalError (a subclass of NameError). Adding global total fixes it."
+    },
+    {
+      "id": "q8.3",
+      "question": "What does this program print?\n\ndef make():\n    n = 1\n    def f():\n        return n\n    n = 5\n    def g():\n        nonlocal n\n        n += 2\n        return n\n    return f, g\nf, g = make()\nprint(g(), f())",
+      "options": [
+        {
+          "id": "a",
+          "text": "7 7"
+        },
+        {
+          "id": "b",
+          "text": "3 5"
+        },
+        {
+          "id": "c",
+          "text": "5 7"
+        },
+        {
+          "id": "d",
+          "text": "7 5"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Scope, Closures & Decorators internal mechanisms."
+      "explanation": "f and g share one cell for n. Before the calls n is 5. Python evaluates the arguments left to right, so g() sets the cell to 7 and returns 7. Then f() reads the same cell and returns 7."
+    },
+    {
+      "id": "q8.4",
+      "question": "What does this program print?\n\nfs = [lambda i=i: i * 10 for i in range(3)]\nprint([f() for f in fs])",
+      "options": [
+        {
+          "id": "a",
+          "text": "[20, 20, 20]"
+        },
+        {
+          "id": "b",
+          "text": "[0, 10, 20]"
+        },
+        {
+          "id": "c",
+          "text": "[0, 0, 0]"
+        },
+        {
+          "id": "d",
+          "text": "[2, 2, 2]"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The default argument i=i is evaluated when each lambda is created, so each function stores its own i (0, 1 or 2). The loop variable is not a free variable, so no shared cell is involved. Each function returns its stored value times 10."
+    },
+    {
+      "id": "q8.5",
+      "question": "Let f = outer(1), where outer(a) sets b = 2 and returns inner(c), which returns a + b + G + c for a module-level G = 5. What does print(len(f.__closure__), f.__code__.co_freevars) print?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3 ('a', 'b', 'G')"
+        },
+        {
+          "id": "b",
+          "text": "1 ('a',)"
+        },
+        {
+          "id": "c",
+          "text": "2 ('a', 'b')"
+        },
+        {
+          "id": "d",
+          "text": "3 ('a', 'b', 'c')"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "a and b are local to outer, so inner closes over them, giving two cells. G is a module-level global, so it is not a free variable and has no cell. c is inner's own parameter, which is local to inner."
+    },
+    {
+      "id": "q8.6",
+      "question": "A naive recursive fib(n) is wrapped by a decorator that counts every call to the name fib. Using the lesson's formula C(n) = 2F(n+1) - 1 with F the Fibonacci sequence (F(13) = 233), how many wrapper calls does fib(12) make?",
+      "options": [
+        {
+          "id": "a",
+          "text": "144"
+        },
+        {
+          "id": "b",
+          "text": "377"
+        },
+        {
+          "id": "c",
+          "text": "465"
+        },
+        {
+          "id": "d",
+          "text": "466"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "2 * F(13) - 1 = 2 * 233 - 1 = 465. Running the counting decorator on fib(12) also gives 465, so the formula matches the measurement."
+    },
+    {
+      "id": "q8.7",
+      "question": "A decorator is written without functools.wraps:\n\ndef plain(func):\n    def wrapper(*args, **kwargs):\n        return func(*args, **kwargs)\n    return wrapper\n\n@plain\ndef add(a, b):\n    return a + b\n\nWhat does print(add.__name__) print?",
+      "options": [
+        {
+          "id": "a",
+          "text": "wrapper"
+        },
+        {
+          "id": "b",
+          "text": "add"
+        },
+        {
+          "id": "c",
+          "text": "plain"
+        },
+        {
+          "id": "d",
+          "text": "None"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "After decoration the name add refers to the wrapper function, so its __name__ is 'wrapper'. Adding @functools.wraps(func) to the wrapper copies __name__, __doc__ and the other metadata from the original."
+    },
+    {
+      "id": "q8.8",
+      "question": "A class decorator is written as\n\ndef debug(cls):\n    class DebuggedClass(cls):\n        pass\n    return DebuggedClass\n\n@debug\nclass Person:\n    pass\n\nWhat does print(Person.__name__, Person.__bases__[0].__name__) print?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Person Person"
+        },
+        {
+          "id": "b",
+          "text": "DebuggedClass DebuggedClass"
+        },
+        {
+          "id": "c",
+          "text": "Person DebuggedClass"
+        },
+        {
+          "id": "d",
+          "text": "DebuggedClass Person"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The decorator returns a subclass, and the name Person is bound to it. Its __name__ is 'DebuggedClass', and its base is the original class, whose name is 'Person'. Changing the class in place and returning it would keep the name Person."
+    },
+    {
+      "id": "q8.9",
+      "question": "Which output does body() print for this code?\n\ndef tag(label):\n    def deco(f):\n        def w(*args, **kwargs):\n            print('enter', label)\n            r = f(*args, **kwargs)\n            print('exit', label)\n            return r\n        return w\n    return deco\n\n@tag('a')\n@tag('b')\ndef body():\n    print('body')\n\nbody()",
+      "options": [
+        {
+          "id": "a",
+          "text": "enter b, enter a, body, exit a, exit b"
+        },
+        {
+          "id": "b",
+          "text": "enter a, enter b, body, exit b, exit a"
+        },
+        {
+          "id": "c",
+          "text": "body, enter a, enter b, exit b, exit a"
+        },
+        {
+          "id": "d",
+          "text": "enter a, body, enter b, exit b, exit a"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "body is a(b(body)). The bottom decorator b wraps the function first, but the outermost wrapper a runs first when body() is called. So the order is enter a, enter b, the body, then the exits in reverse order: exit b, exit a. The output was checked by running the code."
     }
   ]
 }

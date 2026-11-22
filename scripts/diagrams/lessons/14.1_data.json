@@ -1,0 +1,131 @@
+{
+  "python": "3.12.13",
+  "mypy": "2.4.1",
+  "snippets": {
+    "A_arg_type": {
+      "label": "int + str argument",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/A_arg_type.py:4: error: Argument 2 to \"add_numbers\" has incompatible type \"str\"; expected \"int\"  [arg-type]"
+      ],
+      "runtime": {
+        "status": "crash",
+        "stdout": "",
+        "error": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+      }
+    },
+    "B_return_type": {
+      "label": "returns str from -> int",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/B_return_type.py:2: error: Incompatible return value type (got \"str\", expected \"int\")  [return-value]"
+      ],
+      "runtime": {
+        "status": "ran",
+        "stdout": "item 3",
+        "error": null
+      }
+    },
+    "C_optional_none": {
+      "label": "str | None used as str",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/C_optional_none.py:2: error: Item \"None\" of \"str | None\" has no attribute \"upper\"  [union-attr]"
+      ],
+      "runtime": {
+        "status": "crash",
+        "stdout": "",
+        "error": "AttributeError: 'NoneType' object has no attribute 'upper'"
+      }
+    },
+    "C_fixed_guard": {
+      "label": "control: None guarded",
+      "mypy_errors": 0,
+      "mypy_messages": [],
+      "runtime": {
+        "status": "ran",
+        "stdout": "",
+        "error": null
+      }
+    },
+    "D_typo_attr": {
+      "label": "misspelled attribute",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/D_typo_attr.py:6: error: \"Sensor\" has no attribute \"readng\"; maybe \"reading\"?  [attr-defined]"
+      ],
+      "runtime": {
+        "status": "crash",
+        "stdout": "",
+        "error": "AttributeError: 'Sensor' object has no attribute 'readng'. Did you mean: 'reading'?"
+      }
+    },
+    "E_arity": {
+      "label": "missing argument",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/E_arity.py:4: error: Missing positional argument \"h\" in call to \"area\"  [call-arg]"
+      ],
+      "runtime": {
+        "status": "crash",
+        "stdout": "",
+        "error": "TypeError: area() missing 1 required positional argument: 'h'"
+      }
+    },
+    "F_unannotated_call": {
+      "label": "unannotated def, bad call",
+      "mypy_errors": 0,
+      "mypy_messages": [],
+      "runtime": {
+        "status": "crash",
+        "stdout": "",
+        "error": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+      }
+    },
+    "G_unexecuted_branch": {
+      "label": "bug on a branch not run",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/G_unexecuted_branch.py:3: error: Incompatible return value type (got \"str\", expected \"int\")  [return-value]"
+      ],
+      "runtime": {
+        "status": "ran",
+        "stdout": "1",
+        "error": null
+      }
+    },
+    "H_missing_return": {
+      "label": "missing else return",
+      "mypy_errors": 1,
+      "mypy_messages": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/H_missing_return.py:1: error: Missing return statement  [return]"
+      ],
+      "runtime": {
+        "status": "ran",
+        "stdout": "None",
+        "error": null
+      }
+    },
+    "I_unannotated_body": {
+      "label": "unannotated def, bad body",
+      "mypy_errors": 0,
+      "mypy_messages": [],
+      "runtime": {
+        "status": "crash",
+        "stdout": "",
+        "error": "TypeError: unsupported operand type(s) for +: 'int' and 'str'"
+      },
+      "mypy_errors_check_untyped_defs": 1,
+      "mypy_messages_check_untyped_defs": [
+        "/var/folders/mz/70r878gx49b900h89jv9fhyw0000gn/T/tmpad2ovxcl/I_unannotated_body.py:2: error: Incompatible types in assignment (expression has type \"str\", variable has type \"int\")  [assignment]"
+      ]
+    }
+  },
+  "annotations_probe": "{'a': <class 'int'>, 'b': <class 'int'>, 'return': <class 'int'>}",
+  "summary": {
+    "bug_snippets": 9,
+    "mypy_flagged": 7,
+    "runtime_crash_on_given_input": 6,
+    "runtime_silent_wrong_or_unseen": 3
+  }
+}

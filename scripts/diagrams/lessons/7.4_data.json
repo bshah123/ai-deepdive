@@ -1,0 +1,130 @@
+{
+  "python_version": "3.12.13",
+  "default_limit": 1000,
+  "frames_at_call_k0": 3,
+  "wrapper_sweep": [
+    {
+      "k": 0,
+      "frames_at_call": 3,
+      "max_n": 995,
+      "limit_minus_max_n": 5
+    },
+    {
+      "k": 10,
+      "frames_at_call": 13,
+      "max_n": 985,
+      "limit_minus_max_n": 15
+    },
+    {
+      "k": 50,
+      "frames_at_call": 53,
+      "max_n": 945,
+      "limit_minus_max_n": 55
+    },
+    {
+      "k": 200,
+      "frames_at_call": 203,
+      "max_n": 795,
+      "limit_minus_max_n": 205
+    }
+  ],
+  "limit_sweep": [
+    {
+      "limit": 100,
+      "max_n": 97
+    },
+    {
+      "limit": 1000,
+      "max_n": 997
+    },
+    {
+      "limit": 5000,
+      "max_n": 4997
+    }
+  ],
+  "caught_message": "maximum recursion depth exceeded",
+  "after_error_rec_500": 500,
+  "deep_100000_ok": 100000,
+  "rss_bytes": {
+    "0": 16531456,
+    "10000": 18055168,
+    "100000": 31735808
+  },
+  "bytes_per_frame_est": 152,
+  "recursive_sum_max_len": 996,
+  "loop_sum_1e6_ok": true,
+  "dfs_rec_max_nodes": 997,
+  "dfs_stack_100000_nodes": 100000,
+  "dfs_agree_of_200": 200,
+  "tail_call_max_n": 997,
+  "tail_call_1e5_ok": false,
+  "repr_nest_max_default": 9996,
+  "repr_nest_200000_with_high_limit": "maximum recursion depth exceeded while getting the repr of an object",
+  "helper_boundary_max_n": 995,
+  "frames_at_helper_max_n": 998,
+  "frames_at_helper_max_n_plus_1": "ok",
+  "dfs_trace": [
+    {
+      "popped": 0,
+      "stack_after": [
+        1,
+        2
+      ],
+      "seen": [
+        0
+      ]
+    },
+    {
+      "popped": 2,
+      "stack_after": [
+        1
+      ],
+      "seen": [
+        0,
+        2
+      ]
+    },
+    {
+      "popped": 1,
+      "stack_after": [
+        3,
+        4
+      ],
+      "seen": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "popped": 4,
+      "stack_after": [
+        3
+      ],
+      "seen": [
+        0,
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "popped": 3,
+      "stack_after": [],
+      "seen": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "dfs_trace_order": [
+    0,
+    2,
+    1,
+    4,
+    3
+  ]
+}

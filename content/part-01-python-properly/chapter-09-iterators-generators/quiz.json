@@ -1,22 +1,114 @@
 {
   "chapterId": "chapter-09",
-  "title": "Chapter 9 Quiz \u2014 Iterators & Generators",
+  "title": "Chapter 9 Quiz — Iterators & Generators",
   "questions": [
     {
       "id": "q9.1",
-      "question": "Key question regarding Iterators & Generators?",
+      "question": "What does this print? it = iter([1, 2, 3]); print(list(it)); print(list(it))",
       "options": [
-        {
-          "id": "a",
-          "text": "Correct conceptual model option"
-        },
-        {
-          "id": "b",
-          "text": "Incorrect option"
-        }
+        {"id": "a", "text": "[1, 2, 3] and then [1, 2, 3]"},
+        {"id": "b", "text": "[1, 2, 3] and then []"},
+        {"id": "c", "text": "[1, 2, 3] and then a TypeError"},
+        {"id": "d", "text": "[] and then [1, 2, 3]"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The first list() consumes the iterator until StopIteration. An iterator keeps its position, not a copy of the data, so the second list() starts from the exhausted cursor and returns []. The list object itself was never consumed, so a new iter() call would give all three values again."
+    },
+    {
+      "id": "q9.2",
+      "question": "A class's __next__ returns 1, 2, 3, 4 and then raises StopIteration. How many times is __next__ called during for x in obj: pass?",
+      "options": [
+        {"id": "a", "text": "4"},
+        {"id": "b", "text": "6"},
+        {"id": "c", "text": "1"},
+        {"id": "d", "text": "5"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "__next__ runs five times: four calls return 1 to 4, and the fifth raises StopIteration, which ends the loop. The for loop calls __iter__ once, so the answer for __next__ is one more than the number of values. Measured on CPython 3.12 with a class of this shape: 5 calls."
+    },
+    {
+      "id": "q9.3",
+      "question": "After g = count_up_to(3), where count_up_to has count = 0, a while count < limit loop, and yield count followed by count += 1, three calls next(g) return 0, 1 and 2. What is g.gi_frame.f_locals now?",
+      "options": [
+        {"id": "a", "text": "{'limit': 3}"},
+        {"id": "b", "text": "{'limit': 3, 'count': 3}"},
+        {"id": "c", "text": "{'limit': 3, 'count': 2}"},
+        {"id": "d", "text": "{'count': 2}"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The generator's frame is kept alive while it is suspended, so its local variables persist. After the third next() call returns 2, the generator is paused at yield, before count += 1 runs, so count is still 2. limit is a parameter, so it is also in the frame. The lesson's trace printed {'limit': 3, 'count': 2} after the third call."
+    },
+    {
+      "id": "q9.4",
+      "question": "Why does sum(x * x for x in range(10**6)) need far less peak memory than sum([x * x for x in range(10**6)])?",
+      "options": [
+        {"id": "a", "text": "The generator performs fewer multiplications than the list comprehension."},
+        {"id": "b", "text": "The generator computes one square at a time and passes it to sum(), so the peak stays flat (464 B measured). The list holds all one million squares before sum() starts (about 40.4 MB measured, CPython 3.12.13)."},
+        {"id": "c", "text": "sum() reads a list more slowly, so it needs a copy of the list."},
+        {"id": "d", "text": "The list comprehension runs in a separate thread, which doubles its memory."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Both expressions compute the same one million squares. The generator never stores them, so only the current square and the running total exist at once. The list stores every value, and its memory grows with N. The exact byte counts depend on the interpreter build; the difference in shape does not."
+    },
+    {
+      "id": "q9.5",
+      "question": "An averager() generator from lesson 9.3 is primed with next(). It then receives 10, 30, 5 and 3 through send(). What does the last send(3) return?",
+      "options": [
+        {"id": "a", "text": "12.0"},
+        {"id": "b", "text": "15.0"},
+        {"id": "c", "text": "48"},
+        {"id": "d", "text": "3"}
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Iterators & Generators internal mechanisms."
+      "explanation": "After the four values the total is 48 and the count is 4, so the average is 48 / 4 = 12.0. The send() call returns the new average, not the total (48) or the value sent (3). The averages after each send are 10.0, 20.0, 15.0 and 12.0."
+    },
+    {
+      "id": "q9.6",
+      "question": "A generator has a try/finally around its yield, and its finally block prints cleanup. You call close() before calling next() even once. What is printed?",
+      "options": [
+        {"id": "a", "text": "cleanup"},
+        {"id": "b", "text": "cleanup, printed later when the generator is garbage-collected"},
+        {"id": "c", "text": "RuntimeError: generator ignored GeneratorExit"},
+        {"id": "d", "text": "Nothing"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The body never started, so the try block was never entered and its finally clause does not run. close() on an unstarted generator simply finishes it. Garbage collection calls close() again, which again does nothing. The lesson's example printed close() returned None with no cleanup line."
+    },
+    {
+      "id": "q9.7",
+      "question": "How many groups does itertools.groupby(\"AAABBCAA\") produce when the key is the character itself?",
+      "options": [
+        {"id": "a", "text": "3"},
+        {"id": "b", "text": "8"},
+        {"id": "c", "text": "4"},
+        {"id": "d", "text": "2"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "groupby starts a new group whenever the key changes: A to B, B to C, and C to A. That gives four groups, (A, 3), (B, 2), (C, 1) and (A, 2). The second A group is a separate group, because groupby merges only neighbouring equal keys. Sorting the string first would give three groups."
+    },
+    {
+      "id": "q9.8",
+      "question": "How many tuples does itertools.permutations(range(10), 3) yield, and how many does itertools.combinations(range(10), 3) yield?",
+      "options": [
+        {"id": "a", "text": "720 and 120"},
+        {"id": "b", "text": "1000 and 220"},
+        {"id": "c", "text": "120 and 720"},
+        {"id": "d", "text": "720 and 220"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Permutations are ordered and have no repeats, so the count is n!/(n-r)! = 10 × 9 × 8 = 720. Combinations are unordered and have no repeats, so the count is C(n, r) = 120. The lesson's table shows the same values, and the code checks them against math.perm and math.comb. The values 1000 and 220 belong to product and combinations_with_replacement."
+    },
+    {
+      "id": "q9.9",
+      "question": "A class's __iter__ returns self, and its position is stored on the object. What happens on a second for loop over the same object?",
+      "options": [
+        {"id": "a", "text": "A TypeError is raised."},
+        {"id": "b", "text": "The loop runs zero times and raises no error."},
+        {"id": "c", "text": "The loop starts again from the first value."},
+        {"id": "d", "text": "The loop repeats the values from the first pass."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The object is its own iterator, so the second loop asks for an iterator and gets the same exhausted object. __next__ raises StopIteration at once, and the loop body never runs. The fix is to return a fresh iterator from __iter__, or to return iter(self.items) when the data is already in memory."
     }
   ]
 }

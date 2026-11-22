@@ -1,0 +1,29 @@
+{
+  "finder_calls": [
+    1,
+    0,
+    0
+  ],
+  "body_runs": [
+    1,
+    0,
+    0
+  ],
+  "same_object": true,
+  "cold_median_us": 239.8,
+  "hot_median_ns": 321.0,
+  "n_cold": 200,
+  "broken_attempts": [
+    "boom",
+    "boom"
+  ],
+  "broken_in_cache": false,
+  "none_msg": "import of ghost halted; None in sys.modules",
+  "dotted_keys": [
+    "pkgdemo",
+    "pkgdemo.sub"
+  ],
+  "shadow_winner": "dir_b (later on sys.path)",
+  "fresh_object_after_delete": true,
+  "python": "3.12.13"
+}

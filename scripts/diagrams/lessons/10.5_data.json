@@ -1,0 +1,46 @@
+{
+  "python": "3.12.13",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "precedence": {
+    "dd|dict=False": "data descriptor",
+    "nd|dict=False": "non-data descriptor",
+    "plain|dict=False": "class attribute",
+    "absent|dict=False": "__getattr__ fallback",
+    "dd|dict=True": "data descriptor",
+    "nd|dict=True": "instance dict",
+    "plain|dict=True": "instance dict",
+    "absent|dict=True": "instance dict"
+  },
+  "reference_agree": "8/8",
+  "get_calls_for_1000_accesses": 1000,
+  "masked_property_result": "fallback for value",
+  "masked_direct_error": "real bug: self._missing was never set",
+  "shared_descriptor_bad_a": 2,
+  "shared_descriptor_bad_b": 2,
+  "per_instance_good_c": 1,
+  "per_instance_good_d": 2,
+  "class_creation_trace": [
+    "Meta.__prepare__(Child)",
+    "class body executed",
+    "Meta.__new__(Child)",
+    "__set_name__(Child, 'x')",
+    "Base.__init_subclass__(Child)",
+    "Meta.__init__(Child)"
+  ],
+  "metaclass_kind_on_class": "class Thing",
+  "metaclass_kind_on_instance": "class attribute",
+  "timing_ns": {
+    "instance attribute": 8.5,
+    "class attribute": 23.1,
+    "non-data descriptor": 61.9,
+    "property (data descriptor)": 51.2,
+    "__getattr__ fallback": 49.1
+  },
+  "timing_ratio": {
+    "instance attribute": 1.0,
+    "class attribute": 2.72,
+    "non-data descriptor": 7.28,
+    "property (data descriptor)": 6.02,
+    "__getattr__ fallback": 5.78
+  }
+}

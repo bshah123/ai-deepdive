@@ -1,0 +1,116 @@
+{
+  "python": "3.12.13",
+  "after_rebind": [
+    1
+  ],
+  "after_mutate": [
+    1,
+    99
+  ],
+  "same_object_inside": true,
+  "int_inside": 6,
+  "int_outside": 5,
+  "signature_f": "(a, b, *args, c, d=4, **kwargs)",
+  "kinds_f": [
+    [
+      "a",
+      "POSITIONAL_OR_KEYWORD"
+    ],
+    [
+      "b",
+      "POSITIONAL_OR_KEYWORD"
+    ],
+    [
+      "args",
+      "VAR_POSITIONAL"
+    ],
+    [
+      "c",
+      "KEYWORD_ONLY"
+    ],
+    [
+      "d",
+      "KEYWORD_ONLY"
+    ],
+    [
+      "kwargs",
+      "VAR_KEYWORD"
+    ]
+  ],
+  "bound_a": 1,
+  "bound_b": 2,
+  "bound_args": "(3, 4)",
+  "bound_c": 5,
+  "bound_d": 4,
+  "bound_kwargs": "{'z': 9}",
+  "kwarg_order": [
+    "z",
+    "a",
+    "m"
+  ],
+  "empty_call": [
+    "()",
+    "{}"
+  ],
+  "kwargs_is_copy": true,
+  "args_elem_shared": true,
+  "err_missing_kwonly": "f() missing 1 required keyword-only argument: 'c'",
+  "err_multiple_values": "f() got multiple values for argument 'a'",
+  "signature_p": "(a, /, b, *, c)",
+  "kinds_p": [
+    [
+      "a",
+      "POSITIONAL_ONLY"
+    ],
+    [
+      "b",
+      "POSITIONAL_OR_KEYWORD"
+    ],
+    [
+      "c",
+      "KEYWORD_ONLY"
+    ]
+  ],
+  "posonly_ok": "(1, 2, 3)",
+  "err_posonly_as_kw": "p() got some positional-only arguments passed as keyword arguments: 'a'",
+  "err_too_many": "p() takes 2 positional arguments but 3 positional arguments (and 1 keyword-only argument) were given",
+  "bad_snapshots": [
+    [
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      2,
+      3
+    ]
+  ],
+  "bad_default_after": [
+    1,
+    2,
+    3
+  ],
+  "fixed_snapshots": [
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ]
+  ],
+  "ops_plain": [
+    "CALL"
+  ],
+  "ops_star": [
+    "CALL_FUNCTION_EX"
+  ],
+  "ops_dstar": [
+    "CALL_FUNCTION_EX"
+  ]
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="Two calls build a closure chain for @repeat(3)" class="sketch"><title>Two calls build a closure chain for @repeat(3)</title>
+<text x="440" y="40" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Two calls, two closures</tspan></text>
+<path d="M59.8 71.2 L419.6 68.2 L419.2 162.5 L59.5 160.1" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M61.4 71.2 C146.9 68.2, 230.0 69.0, 420.8 70.0 M60.4 70.7 C195.7 67.1, 331.4 67.3, 420.2 70.3 M422.2 68.8 C418.7 91.1, 420.6 113.2, 422.4 162.7 M420.9 69.2 C419.9 106.3, 420.8 141.6, 420.2 161.0 M420.4 161.2 C325.3 163.3, 229.7 164.7, 60.1 163.5 M420.2 162.4 C332.9 160.9, 246.5 160.4, 60.1 161.6 M57.8 161.3 C58.5 135.9, 60.6 109.7, 59.7 69.7 M58.9 162.1 C60.4 143.9, 59.6 126.3, 60.8 70.5" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="240" y="102" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="240" dy="0">repeat(3)</tspan></text>
+<text x="240" y="134" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="240" dy="0">returns decorator_repeat</tspan></text>
+<g transform="rotate(-1.5 650 116)">
+<path d="M480.2 68.6 L818.9 68.5 L821.4 162.6 L478.7 163.7" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M480.4 70.3 C560.5 70.1, 641.6 71.4, 818.9 69.0 M480.5 70.1 C615.1 69.1, 751.6 68.9, 820.4 70.1 M821.3 69.3 C818.7 92.2, 820.8 116.9, 821.2 163.5 M820.1 69.5 C820.4 94.3, 820.1 118.5, 819.6 162.5 M819.8 162.4 C724.5 164.0, 629.8 164.7, 479.9 161.8 M820.2 161.6 C746.5 163.4, 672.3 164.1, 480.0 162.3 M479.5 163.0 C478.4 128.3, 478.5 92.1, 478.5 70.5 M480.2 162.1 C479.1 129.0, 480.8 94.2, 480.1 70.4" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="494" y="97" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="494" dy="0">closure cell</tspan><tspan x="494" dy="20.900000000000002">num_times = 3</tspan></text>
+</g>
+<path d="M239.5 165.4 C241.4 178.0, 241.6 196.2, 239.3 227.0 M239.1 165.3 C240.6 178.6, 239.7 193.1, 238.9 225.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M238.9 224.9 C237.9 224.4, 236.6 222.1, 235.2 214.6 M239.7 226.5 C238.8 222.8, 236.7 220.6, 234.4 215.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240.9 227.0 C241.5 223.8, 242.5 222.3, 246.5 216.3 M240.0 226.0 C241.2 222.5, 242.9 219.6, 245.2 214.8" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="330" y="202" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="330" dy="0">called with greet</tspan></text>
+<path d="M62.1 232.2 L418.7 233.8 L418.3 325.9 L57.9 324.1" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60.1 232.3 C144.2 230.0, 232.4 228.9, 419.3 232.0 M60.2 231.4 C161.5 232.7, 263.9 232.2, 420.3 231.4 M419.4 232.3 C419.0 261.3, 420.2 293.5, 418.7 321.8 M419.1 232.4 C418.3 263.8, 418.1 294.3, 419.0 324.0 M419.9 323.9 C296.4 325.9, 174.5 325.2, 59.4 325.5 M420.4 324.6 C304.6 321.7, 188.4 321.7, 59.9 324.6 M60.7 324.0 C60.6 292.8, 62.0 264.1, 60.8 231.6 M59.0 324.1 C59.2 303.8, 59.1 283.0, 59.8 232.5" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="240" y="264" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="240" dy="0">decorator_repeat(greet)</tspan></text>
+<text x="240" y="296" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="240" dy="0">returns wrapper</tspan></text>
+<g transform="rotate(-1.5 650 278)">
+<path d="M478.4 233.4 L821.8 233.2 L820.8 325.7 L481.0 323.6" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M479.4 231.6 C560.7 231.9, 641.1 231.8, 820.1 231.0 M480.4 232.3 C584.1 233.8, 687.8 233.1, 820.5 232.6 M819.2 232.5 C818.9 262.4, 820.5 296.6, 818.5 323.4 M820.5 232.5 C821.2 251.6, 820.1 269.0, 820.6 323.4 M819.3 325.0 C697.4 326.4, 575.0 325.6, 479.5 323.7 M820.4 323.8 C718.5 324.6, 617.6 324.5, 479.9 323.9 M481.7 325.5 C480.1 304.1, 479.6 287.2, 479.3 232.4 M480.3 324.1 C480.0 289.1, 480.4 253.1, 479.4 232.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="494" y="258" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="494" dy="0">wrapper keeps two cells</tspan><tspan x="494" dy="19.8">func = greet, num_times = 3</tspan></text>
+</g>
+<text x="440" y="368" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">so greet = wrapper: the name now points at the wrapper</tspan></text>
+</svg>

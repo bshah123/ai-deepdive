@@ -1,0 +1,234 @@
+{
+  "versions": {
+    "python": "3.12.13",
+    "machine": "arm64",
+    "pydantic": "2.14.4",
+    "pydantic_core": "2.50.5"
+  },
+  "valid_repr": "sensor_id='S-042' temperature_c=21.5 count=3",
+  "valid_types": {
+    "sensor_id": "str",
+    "temperature_c": "float",
+    "count": "int"
+  },
+  "bad_record": {
+    "error_count": 3,
+    "errors": [
+      {
+        "loc": [
+          "sensor_id"
+        ],
+        "type": "string_pattern_mismatch",
+        "msg": "String should match pattern '^S-\\d{3}$'"
+      },
+      {
+        "loc": [
+          "temperature_c"
+        ],
+        "type": "float_parsing",
+        "msg": "Input should be a valid number, unable to parse string as a number"
+      },
+      {
+        "loc": [
+          "count"
+        ],
+        "type": "greater_than",
+        "msg": "Input should be greater than 0"
+      }
+    ],
+    "str": "3 validation errors for Reading\nsensor_id\n  String should match pattern '^S-\\d{3}$' [type=string_pattern_mismatch, input_value='X-1', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_pattern_mismatch\ntemperature_c\n  Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='hot', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/float_parsing\ncount\n  Input should be greater than 0 [type=greater_than, input_value=0, input_type=int]\n    For further information visit https://errors.pydantic.dev/2.14/v/greater_than"
+  },
+  "coercion_int": [
+    {
+      "input": "1",
+      "lax": {
+        "ok": true,
+        "value": "1",
+        "type": "int"
+      },
+      "strict": {
+        "ok": true,
+        "value": "1",
+        "type": "int"
+      }
+    },
+    {
+      "input": "'1'",
+      "lax": {
+        "ok": true,
+        "value": "1",
+        "type": "int"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "1.0",
+      "lax": {
+        "ok": true,
+        "value": "1",
+        "type": "int"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "1.5",
+      "lax": {
+        "ok": false,
+        "type": "int_from_float"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "'1.5'",
+      "lax": {
+        "ok": false,
+        "type": "int_parsing"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "True",
+      "lax": {
+        "ok": true,
+        "value": "1",
+        "type": "int"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "' 7 '",
+      "lax": {
+        "ok": true,
+        "value": "7",
+        "type": "int"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "'abc'",
+      "lax": {
+        "ok": false,
+        "type": "int_parsing"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    },
+    {
+      "input": "None",
+      "lax": {
+        "ok": false,
+        "type": "int_type"
+      },
+      "strict": {
+        "ok": false,
+        "type": "int_type"
+      }
+    }
+  ],
+  "coercion_float": [
+    {
+      "input": "3",
+      "lax": {
+        "ok": true,
+        "value": "3.0",
+        "type": "float"
+      },
+      "strict": {
+        "ok": true,
+        "value": "3.0",
+        "type": "float"
+      }
+    },
+    {
+      "input": "'999.99'",
+      "lax": {
+        "ok": true,
+        "value": "999.99",
+        "type": "float"
+      },
+      "strict": {
+        "ok": false,
+        "type": "float_type"
+      }
+    },
+    {
+      "input": "'1e3'",
+      "lax": {
+        "ok": true,
+        "value": "1000.0",
+        "type": "float"
+      },
+      "strict": {
+        "ok": false,
+        "type": "float_type"
+      }
+    },
+    {
+      "input": "'nan'",
+      "lax": {
+        "ok": true,
+        "value": "nan",
+        "type": "float"
+      },
+      "strict": {
+        "ok": false,
+        "type": "float_type"
+      }
+    },
+    {
+      "input": "'abc'",
+      "lax": {
+        "ok": false,
+        "type": "float_parsing"
+      },
+      "strict": {
+        "ok": false,
+        "type": "float_type"
+      }
+    }
+  ],
+  "optional_no_default_missing": {
+    "type": "missing",
+    "loc": [
+      "age"
+    ]
+  },
+  "optional_with_default_missing": "None",
+  "validator_class": "pydantic_core._pydantic_core.SchemaValidator",
+  "class_definition_seconds": 0.00017212500097230077,
+  "bench_records": 100000,
+  "bench": {
+    "handwritten_python": {
+      "us_per_record": 0.313,
+      "total_s_for_100k": 0.0313
+    },
+    "pydantic_model_validate_dict": {
+      "us_per_record": 0.707,
+      "total_s_for_100k": 0.0707
+    },
+    "pydantic_model_validate_json": {
+      "us_per_record": 0.855,
+      "total_s_for_100k": 0.0855
+    }
+  }
+}

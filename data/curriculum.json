@@ -633,12 +633,15 @@
               "title": "PyTupleObject & Struct Optimization",
               "slug": "tuples-vs-lists",
               "file": "5.1-tuples-vs-lists.md",
-              "difficulty": "beginner",
-              "estimatedMinutes": 15,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
                 "tuple",
-                "immutable",
-                "cpython"
+                "list",
+                "memory-layout",
+                "hashing",
+                "immutability",
+                "bytecode"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -652,7 +655,7 @@
               "slug": "tuple-unpacking",
               "file": "5.2-tuple-unpacking.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "unpacking",
                 "syntax",
@@ -673,8 +676,10 @@
               "estimatedMinutes": 25,
               "tags": [
                 "namedtuple",
+                "NamedTuple",
                 "dataclass",
-                "types"
+                "records",
+                "immutability"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -705,11 +710,13 @@
               "slug": "hash-table-foundations",
               "file": "6.1-hash-table-foundations.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "hash",
                 "dict",
-                "hashable"
+                "hashable",
+                "__hash__",
+                "__eq__"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -719,15 +726,17 @@
               "id": "6.2",
               "partId": "part-01",
               "chapterId": "chapter-06",
-              "title": "Compact Dict Layout (PEP 468) & Sparse Indices",
+              "title": "Compact Dict Layout: Dense Entries, Sparse Indices",
               "slug": "compact-dict",
               "file": "6.2-compact-dict.md",
               "difficulty": "advanced",
               "estimatedMinutes": 30,
               "tags": [
-                "pep468",
+                "dict",
                 "cpython",
-                "memory"
+                "memory",
+                "hash-table",
+                "insertion-order"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -740,12 +749,14 @@
               "title": "Collision Resolution: Open Addressing & Probing",
               "slug": "collision-resolution",
               "file": "6.3-collision-resolution.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
+                "open-addressing",
                 "probing",
                 "collisions",
-                "algorithms"
+                "tombstones",
+                "hash-tables"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -759,11 +770,13 @@
               "slug": "dict-resizing-collections",
               "file": "6.4-dict-resizing-collections.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
-                "collections",
-                "counter",
-                "resizing"
+                "dict",
+                "resizing",
+                "load-factor",
+                "defaultdict",
+                "counter"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -812,7 +825,7 @@
               "slug": "argument-passing",
               "file": "7.2-argument-passing.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "arguments",
                 "varargs",
@@ -830,11 +843,13 @@
               "slug": "first-class-functions",
               "file": "7.3-first-class-functions.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 30,
               "tags": [
                 "lambda",
-                "functional",
-                "higher-order"
+                "closure",
+                "higher-order",
+                "iterator",
+                "functools"
               ],
               "status": "published",
               "contentShape": "concept-intro",
@@ -851,8 +866,9 @@
               "estimatedMinutes": 20,
               "tags": [
                 "recursion",
-                "sys-setrecursionlimit",
-                "stack"
+                "recursion-limit",
+                "stack",
+                "stack-overflow"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -887,7 +903,9 @@
               "tags": [
                 "scope",
                 "legb",
-                "closures"
+                "closures",
+                "cell",
+                "nonlocal"
               ],
               "status": "published",
               "contentShape": "debugging-failure",
@@ -905,7 +923,9 @@
               "tags": [
                 "closures",
                 "cell",
-                "freevars"
+                "free-variables",
+                "nonlocal",
+                "late-binding"
               ],
               "status": "published",
               "contentShape": "mental-model-first",
@@ -923,6 +943,7 @@
               "tags": [
                 "decorators",
                 "wraps",
+                "closures",
                 "metaprogramming"
               ],
               "status": "published",
@@ -936,10 +957,11 @@
               "title": "Parameterized Decorators & Class Decorators",
               "slug": "advanced-decorators",
               "file": "8.4-advanced-decorators.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "decorators",
+                "closures",
                 "classes",
                 "parameters"
               ],
@@ -972,11 +994,14 @@
               "slug": "iteration-protocol",
               "file": "9.1-iteration-protocol.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "iterator",
+                "iterable",
                 "protocol",
-                "next"
+                "__iter__",
+                "__next__",
+                "StopIteration"
               ],
               "status": "published",
               "contentShape": "mental-model-first",
@@ -994,7 +1019,9 @@
               "tags": [
                 "generators",
                 "yield",
-                "frame-suspension"
+                "frame",
+                "lazy-evaluation",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1007,12 +1034,14 @@
               "title": "Two-Way Generators: send(), throw(), and close()",
               "slug": "two-way-generators",
               "file": "9.3-two-way-generators.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
-                "coroutine",
+                "generators",
+                "coroutines",
                 "send",
-                "throw"
+                "throw",
+                "close"
               ],
               "status": "published",
               "contentShape": "code-transformation",
@@ -1026,11 +1055,13 @@
               "slug": "itertools-mastery",
               "file": "9.4-itertools-mastery.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "itertools",
                 "chain",
-                "groupby"
+                "groupby",
+                "permutations",
+                "lazy-evaluation"
               ],
               "status": "published",
               "contentShape": "reference-style",
@@ -1065,7 +1096,8 @@
               "tags": [
                 "classes",
                 "slots",
-                "dict"
+                "dict",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1078,12 +1110,13 @@
               "title": "Method Resolution Order (MRO) & C3 Linearization",
               "slug": "mro-c3",
               "file": "10.2-mro-c3.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
                 "mro",
                 "c3",
-                "inheritance"
+                "inheritance",
+                "multiple-inheritance"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1096,11 +1129,13 @@
               "title": "super() Mechanics & Cooperative Multiple Inheritance",
               "slug": "super-mechanics",
               "file": "10.3-super-mechanics.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
                 "super",
-                "cooperative-inheritance"
+                "cooperative-inheritance",
+                "mro",
+                "mixins"
               ],
               "status": "published",
               "contentShape": "debugging-failure",
@@ -1114,7 +1149,7 @@
               "slug": "descriptors",
               "file": "10.4-descriptors.md",
               "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "estimatedMinutes": 35,
               "tags": [
                 "descriptors",
                 "property",
@@ -1176,7 +1211,8 @@
               "tags": [
                 "dunder",
                 "magic-methods",
-                "protocols"
+                "protocols",
+                "special-methods"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1194,7 +1230,8 @@
               "tags": [
                 "context-manager",
                 "with",
-                "contextlib"
+                "contextlib",
+                "exceptions"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1207,12 +1244,13 @@
               "title": "Custom Container Emulation & Sequence Protocols",
               "slug": "custom-containers",
               "file": "11.3-custom-containers.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "containers",
-                "sequence",
-                "mapping"
+                "sequence-protocol",
+                "collections-abc",
+                "data-model"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1243,11 +1281,12 @@
               "slug": "exception-handling",
               "file": "12.1-exception-handling.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "exceptions",
                 "try-except",
-                "stack-unwind"
+                "stack-unwinding",
+                "exception-hierarchy"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1278,12 +1317,13 @@
               "title": "Profiling & Tracing with cProfile and sys.settrace",
               "slug": "profiling-tracing",
               "file": "12.3-profiling-tracing.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "cprofile",
                 "tracing",
-                "performance"
+                "performance",
+                "sys.settrace"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1314,11 +1354,12 @@
               "slug": "import-engine",
               "file": "13.1-import-engine.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "import",
                 "sys-modules",
-                "cpython"
+                "cpython",
+                "import-system"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1336,7 +1377,8 @@
               "tags": [
                 "packages",
                 "init",
-                "namespaces"
+                "namespaces",
+                "relative-imports"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1350,10 +1392,11 @@
               "slug": "venvs-packaging",
               "file": "13.3-venvs-packaging.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "venv",
                 "site-packages",
+                "sys-path",
                 "pip"
               ],
               "status": "published",
@@ -1389,7 +1432,8 @@
               "tags": [
                 "typing",
                 "mypy",
-                "type-hints"
+                "type-hints",
+                "static-analysis"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1402,8 +1446,8 @@
               "title": "Generics, TypeVar, Protocol & Structural Subtyping",
               "slug": "generics-protocols",
               "file": "14.2-generics-protocols.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
               "tags": [
                 "generics",
                 "protocol",
@@ -1425,6 +1469,7 @@
               "tags": [
                 "pydantic",
                 "validation",
+                "type-coercion",
                 "rust"
               ],
               "status": "published",

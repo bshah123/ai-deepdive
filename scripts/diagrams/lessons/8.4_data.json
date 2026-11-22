@@ -1,0 +1,79 @@
+{
+  "python": "3.12.13",
+  "repeat_print_count": 3,
+  "repeat_return": "Hello, Alice!",
+  "wraps_name": "greet",
+  "wraps_has_wrapped": true,
+  "bare_name": "wrapper",
+  "bare_doc": null,
+  "step1_type": "function",
+  "step1_freevars": [
+    "num_times"
+  ],
+  "step1_cells": [
+    3
+  ],
+  "step2_type": "function",
+  "step2_freevars": [
+    "func",
+    "num_times"
+  ],
+  "step2_cells": {
+    "func": "function",
+    "num_times": 3
+  },
+  "noparen_type": "function",
+  "noparen_prints": 0,
+  "noparen_return_type": "function",
+  "noparen_return_name": "wrapper",
+  "stack_trace": [
+    "enter outer",
+    "enter inner",
+    "body",
+    "exit inner",
+    "exit outer"
+  ],
+  "decorated_name": "DebuggedClass",
+  "decorated_qualname": "debug.<locals>.DebuggedClass",
+  "decorated_bases": [
+    "PersonRaw"
+  ],
+  "init_events": [
+    [
+      "set",
+      "name"
+    ],
+    [
+      "set",
+      "age"
+    ]
+  ],
+  "greet_events": [
+    [
+      "get",
+      "greet"
+    ],
+    [
+      "get",
+      "name"
+    ],
+    [
+      "get",
+      "age"
+    ]
+  ],
+  "greet_event_count": 3,
+  "greet_text": "Hello, my name is Bob and I am 30 years old.",
+  "isinstance_ok": true,
+  "type_name": "DebuggedClass",
+  "fixed_name": "PersonRaw",
+  "fixed_qualname": "PersonRaw",
+  "update_wrapper_on_class": "AttributeError: 'mappingproxy' object has no attribute 'update'",
+  "registry_keys": [
+    "csv"
+  ],
+  "registry_is_same_class": true,
+  "csvreader_name": "CsvReader",
+  "dataclass_returns_same_class": true,
+  "point_repr": "PointRaw(x=1, y=2)"
+}

@@ -1,0 +1,53 @@
+{
+  "python": "3.12.13",
+  "platform": "darwin",
+  "has_dict_slots": false,
+  "has_dict_plain": true,
+  "hasattr_slots_on_slots_inst": true,
+  "hasattr_slots_on_plain_inst": false,
+  "class_dict_name_type": "member_descriptor",
+  "plain_class_has_dict_getset": "getset_descriptor",
+  "slots_new_attr": "'Person' object has no attribute 'address'",
+  "plain_new_attr": "456 Oak Ave",
+  "vars_plain": [
+    "address",
+    "age",
+    "name"
+  ],
+  "slots_weakref": "cannot create weak reference to 'Person' object",
+  "plain_weakref": "ok",
+  "slots_with_weakref_ok": true,
+  "subclass_without_slots_has_dict": true,
+  "clash": "'x' in __slots__ conflicts with class variable",
+  "shared_list_seen_by_b": [
+    1
+  ],
+  "memory_bytes_per_instance": {
+    "2": {
+      "dict": 80.03336,
+      "slots": 48.00168
+    },
+    "4": {
+      "dict": 96.0296,
+      "slots": 64.002
+    },
+    "8": {
+      "dict": 136.0212,
+      "slots": 96.00264
+    }
+  },
+  "memory_N": 100000,
+  "getsizeof_plain_obj": 48,
+  "getsizeof_slots_obj": 48,
+  "getsizeof_plain_dict_after_access": 296,
+  "timing_ns": {
+    "dict": {
+      "read_ns": 8.681569345450649,
+      "write_ns": 9.101166661518315
+    },
+    "slots": {
+      "read_ns": 8.349264001784226,
+      "write_ns": 8.781971991993487
+    }
+  }
+}

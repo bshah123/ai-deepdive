@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 350" role="img" aria-label="Lax and strict int validation for six inputs" class="sketch"><title>Lax and strict int validation for six inputs</title>
+<text x="440" y="30" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Lax versus strict for an int field</tspan></text>
+<path d="M38.9 54.9 L841.0 54.9 L841.0 95.1 L40.5 94.4" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.9 54.0 C200.7 57.0, 361.4 56.6, 839.8 53.5 M39.7 54.1 C255.3 50.5, 471.5 50.2, 840.1 54.0 M841.9 56.3 C841.2 67.0, 838.3 76.9, 841.6 94.7 M840.2 53.8 C838.8 66.2, 839.0 80.2, 839.1 94.9 M839.5 93.7 C561.1 93.6, 282.9 93.2, 40.2 94.8 M840.1 94.2 C598.5 97.1, 357.2 97.0, 40.2 94.3 M42.0 92.5 C37.7 83.0, 41.4 68.0, 39.2 52.3 M40.0 94.6 C40.9 85.0, 40.1 75.3, 39.5 53.2" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="80" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="60" dy="0">input (Python value)</tspan></text>
+<text x="420" y="80" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="420" dy="0">lax mode</tspan></text>
+<text x="640" y="80" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="640" dy="0">strict mode</tspan></text>
+<path d="M39.3 101.5 C201.5 99.0, 362.1 99.2, 840.4 102.6 M39.9 101.7 C273.1 101.1, 505.2 100.5, 840.3 101.9" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="124" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">1 (int)</tspan></text>
+<text x="420" y="124" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">ok → 1</tspan></text>
+<text x="640" y="124" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="640" dy="0">ok → 1</tspan></text>
+<path d="M40.7 139.0 C200.4 138.3, 362.8 139.0, 840.9 137.8 M40.1 138.3 C289.9 139.6, 539.9 139.7, 840.5 137.8" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="160" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">'1' (str)</tspan></text>
+<text x="420" y="160" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">ok → 1</tspan></text>
+<text x="640" y="160" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="640" dy="0">int_type</tspan></text>
+<path d="M40.2 174.5 C201.2 179.5, 361.5 178.8, 839.6 173.1 M40.2 174.0 C306.7 178.1, 573.6 178.0, 839.7 173.7" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="196" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">1.0 (float)</tspan></text>
+<text x="420" y="196" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">ok → 1</tspan></text>
+<text x="640" y="196" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="640" dy="0">int_type</tspan></text>
+<path d="M39.6 210.0 C202.0 209.5, 362.2 209.4, 840.2 210.2 M40.4 209.6 C324.5 207.4, 608.3 208.0, 839.9 209.6" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="232" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">1.5 (float)</tspan></text>
+<text x="420" y="232" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="420" dy="0">int_from_float</tspan></text>
+<text x="640" y="232" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="640" dy="0">int_type</tspan></text>
+<path d="M39.1 245.5 C200.9 248.8, 362.9 249.2, 840.8 245.4 M39.6 246.2 C341.3 246.0, 642.0 246.2, 840.1 246.4" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="268" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">' 7 ' (str)</tspan></text>
+<text x="420" y="268" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="420" dy="0">ok → 7</tspan></text>
+<text x="640" y="268" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="640" dy="0">int_type</tspan></text>
+<path d="M40.4 282.9 C201.7 278.9, 361.7 279.8, 839.4 282.6 M39.8 281.9 C358.1 284.5, 676.7 284.5, 840.3 282.3" style="stroke:var(--sk-muted);fill:none" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="60" y="304" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">'abc' (str)</tspan></text>
+<text x="420" y="304" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="420" dy="0">int_parsing</tspan></text>
+<text x="640" y="304" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="640" dy="0">int_type</tspan></text>
+<text x="440" y="336" class="sk-hand" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Results from 14.3_data.json; Pydantic 2.14.4.</tspan></text>
+</svg>

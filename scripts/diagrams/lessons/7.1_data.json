@@ -1,0 +1,77 @@
+{
+  "python_version": "3.12.13",
+  "recursion_limit": 1000,
+  "chain": [
+    "probe(n=0)",
+    "probe(n=1)",
+    "probe(n=2)",
+    "probe(n=3)",
+    "<module>(n=None)"
+  ],
+  "chain_depth": 5,
+  "chain_probe_only": [
+    "probe(n=0)",
+    "probe(n=1)",
+    "probe(n=2)",
+    "probe(n=3)"
+  ],
+  "fact_value": 6,
+  "fact_trace": [
+    "enter fact(3)",
+    "  enter fact(2)",
+    "    enter fact(1)",
+    "      enter fact(0)",
+    "      return 1",
+    "    return 1",
+    "  return 2",
+    "return 6"
+  ],
+  "captured_name": "make_frame",
+  "captured_secret": 42,
+  "captured_f_back": "<module>",
+  "co_stacksize": 5,
+  "co_nlocals": 1,
+  "stack_trace": [
+    {
+      "offset": 14,
+      "opname": "LOAD_FAST",
+      "depth_after": 1
+    },
+    {
+      "offset": 16,
+      "opname": "LOAD_GLOBAL",
+      "depth_after": 3
+    },
+    {
+      "offset": 26,
+      "opname": "LOAD_FAST",
+      "depth_after": 4
+    },
+    {
+      "offset": 28,
+      "opname": "LOAD_CONST",
+      "depth_after": 5
+    },
+    {
+      "offset": 30,
+      "opname": "BINARY_OP",
+      "depth_after": 4
+    },
+    {
+      "offset": 34,
+      "opname": "CALL",
+      "depth_after": 2
+    },
+    {
+      "offset": 42,
+      "opname": "BINARY_OP",
+      "depth_after": 1
+    },
+    {
+      "offset": 46,
+      "opname": "RETURN_VALUE",
+      "depth_after": 0
+    }
+  ],
+  "max_depth_on_path": 5
+}
