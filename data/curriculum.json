@@ -171,11 +171,14 @@
               "slug": "what-is-a-variable",
               "file": "2.1-what-is-a-variable.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 15,
+              "estimatedMinutes": 30,
               "tags": [
                 "variables",
-                "bindings",
-                "names"
+                "names",
+                "binding",
+                "namespaces",
+                "assignment",
+                "objects"
               ],
               "status": "published",
               "contentShape": "mental-model-first",
@@ -189,7 +192,7 @@
               "slug": "objects",
               "file": "2.2-objects.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "objects",
                 "pyobject",
@@ -207,11 +210,13 @@
               "slug": "id",
               "file": "2.3-id.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 15,
+              "estimatedMinutes": 20,
               "tags": [
                 "identity",
+                "id",
+                "is",
                 "address",
-                "id"
+                "aliasing"
               ],
               "status": "published",
               "contentShape": "concept-intro",
@@ -229,7 +234,9 @@
               "tags": [
                 "is",
                 "equality",
-                "identity"
+                "identity",
+                "interning",
+                "nan"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -242,12 +249,14 @@
               "title": "Object References & Aliasing",
               "slug": "references",
               "file": "2.5-references.md",
-              "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "difficulty": "beginner",
+              "estimatedMinutes": 25,
               "tags": [
                 "references",
                 "aliasing",
-                "pointers"
+                "shallow-copy",
+                "deep-copy",
+                "mutation"
               ],
               "status": "published",
               "contentShape": "mental-model-first",
@@ -265,7 +274,8 @@
               "tags": [
                 "mutability",
                 "immutability",
-                "copy"
+                "copy",
+                "hashing"
               ],
               "status": "published",
               "contentShape": "experiment-playground",
@@ -296,7 +306,7 @@
               "title": "Garbage Collection & Cyclic GC",
               "slug": "garbage-collection",
               "file": "2.8-garbage-collection.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
                 "gc",
@@ -311,15 +321,16 @@
               "id": "2.9",
               "partId": "part-01",
               "chapterId": "chapter-02",
-              "title": "Circular References & Reference Cycles",
+              "title": "Reference Cycles and the Limits of Reference Counting",
               "slug": "circular-references",
               "file": "2.9-circular-references.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 20,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
               "tags": [
-                "circular-refs",
-                "cycles",
-                "weakref"
+                "reference-cycles",
+                "weakref",
+                "gc",
+                "reference-counting"
               ],
               "status": "published",
               "contentShape": "debugging-failure",
@@ -332,12 +343,13 @@
               "title": "Detecting & Preventing Memory Leaks",
               "slug": "memory-leaks",
               "file": "2.10-memory-leaks.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 25,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
               "tags": [
                 "memory-leaks",
                 "tracemalloc",
-                "debugging"
+                "weakref",
+                "garbage-collection"
               ],
               "status": "published",
               "contentShape": "debugging-failure",
@@ -368,11 +380,13 @@
               "slug": "integers",
               "file": "3.1-integers.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 35,
               "tags": [
                 "ints",
                 "bignum",
-                "pylongobject"
+                "arbitrary-precision",
+                "overflow",
+                "cpython-internals"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -386,11 +400,13 @@
               "slug": "floats",
               "file": "3.2-floats.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "floats",
                 "ieee754",
-                "precision"
+                "precision",
+                "rounding",
+                "numerics"
               ],
               "status": "published",
               "contentShape": "experiment-playground",
@@ -404,11 +420,13 @@
               "slug": "strings",
               "file": "3.3-strings.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "strings",
                 "unicode",
-                "interning"
+                "utf-8",
+                "interning",
+                "immutability"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -422,7 +440,7 @@
               "slug": "booleans",
               "file": "3.4-booleans.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 15,
+              "estimatedMinutes": 20,
               "tags": [
                 "booleans",
                 "truthiness",
@@ -439,12 +457,14 @@
               "title": "Small Integer Caching & Performance",
               "slug": "small-int-cache",
               "file": "3.5-small-int-cache.md",
-              "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "difficulty": "beginner",
+              "estimatedMinutes": 25,
               "tags": [
                 "caching",
-                "optimization",
-                "internals"
+                "identity",
+                "integers",
+                "memory",
+                "performance"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -475,11 +495,13 @@
               "slug": "dynamic-arrays",
               "file": "4.1-dynamic-arrays.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 35,
               "tags": [
                 "list",
                 "dynamic-array",
-                "cpython"
+                "cpython",
+                "amortized-analysis",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -493,11 +515,12 @@
               "slug": "comprehensions",
               "file": "4.2-comprehensions.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "comprehensions",
                 "bytecode",
-                "optimization"
+                "list-append",
+                "dis"
               ],
               "status": "published",
               "contentShape": "code-transformation",
@@ -507,15 +530,16 @@
               "id": "4.3",
               "partId": "part-01",
               "chapterId": "chapter-04",
-              "title": "Timsort & Stable In-Place Sorting",
+              "title": "Timsort: Stable Sorting of Real Data",
               "slug": "timsort",
               "file": "4.3-timsort.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "sort",
                 "timsort",
-                "algorithms"
+                "stability",
+                "runs"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -529,11 +553,14 @@
               "slug": "slicing-itertools",
               "file": "4.4-slicing-itertools.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "slicing",
+                "copy",
+                "deepcopy",
                 "itertools",
-                "memory"
+                "memory",
+                "lazy-evaluation"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -547,11 +574,13 @@
               "slug": "deque-vs-list",
               "file": "4.5-deque-vs-list.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "deque",
                 "fifo",
-                "data-structures"
+                "queue",
+                "data-structures",
+                "cpython"
               ],
               "status": "published",
               "contentShape": "compare-choose",

@@ -1,0 +1,124 @@
+{
+  "python": "3.12.13",
+  "implementation": "CPython",
+  "machine": "arm64",
+  "system": "Darwin",
+  "equal_for_n_0_to_199": true,
+  "comp_small": [
+    0,
+    1,
+    4,
+    9,
+    16
+  ],
+  "loop_body_loop": [
+    "STORE_FAST",
+    "LOAD_FAST",
+    "LOAD_ATTR",
+    "LOAD_FAST",
+    "LOAD_FAST",
+    "BINARY_OP",
+    "CALL",
+    "POP_TOP"
+  ],
+  "loop_body_comp": [
+    "STORE_FAST",
+    "LOAD_FAST",
+    "LOAD_FAST",
+    "BINARY_OP",
+    "LIST_APPEND"
+  ],
+  "loop_body_hoisted": [
+    "STORE_FAST",
+    "PUSH_NULL",
+    "LOAD_FAST",
+    "LOAD_FAST",
+    "LOAD_FAST",
+    "BINARY_OP",
+    "CALL",
+    "POP_TOP"
+  ],
+  "ops_per_element_loop": 8,
+  "ops_per_element_comp": 5,
+  "ops_per_element_hoisted": 8,
+  "list_append_arg": [
+    2
+  ],
+  "specialised_loop": [
+    "BUILD_LIST",
+    "CALL_BUILTIN_CLASS",
+    "CALL_NO_KW_LIST_APPEND"
+  ],
+  "specialised_comp": [
+    "BUILD_LIST",
+    "CALL_BUILTIN_CLASS",
+    "LIST_APPEND"
+  ],
+  "nested_code_objects_comp": 0,
+  "nested_code_objects_loop": 0,
+  "timing_us": {
+    "10": {
+      "loop": 0.246,
+      "loop_hoisted": 0.298,
+      "comp": 0.216,
+      "map_lambda": 0.575
+    },
+    "1000": {
+      "loop": 30.404,
+      "loop_hoisted": 32.607,
+      "comp": 26.392,
+      "map_lambda": 52.61
+    },
+    "1000000": {
+      "loop": 35463.667,
+      "loop_hoisted": 37874.875,
+      "comp": 30927.188,
+      "map_lambda": 56934.396
+    }
+  },
+  "speedup_loop_over_comp": {
+    "10": 1.139,
+    "1000": 1.152,
+    "1000000": 1.147
+  },
+  "speedup_hoisted_over_comp": {
+    "10": 1.38,
+    "1000": 1.235,
+    "1000000": 1.225
+  },
+  "speedup_map_over_comp": {
+    "10": 2.662,
+    "1000": 1.993,
+    "1000000": 1.841
+  },
+  "peak_bytes_sum_list": 40448200,
+  "peak_bytes_sum_genexpr": 464,
+  "sum_check": 333332833333500000,
+  "filter_even": [
+    8,
+    6
+  ],
+  "nested": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "side_effect_return": [
+    null,
+    null,
+    null
+  ],
+  "side_effect_seen": [
+    0,
+    1,
+    2
+  ],
+  "x_leaks_into_locals": false
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-label="Two Node objects point at each other after both names are deleted" class="sketch"><title>Two Node objects point at each other after both names are deleted</title>
+<text x="440" y="40" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Dropping the names does not drop the objects</tspan></text>
+<text x="225" y="96" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="225" dy="0">del a</tspan></text>
+<text x="655" y="96" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="655" dy="0">del b</tspan></text>
+<path d="M147.7 114.7 L297.7 115.7 L300.7 173.1 L152.3 172.9" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M150.5 116.6 C180.5 114.7, 210.4 116.1, 301.2 117.8 M149.5 116.5 C185.6 112.9, 221.2 113.7, 298.9 116.3 M300.7 115.7 C297.7 137.3, 301.4 159.4, 301.1 172.9 M300.2 115.8 C299.8 127.4, 300.0 141.9, 300.7 171.2 M300.7 171.6 C252.4 168.2, 202.6 171.0, 148.4 172.5 M300.0 172.6 C256.4 169.8, 209.8 169.0, 150.0 171.6 M148.5 170.1 C150.0 158.7, 148.9 145.7, 151.5 117.6 M150.5 171.3 C148.6 153.2, 150.9 133.2, 148.9 116.3" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="225" y="150" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="225" dy="0">Node a</tspan></text>
+<text x="225" y="166" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="225" dy="0">refcount 1</tspan></text>
+<path d="M578.2 116.4 L731.3 115.5 L728.6 173.4 L581.0 172.4" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M579.1 115.3 C612.5 115.5, 642.1 118.1, 727.8 115.9 M579.9 115.6 C618.2 116.3, 658.9 114.1, 729.4 116.0 M730.1 116.0 C731.9 137.3, 731.6 157.0, 730.3 174.2 M729.4 116.1 C729.9 131.4, 731.4 148.4, 730.0 172.9 M729.6 173.8 C678.8 170.4, 628.3 172.5, 578.2 169.6 M730.0 171.2 C688.7 173.7, 649.2 172.6, 579.9 172.9 M580.0 172.1 C579.4 154.4, 581.0 138.6, 579.8 113.7 M579.5 171.3 C579.2 153.2, 579.7 137.4, 580.7 116.2" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="655" y="150" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="655" dy="0">Node b</tspan></text>
+<text x="655" y="166" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="655" dy="0">refcount 1</tspan></text>
+<path d="M300.2 132.5 C357.6 129.4, 413.0 132.5, 577.4 132.4 M302.2 134.9 C380.3 135.2, 457.0 134.8, 577.9 133.8" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M578.7 135.0 C576.5 136.2, 573.4 137.6, 567.6 139.7 M578.4 134.1 C575.0 135.9, 570.9 136.8, 567.4 138.9" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M577.9 134.2 C574.7 133.3, 574.3 130.5, 568.5 128.1 M578.7 133.6 C574.3 132.7, 571.2 131.3, 567.7 128.3" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="440" y="124" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">a.other</tspan></text>
+<path d="M576.8 159.3 C522.0 161.7, 464.0 160.4, 301.1 161.4 M577.4 160.7 C482.0 160.6, 387.0 160.5, 301.2 159.1" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M303.1 158.7 C305.7 158.2, 306.4 157.0, 313.0 154.7 M301.8 160.0 C306.3 158.2, 310.1 155.8, 312.5 155.4" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M302.3 160.9 C303.9 159.9, 307.4 161.6, 313.8 164.0 M302.0 159.5 C306.2 161.8, 310.0 164.3, 312.8 165.6" style="stroke:var(--sk-ink);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="440" y="184" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">b.other</tspan></text>
+<g transform="rotate(-1.5 440 248)">
+<path d="M171.2 218.4 L708.6 218.4 L708.7 274.9 L171.2 276.9" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M169.7 220.1 C280.7 220.0, 390.0 219.2, 709.5 220.2 M170.1 220.2 C282.6 218.9, 395.8 218.9, 710.2 220.1 M710.8 221.6 C709.2 235.8, 709.7 255.1, 710.0 277.6 M710.5 219.5 C710.1 241.0, 710.4 262.4, 709.9 276.2 M710.4 276.7 C577.2 274.4, 444.6 273.7, 170.5 276.4 M710.2 275.8 C545.6 276.0, 380.9 275.8, 169.8 276.0 M170.9 276.1 C168.4 257.5, 169.5 241.0, 171.8 219.7 M170.1 275.4 C171.2 260.9, 171.2 246.0, 170.6 220.1" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="184" y="246" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="184" dy="0">still alive: each has one reference,</tspan><tspan x="184" dy="19.8">and it comes from its partner</tspan></text>
+</g>
+</svg>

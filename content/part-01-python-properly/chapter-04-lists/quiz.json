@@ -1,54 +1,114 @@
 {
   "chapterId": "chapter-04",
-  "title": "Chapter 4 Quiz \u2014 Lists & Dynamic Arrays",
+  "title": "Chapter 4 Quiz — Lists & Dynamic Arrays",
   "questions": [
     {
-      "id": "ch4-q1",
-      "question": "What is the amortized time complexity of `list.append()` in CPython?",
+      "id": "q4.1",
+      "question": "A list is built from `[]` by 25 appends. What is its capacity (allocated slots) after the 25th append, using CPython 3.12's growth rule `(newsize + (newsize >> 3) + 6) & ~3`?",
       "options": [
-        {
-          "id": "a",
-          "text": "O(1) because CPython overallocates memory geometrically"
-        },
-        {
-          "id": "b",
-          "text": "O(n) because it always copies all elements"
-        },
-        {
-          "id": "c",
-          "text": "O(log n) due to binary tree allocation"
-        },
-        {
-          "id": "d",
-          "text": "O(1) strictly with zero reallocation"
-        }
+        {"id": "a", "text": "24"},
+        {"id": "b", "text": "32"},
+        {"id": "c", "text": "34"},
+        {"id": "d", "text": "40"}
       ],
-      "correctOptionId": "a",
-      "explanation": "CPython uses an over-allocation growth factor (`new_allocated = size + (size >> 3) + ...`), making appends O(1) amortized across n operations."
+      "correctOptionId": "b",
+      "explanation": "The 25th append finds 24 slots full and asks for newsize = 25: 25 + 3 + 6 = 34, and & ~3 rounds down to 32. Lesson 4.1 shows (25, 32) in its capacity-tracking output."
     },
     {
-      "id": "ch4-q2",
-      "question": "Why is `queue.pop(0)` inefficient when implemented with a standard Python list?",
+      "id": "q4.2",
+      "question": "What does this code print?\n\n```python\ng = [[0] * 2] * 2\ng[1].append(9)\nprint(g)\n```",
       "options": [
-        {
-          "id": "a",
-          "text": "It requires shifting all remaining n-1 pointers to the left in contiguous memory (O(n))"
-        },
-        {
-          "id": "b",
-          "text": "It frees the entire underlying array"
-        },
-        {
-          "id": "c",
-          "text": "It invokes garbage collection on every call"
-        },
-        {
-          "id": "d",
-          "text": "It converts the list to a tuple internally"
-        }
+        {"id": "a", "text": "[[0, 0, 9], [0, 0, 9]]"},
+        {"id": "b", "text": "[[0, 0], [0, 0, 9]]"},
+        {"id": "c", "text": "[[0, 0, 9], [0, 0]]"},
+        {"id": "d", "text": "[[0, 0], [0, 0]]"}
       ],
       "correctOptionId": "a",
-      "explanation": "Because `PyListObject` maintains a contiguous array of pointers, deleting the first element requires moving all subsequent pointers one position left using memmove."
+      "explanation": "`[0] * 2` is repeated, so both outer slots point to one inner list. `g[1].append(9)` changes that shared list, which `g[0]` also shows (Lesson 4.1, Question 2)."
+    },
+    {
+      "id": "q4.3",
+      "question": "What is CPython 3.12's minrun (the length short natural runs are padded to) for a list of n = 1000 items?",
+      "options": [
+        {"id": "a", "text": "32"},
+        {"id": "b", "text": "62"},
+        {"id": "c", "text": "63"},
+        {"id": "d", "text": "64"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Shift 1000 right until it is below 64: 1000, 500, 250, 125, 62. A 1 bit was shifted out (from 125), so minrun = 62 + 1 = 63. Lesson 4.3 gives this rule and its result for n = 1000."
+    },
+    {
+      "id": "q4.4",
+      "question": "What does this code print?\n\n```python\na = [[1], [2]]\nb = a[:]\nb[0].append(5)\nprint(a)\n```",
+      "options": [
+        {"id": "a", "text": "[[1], [2]]"},
+        {"id": "b", "text": "[[1], [2], [5]]"},
+        {"id": "c", "text": "[[1, 5], [2, 5]]"},
+        {"id": "d", "text": "[[1, 5], [2]]"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "`a[:]` is a shallow copy: a new outer list whose slots point to the same inner lists. `b[0]` and `a[0]` are one list, so the append shows in `a`. Lesson 4.4 covers this case."
+    },
+    {
+      "id": "q4.5",
+      "question": "A queue holds 20,000 items in a list, and you drain it entirely with `pop(0)`. How many pointer moves happen in total?",
+      "options": [
+        {"id": "a", "text": "199,990,000"},
+        {"id": "b", "text": "200,000,000"},
+        {"id": "c", "text": "19,999"},
+        {"id": "d", "text": "400,000,000"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Draining n items from the front moves (n−1) + (n−2) + … + 0 = n(n−1)/2 pointers. For n = 20,000 that is 20,000 × 19,999 / 2 = 199,990,000. Lesson 4.5 gives the formula; the count is from the array layout, not a measurement."
+    },
+    {
+      "id": "q4.6",
+      "question": "How many `<` comparisons does the merge of `[3, 8, 14]` with `[2, 10]` take, when the second run runs out first and the rest is copied without comparisons?",
+      "options": [
+        {"id": "a", "text": "3"},
+        {"id": "b", "text": "5"},
+        {"id": "c", "text": "4"},
+        {"id": "d", "text": "6"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Comparisons: 3 vs 2 (output 2), 3 vs 10 (output 3), 8 vs 10 (output 8), 14 vs 10 (output 10). The second run is then empty, so [14] is copied with no comparison. Total 4 (Lesson 4.6, by hand and in its output)."
+    },
+    {
+      "id": "q4.7",
+      "question": "Per element, how many bytecode instructions does a `for` loop with `append` execute between `FOR_ITER` and `JUMP_BACKWARD`, compared with the list comprehension `[x * x for x in data]`?",
+      "options": [
+        {"id": "a", "text": "8 for the loop, 5 for the comprehension"},
+        {"id": "b", "text": "5 for the loop, 8 for the comprehension"},
+        {"id": "c", "text": "5 for the loop, 3 for the comprehension"},
+        {"id": "d", "text": "6 for the loop, 8 for the comprehension"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The comprehension runs 5 instructions per element (STORE_FAST, LOAD_FAST, LOAD_FAST, BINARY_OP, LIST_APPEND) and the loop runs 8 (including LOAD_ATTR, CALL and POP_TOP). These counts are from `dis` on Python 3.12 (Lesson 4.2)."
+    },
+    {
+      "id": "q4.8",
+      "question": "Which list does `sorted(people, key=grade)` return, where `people = [(\"Asha\", 3), (\"Ben\", 1), (\"Chen\", 3), (\"Dara\", 2), (\"Eli\", 1)]`?",
+      "options": [
+        {"id": "a", "text": "['Asha', 'Chen', 'Ben', 'Eli', 'Dara']"},
+        {"id": "b", "text": "['Ben', 'Dara', 'Eli', 'Asha', 'Chen']"},
+        {"id": "c", "text": "['Ben', 'Eli', 'Asha', 'Chen', 'Dara']"},
+        {"id": "d", "text": "['Ben', 'Eli', 'Dara', 'Asha', 'Chen']"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "Sorting by grade is stable: grade 1 gives Ben then Eli, grade 2 gives Dara, and grade 3 gives Asha then Chen, each pair in input order. Lesson 4.3 prints this result."
+    },
+    {
+      "id": "q4.9",
+      "question": "Why is `list[50000]` much faster than `deque[50000]` on a 100,000-item container, while `deque[0]` is about as fast as `list[0]`?",
+      "options": [
+        {"id": "a", "text": "A deque stores its items as Python strings, so every index is converted first"},
+        {"id": "b", "text": "A list copies the item out of the array, while a deque returns a reference"},
+        {"id": "c", "text": "A list addresses slot i directly in one contiguous array, while deque[i] follows block links, about one hop per 64 items"},
+        {"id": "d", "text": "A deque must sort itself before every index access"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "A list computes the address base + 8 × i in one step. A deque splits items into 64-slot blocks, so deque[i] walks the chain to block i // 64. Index 0 is in the first block, so it takes no hops (Lesson 4.5, Question 4)."
     }
   ]
 }

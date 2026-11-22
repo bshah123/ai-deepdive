@@ -1,110 +1,222 @@
 {
-  "chapterId": "chapter-02",
-  "title": "Chapter 2 Quiz — Variables, Objects & Memory",
-  "questions": [
+ "chapterId": "chapter-02",
+ "title": "Chapter 2 Quiz — Variables, Objects & Memory",
+ "questions": [
+  {
+   "id": "q2.1",
+   "question": "What does `a = [1, 2]; b = a; a = a + [3]; b.append(4); print(a, b)` print?",
+   "options": [
     {
-      "id": "ch2-q1",
-      "type": "multiple-choice",
-      "question": "What does `b = a` do when `a` is a list?",
-      "options": [
-        "Creates a new list with the same elements",
-        "Creates a second name bound to the same list object",
-        "Creates a shallow copy of the list",
-        "Allocates new memory and copies all elements"
-      ],
-      "correctIndex": 1,
-      "explanation": "In Python, assignment (`=`) creates a name binding — it makes `b` point to the same object as `a`. No data is copied. Both names refer to the same list in memory. Mutating through `b` will be visible through `a`, and vice versa."
+     "id": "a",
+     "text": "[1, 2, 4] [1, 2, 4]"
     },
     {
-      "id": "ch2-q2",
-      "type": "multiple-choice",
-      "question": "After `a = [1,2,3]; b = a; b.append(4)`, what does `print(a)` output?",
-      "options": [
-        "[1, 2, 3]",
-        "[1, 2, 3, 4]",
-        "TypeError — cannot append to aliased list",
-        "None"
-      ],
-      "correctIndex": 1,
-      "explanation": "`b = a` makes `b` an alias for the same list object as `a`. `b.append(4)` mutates that shared list object. Since `a` and `b` refer to the same object, `a` also shows `[1, 2, 3, 4]`."
+     "id": "b",
+     "text": "[1, 2, 3] [1, 2, 3]"
     },
     {
-      "id": "ch2-q3",
-      "type": "multiple-choice",
-      "question": "Which of the following is a correct use of the `is` operator?",
-      "options": [
-        "`if count is 0:` — check if count is zero",
-        "`if name is 'Alice':` — check if name matches",
-        "`if value is None:` — check if value is missing",
-        "`if result is True:` — always better than `if result:`"
-      ],
-      "correctIndex": 2,
-      "explanation": "`is None` is the canonical and correct way to check for None, because None is a singleton. Using `is` with literals like `0` or `'Alice'` is unreliable — it depends on CPython's integer caching and string interning, which are implementation details, not language guarantees. Python 3.8+ issues a SyntaxWarning for `is` with literals."
+     "id": "c",
+     "text": "[1, 2, 3] [1, 2, 4]"
     },
     {
-      "id": "ch2-q4",
-      "type": "multiple-choice",
-      "question": "What is the output of: `a = [1,[2,3]]; b = a.copy(); b[1].append(4); print(a)`?",
-      "options": [
-        "[1, [2, 3]]",
-        "[1, [2, 3, 4]]",
-        "[1, [2, 3], 4]",
-        "TypeError — cannot modify through a copy"
-      ],
-      "correctIndex": 1,
-      "explanation": "`a.copy()` creates a shallow copy — `b` is a new list, but `b[1]` is still the same list object as `a[1]`. Appending to `b[1]` mutates that shared inner list. Deep copy (`copy.deepcopy(a)`) would create fully independent objects."
-    },
-    {
-      "id": "ch2-q5",
-      "type": "multiple-choice",
-      "question": "Why can't Python lists be used as dictionary keys?",
-      "options": [
-        "Lists are too slow to hash",
-        "Lists are mutable, so their hash could change after insertion, breaking dictionary lookup",
-        "Python dictionaries only accept string keys",
-        "Lists don't implement `__eq__`"
-      ],
-      "correctIndex": 1,
-      "explanation": "Dictionary keys must be hashable — their hash must be stable for their lifetime. Since lists are mutable (their contents can change), their hash would change too, making it impossible to find the key again. Only immutable (or explicitly frozen) types are hashable in Python."
-    },
-    {
-      "id": "ch2-q6",
-      "type": "multiple-choice",
-      "question": "In CPython, when does an object's memory get freed?",
-      "options": [
-        "Whenever the garbage collector runs",
-        "When the `del` statement is called on the last reference to it",
-        "When its reference count (`ob_refcnt`) reaches zero",
-        "At the end of each function call"
-      ],
-      "correctIndex": 2,
-      "explanation": "CPython uses reference counting as its primary memory management strategy. When an object's `ob_refcnt` drops to 0 (the last reference is removed), `_Py_Dealloc()` is called immediately and the memory is freed. `del` removes a name binding, which may or may not bring the count to zero."
-    },
-    {
-      "id": "ch2-q7",
-      "type": "multiple-choice",
-      "question": "What problem do circular references cause that reference counting cannot solve?",
-      "options": [
-        "Objects in cycles crash Python with a RecursionError",
-        "Objects in cycles are never freed by reference counting, because their counts never reach zero",
-        "Circular references slow down dict lookups",
-        "Objects in cycles cannot be serialized with pickle"
-      ],
-      "correctIndex": 1,
-      "explanation": "If object A references object B and B references A, deleting all external references sets both counts to 1 (not 0) — they still reference each other. Neither count ever reaches 0, so reference counting alone cannot free them. Python's cyclic garbage collector detects and collects these cycles."
-    },
-    {
-      "id": "ch2-q8",
-      "type": "multiple-choice",
-      "question": "What does `sys.getrefcount(x)` return compared to the 'real' reference count?",
-      "options": [
-        "The exact number of references",
-        "One less than the real count (it excludes the local variable x)",
-        "One more than the real count (the function call creates a temporary reference)",
-        "The count in hexadecimal"
-      ],
-      "correctIndex": 2,
-      "explanation": "Passing `x` to `sys.getrefcount()` creates a temporary reference (the function argument). So the returned value is always one higher than the number of references you'd expect to count manually. Subtract 1 to get the 'real' count."
+     "id": "d",
+     "text": "[1, 2] [1, 2, 4]"
     }
-  ]
+   ],
+   "correctOptionId": "c",
+   "explanation": "`a + [3]` builds a new list and rebinds only `a`, so `b` still names the original list. `b.append(4)` mutates that original list, so `b` shows [1, 2, 4] and `a` (now the new list) shows [1, 2, 3]. Lesson 2.1 traces this kind of rebinding against mutation."
+  },
+  {
+   "id": "q2.2",
+   "question": "After `t = u = (1, 2, 3)` and then `t += (4,)`, what does `print(u)` print?",
+   "options": [
+    {
+     "id": "a",
+     "text": "(1, 2, 3, 4)"
+    },
+    {
+     "id": "b",
+     "text": "(1, 2, 3)"
+    },
+    {
+     "id": "c",
+     "text": "[1, 2, 3]"
+    },
+    {
+     "id": "d",
+     "text": "TypeError"
+    }
+   ],
+   "correctOptionId": "b",
+   "explanation": "A tuple cannot change, so `t += (4,)` builds a new tuple and rebinds only `t`. The name `u` still refers to the original tuple. Lesson 2.6 shows the same `+=` operator mutating a list but not a tuple."
+  },
+  {
+   "id": "q2.3",
+   "question": "After `x = [1]` and `y = [1]`, what does `print(x is y, x == y)` print?",
+   "options": [
+    {
+     "id": "a",
+     "text": "True True"
+    },
+    {
+     "id": "b",
+     "text": "True False"
+    },
+    {
+     "id": "c",
+     "text": "False False"
+    },
+    {
+     "id": "d",
+     "text": "False True"
+    }
+   ],
+   "correctOptionId": "d",
+   "explanation": "Each list display creates a new object, so `x is y` is False. Their contents are equal, so `x == y` is True. Lesson 2.4 separates identity (`is`) from value equality (`==`)."
+  },
+  {
+   "id": "q2.4",
+   "question": "With `import sys`, then `a = [0]; b = a; c = [a]`, what does `print(sys.getrefcount(a))` print?",
+   "options": [
+    {
+     "id": "a",
+     "text": "4"
+    },
+    {
+     "id": "b",
+     "text": "3"
+    },
+    {
+     "id": "c",
+     "text": "2"
+    },
+    {
+     "id": "d",
+     "text": "1"
+    }
+   ],
+   "correctOptionId": "a",
+   "explanation": "Three references are stored: the name `a`, the name `b`, and the element of the list `c`. The call to `sys.getrefcount` adds a temporary argument reference, so the printed value is 4. Lesson 2.7 works through the same +1 effect."
+  },
+  {
+   "id": "q2.5",
+   "question": "The code is `def add_tag(tag, tags=[]):` with body `tags.append(tag)` and `return tags`. Then `print(add_tag('python'))` runs, followed by `print(add_tag('ml'))`. What does the second line print?",
+   "options": [
+    {
+     "id": "a",
+     "text": "['ml']"
+    },
+    {
+     "id": "b",
+     "text": "['python', 'ml']"
+    },
+    {
+     "id": "c",
+     "text": "TypeError"
+    },
+    {
+     "id": "d",
+     "text": "None"
+    }
+   ],
+   "correctOptionId": "b",
+   "explanation": "The default list is created once, when `def` runs, so both calls append to the same list. The fix is `tags=None`, with `if tags is None: tags = []` inside the body. Lesson 2.6 covers this trap."
+  },
+  {
+   "id": "q2.6",
+   "question": "Two objects x and y refer to each other, and the names x and y are then deleted. Which statement is correct on CPython 3.12?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Reference counting frees both objects at once, because `del` drops their counts to zero."
+    },
+    {
+     "id": "b",
+     "text": "Calling `gc.disable()` makes the objects be freed sooner."
+    },
+    {
+     "id": "c",
+     "text": "Both objects stay alive until the cyclic collector runs, through `gc.collect()` or an automatic collection."
+    },
+    {
+     "id": "d",
+     "text": "`sys.getrefcount` reports 0, which shows the objects are already freed."
+    }
+   ],
+   "correctOptionId": "c",
+   "explanation": "Each object still holds a reference to the other, so each count stays at 1 and reference counting cannot free them. Only the cyclic garbage collector can. Lessons 2.7 to 2.9 cover this."
+  },
+  {
+   "id": "q2.7",
+   "question": "Three nodes form a ring a -> b -> c -> a, and only the name a is still bound. Which statement is correct?",
+   "options": [
+    {
+     "id": "a",
+     "text": "`gc.collect()` frees all three, because they form a cycle."
+    },
+    {
+     "id": "b",
+     "text": "b has refcount 2, because a and c both refer to it."
+    },
+    {
+     "id": "c",
+     "text": "The collector frees b and c but keeps a."
+    },
+    {
+     "id": "d",
+     "text": "Nothing is freed while the name a is bound, so the whole ring stays alive."
+    }
+   ],
+   "correctOptionId": "d",
+   "explanation": "The name a is a reference from outside the ring, so the group is reachable and nothing is freed. b's refcount is 1, from a.next; c refers to a, not to b. Lesson 2.9 works through the ring case."
+  },
+  {
+   "id": "q2.8",
+   "question": "A child holds `self._parent = weakref.ref(root)`. After `del root`, and with no other strong reference to the root, what does `leaf.parent` return?",
+   "options": [
+    {
+     "id": "a",
+     "text": "None, because the weak back-pointer does not keep the root alive."
+    },
+    {
+     "id": "b",
+     "text": "The root, because the leaf keeps it alive."
+    },
+    {
+     "id": "c",
+     "text": "AttributeError"
+    },
+    {
+     "id": "d",
+     "text": "The root, until `gc.collect()` runs."
+    }
+   ],
+   "correctOptionId": "a",
+   "explanation": "The root has no strong owner, so its count reaches zero and it is freed at once. A weak reference returns None once its target is gone. This is the measured output in Lesson 2.9."
+  },
+  {
+   "id": "q2.9",
+   "question": "A cache holds 8,000 entries, each with a 1 KiB (1,024-byte) payload. After `gc.collect()` it holds 9,191,256 bytes. About how many bytes does each entry cost?",
+   "options": [
+    {
+     "id": "a",
+     "text": "1,024"
+    },
+    {
+     "id": "b",
+     "text": "1,081"
+    },
+    {
+     "id": "c",
+     "text": "1,148.9"
+    },
+    {
+     "id": "d",
+     "text": "9,191,256"
+    }
+   ],
+   "correctOptionId": "c",
+   "explanation": "9,191,256 / 8,000 = 1,148.9 bytes per entry. The payload is 1,024 bytes. The rest is the object header and dict storage (the split is the author's reading, as Lesson 2.10 says). Lesson 2.10 shows how to bound such a cache."
+  }
+ ]
 }
