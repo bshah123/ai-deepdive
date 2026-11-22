@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="One perceptron update seen against the unit separator w*" class="sketch"><title>One perceptron update seen against the unit separator w*</title>
+<text x="440" y="34" class="sk-hand" font-size="23" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">One update: the projection on w* grows, the norm barely does</tspan></text>
+<path d="M170.0 310.1 C234.5 306.0, 296.2 307.9, 471.6 308.8 M169.6 309.3 C255.1 308.0, 339.5 308.5, 469.2 309.5" style="stroke:var(--sk-violet);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M469.2 309.3 C467.5 309.8, 464.1 313.3, 458.5 316.0 M469.9 310.3 C466.8 311.0, 463.2 312.6, 458.8 314.6" style="stroke:var(--sk-violet);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M471.2 308.6 C468.6 309.8, 465.1 309.0, 459.4 304.4 M470.1 309.8 C466.2 307.5, 463.5 306.8, 459.1 305.4" style="stroke:var(--sk-violet);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="500" y="332" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-violet)"><tspan x="500" dy="0">w* (unit separator)</tspan></text>
+<path d="M170.6 311.2 C196.7 290.5, 228.5 268.7, 311.8 222.2 M170.7 311.2 C218.0 278.4, 267.3 245.8, 310.4 220.8" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M309.6 220.0 C309.0 221.9, 306.1 223.0, 302.8 230.4 M310.7 220.2 C308.1 224.2, 306.1 228.2, 304.3 230.5" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M308.7 219.2 C306.3 219.6, 304.9 219.7, 298.0 220.5 M309.5 219.6 C305.3 220.8, 300.7 221.2, 297.5 221.6" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="300" y="208" class="sk-hand" font-size="18" text-anchor="end" style="fill:var(--sk-blue)"><tspan x="300" dy="0">w(k-1)</tspan></text>
+<path d="M311.3 222.2 C321.7 245.2, 335.9 264.5, 371.3 331.3 M309.5 220.9 C321.5 244.2, 333.8 266.3, 369.5 329.9" style="stroke:var(--sk-green);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M370.0 330.6 C369.2 329.3, 365.0 326.3, 359.0 322.6 M370.0 330.0 C368.3 328.5, 365.6 327.3, 360.2 322.8" style="stroke:var(--sk-green);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M369.2 329.9 C369.4 327.7, 369.9 324.5, 369.1 319.3 M370.2 329.5 C370.1 326.9, 369.3 323.9, 369.7 317.6" style="stroke:var(--sk-green);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="392" y="258" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="392" dy="0">y x (the update)</tspan></text>
+<text x="392" y="280" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="392" dy="0">length ≤ R</tspan></text>
+<path d="M171.8 308.7 C213.0 314.1, 255.5 318.5, 370.8 330.2 M170.7 310.6 C224.5 316.9, 280.0 321.7, 370.9 329.1" style="stroke:var(--sk-ink);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M370.4 331.2 C366.7 329.7, 364.6 331.5, 360.1 333.1 M369.3 329.9 C366.1 331.0, 363.0 332.8, 358.2 334.8" style="stroke:var(--sk-ink);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M369.6 330.5 C368.1 330.0, 366.0 327.5, 359.1 324.5 M369.5 329.3 C367.2 327.6, 363.9 325.8, 359.5 324.2" style="stroke:var(--sk-ink);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="382" y="352" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="382" dy="0">w(k)</tspan></text>
+<path d="M307.9 219.6 C308.7 251.5, 313.4 281.3, 310.4 364.3 M309.7 220.4 C310.8 268.0, 310.4 319.0, 310.1 365.5" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M371.3 328.3 C370.0 337.5, 369.6 345.5, 371.9 367.1 M370.1 329.6 C368.9 343.7, 370.4 355.3, 370.6 365.2" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M310.0 366.9 C324.3 364.3, 336.1 366.3, 368.5 365.2 M310.5 366.1 C333.9 365.5, 355.4 363.8, 371.1 365.0" style="stroke:var(--sk-amber);fill:none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="340" y="392" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="340" dy="0">projection on w* grows by ≥ γ</tspan></text>
+<g transform="rotate(-1.5 695 157.5)">
+<path d="M540.1 89.6 L851.3 91.8 L851.0 226.4 L539.5 225.2" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M539.2 90.4 C604.4 91.3, 668.8 93.1, 850.0 89.1 M540.5 90.1 C602.8 90.5, 665.8 90.5, 849.6 89.8 M851.1 90.4 C849.3 124.5, 849.3 156.7, 849.8 224.6 M850.2 89.9 C851.0 142.4, 849.9 196.2, 849.4 224.7 M850.5 225.1 C733.5 225.2, 615.1 226.1, 539.9 226.1 M850.5 224.8 C785.8 226.1, 722.3 225.6, 539.8 225.4 M538.6 225.1 C540.4 174.7, 540.8 124.6, 540.8 88.9 M539.5 224.3 C539.1 185.1, 538.5 145.5, 539.1 89.7" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="554" y="115" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="554" dy="0">Update only on a mistake:</tspan><tspan x="554" dy="18.700000000000003">y(w(k-1)·x) ≤ 0, so the cross term is ≤ 0.</tspan><tspan x="554" dy="18.700000000000003">Norm: |w(k)|² ≤ |w(k-1)|² + R².</tspan><tspan x="554" dy="18.700000000000003">Projection: w(k)·w* ≥ w(k-1)·w* + γ.</tspan></text>
+</g>
+</svg>

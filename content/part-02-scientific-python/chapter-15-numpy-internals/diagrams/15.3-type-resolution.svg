@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 345" role="img" aria-label="The result dtype follows from the input dtypes, not from the values" class="sketch"><title>The result dtype follows from the input dtypes, not from the values</title>
+<text x="440" y="40" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Same operator family, different loop</tspan></text>
+<text x="40" y="90" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)" font-weight="700"><tspan x="40" dy="0">call</tspan></text>
+<text x="330" y="90" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)" font-weight="700"><tspan x="330" dy="0">input dtypes</tspan></text>
+<text x="560" y="90" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)" font-weight="700"><tspan x="560" dy="0">result dtype</tspan></text>
+<text x="720" y="90" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)" font-weight="700"><tspan x="720" dy="0">value</tspan></text>
+<text x="40" y="140" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">np.add(a, b)</tspan></text>
+<text x="330" y="140" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">int32, int32</tspan></text>
+<text x="560" y="140" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="560" dy="0">int32</tspan></text>
+<text x="720" y="140" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="720" dy="0">[3]</tspan></text>
+<path d="M29.1 162.8 C200.5 158.4, 369.9 158.7, 849.7 162.7 M29.8 161.8 C302.5 162.6, 575.4 162.9, 850.1 162.0" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28.9 160.5 L852.3 162.1 L849.0 203.3 L32.2 203.0" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.5 162.3 C199.4 161.8, 368.7 162.6, 850.3 161.9 M30.0 162.4 C319.7 165.2, 610.0 165.2, 850.3 161.9 M849.2 160.0 C850.1 173.4, 851.1 183.1, 848.9 202.5 M849.6 163.1 C850.3 174.3, 850.4 188.6, 849.0 201.2 M850.5 201.3 C651.3 205.4, 453.5 204.5, 29.6 201.5 M849.9 202.2 C645.2 204.6, 440.1 204.4, 29.7 201.6 M30.7 199.9 C29.9 189.1, 28.0 170.5, 32.2 161.8 M29.2 202.3 C30.8 193.1, 28.7 184.2, 28.9 162.8" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="190" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">np.divide(a, b)</tspan></text>
+<text x="330" y="190" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">int32, int32</tspan></text>
+<text x="560" y="190" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="560" dy="0">float64</tspan></text>
+<text x="720" y="190" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="720" dy="0">[0.5]</tspan></text>
+<path d="M30.0 211.8 C200.2 217.1, 369.4 216.5, 850.9 211.2 M30.1 212.1 C337.9 208.3, 645.5 209.0, 849.6 211.8" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="240" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">np.add(a, b)</tspan></text>
+<text x="330" y="240" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">int32, float64</tspan></text>
+<text x="560" y="240" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="560" dy="0">float64</tspan></text>
+<text x="720" y="240" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="720" dy="0">[3.]</tspan></text>
+<path d="M29.4 261.3 C199.1 261.0, 370.1 260.9, 849.5 262.3 M30.3 261.7 C355.1 261.9, 680.1 261.4, 849.8 261.7" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="290" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">np.add(a, 1000)</tspan></text>
+<text x="330" y="290" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">int8 array, Python int</tspan></text>
+<text x="560" y="290" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="560" dy="0">error</tspan></text>
+<text x="720" y="290" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="720" dy="0">OverflowError</tspan></text>
+<text x="440" y="330" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">The highlighted row is the one that looks like a bug and is not.</tspan></text>
+</svg>

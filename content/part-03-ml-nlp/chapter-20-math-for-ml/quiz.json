@@ -1,54 +1,246 @@
 {
   "chapterId": "chapter-20",
-  "title": "Chapter 20 Quiz \u2014 Mathematics for ML",
+  "title": "Chapter 20 Quiz — Mathematics for ML",
   "questions": [
     {
       "id": "q20.1",
-      "question": "What is the primary architectural mechanism in Mathematics for ML?",
+      "question": "Vector a is replaced by 2a. Which quantity stays the same?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "The dot product a . b"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "The cosine similarity between a and b"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "The length of a"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "The element-wise product a * b"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Mathematics for ML, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "Cosine divides the dot product by both lengths, so doubling a doubles both the numerator and the norm of a and leaves the ratio unchanged. The dot product, the norm and a * b all double (Lesson 20.1)."
     },
     {
       "id": "q20.2",
-      "question": "How does Mathematics for ML optimize performance in modern AI systems?",
+      "question": "Project x = (3, 3) onto the line through u = (2, 1). What is the projection p?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "(1.8, 0.9)"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "(3.0, 1.5)"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "(3.6, 1.8)"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "(5.0, 2.5)"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The coefficient is t = (x . u)/(u . u) = 9/5 = 1.8, so p = t u = (3.6, 1.8). The residual (-0.6, 1.2) is perpendicular to u (Lesson 20.1)."
+    },
+    {
+      "id": "q20.3",
+      "question": "A = [[3, 1], [1, 3], [1, 1]]. What are its singular values sigma_1 >= sigma_2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "18 and 4"
+        },
+        {
+          "id": "b",
+          "text": "3 and 1"
+        },
+        {
+          "id": "c",
+          "text": "4 and 2"
+        },
+        {
+          "id": "d",
+          "text": "4.2426 and 2"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "A^T A = [[11, 7], [7, 11]] has eigenvalues 18 and 4, so the singular values are sqrt(18) = 4.2426 and 2 (Lesson 20.2)."
+    },
+    {
+      "id": "q20.4",
+      "question": "A 3 by 3 matrix has singular values 5, 2 and 1. What is the Frobenius norm of the error of its best rank-2 approximation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "sqrt(5), about 2.236"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "By the Eckart-Young theorem the Frobenius error after keeping k terms is sqrt(sum over i > k of sigma_i^2). For k = 2 this is sigma_3 = 1. The value sqrt(5) is the rank-1 error (Lesson 20.2)."
+    },
+    {
+      "id": "q20.5",
+      "question": "Let f(x, y) = x^2 y + y. What is the gradient at (1, 2)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(2, 4)"
+        },
+        {
+          "id": "b",
+          "text": "(4, 1)"
+        },
+        {
+          "id": "c",
+          "text": "(4, 2)"
+        },
+        {
+          "id": "d",
+          "text": "(2, 1)"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "df/dx = 2xy = 4 and df/dy = x^2 + 1 = 2, so the gradient is (4, 2) (Lesson 20.3)."
+    },
+    {
+      "id": "q20.6",
+      "question": "F(x) = (x0^2 + x1^2, x0 x1) and h(y) = y0 + 2 y1. For g = h(F(x)), what is the gradient of g at (1, 2)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "(6, 6)"
+        },
+        {
+          "id": "b",
+          "text": "(10, 4)"
+        },
+        {
+          "id": "c",
+          "text": "(5, 2)"
+        },
+        {
+          "id": "d",
+          "text": "(2, 4)"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The Jacobian at (1, 2) is [[2, 4], [2, 1]]. The chain rule gives grad g = J^T grad h = (6, 6). Direct check: g = (x0 + x1)^2, so grad g = 2 (x0 + x1) (1, 1) = (6, 6). The answer (10, 4) is J times the vector, which is the transpose error (Lesson 20.3)."
+    },
+    {
+      "id": "q20.7",
+      "question": "A matrix X has condition number kappa(X) = 10^3. What is kappa(X^T X)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "10^3"
+        },
+        {
+          "id": "b",
+          "text": "10^6"
+        },
+        {
+          "id": "c",
+          "text": "2 times 10^3"
+        },
+        {
+          "id": "d",
+          "text": "10^9"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Forming X^T X squares the singular-value ratio: kappa(X^T X) = kappa(X)^2 = 10^6 (Lesson 20.4)."
+    },
+    {
+      "id": "q20.8",
+      "question": "Gradient descent on f(x) = (1/2) x^T diag(1, 100) x uses step alpha = 2/(1 + kappa) with kappa = 100. Starting from (1, 1), how many steps until the norm is at most 1e-6 times the starting norm?",
+      "options": [
+        {
+          "id": "a",
+          "text": "69"
+        },
+        {
+          "id": "b",
+          "text": "6908"
+        },
+        {
+          "id": "c",
+          "text": "691"
+        },
+        {
+          "id": "d",
+          "text": "1"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Each step multiplies the iterate by r = (kappa - 1)/(kappa + 1), so k = ceil(ln(1e-6)/ln r) = 691 (Lesson 20.4). The code in that lesson prints 691 for kappa = 100. 69 is the count for kappa = 10."
+    },
+    {
+      "id": "q20.9",
+      "question": "A = [[4, 1], [1, 1]] and x = (1, 1). What is the Rayleigh quotient R_A(x) = x^T A x / x^T x?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "3.5"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "2.5"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "A x = (5, 2), so x^T A x = 7 and x^T x = 2, giving 3.5. The eigenvalues are (5 plus or minus sqrt(13))/2, about 0.697 and 4.303, and 3.5 lies between them (Lesson 20.5). The value 7 omits the division by x^T x."
+    },
+    {
+      "id": "q20.10",
+      "question": "B = [[1, 10], [0, 1]]. A check calls np.linalg.cholesky(B), which succeeds. Is B positive definite?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Yes, because the Cholesky factorisation succeeded"
+        },
+        {
+          "id": "b",
+          "text": "Yes, because det(B) = 1 is positive"
+        },
+        {
+          "id": "c",
+          "text": "Yes, because every entry is non-negative"
+        },
+        {
+          "id": "d",
+          "text": "No, because x = (1, -1) gives x^T B x = -8"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "np.linalg.cholesky reads only the lower triangle, which is the identity, and does not check symmetry. The quadratic form at (1, -1) equals -8, so B is not positive definite. Test symmetry before factorising (Lesson 20.5)."
     }
   ]
 }

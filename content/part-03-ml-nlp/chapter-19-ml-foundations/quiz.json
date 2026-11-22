@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-19",
-  "title": "Chapter 19 Quiz \u2014 Machine Learning Foundations",
-  "questions": [
-    {
-      "id": "q19.1",
-      "question": "What is the primary architectural mechanism in Machine Learning Foundations?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Machine Learning Foundations, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q19.2",
-      "question": "How does Machine Learning Foundations optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-19", "title": "Chapter 19 Quiz — Machine Learning Foundations", "questions": [
+  {"id": "q19.1", "question": "Using the four-point data x = (1, 2, 3, 4), y = (2, 3, 5, 4), the hypothesis h_w(x) = w·x and squared loss, what is the empirical risk R_S(2)?", "options": [{"id": "a", "text": "1.5"}, {"id": "b", "text": "4.5"}, {"id": "c", "text": "0.825"}, {"id": "d", "text": "18"}], "correctOptionId": "b", "explanation": "The predictions at w = 2 are 2, 4, 6, 8. The residuals are 0, 1, 1, 4, with squares summing to 18. The empirical risk divides by n = 4, giving 4.5. The closed form 7.5·4 − 19.5·2 + 13.5 also gives 4.5. The value 18 is the sum, not the mean, and 1.5 is R_S(1)."},
+  {"id": "q19.2", "question": "One example has true label y = 0 and predicted probability p = 0.2. What is its binary cross-entropy in nats?", "options": [{"id": "a", "text": "0.200"}, {"id": "b", "text": "1.609"}, {"id": "c", "text": "0.105"}, {"id": "d", "text": "0.223"}], "correctOptionId": "d", "explanation": "With y = 0 only the term −(1 − y) ln(1 − p) is active, so BCE = −ln(0.8) = 0.223144 nats. The value 1.609 is −ln(0.2), which uses the wrong term, and 0.105 is −ln(0.9), a term from a different example."},
+  {"id": "q19.3", "question": "A sigmoid output has true label y = 1 and logit z = −5. The magnitude of the cross-entropy gradient with respect to z is about how many times the magnitude of the MSE gradient?", "options": [{"id": "a", "text": "About 75"}, {"id": "b", "text": "About 2"}, {"id": "c", "text": "About 1000"}, {"id": "d", "text": "About 0.5"}], "correctOptionId": "a", "explanation": "At z = −5, p = σ(−5) ≈ 0.00669. The cross-entropy gradient is p − 1 = −0.993307, and the MSE gradient is −2(1 − p)p(1 − p) = −0.013207. The ratio is about 75. At z = 0 the ratio is only 2, so the factor is large only in the confidently wrong regime."},
+  {"id": "q19.4", "question": "For P = [0.2, 0.3, 0.5] and Q = [0.1, 0.4, 0.5] (in nats), what is the cross-entropy H(P, Q) = −Σ P ln Q?", "options": [{"id": "a", "text": "1.0297"}, {"id": "b", "text": "0.0523"}, {"id": "c", "text": "1.0820"}, {"id": "d", "text": "0.0458"}], "correctOptionId": "c", "explanation": "H(P) = 1.0297 and KL(P‖Q) = 0.0523, and the identity H(P, Q) = H(P) + KL(P‖Q) gives 1.0820. The value 0.0458 is KL(Q‖P), which is a different quantity because KL is not symmetric."},
+  {"id": "q19.5", "question": "Suppose XᵀX = I, the ordinary least-squares estimate is ŵ = (0.05, −0.8), and the lasso objective is ½‖y − Xw‖² + λ‖w‖₁ with λ = 0.1. What is the lasso estimate?", "options": [{"id": "a", "text": "(0.05, −0.7)"}, {"id": "b", "text": "(0, −0.8)"}, {"id": "c", "text": "(0.0417, −0.6667)"}, {"id": "d", "text": "(0, −0.7)"}], "correctOptionId": "d", "explanation": "The lasso soft-thresholds each coordinate at λ. For the first, |0.05| ≤ 0.1, so it becomes exactly 0. For the second, sign(−0.8)(0.8 − 0.1) = −0.7. Option (0.0417, −0.6667) is the ridge answer under the ½-scaled objective, not the lasso."},
+  {"id": "q19.6", "question": "Least-squares polynomial fits to noisy samples of y = sin(2πx) (σ = 0.3, 100 points on [0, 1]) are scored by expected test error with no penalty. Which degree has the lowest expected error in the lesson's table?", "options": [{"id": "a", "text": "1"}, {"id": "b", "text": "3"}, {"id": "c", "text": "5"}, {"id": "d", "text": "15"}], "correctOptionId": "c", "explanation": "The table gives total expected error 0.096 at degree 5, against 0.099 at degree 3, 0.098 at degree 6 and 2.172 at degree 15. The noise floor σ² = 0.09 is the least any predictor can reach. Degree 1 is dominated by bias (bias² = 0.200)."},
+  {"id": "q19.7", "question": "A fixed classifier is tested with the 0-1 loss. You want, with probability at least 99%, the measured error to be within ε = 0.05 of its true error. What sample size does two-sided Hoeffding require?", "options": [{"id": "a", "text": "185"}, {"id": "b", "text": "1060"}, {"id": "c", "text": "2442"}, {"id": "d", "text": "10000"}], "correctOptionId": "b", "explanation": "Two-sided Hoeffding needs n ≥ ln(2/δ)/(2ε²) = ln(200)/0.005 = 1059.7, so n = 1060. The value 2442 adds a union bound over 1000 hypotheses, which this fixed classifier does not need. The value 10000 is the Chebyshev requirement."},
+  {"id": "q19.8", "question": "Each of 100 predictions is wrong with probability p = 0.1, independently. For the event that at least 20 are wrong, which of the three bounds in the chapter is smallest?", "options": [{"id": "a", "text": "Markov: 0.5"}, {"id": "b", "text": "Hoeffding: 0.135"}, {"id": "c", "text": "Chebyshev: 0.09"}, {"id": "d", "text": "Hoeffding, because its exponential decay makes it the smallest at every n"}], "correctOptionId": "c", "explanation": "Markov gives μ/20 = 0.5, Hoeffding gives e^(−2) ≈ 0.135, and Chebyshev gives σ²/(20 − 10)² = 9/100 = 0.09. Chebyshev is smaller here because it uses the variance, which is 0.09, while Hoeffding uses only the range. The exact tail, 0.00198, is not a bound, and Hoeffding is smaller than Chebyshev only for very small n in the sweep, not here."},
+  {"id": "q19.9", "question": "A finite hypothesis class has |H| = 2¹⁰. For ε = 0.05 and δ = 0.01, what sample size does the union bound require so that the empirical risk is within ε of the true risk for every hypothesis in the class?", "options": [{"id": "a", "text": "1060"}, {"id": "b", "text": "3833"}, {"id": "c", "text": "2442"}, {"id": "d", "text": "2446"}], "correctOptionId": "d", "explanation": "The bound is n ≥ (ln(2|H|) + ln(1/δ))/(2ε²) = (7.625 + 4.605)/0.005 = 2445.96, so n = 2446. The value 2442 is the bound for |H| = 1000, and 3833 is the bound for |H| = 2²⁰. The value 1060 ignores the union bound entirely."},
+  {"id": "q19.10", "question": "An energy-based model gives one input the energies E = (1, 0, 4) for three candidate classes, with inverse temperature β = 1. If the target is class 0, what is the negative log-likelihood (NLL)?", "options": [{"id": "a", "text": "1.3266"}, {"id": "b", "text": "1.0"}, {"id": "c", "text": "0.2654"}, {"id": "d", "text": "2.0"}], "correctOptionId": "a", "explanation": "The NLL is E_t + log Σ_k e^(−E_k) = 1 + log(1.3862) = 1.3266. This equals −log p(y = 0 | x), where p = 0.2654. The value 1.0 drops the log Z term, 0.2654 is the probability rather than its negative log, and 2.0 is the margin loss against class 1."}
+]}

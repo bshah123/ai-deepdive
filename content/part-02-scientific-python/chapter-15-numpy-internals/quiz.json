@@ -1,54 +1,11 @@
-{
-  "chapterId": "chapter-15",
-  "title": "Chapter 15 Quiz \u2014 NumPy Internals",
-  "questions": [
-    {
-      "id": "q15.1",
-      "question": "What is the primary architectural mechanism in NumPy Internals?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In NumPy Internals, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q15.2",
-      "question": "How does NumPy Internals optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-15", "title": "Chapter 15 Quiz — NumPy Internals", "questions": [
+  {"id": "q15.1", "question": "What are the strides, in bytes, of x = np.arange(12, dtype=np.int64).reshape(3, 4)?", "options": [{"id": "a", "text": "(8, 32)"}, {"id": "b", "text": "(32, 8)"}, {"id": "c", "text": "(4, 12)"}, {"id": "d", "text": "(12, 4)"}], "correctOptionId": "b", "explanation": "Each row holds 4 values of 8 bytes, so one step down an axis-0 index moves 32 bytes. One step along a row moves one 8-byte value. Strides are counted in bytes, not elements."},
+  {"id": "q15.2", "question": "Let c = np.arange(6, dtype=np.int32).reshape(2, 3) and t = c.T. What are t.strides, and is t C-contiguous?", "options": [{"id": "a", "text": "(12, 4), C-contiguous: True"}, {"id": "b", "text": "(12, 4), C-contiguous: False"}, {"id": "c", "text": "(4, 12), C-contiguous: True"}, {"id": "d", "text": "(4, 12), C-contiguous: False"}], "correctOptionId": "d", "explanation": "The transpose swaps the strides of c, which are (12, 4), so t has (4, 12). Its elements are not laid out in C order, so the flag is False. The bytes are the same as c, so t is a view."},
+  {"id": "q15.3", "question": "What does this code print?\n\nx = np.arange(6)\ny = x[::3]\ny[1] = 99\nprint(x)", "options": [{"id": "a", "text": "[ 0  1  2 99  4  5]"}, {"id": "b", "text": "[ 0 99  2  3  4  5]"}, {"id": "c", "text": "[ 0  1  2  3  4  5]"}, {"id": "d", "text": "[99  1  2  3  4  5]"}], "correctOptionId": "a", "explanation": "x[::3] is a basic slice, so y is a view on elements 0 and 3. y[1] is the same memory as x[3], so the write reaches x."},
+  {"id": "q15.4", "question": "What does this code print?\n\na = np.array([1, 2, 3, 4, 5])\nb = a[a > 2]\nb += 10\nprint(a)", "options": [{"id": "a", "text": "[ 1  2 13 14 15]"}, {"id": "b", "text": "[11 12 13 14 15]"}, {"id": "c", "text": "[1 2 3 4 5]"}, {"id": "d", "text": "[ 1 12 13 14 15]"}], "correctOptionId": "c", "explanation": "a[a > 2] is advanced indexing with a boolean mask, so b is a copy. b += 10 changes only the copy, and a is unchanged. The subscript write c[c > 2] += 10 would change the original."},
+  {"id": "q15.5", "question": "What does np.multiply(np.array([2**30], dtype=np.int32), 4) return?", "options": [{"id": "a", "text": "[4294967296]"}, {"id": "b", "text": "[0]"}, {"id": "c", "text": "[2147483647]"}, {"id": "d", "text": "It raises OverflowError"}], "correctOptionId": "b", "explanation": "The exact product is 2^32. An int32 keeps only the low 32 bits, so the stored value is 0. The Python int 4 fits in int32, so NEP 50 raises no error. Integer overflow inside a ufunc is silent."},
+  {"id": "q15.6", "question": "What is the shape of np.ones((2, 1, 4)) + np.ones((3, 1))?", "options": [{"id": "a", "text": "(2, 1, 4)"}, {"id": "b", "text": "(3, 1, 4)"}, {"id": "c", "text": "(2, 3, 1)"}, {"id": "d", "text": "(2, 3, 4)"}], "correctOptionId": "d", "explanation": "Align from the right. The last axes are 4 and 1, which give 4. The middle axes are 1 and 3, which give 3. The first axis is 2 in one array and missing in the other, which gives 2. The result is (2, 3, 4)."},
+  {"id": "q15.7", "question": "Let y = np.array([1.0, 2.0, 3.0, 4.0]) and y_hat = np.array([1.5, 1.5, 3.5, 3.5]). What do np.mean((y - y_hat)**2) and np.mean((y - y_hat.reshape(4, 1))**2) print?", "options": [{"id": "a", "text": "0.25 and 2.25"}, {"id": "b", "text": "0.25 and 0.25"}, {"id": "c", "text": "2.25 and 2.25"}, {"id": "d", "text": "0.25 and a ValueError"}], "correctOptionId": "a", "explanation": "The first expression has shape (4,) and averages 4 squared errors, giving 0.25. The second has shape (4, 1), so it broadcasts to a (4, 4) table of 16 errors, with mean 2.25. No error is raised. This is the silent bug in the broadcasting lesson."},
+  {"id": "q15.8", "question": "Starting from counts = np.zeros(4, dtype=np.int64), what does counts[[1, 1, 3]] += 1 leave in counts, and what does np.add.at(counts2, [1, 1, 3], 1) leave in an equal array counts2?", "options": [{"id": "a", "text": "[0 2 0 1] and [0 2 0 1]"}, {"id": "b", "text": "[0 1 1 0] and [0 1 1 0]"}, {"id": "c", "text": "[0 1 0 1] and [0 2 0 1]"}, {"id": "d", "text": "[0 0 1 1] and [0 1 0 1]"}], "correctOptionId": "c", "explanation": "The fancy-index += reads each index once and writes back, so index 1 is incremented once. np.add.at is unbuffered and increments index 1 once for each occurrence, so it gives 2. Use np.add.at when repeated indices must accumulate."},
+  {"id": "q15.9", "question": "What are the strides, in bytes, of an int32 array with shape (2, 3, 4) in C order?", "options": [{"id": "a", "text": "(4, 12, 24)"}, {"id": "b", "text": "(48, 16, 4)"}, {"id": "c", "text": "(24, 8, 4)"}, {"id": "d", "text": "(12, 4, 1)"}], "correctOptionId": "b", "explanation": "For a C-order array the stride of axis k is itemsize times the product of the lengths of the later axes. The last stride is 4 bytes. The middle stride is 4 × 4 = 16 bytes. The first stride is 4 × 3 × 4 = 48 bytes."}
+]}

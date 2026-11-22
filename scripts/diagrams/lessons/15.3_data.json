@@ -1,0 +1,176 @@
+{
+  "numpy_version": "2.5.5",
+  "machine": "arm64",
+  "python": "3.12.13",
+  "worked": {
+    "a": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "b": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "add": [
+      7,
+      9,
+      11,
+      13,
+      15
+    ],
+    "multiply": [
+      6,
+      14,
+      24,
+      36,
+      50
+    ],
+    "subtract": [
+      -5,
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "power": [
+      1,
+      128,
+      6561,
+      262144,
+      9765625
+    ],
+    "add_dtype": "int32",
+    "power_dtype": "int32"
+  },
+  "type_resolution": {
+    "int32 + int32": {
+      "result_dtype": "int32",
+      "value": [
+        3
+      ]
+    },
+    "int32 / int32": {
+      "result_dtype": "float64",
+      "value": [
+        0.5
+      ]
+    },
+    "int32 + float64": {
+      "result_dtype": "float64",
+      "value": [
+        3.0
+      ]
+    },
+    "float32 + float64": {
+      "result_dtype": "float64",
+      "value": [
+        3.0
+      ]
+    }
+  },
+  "divide_types_count": 11,
+  "add_types_count": 22,
+  "add_types_first": [
+    "??->?",
+    "bb->b",
+    "BB->B",
+    "hh->h",
+    "HH->H",
+    "ii->i"
+  ],
+  "ufunc_attrs": {
+    "nin": 2,
+    "nout": 1,
+    "nargs": 3,
+    "identity": "0"
+  },
+  "overflow": {
+    "exact": 10000000000,
+    "int32_result": 1410065408,
+    "mod_2_32": 1410065408,
+    "wrapped_to_signed": 1410065408
+  },
+  "neg_int_power": "Integers to negative integer powers are not allowed.",
+  "int8_plus_1000": {
+    "ok": false,
+    "error": "OverflowError: Python integer 1000 out of bounds for int8"
+  },
+  "out_inplace": {
+    "c": [
+      11.0,
+      22.0,
+      33.0
+    ],
+    "same_object": true,
+    "shares_memory": true
+  },
+  "where_mask": [
+    2.0,
+    0.0,
+    3.0
+  ],
+  "methods": {
+    "reduce_add": 15,
+    "accumulate_add": [
+      1,
+      3,
+      6,
+      10,
+      15
+    ],
+    "outer_mul_shape": [
+      3,
+      2
+    ],
+    "outer_mul": [
+      [
+        10,
+        20
+      ],
+      [
+        20,
+        40
+      ],
+      [
+        30,
+        60
+      ]
+    ]
+  },
+  "repeated_index": {
+    "plus_equal": [
+      1,
+      0,
+      1
+    ],
+    "ufunc_at": [
+      2,
+      0,
+      1
+    ]
+  },
+  "timings": {
+    "10": {
+      "python_loop_s": 3.835512499790639e-07,
+      "ufunc_s": 2.861291699809954e-07,
+      "ratio_loop_over_ufunc": 1.3404828665477877
+    },
+    "1000": {
+      "python_loop_s": 3.708062498481013e-05,
+      "ufunc_s": 5.495625082403422e-07,
+      "ratio_loop_over_ufunc": 67.47298883895756
+    },
+    "1000000": {
+      "python_loop_s": 0.04506355839548633,
+      "ufunc_s": 0.0003843249985948205,
+      "ratio_loop_over_ufunc": 117.25377885968629
+    }
+  },
+  "timing_note": "median of 5 repeats; one machine; Python loop builds a list; ufunc returns a new array"
+}

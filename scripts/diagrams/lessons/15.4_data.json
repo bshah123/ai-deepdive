@@ -1,0 +1,195 @@
+{
+ "numpy": "2.5.5",
+ "python": "3.12.13",
+ "a_dtype": "int64",
+ "a_itemsize": 8,
+ "a_strides": [
+  8
+ ],
+ "offset_bytes_view_1_4": 8,
+ "slice_1_4": {
+  "shape": [
+   3
+  ],
+  "strides": [
+   8
+  ],
+  "base_is_a": true,
+  "owndata": false
+ },
+ "step2_strides": [
+  16
+ ],
+ "step2_values": [
+  1,
+  3,
+  5
+ ],
+ "step2_offset_bytes": 0,
+ "fancy_idx_values": [
+  1,
+  3,
+  5
+ ],
+ "fancy_base_is_none": true,
+ "fancy_owndata": true,
+ "fancy_may_share": false,
+ "mask_values": [
+  3,
+  4,
+  5
+ ],
+ "mask_base_is_none": true,
+ "scalar_type": "int64",
+ "scalar_is_ndarray": false,
+ "single_slice_type": "ndarray",
+ "view_of_view_base_is_a": true,
+ "may_share_even_odd_slices": true,
+ "shares_even_odd_slices": false,
+ "shares_overlap_1_4_0_2": true,
+ "trap_copy_then_inplace_a": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "trap_copy_then_inplace_b": [
+  13,
+  14,
+  15
+ ],
+ "trap_setitem_a": [
+  1,
+  2,
+  13,
+  14,
+  15
+ ],
+ "trap_rebind_a": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "trap_inplace_view_a": [
+  1,
+  4,
+  6,
+  8,
+  5
+ ],
+ "x_strides": [
+  32,
+  8
+ ],
+ "x_col1_strides": [
+  32
+ ],
+ "x_row1_strides": [
+  8
+ ],
+ "x_T_strides": [
+  8,
+  32
+ ],
+ "x_T_c_contig": false,
+ "x_T_f_contig": true,
+ "x_T_base_is_x": false,
+ "big_nbytes": 8000000,
+ "memory": [
+  {
+   "op": "basic slice big[1:-1]",
+   "peak_bytes": 96,
+   "is_view": true,
+   "owndata": false,
+   "shape": [
+    999998
+   ]
+  },
+  {
+   "op": "step slice big[::2]",
+   "peak_bytes": 112,
+   "is_view": true,
+   "owndata": false,
+   "shape": [
+    500000
+   ]
+  },
+  {
+   "op": "reshape(1000, 1000)",
+   "peak_bytes": 96,
+   "is_view": true,
+   "owndata": false,
+   "shape": [
+    1000,
+    1000
+   ]
+  },
+  {
+   "op": "transpose of reshape",
+   "peak_bytes": 192,
+   "is_view": true,
+   "owndata": false,
+   "shape": [
+    1000,
+    1000
+   ]
+  },
+  {
+   "op": "ravel() of contiguous",
+   "peak_bytes": 96,
+   "is_view": true,
+   "owndata": false,
+   "shape": [
+    1000000
+   ]
+  },
+  {
+   "op": "integer array big[idx]",
+   "peak_bytes": 4000096,
+   "is_view": false,
+   "owndata": true,
+   "shape": [
+    500000
+   ]
+  },
+  {
+   "op": "boolean mask big[mask]",
+   "peak_bytes": 4000384,
+   "is_view": false,
+   "owndata": true,
+   "shape": [
+    500000
+   ]
+  },
+  {
+   "op": "big.copy()",
+   "peak_bytes": 8000096,
+   "is_view": false,
+   "owndata": true,
+   "shape": [
+    1000000
+   ]
+  },
+  {
+   "op": "flatten()",
+   "peak_bytes": 8000688,
+   "is_view": false,
+   "owndata": true,
+   "shape": [
+    1000000
+   ]
+  },
+  {
+   "op": "reshape(-1) of transposed",
+   "peak_bytes": 8000304,
+   "is_view": false,
+   "owndata": false,
+   "shape": [
+    1000000
+   ]
+  }
+ ]
+}

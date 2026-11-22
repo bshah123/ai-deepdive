@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 370" role="img" aria-label="Ridge constraint is a circle and lasso constraint is a diamond; the lasso solution lands on an axis at a corner. Illustrative geometry." class="sketch"><title>Ridge constraint is a circle and lasso constraint is a diamond; the lasso solution lands on an axis at a corner. Illustrative geometry.</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Where the penalty first touches the loss</tspan></text>
+<circle cx="365.0" cy="137.0" r="58.3" fill="none" stroke="var(--sk-muted)" stroke-width="1.5" stroke-dasharray="4 6"/>
+<circle cx="365.0" cy="137.0" r="75.7" fill="none" stroke="var(--sk-muted)" stroke-width="1.2" stroke-dasharray="4 6"/>
+<path d="M70.0 170.0 L330.0 170.0" fill="none" stroke="var(--sk-muted)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M200.0 40.0 L200.0 282.0" fill="none" stroke="var(--sk-muted)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="200" cy="170" r="110" fill="var(--sk-blue-soft)" fill-opacity="0.5" stroke="var(--sk-blue)" stroke-width="3"/>
+<circle cx="365.0" cy="137.0" r="5" fill="var(--sk-ink)"/>
+<circle cx="307.9" cy="148.4" r="7" fill="var(--sk-green)"/>
+<circle cx="785.0" cy="137.0" r="64.1" fill="none" stroke="var(--sk-muted)" stroke-width="1.5" stroke-dasharray="4 6"/>
+<circle cx="785.0" cy="137.0" r="83.4" fill="none" stroke="var(--sk-muted)" stroke-width="1.2" stroke-dasharray="4 6"/>
+<path d="M490.0 170.0 L750.0 170.0" fill="none" stroke="var(--sk-muted)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M620.0 40.0 L620.0 282.0" fill="none" stroke="var(--sk-muted)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M730.0 170.0 L620.0 60.0 L510.0 170.0 L620.0 280.0 L730.0 170.0" fill="none" stroke="var(--sk-amber)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="785.0" cy="137.0" r="5" fill="var(--sk-ink)"/>
+<circle cx="730.0" cy="170.0" r="7" fill="var(--sk-green)"/>
+<text x="200" y="294" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="200" dy="0">ridge (L2): w1^2 + w2^2 &lt;= t</tspan></text>
+<text x="620" y="294" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="620" dy="0">lasso (L1): |w1| + |w2| &lt;= t</tspan></text>
+<text x="200" y="322" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-blue)"><tspan x="200" dy="0">contact: both coefficients nonzero</tspan></text>
+<text x="620" y="322" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="620" dy="0">contact: w2 = 0 (a corner on an axis)</tspan></text>
+<text x="440" y="352" class="sk-hand" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">black dot: OLS solution; green dot: first contact; dashed rings: loss contours (circular, as for an orthonormal design)</tspan></text>
+</svg>

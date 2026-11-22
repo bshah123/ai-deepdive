@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-22",
-  "title": "Chapter 22 Quiz \u2014 Traditional NLP",
-  "questions": [
-    {
-      "id": "q22.1",
-      "question": "What is the primary architectural mechanism in Traditional NLP?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Traditional NLP, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q22.2",
-      "question": "How does Traditional NLP optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-22", "title": "Chapter 22 Quiz — Traditional NLP", "questions": [
+{"id": "q22.1", "question": "In the four-document corpus of Lesson 22.1, the word \"stock\" appears in 2 of the 4 documents. What is its textbook inverse document frequency, ln(N / df)?", "options": [{"id": "a", "text": "ln 4 ≈ 1.386"}, {"id": "b", "text": "ln 2 ≈ 0.693"}, {"id": "c", "text": "0"}, {"id": "d", "text": "ln(4/5) ≈ −0.223"}], "correctOptionId": "b", "explanation": "N = 4 and df = 2, so ln(4/2) = ln 2 ≈ 0.693. The code prints stock df=2 idf=0.6931."},
+{"id": "q22.2", "question": "Using the Lesson 22.1 counts (c(the) = 6 non-final occurrences, c(the cat) = 2, V = 13), what is the add-one estimate of P(cat | the)?", "options": [{"id": "a", "text": "0.333"}, {"id": "b", "text": "0.154"}, {"id": "c", "text": "0.158"}, {"id": "d", "text": "0.000"}], "correctOptionId": "c", "explanation": "Add-one gives (2 + 1) / (6 + 13) = 3/19 ≈ 0.158. The unsmoothed MLE is 2/6 ≈ 0.333, and 2/13 ≈ 0.154 is the wrong denominator, because the add-one denominator is c(the) + V."},
+{"id": "q22.3", "question": "Documents d1 and d2 of Lesson 22.1 share only the word \"the\" (apart from \"cat\"). Their raw-count cosine is 0.668, but their tf-idf cosine is 0.092. What explains the drop?", "options": [{"id": "a", "text": "Tf-idf adds a length penalty that cancels the dot product"}, {"id": "b", "text": "The shared word \"the\" has idf = 0, so its contribution to the dot product disappears"}, {"id": "c", "text": "Cosine similarity cannot be computed on raw counts"}, {"id": "d", "text": "Tf-idf sets every weight to a value between 0 and 1"}], "correctOptionId": "b", "explanation": "\"The\" occurs in all four documents, so ln(4/4) = 0. Most of the raw similarity came from that word, and the tf-idf weights leave only \"cat\" in the shared dot product."},
+{"id": "q22.4", "question": "A document is repeated twice, so every tf-idf weight doubles. Its cosine with the original is 1.0000, but its Euclidean distance from the original is 2.4992. Which statement is correct?", "options": [{"id": "a", "text": "Cosine is sensitive to the vector length, so the value of 1.0000 is a coincidence"}, {"id": "b", "text": "Cosine ignores scale, and the Euclidean distance equals the length of the original vector"}, {"id": "c", "text": "Euclidean distance is zero because the documents have the same words"}, {"id": "d", "text": "The cosine must be 0 when one vector is a scalar multiple of the other"}], "correctOptionId": "b", "explanation": "Scaling by 2 leaves the angle unchanged, so the cosine is 1. The difference between the two vectors is the original vector, whose norm is 2.4992."},
+{"id": "q22.5", "question": "One skip-gram training pair uses negative sampling with K = 5 noise words. How many output vectors are updated for this pair?", "options": [{"id": "a", "text": "1"}, {"id": "b", "text": "5"}, {"id": "c", "text": "6"}, {"id": "d", "text": "V, the vocabulary size"}], "correctOptionId": "c", "explanation": "The true context word plus five noise words gives six output vectors, so six updates and six dot products. The full softmax would need V dot products instead."},
+{"id": "q22.6", "question": "How many skip-gram pairs does the five-token sentence \"the quick brown fox jumps\" produce with window radius 2?", "options": [{"id": "a", "text": "10"}, {"id": "b", "text": "12"}, {"id": "c", "text": "14"}, {"id": "d", "text": "20"}], "correctOptionId": "c", "explanation": "The per-token neighbour counts within radius 2 are 2, 3, 4, 3 and 2, which total 14. Lesson 22.2 gives the same count."},
+{"id": "q22.7", "question": "In the hand-worked negative-sampling update of Lesson 22.2 (v = (0.5, 0.25), u+ = (0.4, 0.8), u− = (−0.6, 0.2), η = 0.1), what happens to the two scores after one step?", "options": [{"id": "a", "text": "Both rise, since every update increases the dot product"}, {"id": "b", "text": "The true score falls to about 0.37 and the noise score rises to about −0.20"}, {"id": "c", "text": "The true score rises from 0.400 to about 0.449 and the noise score falls from −0.250 to about −0.286"}, {"id": "d", "text": "Neither changes, because the gradients use the old values"}], "correctOptionId": "c", "explanation": "The gradients use the values before the step, which moves the true pair together and pushes the noise pair apart. The code prints new scores 0.449 and −0.286."},
+{"id": "q22.8", "question": "Noise words are drawn from count^(3/4). For a word with count 1 (unigram probability 1/111 ≈ 0.009), how many times as often is it drawn under the 3/4 distribution, which gives 0.026?", "options": [{"id": "a", "text": "About 0.9 times"}, {"id": "b", "text": "About 2.9 times"}, {"id": "c", "text": "About 10 times"}, {"id": "d", "text": "About 100 times"}], "correctOptionId": "b", "explanation": "0.0261 / 0.0090 ≈ 2.9. Lesson 22.2 notes that the 3/4 exponent value is an assumption of its implementation, not a verified detail."},
+{"id": "q22.9", "question": "With x_max = 100 and α = 0.75, what is the GloVe weight f(50)?", "options": [{"id": "a", "text": "0.500"}, {"id": "b", "text": "0.5946"}, {"id": "c", "text": "0.0316"}, {"id": "d", "text": "1.000"}], "correctOptionId": "b", "explanation": "f(50) = (50/100)^0.75 = 0.5^0.75 ≈ 0.5946. Lesson 22.3 states x_max and α from memory, so the constants are not verified against the paper."},
+{"id": "q22.10", "question": "The word \"walkers\" is out of vocabulary in Lesson 22.3. Why does the subword model still give it a vector that is closer to \"walked\" (10 shared units) than to \"car\" (0 shared units)?", "options": [{"id": "a", "text": "Its vector is the mean of its known character n-gram vectors, and those n-grams overlap with \"walked\""}, {"id": "b", "text": "The model looks up a whole-word row for \"walkers\" in a pretrained table"}, {"id": "c", "text": "Unseen words are assigned the vector of the most frequent word in the corpus"}, {"id": "d", "text": "The cosine between two unrelated words is always zero, so the comparison is decided by string length"}], "correctOptionId": "a", "explanation": "The vector is built from the 14 of 23 units that exist in training. Shared spelling produces shared units, so the result reflects surface form, not meaning."}
+]}

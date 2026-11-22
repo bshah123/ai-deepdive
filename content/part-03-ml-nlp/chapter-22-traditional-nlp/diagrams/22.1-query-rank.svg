@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" role="img" aria-label="Bar chart of cosine scores between the query cat fish and each document" class="sketch"><title>Bar chart of cosine scores between the query cat fish and each document</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Query "cat fish": cosine score for each document</tspan></text>
+<text x="100" y="102" class="sk-mono" font-size="20" text-anchor="end" style="fill:var(--sk-ink)" font-weight="700"><tspan x="100" dy="0">d2</tspan></text>
+<path d="M119.9 82.2 L566.3 79.4 L568.5 114.4 L120.3 117.0" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120.5 80.5 C209.9 82.3, 301.0 80.5, 568.1 80.2 M120.0 79.7 C211.8 82.2, 302.3 83.2, 566.9 79.6 M569.4 78.1 C566.4 93.1, 565.9 102.9, 568.3 116.5 M568.4 80.2 C568.2 94.6, 568.6 108.2, 566.7 115.1 M567.8 116.0 C421.2 118.2, 276.1 116.8, 120.7 116.7 M567.1 115.8 C397.3 114.8, 226.5 115.4, 119.6 115.7 M122.2 116.8 C120.0 104.2, 122.6 92.7, 121.4 80.8 M118.8 116.7 C119.1 108.1, 119.0 97.5, 119.0 80.4" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="581.24" y="104" class="sk-mono" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="581.24" dy="0">0.745</tspan></text>
+<text x="100" y="162" class="sk-mono" font-size="20" text-anchor="end" style="fill:var(--sk-ink)" font-weight="700"><tspan x="100" dy="0">d1</tspan></text>
+<path d="M120.4 139.1 L192.4 139.2 L193.6 174.7 L119.0 176.4" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119.7 139.8 C137.0 140.2, 149.2 137.9, 192.8 138.4 M120.5 141.0 C137.2 140.5, 154.2 139.6, 194.2 139.0 M196.0 138.4 C192.8 152.8, 193.1 164.6, 194.7 177.8 M194.7 140.4 C194.1 150.0, 193.3 157.5, 195.5 176.7 M194.3 178.1 C167.6 174.7, 145.3 176.1, 121.2 174.6 M194.1 176.6 C166.9 177.7, 142.4 176.1, 119.0 176.5 M119.0 174.1 C119.2 168.8, 119.8 158.7, 119.7 141.7 M120.3 176.7 C119.6 167.4, 120.0 160.2, 120.7 140.4" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="208.4" y="164" class="sk-mono" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="208.4" dy="0">0.124</tspan></text>
+<text x="100" y="222" class="sk-mono" font-size="20" text-anchor="end" style="fill:var(--sk-ink)" font-weight="700"><tspan x="100" dy="0">d3</tspan></text>
+<path d="M119.8 217.9 C120.3 218.0, 120.9 217.9, 122.0 218.1 M120.1 218.0 C120.5 218.1, 120.9 217.9, 122.0 218.1" style="stroke:var(--sk-muted);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="134" y="224" class="sk-mono" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="134" dy="0">0.000</tspan></text>
+<text x="100" y="282" class="sk-mono" font-size="20" text-anchor="end" style="fill:var(--sk-ink)" font-weight="700"><tspan x="100" dy="0">d4</tspan></text>
+<path d="M120.2 278.2 C120.5 277.9, 120.6 278.0, 122.1 277.9 M119.9 277.9 C120.4 278.1, 121.2 278.1, 122.1 278.1" style="stroke:var(--sk-muted);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="134" y="284" class="sk-mono" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="134" dy="0">0.000</tspan></text>
+<path d="M120.3 60.7 C118.6 106.6, 119.6 156.3, 118.3 301.8 M119.5 60.6 C119.8 129.8, 119.0 198.9, 119.1 300.4" style="stroke:var(--sk-muted);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

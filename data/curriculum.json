@@ -1515,7 +1515,9 @@
               "tags": [
                 "numpy",
                 "strides",
-                "memory-layout"
+                "memory-layout",
+                "views",
+                "copies"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1533,7 +1535,8 @@
               "tags": [
                 "broadcasting",
                 "shapes",
-                "numpy"
+                "numpy",
+                "strides"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1546,7 +1549,7 @@
               "title": "Universal Functions (ufuncs) & Vectorized C Loops",
               "slug": "numpy-ufuncs",
               "file": "15.3-numpy-ufuncs.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "ufuncs",
@@ -1569,7 +1572,9 @@
               "tags": [
                 "views",
                 "copies",
-                "indexing"
+                "indexing",
+                "slicing",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1604,7 +1609,9 @@
               "tags": [
                 "pandas",
                 "blockmanager",
-                "internals"
+                "internals",
+                "copy-on-write",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1618,11 +1625,13 @@
               "slug": "pandas-arrow",
               "file": "16.2-pandas-arrow.md",
               "difficulty": "advanced",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "arrow",
                 "columnar",
-                "parquet"
+                "parquet",
+                "pandas",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1638,9 +1647,12 @@
               "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
-                "optimization",
-                "categoricals",
-                "chunking"
+                "pandas",
+                "categorical",
+                "dtype",
+                "downcasting",
+                "chunking",
+                "memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1654,7 +1666,7 @@
               "slug": "free-threaded-python-no-gil",
               "file": "16.4-free-threaded-python-no-gil.md",
               "difficulty": "advanced",
-              "estimatedMinutes": 45,
+              "estimatedMinutes": 40,
               "prerequisites": [
                 "16.1"
               ],
@@ -1717,12 +1729,14 @@
               "title": "PyTorch Tensor Internals: THPVariable & Storage Buffers",
               "slug": "pytorch-tensors",
               "file": "17.1-pytorch-tensors.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "pytorch",
                 "storage",
-                "tensors"
+                "tensors",
+                "strides",
+                "views"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1740,7 +1754,9 @@
               "tags": [
                 "cuda",
                 "gpu",
-                "memory-transfers"
+                "memory-transfers",
+                "streams",
+                "pinned-memory"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -1758,7 +1774,8 @@
               "tags": [
                 "aliasing",
                 "in-place",
-                "tensors"
+                "tensors",
+                "autograd"
               ],
               "status": "published",
               "contentShape": "experiment-playground",
@@ -1788,12 +1805,14 @@
               "title": "Reverse-Mode Automatic Differentiation & GradTape",
               "slug": "autograd-engine",
               "file": "18.1-autograd-engine.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
                 "autograd",
                 "backprop",
-                "grad_fn"
+                "reverse-mode",
+                "vjp",
+                "broadcasting"
               ],
               "status": "published",
               "contentShape": "mental-model-first",
@@ -1811,6 +1830,7 @@
               "tags": [
                 "micrograd",
                 "computational-graph",
+                "backpropagation",
                 "from-scratch"
               ],
               "status": "published",
@@ -1828,8 +1848,10 @@
               "estimatedMinutes": 30,
               "tags": [
                 "custom-autograd",
+                "autograd.Function",
+                "straight-through-estimator",
                 "hooks",
-                "derivatives"
+                "gradcheck"
               ],
               "status": "published",
               "contentShape": "code-transformation",
@@ -1870,11 +1892,12 @@
               "slug": "ml-problems",
               "file": "19.1-ml-problems.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
+                "empirical-risk",
                 "erm",
-                "loss-functions",
-                "ml"
+                "overfitting",
+                "loss-functions"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -1888,11 +1911,13 @@
               "slug": "loss-functions",
               "file": "19.2-loss-functions.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
+                "loss-functions",
+                "mse",
                 "cross-entropy",
                 "kl-divergence",
-                "mse"
+                "softmax"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -1906,11 +1931,13 @@
               "slug": "bias-variance-regularization",
               "file": "19.3-bias-variance-regularization.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "bias-variance",
                 "regularization",
-                "generalization"
+                "generalization",
+                "ridge",
+                "lasso"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -1926,8 +1953,12 @@
               "partId": "part-03",
               "chapterId": "chapter-19",
               "tags": [
-                "machine-learning",
-                "deep-dive"
+                "learning-theory",
+                "concentration-inequalities",
+                "hoeffding",
+                "markov",
+                "chebyshev",
+                "statistics"
               ],
               "estimatedMinutes": 40,
               "status": "published"
@@ -1942,8 +1973,11 @@
               "partId": "part-03",
               "chapterId": "chapter-19",
               "tags": [
-                "machine-learning",
-                "deep-dive"
+                "learning-theory",
+                "pac-learning",
+                "vc-dimension",
+                "erm",
+                "generalization"
               ],
               "estimatedMinutes": 45,
               "status": "published"
@@ -1958,10 +1992,13 @@
               "partId": "part-03",
               "chapterId": "chapter-19",
               "tags": [
-                "machine-learning",
-                "deep-dive"
+                "energy-based-models",
+                "ebm",
+                "contrastive-loss",
+                "loss-functions",
+                "optimization"
               ],
-              "estimatedMinutes": 45,
+              "estimatedMinutes": 40,
               "status": "published"
             }
           ]
@@ -1986,12 +2023,14 @@
               "title": "Linear Algebra: Vector Spaces, Dot Products & Projections",
               "slug": "linear-algebra",
               "file": "20.1-linear-algebra.md",
-              "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "difficulty": "beginner",
+              "estimatedMinutes": 35,
               "tags": [
                 "vectors",
                 "dot-product",
-                "projections"
+                "cosine-similarity",
+                "projection",
+                "least-squares"
               ],
               "status": "published",
               "contentShape": "visual-spatial",
@@ -2004,8 +2043,8 @@
               "title": "Matrix Decompositions: Eigendecomposition & SVD",
               "slug": "matrix-decomposition",
               "file": "20.2-matrix-decomposition.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
               "tags": [
                 "svd",
                 "eigenvalues",
@@ -2022,12 +2061,14 @@
               "title": "Multivariable Calculus: Jacobians, Hessians & Taylor Series",
               "slug": "calculus-gradients",
               "file": "20.3-calculus-gradients.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
               "tags": [
                 "gradients",
-                "jacobians",
-                "hessian"
+                "jacobian",
+                "hessian",
+                "taylor-series",
+                "optimization"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -2038,15 +2079,18 @@
               "title": "Matrix Condition Number, Numerical Stability & Sensitivity Bounds",
               "slug": "matrix-condition-number-sensitivity",
               "file": "20.4-matrix-condition-number-sensitivity.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimated_minutes": 45,
               "partId": "part-03",
               "chapterId": "chapter-20",
               "tags": [
-                "machine-learning",
-                "deep-dive"
+                "linear-algebra",
+                "condition-number",
+                "numerical-stability",
+                "perturbation-bounds",
+                "matrix-analysis"
               ],
-              "estimatedMinutes": 45,
+              "estimatedMinutes": 40,
               "status": "published"
             },
             {
@@ -2059,10 +2103,14 @@
               "partId": "part-03",
               "chapterId": "chapter-20",
               "tags": [
-                "machine-learning",
-                "deep-dive"
+                "linear-algebra",
+                "quadratic-forms",
+                "rayleigh-quotient",
+                "positive-definite",
+                "optimization",
+                "pca"
               ],
-              "estimatedMinutes": 45,
+              "estimatedMinutes": 40,
               "status": "published"
             }
           ]
@@ -2091,11 +2139,13 @@
               "slug": "mlp",
               "file": "21.1-mlp.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 35,
+              "estimatedMinutes": 40,
               "tags": [
+                "perceptron",
                 "mlp",
-                "neural-networks",
-                "forward-pass"
+                "backpropagation",
+                "xor",
+                "neural-networks"
               ],
               "status": "published",
               "contentShape": "from-scratch",
@@ -2113,7 +2163,9 @@
               "tags": [
                 "gelu",
                 "swiglu",
-                "activations"
+                "silu",
+                "activations",
+                "vanishing-gradients"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -2126,12 +2178,14 @@
               "title": "Optimizers: SGD, Momentum, RMSprop & AdamW Deep Dive",
               "slug": "optimizers-adamw",
               "file": "21.3-optimizers-adamw.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
                 "adamw",
                 "optimizers",
-                "gradient-descent"
+                "gradient-descent",
+                "momentum",
+                "rmsprop"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -2147,10 +2201,14 @@
               "partId": "part-03",
               "chapterId": "chapter-21",
               "tags": [
-                "machine-learning",
-                "deep-dive"
+                "perceptron",
+                "pla",
+                "convergence-theorem",
+                "novikoff",
+                "learning-theory",
+                "linear-classification"
               ],
-              "estimatedMinutes": 45,
+              "estimatedMinutes": 40,
               "status": "published"
             }
           ]
@@ -2180,9 +2238,11 @@
               "difficulty": "beginner",
               "estimatedMinutes": 25,
               "tags": [
-                "tfidf",
                 "ngrams",
-                "nlp"
+                "tfidf",
+                "cosine-similarity",
+                "bag-of-words",
+                "information-retrieval"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -2196,11 +2256,13 @@
               "slug": "word2vec",
               "file": "22.2-word2vec.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 30,
+              "estimatedMinutes": 35,
               "tags": [
                 "word2vec",
                 "embeddings",
-                "skipgram"
+                "skip-gram",
+                "cbow",
+                "negative-sampling"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2214,11 +2276,13 @@
               "slug": "glove-fasttext",
               "file": "22.3-glove-fasttext.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "glove",
                 "fasttext",
-                "subwords"
+                "subwords",
+                "co-occurrence",
+                "embeddings"
               ],
               "status": "published",
               "contentShape": "compare-choose",

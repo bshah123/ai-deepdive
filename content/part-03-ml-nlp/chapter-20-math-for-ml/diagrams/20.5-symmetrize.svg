@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" role="img" aria-label="A equals its symmetric part plus its skew part; the skew part gives 0 for x = (3, 1)" class="sketch"><title>A equals its symmetric part plus its skew part; the skew part gives 0 for x = (3, 1)</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Only the symmetric part of A changes x^T A x</tspan></text>
+<path d="M81.8 88.7 C80.2 116.8, 79.7 148.1, 78.1 230.7 M78.8 90.7 C79.5 131.2, 78.4 173.6, 79.1 229.0" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M80.2 90.9 C82.3 90.8, 83.6 90.6, 87.8 89.5 M79.7 89.9 C82.4 89.8, 85.3 89.8, 87.8 90.4" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M79.6 230.4 C81.2 230.5, 82.4 230.8, 88.4 230.6 M79.9 229.6 C82.3 229.8, 85.2 230.5, 88.0 230.3" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M237.7 89.8 C242.4 118.6, 241.1 149.0, 237.6 229.7 M240.1 90.4 C240.5 139.5, 240.5 191.2, 240.6 230.5" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240.4 89.4 C237.7 89.8, 237.3 89.2, 231.6 89.1 M240.2 89.8 C236.9 90.4, 233.7 89.6, 232.4 90.1" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M239.9 230.8 C238.5 229.3, 236.1 229.2, 232.2 230.3 M240.4 230.4 C238.1 230.3, 237.1 230.2, 231.7 230.0" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="125" y="133" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="125" dy="0">5.0</tspan></text>
+<text x="195" y="133" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="195" dy="0">0.0</tspan></text>
+<text x="125" y="203" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="125" dy="0">-4.0</tspan></text>
+<text x="195" y="203" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-amber)"><tspan x="195" dy="0">2.0</tspan></text>
+<path d="M318.4 90.8 C320.7 120.4, 318.5 145.2, 322.0 228.7 M319.0 90.2 C321.5 122.2, 320.3 152.8, 319.7 229.6" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M320.7 89.8 C321.4 90.4, 323.9 89.6, 327.4 90.6 M319.7 89.7 C322.1 90.1, 324.4 90.4, 328.1 89.7" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M320.2 229.3 C322.2 230.1, 322.7 229.8, 328.0 229.9 M319.9 230.3 C322.0 230.1, 324.3 230.1, 328.3 229.6" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M479.0 91.9 C478.2 117.4, 479.9 146.2, 481.5 227.7 M480.2 89.9 C480.1 130.5, 480.0 170.4, 478.8 231.1" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M479.1 90.3 C478.7 89.2, 477.6 89.9, 471.3 90.2 M480.3 89.6 C477.8 90.0, 475.1 90.4, 471.7 90.3" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M480.4 229.8 C477.6 230.8, 476.4 230.2, 471.8 229.5 M480.4 230.2 C477.3 229.8, 474.3 230.0, 471.9 230.2" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="365" y="133" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-blue)"><tspan x="365" dy="0">5.0</tspan></text>
+<text x="435" y="133" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-blue)"><tspan x="435" dy="0">-2.0</tspan></text>
+<text x="365" y="203" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-blue)"><tspan x="365" dy="0">-2.0</tspan></text>
+<text x="435" y="203" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-blue)"><tspan x="435" dy="0">2.0</tspan></text>
+<path d="M559.7 88.2 C560.5 119.2, 561.3 147.2, 561.1 231.5 M559.1 89.7 C561.1 138.8, 562.2 188.0, 560.3 230.2" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M559.3 90.7 C562.4 90.0, 562.3 90.4, 567.1 89.8 M559.8 89.5 C563.4 89.5, 565.7 90.1, 568.3 90.0" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M560.7 230.2 C561.3 229.5, 563.0 230.4, 567.7 229.1 M560.0 230.1 C563.3 229.5, 566.6 229.8, 567.6 229.9" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M720.4 89.2 C722.7 116.2, 722.7 148.1, 720.6 230.5 M720.3 89.4 C718.1 121.5, 717.9 152.0, 719.4 229.3" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M719.6 89.2 C717.8 90.7, 716.0 90.8, 712.8 89.4 M720.3 90.4 C717.7 90.2, 716.5 90.0, 712.0 89.6" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M719.1 230.6 C718.6 230.2, 716.7 230.8, 711.5 230.6 M720.5 230.0 C718.2 230.3, 715.7 229.8, 712.2 230.5" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="605" y="133" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="605" dy="0">0.0</tspan></text>
+<text x="675" y="133" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="675" dy="0">2.0</tspan></text>
+<text x="605" y="203" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="605" dy="0">-2.0</tspan></text>
+<text x="675" y="203" class="sk-mono" font-size="22" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="675" dy="0">0.0</tspan></text>
+<text x="285" y="172" class="sk-hand" font-size="30" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="285" dy="0">=</tspan></text>
+<text x="525" y="172" class="sk-hand" font-size="30" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="525" dy="0">+</tspan></text>
+<text x="160" y="262" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="160" dy="0">A, not symmetric</tspan></text>
+<text x="400" y="262" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="400" dy="0">symmetric part (A + Aᵀ)/2</tspan></text>
+<text x="640" y="262" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="640" dy="0">skew part (A − Aᵀ)/2</tspan></text>
+<text x="440" y="310" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">For x = (3, 1): xᵀ(skew)x = 0.0, so xᵀAx = xᵀ(sym)x = 35.0</tspan></text>
+</svg>
