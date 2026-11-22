@@ -2406,7 +2406,7 @@
               "tags": [
                 "embeddings",
                 "weight-tying",
-                "vram"
+                "softmax"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2437,11 +2437,12 @@
               "title": "Rotary Position Embeddings (RoPE) & Complex Rotation Math",
               "slug": "rope",
               "file": "24.3-rope.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
                 "rope",
                 "rotary-embeddings",
+                "positional-encoding",
                 "llama"
               ],
               "status": "published",
@@ -2460,7 +2461,8 @@
               "tags": [
                 "alibi",
                 "extrapolation",
-                "transformers"
+                "positional-bias",
+                "attention"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
