@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, Bookmark, Sparkles, ChevronLeft, ChevronRight, Share2, Check, FileText } from 'lucide-react';
+import { CheckCircle2, Bookmark, ChevronLeft, ChevronRight, Share2, Check, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface FloatingDockProps {
@@ -8,7 +8,6 @@ interface FloatingDockProps {
   isBookmarked: boolean;
   onToggleComplete: () => void;
   onToggleBookmark: () => void;
-  onOpenAITutor: () => void;
   onOpenNotes: () => void;
   prevLesson?: { id: string; title: string } | null;
   nextLesson?: { id: string; title: string } | null;
@@ -20,7 +19,6 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
   isBookmarked,
   onToggleComplete,
   onToggleBookmark,
-  onOpenAITutor,
   onOpenNotes,
   prevLesson,
   nextLesson
@@ -99,17 +97,6 @@ export const FloatingDock: React.FC<FloatingDockProps> = ({
 
       <div className="w-[1px] h-4 bg-slate-700/60" />
 
-      {/* AI Tutor Button */}
-      <button
-        onClick={onOpenAITutor}
-        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white shadow-md shadow-indigo-500/20 transition hover:scale-105"
-        title="Open AI Systems Mentor (Cmd+J)"
-      >
-        <Sparkles className="w-3.5 h-3.5 animate-pulse text-cyan-300" />
-        <span>Ask AI Tutor</span>
-      </button>
-
-      <div className="w-[1px] h-4 bg-slate-700/60" />
 
       {/* Next Lesson */}
       {nextLesson ? (

@@ -31,7 +31,6 @@ import { NotesDrawer } from './NotesDrawer';
 import { MathRenderer } from './MathRenderer';
 import { MermaidRenderer } from './MermaidRenderer';
 import { CodeBlock } from './CodeBlock';
-import { AITutorDrawer } from './AITutorDrawer';
 import { FloatingDock } from './FloatingDock';
 import { ReadingProgressBar } from './ReadingProgressBar';
 import { KeyboardShortcutsModal } from './KeyboardShortcutsModal';
@@ -48,7 +47,6 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
   const navigate = useNavigate();
   const [progress, setProgress] = useState(getStoredProgress());
   const [isNotesOpen, setIsNotesOpen] = useState(false);
-  const [isAITutorOpen, setIsAITutorOpen] = useState(false);
   const [isShortcutsOpen, setIsShortcutsOpen] = useState(false);
 
   useEffect(() => {
@@ -476,13 +474,6 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
               >
                 <Keyboard className="w-4 h-4" />
               </button>
-              <button
-                onClick={() => setIsAITutorOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-semibold shadow-sm transition"
-              >
-                <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-                <span>AI Tutor</span>
-              </button>
             </div>
           </div>
 
@@ -562,21 +553,9 @@ export const LessonView: React.FC<LessonViewProps> = ({ readingMode }) => {
         isBookmarked={isBookmarked}
         onToggleComplete={handleToggleComplete}
         onToggleBookmark={handleToggleBookmark}
-        onOpenAITutor={() => setIsAITutorOpen(true)}
         onOpenNotes={() => setIsNotesOpen(true)}
         prevLesson={prevItem ? { id: prevItem.lesson.id, title: prevItem.lesson.title } : null}
         nextLesson={nextItem ? { id: nextItem.lesson.id, title: nextItem.lesson.title } : null}
-      />
-
-      {/* AI Tutor Drawer */}
-      <AITutorDrawer
-        isOpen={isAITutorOpen}
-        onClose={() => setIsAITutorOpen(false)}
-        lessonId={lessonId}
-        lessonTitle={activeLesson.title}
-        chapterTitle={currentChapter?.title || ''}
-        partTitle={currentPart?.title || ''}
-        lessonContent={parsedContent?.contentHtml || ''}
       />
 
       {/* Keyboard Shortcuts Modal */}
