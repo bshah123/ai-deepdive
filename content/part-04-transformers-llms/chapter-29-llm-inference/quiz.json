@@ -1,54 +1,114 @@
 {
   "chapterId": "chapter-29",
-  "title": "Chapter 29 Quiz \u2014 LLM Inference & KV Cache",
+  "title": "Chapter 29 Quiz — LLM Inference & KV Cache",
   "questions": [
     {
       "id": "q29.1",
-      "question": "What is the primary architectural mechanism in LLM Inference & KV Cache?",
+      "question": "A decoder has 32 layers, 8 KV heads, head dimension 128, and stores keys and values in fp16 (2 bytes per value). How many KiB of KV cache does one token occupy?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "32 KiB"},
+        {"id": "b", "text": "128 KiB"},
+        {"id": "c", "text": "512 KiB"},
+        {"id": "d", "text": "256 KiB"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LLM Inference & KV Cache, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "Per token: 2 × 32 × 8 × 128 × 2 bytes = 131,072 bytes = 128 KiB. Using 32 query heads instead of 8 KV heads would give 512 KiB, and storing fp32 would give 256 KiB."
     },
     {
       "id": "q29.2",
-      "question": "How does LLM Inference & KV Cache optimize performance in modern AI systems?",
+      "question": "A request of 1,000 tokens is stored in pages of 16 slots. How many slots in its last page are empty?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "0"},
+        {"id": "b", "text": "6"},
+        {"id": "c", "text": "8"},
+        {"id": "d", "text": "16"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The request needs ⌈1000 / 16⌉ = 63 pages, which hold 63 × 16 = 1,008 slots. So 8 slots are empty."
+    },
+    {
+      "id": "q29.3",
+      "question": "In the bandwidth-bound model for a 7B-class multi-head attention configuration at 4,096 tokens, the ceiling is 949 tokens per second at batch 32. If the batch is raised to 64, what happens to the ceiling?",
+      "options": [
+        {"id": "a", "text": "It stays at about 949 tokens per second, and achieved throughput moves toward it"},
+        {"id": "b", "text": "It doubles to about 1,898 tokens per second"},
+        {"id": "c", "text": "It halves, because each sequence reads its cache twice"},
+        {"id": "d", "text": "It falls, because larger batches add more cache reads per token"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The ceiling is BW / M_seq, where M_seq is the cache of one sequence. It does not depend on the batch size. The batch amortises the weight reads, so achieved throughput rises toward the ceiling but never exceeds it."
+    },
+    {
+      "id": "q29.4",
+      "question": "Two parallel samples share a partly filled page. Someone removes the branch that copies a shared last page before writing. What goes wrong?",
+      "options": [
+        {"id": "a", "text": "The memory use doubles, but every output is still correct"},
+        {"id": "b", "text": "The attention scores are computed in the wrong order"},
+        {"id": "c", "text": "The block table is rebuilt with one page per token, so the output is slower but unchanged"},
+        {"id": "d", "text": "Both samples write their next token into the same slot, so each reads the other's token"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "Without the copy, the two outputs share one physical slot. The second write overwrites the first, so the output depends on the other sample without any error being raised. The fix is to copy a shared partial page before writing into it."
+    },
+    {
+      "id": "q29.5",
+      "question": "A sequence has block table [0, 2, 4] with page size B = 4. Token 9 is stored in which flat index of the pool array reshaped to (-1, 4)?",
+      "options": [
+        {"id": "a", "text": "9"},
+        {"id": "b", "text": "13"},
+        {"id": "c", "text": "17"},
+        {"id": "d", "text": "21"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Token 9 is in logical page ⌊9 / 4⌋ = 2, slot 9 mod 4 = 1. The block table maps logical page 2 to physical page 4, so the flat index is 4 × 4 + 1 = 17."
+    },
+    {
+      "id": "q29.6",
+      "question": "The target distribution is p = [0.40, 0.10, 0.25, 0.15, 0.10] and the draft distribution is q = [0.20, 0.30, 0.20, 0.15, 0.15]. What is the overall acceptance rate β = Σₓ min(p(x), q(x))?",
+      "options": [
+        {"id": "a", "text": "0.25"},
+        {"id": "b", "text": "0.75"},
+        {"id": "c", "text": "0.50"},
+        {"id": "d", "text": "1.00"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "min(p, q) = [0.20, 0.10, 0.20, 0.15, 0.10], which sums to 0.75. The rejected mass is 1 − β = 0.25, which equals the sum of max(0, p − q)."
+    },
+    {
+      "id": "q29.7",
+      "question": "Speculative decoding uses a per-token acceptance rate α = 0.8, draft length γ = 4, and a draft step that costs c = 0.1 of a target step. What is the modelled speedup, using E / (γc + 1) with E = (1 − α^(γ+1)) / (1 − α)?",
+      "options": [
+        {"id": "a", "text": "2.40"},
+        {"id": "b", "text": "3.36"},
+        {"id": "c", "text": "1.25"},
+        {"id": "d", "text": "4.00"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "E = (1 − 0.8⁵) / 0.2 = 3.36 tokens per round. The round costs γc + 1 = 1.4 target steps, so the modelled speedup is 3.36 / 1.4 ≈ 2.40. The answer 3.36 forgets the cost of the draft steps. The formula assumes independent acceptance and a memory-bound target."
+    },
+    {
+      "id": "q29.8",
+      "question": "Why does the acceptance rule that accepts a draft token with probability min(1, p(x)/q(x)), and resamples a rejected token from max(0, p − q) normalised, leave the output distribution equal to the target's p?",
+      "options": [
+        {"id": "a", "text": "Accepted draft mass for token x is min(p(x), q(x)), and replacement mass is max(0, p(x) − q(x)); together they sum to p(x)"},
+        {"id": "b", "text": "The draft is always rejected when q(x) is larger than p(x), so the draft never changes the output"},
+        {"id": "c", "text": "The draft distribution is replaced by the target after the first rejection, so later tokens are exact"},
+        {"id": "d", "text": "Averaging over many rounds makes any acceptance rule unbiased"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Accepting x as a draft token has probability q(x) × min(1, p(x)/q(x)) = min(p(x), q(x)). A rejection leads to a replacement with probability (1 − β) × max(0, p − q) / (1 − β) = max(0, p(x) − q(x)). Adding the two gives p(x). This is the single-position argument, and the lesson checks it numerically."
+    },
+    {
+      "id": "q29.9",
+      "question": "In the Medusa toy from Lesson 29.3, the context is token 9, the base token is 3, and the target's greedy chain is [3, 5, 6, 7]. Head 1 guesses 5, head 2 guesses 6 and head 3 guesses 7, each among its top-2 choices. How many tokens does one target call emit?",
+      "options": [
+        {"id": "a", "text": "1"},
+        {"id": "b", "text": "2"},
+        {"id": "c", "text": "3"},
+        {"id": "d", "text": "4"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "All three guesses match the chain, so the accepted run is 3 tokens. The base token 3 is always correct, so the call emits the base token plus the three accepted guesses, which is 4 tokens. The lesson's code reports the same count."
     }
   ]
 }

@@ -1,0 +1,48 @@
+{
+  "add_schema": {
+    "name": "math-add",
+    "description": "Adds two numbers together",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "num1": {
+          "type": "number",
+          "description": "first number"
+        },
+        "num2": {
+          "type": "number",
+          "description": "second number"
+        }
+      },
+      "required": [
+        "num1",
+        "num2"
+      ]
+    }
+  },
+  "divide_schema_required": [
+    "num1",
+    "num2"
+  ],
+  "reply": "{\"function\": \"math-add\", \"arguments\": {\"num1\": \"5\", \"num2\": \"3\"}}",
+  "coerced_num1": 5.0,
+  "result": "8.0",
+  "errors": {
+    "missing_argument": "math-add: missing required argument 'num2'",
+    "divide_by_zero": "float division by zero"
+  },
+  "schema_chars_by_function_count": {
+    "1": 242,
+    "2": 483,
+    "4": 965,
+    "8": 1929,
+    "16": 3863
+  },
+  "chars_per_function": {
+    "1": 242.0,
+    "2": 241.5,
+    "4": 241.2,
+    "8": 241.1,
+    "16": 241.4
+  }
+}

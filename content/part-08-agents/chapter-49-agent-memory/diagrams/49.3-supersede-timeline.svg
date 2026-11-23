@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 280" role="img" aria-label="Timeline of lives_in facts: append-only keeps Delhi in context, supersession hides it" class="sketch"><title>Timeline of lives_in facts: append-only keeps Delhi in context, supersession hides it</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">lives_in for Alice, by turn</tspan></text>
+<text x="110" y="116" class="sk-mono" font-size="17" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="110" dy="0">Delhi</tspan></text>
+<path d="M121.5 96.5 L759.2 97.6 L762.0 131.7 L118.9 127.9" style="stroke:none;fill:var(--sk-rose-soft);stroke-dasharray:6 8" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120.1 97.5 C261.4 96.4, 404.3 96.8, 759.9 98.6 M119.6 98.0 C290.5 100.6, 462.0 100.3, 760.0 97.7 M758.7 95.9 C760.8 111.6, 758.3 122.0, 758.2 130.5 M760.3 99.2 C759.4 107.7, 761.0 116.7, 759.4 129.6 M759.4 129.9 C615.6 131.2, 470.6 131.0, 120.1 130.0 M760.2 130.2 C553.1 130.4, 346.2 130.1, 119.9 130.1 M121.9 127.9 C117.7 121.4, 122.0 108.7, 118.8 100.2 M119.3 130.3 C119.9 117.0, 120.7 106.5, 119.4 98.4" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="440" y="120" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">stored, not live</tspan></text>
+<text x="110" y="176" class="sk-mono" font-size="17" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="110" dy="0">Mumbai</tspan></text>
+<path d="M762.0 158.2 L838.0 157.4 L839.9 192.0 L757.6 192.1" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M759.0 160.3 C778.1 157.3, 797.6 159.6, 841.2 157.5 M759.5 157.2 C783.8 156.7, 805.6 157.7, 840.5 156.9 M838.2 156.2 C840.0 164.8, 838.3 170.7, 842.2 191.9 M839.4 157.0 C840.6 170.0, 838.6 179.9, 841.1 188.9 M842.3 191.8 C820.9 192.3, 802.9 191.2, 760.2 191.8 M840.5 189.1 C815.0 188.5, 792.6 189.7, 759.6 189.0 M758.7 190.0 C761.7 180.8, 759.2 173.8, 761.9 156.3 M760.8 190.3 C760.3 178.6, 759.4 168.9, 761.1 158.4" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="222" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="120" dy="0">t1</tspan></text>
+<text x="280" y="222" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="280" dy="0">t2</tspan></text>
+<text x="440" y="222" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">t3</tspan></text>
+<text x="600" y="222" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="600" dy="0">t4</tspan></text>
+<text x="760" y="222" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="760" dy="0">t5</tspan></text>
+<g transform="rotate(-1.5 440 257)">
+<path d="M38.3 241.5 L841.2 239.4 L838.3 275.7 L40.8 275.2" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.3 240.3 C218.3 236.5, 395.0 237.6, 839.4 239.3 M40.0 240.2 C287.8 239.3, 535.7 239.4, 840.3 240.3 M841.8 238.9 C839.4 247.1, 838.8 255.3, 841.1 272.8 M840.7 239.4 C840.2 248.1, 839.7 255.3, 840.3 274.4 M840.3 273.7 C633.5 274.9, 428.1 275.8, 40.0 273.7 M840.2 274.0 C619.8 275.3, 399.6 274.9, 39.9 274.1 M40.1 275.5 C40.7 262.3, 40.9 253.4, 40.2 239.4 M39.9 274.3 C40.6 263.5, 40.3 253.8, 40.4 240.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="264" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="54" dy="0">synthetic run: stale city in context for 26 of 26 moved users (append-only), 0 (supersede)</tspan></text>
+</g>
+</svg>

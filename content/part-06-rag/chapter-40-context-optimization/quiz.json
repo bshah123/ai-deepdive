@@ -1,54 +1,102 @@
 {
   "chapterId": "chapter-40",
-  "title": "Chapter 40 Quiz \u2014 Embedding & Indexing Pipeline",
+  "title": "Chapter 40 Quiz — Context Optimization",
   "questions": [
     {
       "id": "q40.1",
-      "question": "What is the primary architectural mechanism in Embedding & Indexing Pipeline?",
+      "question": "A query has gold score 3, and four distractors score 0 under softmax attention. What is the gold weight?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "0.668"},
+        {"id": "b", "text": "0.834"},
+        {"id": "c", "text": "0.167"},
+        {"id": "d", "text": "0.953"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Embedding & Indexing Pipeline, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "The gold weight is e^3 / (e^3 + 4) = 20.09 / 24.09, about 0.834. The softmax denominator includes the gold term and the four distractors. Lesson 40.1 gives 0.668 for ten distractors, which is a different case."
     },
     {
       "id": "q40.2",
-      "question": "How does Embedding & Indexing Pipeline optimize performance in modern AI systems?",
+      "question": "In the lesson's toy model with 20 documents and a U-shaped positional bias of strength 1.5, what attention share does the gold document get when it is placed first?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "0.256"},
+        {"id": "b", "text": "0.405"},
+        {"id": "c", "text": "0.619"},
+        {"id": "d", "text": "0.668"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The toy gives 0.619 at position 0 and 0.256 in the middle. Without bias, the share is flat at 0.405 at every position. The U-shape is an assumed term in the toy, not a measured property of a real model."
+    },
+    {
+      "id": "q40.3",
+      "question": "Liu et al. (2023) report 75.7% accuracy when the answer document is first and 54.1% when it is in the middle, among 20 documents for GPT-3.5-Turbo (16K). What is the drop from first to middle?",
+      "options": [
+        {"id": "a", "text": "21.6 percentage points"},
+        {"id": "b", "text": "9.0 percentage points"},
+        {"id": "c", "text": "12.6 percentage points"},
+        {"id": "d", "text": "54.1 percentage points"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "75.7 minus 54.1 is 21.6 percentage points. These are single runs in the paper's appendix tables, without error bars, for one model and one task family, so the size of the drop should not be generalised to current systems."
+    },
+    {
+      "id": "q40.4",
+      "question": "A token has surprisal 9.40 bits under the lesson's scorer. Which description of its probability is correct?",
+      "options": [
+        {"id": "a", "text": "About 1 in 9.4"},
+        {"id": "b", "text": "About 1 in 130"},
+        {"id": "c", "text": "About 1 in 1,024"},
+        {"id": "d", "text": "About 1 in 676"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "p = 2^(-9.40), about 0.00148, which is about 1 in 676. Surprisal is in bits, so a probability of 1 in 1,024 would cost exactly 10 bits."
+    },
+    {
+      "id": "q40.5",
+      "question": "On the lesson's 160-token passage at a 50% budget, which method kept all six key facts?",
+      "options": [
+        {"id": "a", "text": "Sentence selection (LSA-style)"},
+        {"id": "b", "text": "Token pruning by surprisal"},
+        {"id": "c", "text": "First-k truncation"},
+        {"id": "d", "text": "Random token deletion"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Token pruning kept 6 of 6 facts at 50%. Truncation kept 4, random deletion kept 3 and sentence selection kept 2. This is one passage, and the lesson warns that the scorer and the metric are aligned by construction, so the result is a mechanism check, not a ranking."
+    },
+    {
+      "id": "q40.6",
+      "question": "A cache write costs 2 times the base input price and a cache read costs 0.1 times it. How many requests must share one prefix within its lifetime before caching is cheaper than paying full price each time?",
+      "options": [
+        {"id": "a", "text": "2"},
+        {"id": "b", "text": "3"},
+        {"id": "c", "text": "4"},
+        {"id": "d", "text": "1"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The condition is k greater than (w - r) / (1 - r) = (2 - 0.1) / 0.9, about 2.11, so k is at least 3. With k = 2 the cost is 2 + 0.1 = 2.1 times the base, which is above 2. This matches the 1-hour TTL row in Lesson 40.3."
+    },
+    {
+      "id": "q40.7",
+      "question": "In the lesson's ten-request simulation with a 20,000-token prefix and 200 new tokens per request, what is the total input cost under the 5-minute TTL policy?",
+      "options": [
+        {"id": "a", "text": "202,000"},
+        {"id": "b", "text": "98,000"},
+        {"id": "c", "text": "114,000"},
+        {"id": "d", "text": "100,800"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The policy has 4 misses and 6 hits. Each miss costs 20,000 x 1.25 + 200 = 25,200 and each hit costs 20,000 x 0.1 + 200 = 2,200. The total is 4 x 25,200 + 6 x 2,200 = 114,000. The value 100,800 counts only the writes."
+    },
+    {
+      "id": "q40.8",
+      "question": "A system prompt begins with the current time, and the cache hit rate is 0% on every call. What is the correct fix?",
+      "options": [
+        {"id": "a", "text": "Replace exact-prefix caching with a semantic cache that uses a similarity threshold"},
+        {"id": "b", "text": "Raise the cache lifetime from 5 minutes to 1 hour"},
+        {"id": "c", "text": "Add more cache breakpoints at the start of the system prompt"},
+        {"id": "d", "text": "Move the timestamp to the end of the prompt, after the static blocks"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The changing timestamp is the first block, so the exact-prefix match fails at position 0 and every later block is invalidated. Moving it to the end keeps the static prefix reusable. A longer lifetime or more breakpoints cannot fix a prefix that changes on every call, and provider caching does not use similarity thresholds."
     }
   ]
 }

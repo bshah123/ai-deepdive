@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-38",
-  "title": "Chapter 38 Quiz \u2014 Document Ingestion & Parsing",
-  "questions": [
-    {
-      "id": "q38.1",
-      "question": "What is the primary architectural mechanism in Document Ingestion & Parsing?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Document Ingestion & Parsing, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q38.2",
-      "question": "How does Document Ingestion & Parsing optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-38", "title": "Chapter 38 Quiz — Document Ingestion", "questions": [
+  {"id": "q38.1", "question": "A predicted reading order for a 25-line page has 9 consecutive pairs that also appear consecutively in the true order. What is its adjacency, as defined in Lesson 38.1?", "options": [{"id": "a", "text": "0.36"}, {"id": "b", "text": "0.375"}, {"id": "c", "text": "0.40"}, {"id": "d", "text": "0.43"}], "correctOptionId": "b", "explanation": "A 25-line order has 25 - 1 = 24 consecutive pairs. Adjacency is 9 / 24 = 0.375."},
+  {"id": "q38.2", "question": "On the two-column test page, a top-to-bottom, left-to-right sort scores adjacency 1/24, about 0.042. Why does that match the score for a random order?", "options": [{"id": "a", "text": "The sort reverses the title and the body, so every pair is wrong."}, {"id": "b", "text": "pdfminer.six overrides the sort on this page."}, {"id": "c", "text": "Twenty-five lines are too few to score reliably."}, {"id": "d", "text": "The sort interleaves the two columns, so only one of the 24 consecutive pairs (TITLE to L01) is correct, which is the chance rate."}], "correctOptionId": "d", "explanation": "The sorted order is TITLE, L01, R01, L02, R02 and so on. Only TITLE to L01 is a true consecutive pair, so the score is 1/24. A random order also has expected adjacency 1/24, so the sort is no better than chance here."},
+  {"id": "q38.3", "question": "A student runs extract_pages(path, laparams=None) and iterates over the page's top-level children, expecting LTChar glyphs in drawing order. What goes wrong?", "options": [{"id": "a", "text": "The glyphs come out in reverse order."}, {"id": "b", "text": "The PDF is encrypted, so no glyphs are returned."}, {"id": "c", "text": "The top-level children are LTTextBoxHorizontal objects, because layout analysis still runs when laparams is None."}, {"id": "d", "text": "The page has no text layer, so the list is empty by design."}], "correctOptionId": "c", "explanation": "The high-level function replaces laparams=None with LAParams(), so layout analysis runs and the top-level children are text boxes. To read the raw stream order, use PDFPageAggregator with laparams=None and PDFPageInterpreter."},
+  {"id": "q38.4", "question": "On the test page the title box ends at x = 241.6 pt, and the right column starts at x = 320 pt. Above what minimum gap does the title stop allowing the column cut, when the title shares a group with the columns?", "options": [{"id": "a", "text": "78.4 pt"}, {"id": "b", "text": "95.7 pt"}, {"id": "c", "text": "11.2 pt"}, {"id": "d", "text": "80.0 pt"}], "correctOptionId": "a", "explanation": "The gap between the title's right edge and the right column is 320 - 241.6 = 78.4 pt. Above that value the title bridges the gap and no vertical cut is made. The 95.7 pt figure is the gap between the widest left line and the right column, which is not the limiting gap."},
+  {"id": "q38.5", "question": "Majority purity scores every table-anchor option at 1.00, even though none of them recovers the right columns. Why?", "options": [{"id": "a", "text": "All anchors find the same four columns from the ruling lines."}, {"id": "b", "text": "The table has no numeric columns, so every anchor is equivalent."}, {"id": "c", "text": "The 3 pt tolerance is too large, so the clusters merge."}, {"id": "d", "text": "Splitting every fragment into its own cluster is always pure, so purity rewards over-splitting."}], "correctOptionId": "d", "explanation": "A cluster containing one fragment cannot contain a mixed label, so per-cell clusters always score perfect purity. Lesson 38.1 therefore scores pairs of fragments with precision and recall, and reports F1."},
+  {"id": "q38.6", "question": "A 1,000-character document is chunked by fixed_chunks with size 200 and overlap 40. How many chunks result, and where does the last one start?", "options": [{"id": "a", "text": "7 chunks, and the last starts at 960."}, {"id": "b", "text": "6 chunks, and the last starts at 800."}, {"id": "c", "text": "5 chunks, and the last starts at 640."}, {"id": "d", "text": "6 chunks, and the last starts at 960."}], "correctOptionId": "b", "explanation": "The step is 200 - 40 = 160, so the starts are 0, 160, 320, 480, 640 and 800. The chunk starting at 800 ends at character 1,000, which is the end of the text, so the loop stops there. That gives 6 chunks, and the last starts at 800."},
+  {"id": "q38.7", "question": "In Lesson 38.2, recursive splitting cut no word at any size tested, while fixed windows cut mid-word in 17 of 20 chunks at size 120. What explains the difference?", "options": [{"id": "a", "text": "Recursive splitting uses a larger overlap than fixed windows."}, {"id": "b", "text": "Recursive splitting counts tokens, and fixed windows count characters."}, {"id": "c", "text": "Recursive splitting tries the space separator before the empty character separator, so it splits at word boundaries."}, {"id": "d", "text": "Recursive splitting is sentence-aware, so it never cuts a sentence."}], "correctOptionId": "c", "explanation": "The separator list is paragraph, line, space, then empty string. A piece is split on the coarsest separator present, so a space is used before character-level cuts. Recursive splitting still cuts sentences in most chunks at size 120, because its separators do not include sentence ends."},
+  {"id": "q38.8", "question": "A 1,868-character document is chunked with size 200 and overlap 40 into 12 chunks. What is the total stored text, as a multiple of the original length?", "options": [{"id": "a", "text": "1.00"}, {"id": "b", "text": "1.11"}, {"id": "c", "text": "1.50"}, {"id": "d", "text": "1.24"}], "correctOptionId": "d", "explanation": "Eleven full chunks of 200 characters and a last chunk of 108 characters give 11 x 200 + 108 = 2,308 characters. Then 2,308 / 1,868 = 1.2355, which rounds to 1.24."},
+  {"id": "q38.9", "question": "The lexical semantic chunker in Lesson 38.2 misses both true topic changes, which rank 9th and 11th of 17 gaps. What is the most useful next check?", "options": [{"id": "a", "text": "Test whether the similarity signal can separate topics, for example by replacing TF-IDF with a neural embedding, since a threshold cannot move a true change that is not among the largest gaps."}, {"id": "b", "text": "Raise the threshold to the 99th percentile so that fewer breaks are predicted."}, {"id": "c", "text": "Increase the window to five sentences, which always improves a semantic chunker."}, {"id": "d", "text": "Rerun the same code, since the failure is probably random."}], "correctOptionId": "a", "explanation": "The lesson ranks the true changes below the 90th-percentile cut, so no threshold choice above 90 percent recovers them without also adding false breaks. The lesson names the untested check: replace TF-IDF with a neural embedding and compare the ranks again."},
+  {"id": "q38.10", "question": "The query is q = [1, 2]. Child a = [1, 2] and child b = [2, 1] both belong to parent X. Child c = [0, 1] belongs to parent Y. For k = 2 distinct parents, which parents are returned, and what is the cosine of b?", "options": [{"id": "a", "text": "Parents X and X, with cosine 0.894 for b."}, {"id": "b", "text": "Parents Y and X, with cosine 0.50 for b."}, {"id": "c", "text": "Parents X and Y, with cosine 0.80 for b."}, {"id": "d", "text": "Parent X only, with cosine 0.80 for b."}], "correctOptionId": "c", "explanation": "The cosine of b is (2 + 2) / (sqrt(5) x sqrt(5)) = 4 / 5 = 0.80. The cosine of c is 2 / sqrt(5) = 0.894, so the ranking is a, c, b. Walking down the list, a gives X and c gives Y, so the two distinct parents are X and Y."}
+]}

@@ -2619,7 +2619,9 @@
               "tags": [
                 "transformer",
                 "architecture",
-                "encoder-decoder"
+                "encoder-decoder",
+                "layer-norm",
+                "causal-mask"
               ],
               "status": "published",
               "contentShape": "visual-spatial",
@@ -2632,12 +2634,15 @@
               "title": "Normalization: LayerNorm, Pre-LN vs Post-LN & RMSNorm",
               "slug": "rmsnorm-layernorm",
               "file": "26.2-rmsnorm-layernorm.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 25,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
               "tags": [
                 "rmsnorm",
                 "layernorm",
-                "normalization"
+                "normalization",
+                "pre-ln",
+                "post-ln",
+                "residual"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -2650,12 +2655,13 @@
               "title": "Feed-Forward Networks: Standard MLP, GeLU & SwiGLU Gating",
               "slug": "swiglu-ffn",
               "file": "26.3-swiglu-ffn.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "swiglu",
                 "ffn",
                 "mlp",
+                "gelu",
                 "gating"
               ],
               "status": "published",
@@ -2666,7 +2672,7 @@
               "id": "26.4",
               "partId": "part-04",
               "chapterId": "chapter-26",
-              "title": "Mixture of Experts (MoE), Top-2 Gating & Expert Parallelism",
+              "title": "Mixture of Experts: Top-2 Routing, Capacity and Expert Parallelism",
               "slug": "mixture-of-experts-moe",
               "file": "26.4-mixture-of-experts-moe.md",
               "difficulty": "advanced",
@@ -2676,10 +2682,10 @@
               ],
               "tags": [
                 "moe",
-                "deepseek-moe",
-                "mixtral",
                 "routing",
-                "load-balancing"
+                "top-k",
+                "load-balancing",
+                "expert-parallelism"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2714,7 +2720,8 @@
               "tags": [
                 "nanogpt",
                 "gpt",
-                "pytorch",
+                "decoder-only",
+                "causal-mask",
                 "from-scratch"
               ],
               "status": "published",
@@ -2728,12 +2735,13 @@
               "title": "Autoregressive Generation Loop & KV Caching Mechanics",
               "slug": "generation-kvcache",
               "file": "27.2-generation-kvcache.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 35,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
               "tags": [
                 "kv-cache",
                 "generation",
-                "sampling"
+                "autoregressive",
+                "inference"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2752,7 +2760,9 @@
                 "sampling",
                 "temperature",
                 "top-p",
-                "top-k"
+                "top-k",
+                "min-p",
+                "softmax"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -2806,7 +2816,8 @@
                 "fsdp",
                 "ddp",
                 "zero",
-                "distributed"
+                "distributed",
+                "pipeline-parallelism"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2824,8 +2835,10 @@
               "tags": [
                 "dpo",
                 "rlhf",
+                "ppo",
                 "sft",
-                "alignment"
+                "alignment",
+                "bradley-terry"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -2878,12 +2891,13 @@
               "title": "KV Cache Memory Footprint Math & Memory Bandwidth Bound",
               "slug": "kv-cache-math",
               "file": "29.1-kv-cache-math.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
                 "kv-cache",
+                "inference",
                 "memory-bandwidth",
-                "vram"
+                "grouped-query-attention"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2896,12 +2910,14 @@
               "title": "PagedAttention & Virtual Memory Management (vLLM)",
               "slug": "paged-attention-vllm",
               "file": "29.2-paged-attention-vllm.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 35,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
+                "kv-cache",
+                "inference",
                 "paged-attention",
                 "vllm",
-                "virtual-memory"
+                "memory-management"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -2919,7 +2935,8 @@
               "tags": [
                 "speculative-decoding",
                 "inference",
-                "acceleration"
+                "acceleration",
+                "medusa"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -2950,11 +2967,13 @@
               "slug": "hf-automodel",
               "file": "30.1-hf-automodel.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "huggingface",
                 "automodel",
-                "transformers"
+                "pretrainedmodel",
+                "checkpoints",
+                "weights"
               ],
               "status": "published",
               "contentShape": "reference-style",
@@ -2968,11 +2987,12 @@
               "slug": "hf-generation-loop",
               "file": "30.2-hf-generation-loop.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "generation",
                 "stopping-criteria",
-                "logits"
+                "logits",
+                "sampling"
               ],
               "status": "published",
               "contentShape": "code-transformation",
@@ -2990,7 +3010,9 @@
               "tags": [
                 "trainer",
                 "accelerate",
-                "streaming"
+                "streaming",
+                "gradient-accumulation",
+                "distributed"
               ],
               "status": "published",
               "contentShape": "reference-style",
@@ -3017,16 +3039,17 @@
               "id": "31.1",
               "partId": "part-04",
               "chapterId": "chapter-31",
-              "title": "Low-Rank Adaptation (LoRA) Mathematics: W_0 + B*A",
+              "title": "Low-Rank Adaptation (LoRA) Mathematics: W_0 + BA",
               "slug": "lora-math",
               "file": "31.1-lora-math.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
                 "lora",
                 "peft",
                 "low-rank",
-                "math"
+                "fine-tuning",
+                "gradients"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -3044,7 +3067,9 @@
               "tags": [
                 "qlora",
                 "nf4",
-                "double-quantization"
+                "quantization",
+                "double-quantization",
+                "paged-optimizers"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -3058,11 +3083,13 @@
               "slug": "peft-multi-lora",
               "file": "31.3-peft-multi-lora.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 30,
+              "estimatedMinutes": 35,
               "tags": [
                 "peft",
+                "lora",
                 "multi-lora",
-                "adapters"
+                "adapters",
+                "serving"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -3092,13 +3119,16 @@
               "title": "Quantization Foundations: FP16, INT8, INT4 & Zero-Point/Scale Math",
               "slug": "quantization-basics",
               "file": "32.1-quantization-basics.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
               "tags": [
                 "quantization",
                 "int8",
                 "int4",
-                "scale-factor"
+                "scale-factor",
+                "zero-point",
+                "fp16",
+                "bf16"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -3116,7 +3146,10 @@
               "tags": [
                 "awq",
                 "gptq",
-                "ptq"
+                "smoothquant",
+                "post-training-quantization",
+                "int4",
+                "int8"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -3172,15 +3205,18 @@
               "id": "33.1",
               "partId": "part-05",
               "chapterId": "chapter-33",
-              "title": "Inverted Index Construction & Postings List Compression",
+              "title": "Inverted Index and Postings Lists, from Scratch",
               "slug": "inverted-index",
               "file": "33.1-inverted-index.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
-                "inverted-index",
-                "postings",
-                "search"
+                "search",
+                "information retrieval",
+                "inverted index",
+                "postings list",
+                "compression",
+                "VByte"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -3198,7 +3234,9 @@
               "tags": [
                 "bm25",
                 "lexical-search",
-                "ranking"
+                "ranking",
+                "idf",
+                "term-frequency"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -3215,8 +3253,10 @@
               "estimatedMinutes": 30,
               "tags": [
                 "bm25",
-                "from-scratch",
-                "retrieval"
+                "inverted-index",
+                "postings",
+                "retrieval",
+                "python"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -3251,7 +3291,9 @@
               "tags": [
                 "embeddings",
                 "bi-encoder",
-                "sentence-transformers"
+                "sentence-transformers",
+                "retrieval",
+                "mean-pooling"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -3261,15 +3303,17 @@
               "id": "34.2",
               "partId": "part-05",
               "chapterId": "chapter-34",
-              "title": "Contrastive Learning & InfoNCE / MultipleNegativesRanking Loss",
+              "title": "Contrastive Learning, InfoNCE and MultipleNegativesRankingLoss",
               "slug": "contrastive-infonce",
               "file": "34.2-contrastive-infonce.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
                 "infonce",
                 "contrastive-learning",
-                "loss"
+                "bi-encoder",
+                "temperature",
+                "in-batch-negatives"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -3319,11 +3363,13 @@
               "slug": "flat-vs-ann",
               "file": "35.1-flat-vs-ann.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "ann",
                 "vector-search",
-                "similarity"
+                "similarity",
+                "recall",
+                "ivf"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -3341,7 +3387,9 @@
               "tags": [
                 "ivf-pq",
                 "product-quantization",
-                "compression"
+                "inverted-file",
+                "adc",
+                "vector-search"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -3351,7 +3399,7 @@
               "id": "35.3",
               "partId": "part-05",
               "chapterId": "chapter-35",
-              "title": "Hierarchical Navigable Small World (HNSW) Graphs Deep Dive",
+              "title": "Hierarchical Navigable Small World (HNSW) Graphs, from Scratch",
               "slug": "hnsw-graphs",
               "file": "35.3-hnsw-graphs.md",
               "difficulty": "advanced",
@@ -3359,7 +3407,8 @@
               "tags": [
                 "hnsw",
                 "graph-search",
-                "vector-database"
+                "approximate-nearest-neighbour",
+                "vector-search"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -3373,12 +3422,13 @@
               "slug": "vector-databases-production",
               "file": "35.4-vector-databases-production.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
-                "qdrant",
-                "pgvector",
-                "milvus",
-                "chroma"
+                "vector-database",
+                "metadata-filtering",
+                "sharding",
+                "quantization",
+                "pgvector"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3409,11 +3459,12 @@
               "slug": "lexical-vs-dense",
               "file": "36.1-lexical-vs-dense.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "hybrid",
                 "bm25",
-                "dense"
+                "dense",
+                "retrieval-failure"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3431,7 +3482,9 @@
               "tags": [
                 "rrf",
                 "rank-fusion",
-                "hybrid-search"
+                "hybrid-search",
+                "min-max",
+                "normalization"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -3448,8 +3501,10 @@
               "estimatedMinutes": 30,
               "tags": [
                 "hybrid-search",
-                "pipeline",
-                "qdrant"
+                "bm25",
+                "rrf",
+                "ann",
+                "filtering"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3490,11 +3545,12 @@
               "slug": "rag-foundations",
               "file": "37.1-rag-foundations.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "rag",
-                "architecture",
-                "grounding"
+                "vector-search",
+                "grounding",
+                "chunking"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3510,9 +3566,12 @@
               "difficulty": "beginner",
               "estimatedMinutes": 25,
               "tags": [
+                "rag",
                 "lifecycle",
                 "ingestion",
-                "generation"
+                "retrieval",
+                "generation",
+                "chunking"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -3526,11 +3585,13 @@
               "slug": "pure-python-rag",
               "file": "37.3-pure-python-rag.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 30,
+              "estimatedMinutes": 35,
               "tags": [
                 "pure-python",
                 "zero-framework",
-                "rag"
+                "rag",
+                "bm25",
+                "inverted-index"
               ],
               "status": "published",
               "contentShape": "from-scratch",
@@ -3557,7 +3618,7 @@
               "id": "38.1",
               "partId": "part-06",
               "chapterId": "chapter-38",
-              "title": "Document Parsing: PDFs, Tables, Markdown & Layout Preservation",
+              "title": "Document Parsing: PDFs, Tables and Reading Order",
               "slug": "document-parsing",
               "file": "38.1-document-parsing.md",
               "difficulty": "intermediate",
@@ -3565,7 +3626,9 @@
               "tags": [
                 "pdf",
                 "parsing",
-                "tables"
+                "reading-order",
+                "tables",
+                "ocr"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -3583,7 +3646,8 @@
               "tags": [
                 "chunking",
                 "semantic-chunking",
-                "splitters"
+                "splitters",
+                "rag"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -3601,7 +3665,8 @@
               "tags": [
                 "parent-child",
                 "metadata",
-                "hierarchical"
+                "hierarchical",
+                "retrieval"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3636,7 +3701,8 @@
               "tags": [
                 "reranking",
                 "cross-encoder",
-                "relevance"
+                "bi-encoder",
+                "retrieval"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3652,6 +3718,8 @@
               "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
+                "cross-encoder",
+                "reranking",
                 "bge-reranker",
                 "cohere",
                 "monot5"
@@ -3667,12 +3735,14 @@
               "title": "Late Interaction & ColBERT (Token-Level MaxSim Scoring)",
               "slug": "colbert-late-interaction",
               "file": "39.3-colbert-late-interaction.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 35,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
                 "colbert",
                 "late-interaction",
-                "maxsim"
+                "maxsim",
+                "reranking",
+                "retrieval"
               ],
               "status": "published",
               "contentShape": "visual-spatial",
@@ -3708,7 +3778,9 @@
               "tags": [
                 "lost-in-the-middle",
                 "context-window",
-                "attention"
+                "attention",
+                "softmax",
+                "rag"
               ],
               "status": "published",
               "contentShape": "compare-choose",
@@ -3726,7 +3798,9 @@
               "tags": [
                 "llmlingua",
                 "compression",
-                "token-budget"
+                "token-budget",
+                "surprisal",
+                "extractive-summarization"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -3736,13 +3810,15 @@
               "id": "40.3",
               "partId": "part-06",
               "chapterId": "chapter-40",
-              "title": "Context Caching (Anthropic, Gemini, OpenAI) & Cost Optimization",
+              "title": "Context Caching: Paying Once for a Shared Prefix",
               "slug": "context-caching",
               "file": "40.3-context-caching.md",
               "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
                 "context-caching",
+                "prompt-caching",
+                "kv-cache",
                 "pricing",
                 "latency"
               ],
@@ -3780,7 +3856,7 @@
               "tags": [
                 "hyde",
                 "query-transformation",
-                "expansion"
+                "dense-retrieval"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3793,12 +3869,13 @@
               "title": "Self-RAG: Adaptive Retrieval with Reflection & Critique Tokens",
               "slug": "self-rag",
               "file": "41.2-self-rag.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 35,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
                 "self-rag",
-                "critique",
-                "reflection"
+                "reflection-tokens",
+                "adaptive-retrieval",
+                "critic"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -3815,8 +3892,10 @@
               "estimatedMinutes": 30,
               "tags": [
                 "crag",
+                "corrective-rag",
+                "retrieval-evaluator",
                 "web-search",
-                "corrective-rag"
+                "routing"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3850,7 +3929,9 @@
               "estimatedMinutes": 25,
               "tags": [
                 "knowledge-graph",
-                "neo4j",
+                "property-graph",
+                "schema",
+                "validation",
                 "entities"
               ],
               "status": "published",
@@ -3864,13 +3945,14 @@
               "title": "Microsoft GraphRAG: Hierarchical Leiden Community Detection",
               "slug": "microsoft-graphrag",
               "file": "42.2-microsoft-graphrag.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 40,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 30,
               "tags": [
-                "graphrag",
+                "graph-rag",
+                "community-detection",
                 "leiden",
-                "communities",
-                "summaries"
+                "modularity",
+                "rag"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -3888,7 +3970,9 @@
               "tags": [
                 "cypher",
                 "neo4j",
-                "graph-rag"
+                "graph-rag",
+                "hybrid-retrieval",
+                "vector-search"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3923,7 +4007,8 @@
               "tags": [
                 "lcel",
                 "runnables",
-                "langchain"
+                "langchain",
+                "pipelines"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3939,9 +4024,12 @@
               "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
-                "async",
+                "langchain",
+                "lcel",
+                "runnableparallel",
                 "streaming",
-                "runnableparallel"
+                "async",
+                "batching"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -3955,7 +4043,7 @@
               "slug": "langsmith-tracing",
               "file": "43.3-langsmith-tracing.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "langsmith",
                 "tracing",
@@ -3990,11 +4078,14 @@
               "slug": "llamaindex-core",
               "file": "44.1-llamaindex-core.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 35,
               "tags": [
                 "llamaindex",
                 "nodes",
-                "indices"
+                "indices",
+                "retrievers",
+                "chunking",
+                "rag"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -4008,11 +4099,13 @@
               "slug": "query-engines-synthesizers",
               "file": "44.2-query-engines-synthesizers.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "query-engine",
-                "synthesis",
-                "chat"
+                "response-synthesis",
+                "chat-engine",
+                "refine",
+                "tree-summarize"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -4022,15 +4115,16 @@
               "id": "44.3",
               "partId": "part-06",
               "chapterId": "chapter-44",
-              "title": "SubQuestionQueryEngine & RouterQueryEngine for Complex Queries",
+              "title": "Sub-Question and Router Query Engines, from Scratch",
               "slug": "subquestion-router-engines",
               "file": "44.3-subquestion-router-engines.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
               "tags": [
                 "subquestion",
                 "router",
-                "complex-rag"
+                "complex-rag",
+                "llamaindex"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -4065,7 +4159,8 @@
               "tags": [
                 "semantic-kernel",
                 "plugins",
-                "csharp-python"
+                "function-calling",
+                "kernel"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -4078,12 +4173,14 @@
               "title": "Semantic Kernel Planners & Automatic Function Orchestration",
               "slug": "semantic-kernel-planners",
               "file": "45.2-semantic-kernel-planners.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
+                "semantic-kernel",
+                "function-calling",
                 "planners",
-                "orchestration",
-                "auto-invoke"
+                "tool-use",
+                "orchestration"
               ],
               "status": "published",
               "contentShape": "problem-solution",
@@ -4124,11 +4221,13 @@
               "slug": "dspy-foundations",
               "file": "46.1-dspy-foundations.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "dspy",
                 "signatures",
-                "modules"
+                "modules",
+                "prompting",
+                "frameworks"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4146,7 +4245,9 @@
               "tags": [
                 "signatures",
                 "chainofthought",
-                "dspy"
+                "dspy",
+                "modules",
+                "prompt-rendering"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4164,7 +4265,9 @@
               "tags": [
                 "teleprompter",
                 "mipro",
-                "prompt-compiler"
+                "bootstrapfewshot",
+                "prompt-optimization",
+                "selection-bias"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4195,11 +4298,13 @@
               "slug": "json-schema-tools",
               "file": "47.1-json-schema-tools.md",
               "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "estimatedMinutes": 25,
               "tags": [
                 "json-schema",
-                "tools",
-                "openai"
+                "tool-calling",
+                "function-calling",
+                "validation",
+                "constrained-decoding"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4217,7 +4322,7 @@
               "tags": [
                 "tool-use",
                 "execution-loop",
-                "pydantic"
+                "json-schema"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4227,14 +4332,15 @@
               "id": "47.3",
               "partId": "part-07",
               "chapterId": "chapter-47",
-              "title": "Parallel Tool Calling & Structured Outputs Enforcement",
+              "title": "Parallel Tool Calls and Enforced Structured Outputs",
               "slug": "parallel-tool-calling",
               "file": "47.3-parallel-tool-calling.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "parallel-tools",
                 "structured-outputs",
+                "constrained-decoding",
                 "grammars"
               ],
               "status": "published",
@@ -4268,9 +4374,10 @@
               "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
-                "react",
                 "agents",
-                "thought-action"
+                "react",
+                "tool-use",
+                "agent-loop"
               ],
               "status": "published",
               "contentShape": "mental-model-first",
@@ -4288,7 +4395,9 @@
               "tags": [
                 "planning",
                 "decomposition",
-                "agents"
+                "agents",
+                "dependency-graph",
+                "error-compounding"
               ],
               "status": "published",
               "contentShape": "code-transformation",
@@ -4306,7 +4415,8 @@
               "tags": [
                 "reflexion",
                 "evaluator-optimizer",
-                "self-correction"
+                "self-correction",
+                "agents"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4351,7 +4461,8 @@
               "tags": [
                 "memory",
                 "context-window",
-                "summarization"
+                "summarization",
+                "agents"
               ],
               "status": "published",
               "contentShape": "under-the-hood",
@@ -4369,7 +4480,9 @@
               "tags": [
                 "episodic-memory",
                 "semantic-memory",
-                "mem0"
+                "vector-store",
+                "cosine-similarity",
+                "memory-consolidation"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -4382,7 +4495,7 @@
               "title": "Entity Memory & Graph-Based User Profiling",
               "slug": "entity-memory",
               "file": "49.3-entity-memory.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "entity-memory",
@@ -4418,10 +4531,12 @@
               "slug": "multi-agent-topologies",
               "file": "50.1-multi-agent-topologies.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "multi-agent",
                 "supervisor",
+                "topology",
+                "voting",
                 "orchestration"
               ],
               "status": "published",
@@ -4435,12 +4550,14 @@
               "title": "Agent Communication Protocols & Consensus Mechanisms",
               "slug": "agent-protocols",
               "file": "50.2-agent-protocols.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
-                "consensus",
                 "communication",
-                "hand-off"
+                "contract-net",
+                "consensus",
+                "byzantine",
+                "voting"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4458,7 +4575,8 @@
               "tags": [
                 "crewai",
                 "autogen",
-                "multi-agent"
+                "multi-agent",
+                "cost"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4494,7 +4612,8 @@
                 "langgraph",
                 "stategraph",
                 "nodes",
-                "edges"
+                "edges",
+                "reducers"
               ],
               "status": "published",
               "contentShape": "code-transformation",
@@ -4510,9 +4629,11 @@
               "difficulty": "advanced",
               "estimatedMinutes": 30,
               "tags": [
+                "langgraph",
                 "conditional-edges",
                 "cycles",
-                "subgraphs"
+                "subgraphs",
+                "recursion-limit"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -4526,10 +4647,11 @@
               "slug": "hitl-checkpointers",
               "file": "51.3-hitl-checkpointers.md",
               "difficulty": "advanced",
-              "estimatedMinutes": 35,
+              "estimatedMinutes": 30,
               "tags": [
                 "hitl",
                 "checkpointer",
+                "interrupt",
                 "time-travel",
                 "langgraph"
               ],
@@ -4574,7 +4696,8 @@
               "tags": [
                 "coding-agent",
                 "repo-tools",
-                "swe-bench"
+                "swe-bench",
+                "agent-computer-interface"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4591,8 +4714,9 @@
               "estimatedMinutes": 40,
               "tags": [
                 "research-agent",
-                "synthesis",
-                "search-loop"
+                "rag",
+                "verification",
+                "agent-loop"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4624,12 +4748,14 @@
               "slug": "performance-metrics-ttft",
               "file": "53.1-performance-metrics-ttft.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "ttft",
                 "itl",
+                "tpot",
                 "throughput",
-                "latency"
+                "latency",
+                "serving"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4647,7 +4773,9 @@
               "tags": [
                 "continuous-batching",
                 "scheduling",
-                "vllm"
+                "vllm",
+                "orca",
+                "throughput"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4665,7 +4793,8 @@
               "tags": [
                 "prefix-caching",
                 "radix-tree",
-                "vllm"
+                "vllm",
+                "kv-cache"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4700,7 +4829,9 @@
               "tags": [
                 "vllm",
                 "serving",
-                "fastapi"
+                "kv-cache",
+                "paged-attention",
+                "continuous-batching"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -4710,15 +4841,17 @@
               "id": "54.2",
               "partId": "part-09",
               "chapterId": "chapter-54",
-              "title": "Triton Inference Server & TensorRT-LLM Engine Compilation",
+              "title": "Triton Inference Server and TensorRT-LLM: Compile, Batch, Serve",
               "slug": "triton-tensorrt-llm",
               "file": "54.2-triton-tensorrt-llm.md",
               "difficulty": "advanced",
               "estimatedMinutes": 35,
               "tags": [
-                "tensorrt-llm",
                 "triton",
-                "nvidia"
+                "tensorrt-llm",
+                "dynamic-batching",
+                "kernel-fusion",
+                "kv-cache"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4731,12 +4864,14 @@
               "title": "Ollama, Local Inference & Edge Model Deployment",
               "slug": "ollama-edge-deployment",
               "file": "54.3-ollama-edge-deployment.md",
-              "difficulty": "beginner",
-              "estimatedMinutes": 20,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 25,
               "tags": [
                 "ollama",
                 "edge",
-                "local-llm"
+                "local-llm",
+                "quantization",
+                "gguf"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4763,15 +4898,16 @@
               "id": "55.1",
               "partId": "part-09",
               "chapterId": "chapter-55",
-              "title": "Adversarial Attacks: Prompt Injection, Jailbreaking & Data Exfiltration",
+              "title": "Prompt Injection, Jailbreaking and Data Exfiltration",
               "slug": "prompt-injection-attacks",
               "file": "55.1-prompt-injection-attacks.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "security",
                 "prompt-injection",
-                "jailbreak"
+                "jailbreak",
+                "exfiltration"
               ],
               "status": "published",
               "contentShape": "debugging-failure",
@@ -4781,15 +4917,17 @@
               "id": "55.2",
               "partId": "part-09",
               "chapterId": "chapter-55",
-              "title": "Guardrail Architectures: Llama-Guard, NeMo Guardrails & Regex Filters",
+              "title": "Guardrail Architectures: Llama Guard, NeMo Guardrails & Regex Filters",
               "slug": "guardrail-architectures",
               "file": "55.2-guardrail-architectures.md",
               "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
+                "guardrails",
                 "llama-guard",
-                "nemo",
-                "guardrails"
+                "nemo-guardrails",
+                "regex",
+                "classifier"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4803,11 +4941,14 @@
               "slug": "pii-content-moderation",
               "file": "55.3-pii-content-moderation.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "pii",
+                "redaction",
                 "moderation",
-                "presidio"
+                "regex",
+                "json",
+                "luhn"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4844,7 +4985,9 @@
               "tags": [
                 "opentelemetry",
                 "tracing",
-                "spans"
+                "spans",
+                "context-propagation",
+                "sampling"
               ],
               "status": "published",
               "contentShape": "real-world-application",
@@ -4858,11 +5001,15 @@
               "slug": "langfuse-phoenix",
               "file": "56.2-langfuse-phoenix.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
+                "observability",
+                "tracing",
                 "langfuse",
                 "phoenix",
-                "monitoring"
+                "arize",
+                "token-cost",
+                "sampling"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4876,11 +5023,12 @@
               "slug": "cost-token-budgeting",
               "file": "56.3-cost-token-budgeting.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "cost-optimization",
                 "fallback-routing",
-                "budgets"
+                "budgets",
+                "circuit-breaker"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4923,9 +5071,11 @@
               "difficulty": "intermediate",
               "estimatedMinutes": 25,
               "tags": [
-                "ragas",
+                "rag",
                 "rag-triad",
-                "groundedness"
+                "ragas",
+                "groundedness",
+                "evaluation"
               ],
               "status": "published",
               "contentShape": "mathematical-derivation",
@@ -4935,15 +5085,16 @@
               "id": "57.2",
               "partId": "part-10",
               "chapterId": "chapter-57",
-              "title": "LLM-as-a-Judge: G-Eval, Alignment & Position Bias Mitigation",
+              "title": "LLM-as-a-Judge: G-Eval Scores, Position Bias and Human Agreement",
               "slug": "llm-as-a-judge",
               "file": "57.2-llm-as-a-judge.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "llm-judge",
                 "g-eval",
-                "bias"
+                "position-bias",
+                "evaluation"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4957,11 +5108,14 @@
               "slug": "standard-benchmarks",
               "file": "57.3-standard-benchmarks.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "benchmarks",
                 "mmlu",
-                "humaneval"
+                "gsm8k",
+                "humaneval",
+                "elo",
+                "pass-at-k"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -4992,12 +5146,13 @@
               "title": "Synthetic Data Generation: Self-Instruct & Evol-Instruct Pipelines",
               "slug": "synthetic-data-generation",
               "file": "58.1-synthetic-data-generation.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 30,
               "tags": [
                 "synthetic-data",
                 "self-instruct",
-                "evol-instruct"
+                "evol-instruct",
+                "model-collapse"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5015,7 +5170,9 @@
               "tags": [
                 "distillation",
                 "slm",
-                "student-teacher"
+                "student-teacher",
+                "temperature",
+                "kl-divergence"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5028,12 +5185,14 @@
               "title": "Data Filtering, De-duplication (MinHash LSH) & Quality Classifiers",
               "slug": "data-curation-minhash",
               "file": "58.3-data-curation-minhash.md",
-              "difficulty": "advanced",
-              "estimatedMinutes": 30,
+              "difficulty": "intermediate",
+              "estimatedMinutes": 35,
               "tags": [
                 "minhash",
-                "dedup",
-                "curation"
+                "lsh",
+                "deduplication",
+                "jaccard",
+                "data-curation"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5064,11 +5223,12 @@
               "slug": "chain-of-thought",
               "file": "59.1-chain-of-thought.md",
               "difficulty": "intermediate",
-              "estimatedMinutes": 25,
+              "estimatedMinutes": 30,
               "tags": [
                 "cot",
                 "reasoning",
-                "system-2"
+                "self-consistency",
+                "test-time-compute"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5087,7 +5247,9 @@
                 "mcts",
                 "test-time-compute",
                 "prm",
-                "orm"
+                "orm",
+                "beam-search",
+                "tree-of-thoughts"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5097,7 +5259,7 @@
               "id": "59.3",
               "partId": "part-10",
               "chapterId": "chapter-59",
-              "title": "Reasoning Model Architectures: OpenAI o1 & DeepSeek-R1 Deep Dive",
+              "title": "Reasoning Models: What o1 and DeepSeek-R1 Disclose, and How GRPO Trains Them",
               "slug": "o1-deepseek-r1",
               "file": "59.3-o1-deepseek-r1.md",
               "difficulty": "advanced",
@@ -5105,7 +5267,9 @@
               "tags": [
                 "o1",
                 "deepseek-r1",
-                "reinforcement-learning"
+                "reinforcement-learning",
+                "grpo",
+                "reasoning"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5133,15 +5297,17 @@
               "id": "60.1",
               "partId": "part-10",
               "chapterId": "chapter-60",
-              "title": "Vision-Language Models (VLM): CLIP Contrastive Pretraining & Vision Encoders",
+              "title": "CLIP: Contrastive Pretraining and Vision Encoders",
               "slug": "vlm-clip",
               "file": "60.1-vlm-clip.md",
-              "difficulty": "advanced",
+              "difficulty": "intermediate",
               "estimatedMinutes": 35,
               "tags": [
                 "vlm",
                 "clip",
-                "vision-encoder"
+                "contrastive-learning",
+                "vision-transformer",
+                "zero-shot"
               ],
               "status": "published",
               "contentShape": "visual-spatial",
@@ -5159,7 +5325,9 @@
               "tags": [
                 "llava",
                 "q-former",
-                "cross-attention"
+                "blip-2",
+                "projector",
+                "multimodal"
               ],
               "status": "published",
               "contentShape": "case-study",
@@ -5176,7 +5344,10 @@
               "estimatedMinutes": 35,
               "tags": [
                 "whisper",
+                "log-mel",
                 "audio-tokens",
+                "residual-vector-quantization",
+                "tubelet",
                 "video-llm"
               ],
               "status": "published",
@@ -5187,21 +5358,22 @@
               "id": "60.4",
               "partId": "part-10",
               "chapterId": "chapter-60",
-              "title": "Diffusion Transformers (DiT) & Latent Generative Video (Sora)",
+              "title": "Diffusion Transformers (DiT) and Latent Video (Sora)",
               "slug": "diffusion-transformers-dit",
               "file": "60.4-diffusion-transformers-dit.md",
               "difficulty": "advanced",
-              "estimatedMinutes": 45,
+              "estimatedMinutes": 40,
               "prerequisites": [
                 "60.1",
                 "26.1"
               ],
               "tags": [
+                "diffusion",
                 "dit",
-                "diffusion-transformers",
+                "latent-diffusion",
+                "adaln-zero",
                 "sora",
-                "generative-video",
-                "adaln-zero"
+                "video-generation"
               ],
               "status": "published",
               "contentShape": "visual-spatial",

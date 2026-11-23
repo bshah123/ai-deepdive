@@ -1,54 +1,114 @@
 {
   "chapterId": "chapter-60",
-  "title": "Chapter 60 Quiz \u2014 Research-Level LLM Systems",
+  "title": "Chapter 60 Quiz — Multimodal",
   "questions": [
     {
       "id": "q60.1",
-      "question": "What is the primary architectural mechanism in Research-Level LLM Systems?",
+      "question": "A batch has three image-caption pairs. At logit scale 10, the cosine matrix (rows are images, columns are captions) is [[1.0, 0.0, 0.6], [0.6, 0.8, 1.0], [0.0, 1.0, 0.8]]. What is the symmetric CLIP loss, averaged over the image-to-text and text-to-image directions?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "0.02"},
+        {"id": "b", "text": "0.94"},
+        {"id": "c", "text": "1.43"},
+        {"id": "d", "text": "13.33"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Research-Level LLM Systems, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "The row losses are 0.018, 2.143 and 2.127. Their mean is 1.429 (the lesson prints 1.4294). The batch is symmetric, so both directions give the same value. 0.02 is row 0 alone, 0.94 is the loss at scale 1, and 13.33 is the loss at scale 100."
     },
     {
       "id": "q60.2",
-      "question": "How does Research-Level LLM Systems optimize performance in modern AI systems?",
+      "question": "CLIP initialises its temperature to tau = 0.07. What logit scale s = 1/tau does that correspond to?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "About 14.29"},
+        {"id": "b", "text": "0.07"},
+        {"id": "c", "text": "About 7.0"},
+        {"id": "d", "text": "100"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "a",
+      "explanation": "s = 1/0.07 = 14.29. The paper clips s at 100 during training, so 100 is a limit on s, not its starting value."
+    },
+    {
+      "id": "q60.3",
+      "question": "A Vision Transformer takes a 224 px image cut into 16 px patches and prepends one [CLS] token. How many tokens enter the Transformer layers?",
+      "options": [
+        {"id": "a", "text": "196"},
+        {"id": "b", "text": "197"},
+        {"id": "c", "text": "256"},
+        {"id": "d", "text": "225"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "224 / 16 = 14 patches per side, so 14 × 14 = 196 patches. Adding the [CLS] token gives 197. The value 256 is the count for 14 px patches, and 225 is 15 × 15."
+    },
+    {
+      "id": "q60.4",
+      "question": "A linear connector maps 1,024-wide vision features to a 4,096-wide language-model input, with a bias. How many trainable parameters does it have?",
+      "options": [
+        {"id": "a", "text": "4,096"},
+        {"id": "b", "text": "4,194,304"},
+        {"id": "c", "text": "20,979,712"},
+        {"id": "d", "text": "4,198,400"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "1,024 × 4,096 + 4,096 = 4,198,400. The value 4,194,304 leaves out the bias. The value 20,979,712 is the two-layer MLP connector, with the hidden width assumed to be 4,096."
+    },
+    {
+      "id": "q60.5",
+      "question": "A 7B-class model has 32 layers and width 4,096, and stores its KV cache in fp16 (2 bytes per number) with no grouped-query attention. How much KV cache does a 640-token prompt need?",
+      "options": [
+        {"id": "a", "text": "0.5 MiB"},
+        {"id": "b", "text": "320 MiB"},
+        {"id": "c", "text": "48 MiB"},
+        {"id": "d", "text": "640 MiB"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each token costs 2 × 32 × 4,096 × 2 bytes = 524,288 bytes = 0.5 MiB, so 640 tokens cost 320 MiB. The value 48 MiB is the Q-Former's 96-token prompt. The value 640 MiB double-counts the per-token cost."
+    },
+    {
+      "id": "q60.6",
+      "question": "EnCodec runs at 75 latent steps per second with 8 codebooks of 1,024 entries (10 bits per code). What bitrate does it produce?",
+      "options": [
+        {"id": "a", "text": "8 kbps"},
+        {"id": "b", "text": "600 bps"},
+        {"id": "c", "text": "6 kbps"},
+        {"id": "d", "text": "24 kbps"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Bitrate = frame rate × codebooks × bits per code = 75 × 8 × 10 = 6,000 bps. The value 8 kbps counts codebooks without the 10 bits per code. The value 24 kbps is the 32-codebook setting."
+    },
+    {
+      "id": "q60.7",
+      "question": "A 16-frame clip at 224 × 224 is cut into non-overlapping tubelets of 2 × 16 × 16. How many tokens does the tubelet embedding produce?",
+      "options": [
+        {"id": "a", "text": "196"},
+        {"id": "b", "text": "784"},
+        {"id": "c", "text": "3,136"},
+        {"id": "d", "text": "1,568"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "There are 16 / 2 = 8 temporal positions and 14 × 14 = 196 spatial positions, so 8 × 196 = 1,568 tokens. The value 3,136 is the per-frame 2D patch count, 784 uses 4-frame tubelets, and 196 is a single frame."
+    },
+    {
+      "id": "q60.8",
+      "question": "A DiT sees a 64 × 64 × 4 latent. What is the ratio of attention pairs between patch size 2 and patch size 4?",
+      "options": [
+        {"id": "a", "text": "16"},
+        {"id": "b", "text": "4"},
+        {"id": "c", "text": "8"},
+        {"id": "d", "text": "256"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Patch size 2 gives 32 × 32 = 1,024 tokens, and patch size 4 gives 16 × 16 = 256 tokens. The pair counts are 1,024² = 1,048,576 and 256² = 65,536, a ratio of 16. The token ratio is 4, but attention pairs grow with the square of the tokens."
+    },
+    {
+      "id": "q60.9",
+      "question": "The forward noising step uses x_t = sqrt(abar) × x0 + sqrt(1 − abar) × eps. With x0 = 2.0, abar = 0.04 and eps = −1.0, what is x_t?",
+      "options": [
+        {"id": "a", "text": "0.580"},
+        {"id": "b", "text": "−0.580"},
+        {"id": "c", "text": "0.400"},
+        {"id": "d", "text": "1.380"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "sqrt(0.04) = 0.2 and sqrt(0.96) ≈ 0.980, so x_t = 0.2 × 2.0 + 0.980 × (−1.0) = 0.400 − 0.980 = −0.580. The value 1.380 comes from a sign error on the noise term. The value 0.400 is the signal term alone."
     }
   ]
 }

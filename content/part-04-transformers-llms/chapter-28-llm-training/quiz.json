@@ -1,54 +1,10 @@
-{
-  "chapterId": "chapter-28",
-  "title": "Chapter 28 Quiz \u2014 LLM Training & Pre-training",
-  "questions": [
-    {
-      "id": "q28.1",
-      "question": "What is the primary architectural mechanism in LLM Training & Pre-training?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LLM Training & Pre-training, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q28.2",
-      "question": "How does LLM Training & Pre-training optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-28", "title": "Chapter 28 Quiz — Training Large Language Models", "questions": [
+{"id": "q28.1", "question": "Using C ≈ 6ND, what is the training compute of a 7B-parameter model trained on 140B tokens?", "options": [{"id": "a", "text": "9.8 × 10^20 FLOPs"}, {"id": "b", "text": "5.88 × 10^21 FLOPs"}, {"id": "c", "text": "1.96 × 10^21 FLOPs"}, {"id": "d", "text": "5.88 × 10^22 FLOPs"}], "correctOptionId": "b", "explanation": "C = 6 × 7×10^9 × 1.4×10^11 = 5.88×10^21 FLOPs. The other options omit the factor 6, use 2ND, or are off by a power of ten."},
+{"id": "q28.2", "question": "At a fixed budget of 10^21 FLOPs, Eq. 10 of Hoffmann et al. is used to compare a 10B-parameter model with a 1.8B-parameter model. Which statement is correct?", "options": [{"id": "a", "text": "The 10B model has predicted loss about 2.13, which is lower than the 1.8B model's."}, {"id": "b", "text": "Both models have predicted loss 1.69, the irreducible term."}, {"id": "c", "text": "The 10B model has the lower predicted loss, because larger models always do better."}, {"id": "d", "text": "The 10B model has higher predicted loss, about 2.42 against 2.33 for the 1.8B model."}], "correctOptionId": "d", "explanation": "For N = 10^10, D = 1.67×10^10 tokens, and L = 1.69 + 0.162 + 0.564 = 2.416. For N = 1.8×10^9, L = 2.329. The 10B model is past the valley of the loss curve at this budget (Lesson 28.1)."},
+{"id": "q28.3", "question": "A colleague writes def tokens_for(C, N): return C * 6 / N to find the number of tokens that spends budget C on N parameters. What is the bug?", "options": [{"id": "a", "text": "It should be C / (6 * N); the buggy version gives 36 times too many tokens."}, {"id": "b", "text": "It is correct, because 6 is the number of FLOPs per token."}, {"id": "c", "text": "It should be 6 * N / C, since the budget divides the parameters."}, {"id": "d", "text": "It is only wrong for N above 10^10, where the approximation fails."}], "correctOptionId": "a", "explanation": "From C = 6ND, D = C/(6N). The buggy code computes 6C/N, which is 36 times the correct value (Lesson 28.1, Question 3)."},
+{"id": "q28.4", "question": "A model has 2×10^9 parameters and is trained with mixed-precision Adam on 8 GPUs. What is the model-state memory per GPU under DDP, and under ZeRO-3?", "options": [{"id": "a", "text": "16 GB and 2 GB"}, {"id": "b", "text": "32 GB and 32 GB"}, {"id": "c", "text": "32 GB and 4 GB"}, {"id": "d", "text": "4 GB and 0.5 GB"}], "correctOptionId": "c", "explanation": "DDP holds 16 bytes per parameter: 16 × 2×10^9 = 32 GB. ZeRO-3 gives 16Ψ/N_d = 32 GB / 8 = 4 GB (Lesson 28.2, Question 1). Activations are excluded."},
+{"id": "q28.5", "question": "A GPipe pipeline has K = 8 balanced stages and M = 8 micro-batches. What fraction of device time is idle, and how many micro-batches bring the idle fraction below 10 percent?", "options": [{"id": "a", "text": "12.5 percent idle; 16 micro-batches"}, {"id": "b", "text": "46.7 percent idle; 64 micro-batches"}, {"id": "c", "text": "46.7 percent idle; 8 micro-batches"}, {"id": "d", "text": "87.5 percent idle; 128 micro-batches"}], "correctOptionId": "b", "explanation": "The idle fraction is (K-1)/(M+K-1) = 7/15 = 46.7 percent. Below 10 percent needs M > 63, and M = 64 gives 7/71 = 9.9 percent (Lesson 28.2, Question 5)."},
+{"id": "q28.6", "question": "A reward model gives the chosen response reward 2.5 more than the rejected response, in Bradley-Terry terms (reward gap 2.5). What are the win probability and the loss?", "options": [{"id": "a", "text": "P = 0.924 and loss = 0.079"}, {"id": "b", "text": "P = 0.5 and loss = 0.693"}, {"id": "c", "text": "P = 0.924 and loss = 2.5"}, {"id": "d", "text": "P = 0.076 and loss = 2.577"}], "correctOptionId": "a", "explanation": "sigma(2.5) = 1/(1 + e^-2.5) = 0.924. The loss is -log(0.924) = 0.079 (Lesson 28.3, Question 1)."},
+{"id": "q28.7", "question": "Eight answers to one prompt get rewards 1, 1, 0, 0, 0, 0, 0, 0. Under GRPO with population standard deviation and epsilon ignored, what are the advantages of a correct answer and of a wrong answer?", "options": [{"id": "a", "text": "+1 and -1"}, {"id": "b", "text": "+0.75 and -0.25"}, {"id": "c", "text": "+1.732 and -1.732"}, {"id": "d", "text": "+1.732 and -0.577"}], "correctOptionId": "d", "explanation": "The mean is 0.25 and the population standard deviation is sqrt(0.25 × 0.75) = 0.433. A correct answer gets 0.75/0.433 = 1.732 and a wrong one gets -0.25/0.433 = -0.577 (Lesson 28.4, Question 1)."},
+{"id": "q28.8", "question": "At initialisation the policy equals the reference policy, so every DPO margin is zero. What is the DPO loss for any batch of pairs at that point, and why?", "options": [{"id": "a", "text": "Zero, because the policy has not moved."}, {"id": "b", "text": "1.0, because the sigmoid of zero is one."}, {"id": "c", "text": "log 2 ≈ 0.693, because the loss is -log sigma(0) for every pair."}, {"id": "d", "text": "It depends on the data, so it cannot be predicted."}], "correctOptionId": "c", "explanation": "Each term is -log sigma(0) = log 2 = 0.6931, whatever the data. This is a loss value, not an accuracy: at initialisation nothing has been learned yet (Lesson 28.3, Common traps)."}
+]}

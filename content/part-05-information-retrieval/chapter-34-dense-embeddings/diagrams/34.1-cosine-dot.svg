@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="Dot product rewards length; cosine rewards direction" class="sketch"><title>Dot product rewards length; cosine rewards direction</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Dot product rewards length; cosine rewards direction</tspan></text>
+<path d="M99.3 318.7 C189.9 320.2, 281.4 320.4, 521.2 319.9 M99.5 320.6 C227.6 320.4, 354.8 320.6, 519.9 319.6" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M121.9 341.0 C120.3 292.4, 117.5 246.4, 119.0 118.2 M119.6 340.2 C121.2 269.1, 120.7 197.4, 120.3 119.1" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120.8 319.9 C144.2 317.9, 171.3 320.8, 240.3 320.8 M120.0 319.4 C160.6 318.9, 203.4 317.8, 240.8 321.0" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M239.7 319.2 C237.9 319.7, 236.2 323.3, 230.2 324.6 M240.3 320.5 C236.4 322.0, 231.6 324.3, 228.5 325.6" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M238.9 321.4 C239.0 319.9, 234.2 319.2, 228.2 315.8 M240.5 320.0 C235.9 317.9, 232.0 315.8, 228.8 315.0" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M121.5 321.0 C135.1 320.4, 151.0 317.7, 191.8 319.8 M118.9 319.1 C134.6 320.5, 149.8 319.8, 191.9 320.1" style="stroke:var(--sk-green);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M192.1 319.9 C190.6 320.7, 188.3 321.0, 181.9 324.0 M191.6 320.4 C190.1 321.0, 187.4 322.8, 181.4 325.1" style="stroke:var(--sk-green);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M191.3 319.1 C189.0 318.0, 186.6 316.9, 179.9 315.2 M191.8 319.9 C189.6 318.2, 186.4 317.1, 181.7 314.5" style="stroke:var(--sk-green);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M121.7 321.6 C173.1 296.9, 224.4 268.2, 359.5 199.1 M120.1 319.1 C184.5 287.8, 251.2 256.6, 359.2 199.4" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M360.5 200.5 C357.2 202.9, 358.0 203.6, 353.2 210.5 M360.3 200.2 C357.3 203.6, 355.6 205.8, 352.4 208.9" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M359.7 199.8 C357.4 200.2, 354.2 199.7, 349.4 200.0 M360.6 199.7 C356.7 200.7, 351.7 199.7, 348.0 200.8" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="250" y="300" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-blue)"><tspan x="250" dy="0">q = (1, 0)</tspan></text>
+<text x="192" y="350" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="192" dy="0">d1 = (0.6, 0)</tspan></text>
+<text x="372" y="192" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-amber)"><tspan x="372" dy="0">d2 = (2, 1)</tspan></text>
+<g transform="rotate(-1.5 705 205)">
+<path d="M559.4 108.4 L851.4 110.4 L850.6 301.4 L559.7 300.9" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M558.9 109.1 C623.6 111.3, 685.3 111.5, 849.4 108.8 M559.4 110.6 C658.2 111.0, 756.2 111.0, 850.3 110.4 M849.4 111.7 C849.4 184.2, 847.8 258.3, 850.1 300.3 M849.9 110.6 C850.5 156.3, 850.8 201.4, 850.8 300.2 M848.9 300.6 C753.5 299.8, 653.7 302.0, 559.6 299.7 M850.2 300.0 C758.5 300.1, 665.8 300.6, 560.3 300.0 M560.4 300.5 C560.5 236.2, 558.7 171.3, 559.6 108.2 M559.6 300.8 C557.9 256.4, 558.5 215.1, 560.5 110.1" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="574" y="136" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="574" dy="0">d1: dot = 0.60, cos = 1.000</tspan><tspan x="574" dy="19.8">d2: dot = 2.00, cos = 0.894</tspan><tspan x="574" dy="19.8">dot picks d2 (longer vector)</tspan><tspan x="574" dy="19.8">cos picks d1 (same direction)</tspan></text>
+</g>
+<text x="440" y="388" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Normalising both vectors to length 1 makes the dot product equal to the cosine.</tspan></text>
+</svg>

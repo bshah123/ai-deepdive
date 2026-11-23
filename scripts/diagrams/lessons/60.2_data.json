@@ -1,0 +1,106 @@
+{
+  "config": {
+    "D_V": 1024,
+    "D_L": 4096,
+    "patch": 14,
+    "layers": 32,
+    "text_tokens": 64
+  },
+  "tokens": {
+    "res224": 256,
+    "res336": 576,
+    "qformer": 32
+  },
+  "params": {
+    "linear": 4198400,
+    "mlp": 20979712
+  },
+  "shapes": {
+    "linear_out": [
+      576,
+      4096
+    ],
+    "mlp_out": [
+      576,
+      4096
+    ],
+    "qformer_att": [
+      32,
+      576
+    ],
+    "qformer_out": [
+      32,
+      768
+    ],
+    "qformer_llm": [
+      32,
+      4096
+    ]
+  },
+  "att_row_sum_min": 0.9999999999999998,
+  "att_row_sum_max": 1.0000000000000002,
+  "kv_per_token_bytes": 524288,
+  "cost": {
+    "linear_336": {
+      "visual_tokens": 576,
+      "prompt_tokens": 640,
+      "kv_cache_MB_fp16": 320.0,
+      "attn_over_proj_ratio": 0.026
+    },
+    "linear_224": {
+      "visual_tokens": 256,
+      "prompt_tokens": 320,
+      "kv_cache_MB_fp16": 160.0,
+      "attn_over_proj_ratio": 0.013
+    },
+    "qformer_32": {
+      "visual_tokens": 32,
+      "prompt_tokens": 96,
+      "kv_cache_MB_fp16": 48.0,
+      "attn_over_proj_ratio": 0.0039
+    }
+  },
+  "toy": {
+    "hidden": 64,
+    "lr": 0.05,
+    "steps": 4000,
+    "sweep": [
+      {
+        "scale": 0.25,
+        "n_train": 400,
+        "var_test": 0.03137256243838987,
+        "linear_test_mse": 9.108024848586927e-05,
+        "mlp_test_mse": 0.012018042391510378,
+        "linear_params": 68,
+        "mlp_params": 1348
+      },
+      {
+        "scale": 0.25,
+        "n_train": 4000,
+        "var_test": 0.03137256243838987,
+        "linear_test_mse": 8.434407680603961e-05,
+        "mlp_test_mse": 0.002892327022107601,
+        "linear_params": 68,
+        "mlp_params": 1348
+      },
+      {
+        "scale": 1.0,
+        "n_train": 400,
+        "var_test": 0.23270836954879393,
+        "linear_test_mse": 0.01971503575451538,
+        "mlp_test_mse": 0.03633461224022002,
+        "linear_params": 68,
+        "mlp_params": 1348
+      },
+      {
+        "scale": 1.0,
+        "n_train": 4000,
+        "var_test": 0.23270836954879393,
+        "linear_test_mse": 0.018678742645990717,
+        "mlp_test_mse": 0.01945311439224543,
+        "linear_params": 68,
+        "mlp_params": 1348
+      }
+    ]
+  }
+}

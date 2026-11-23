@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-35",
-  "title": "Chapter 35 Quiz \u2014 Vector Search Foundations",
-  "questions": [
-    {
-      "id": "q35.1",
-      "question": "What is the primary architectural mechanism in Vector Search Foundations?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Vector Search Foundations, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q35.2",
-      "question": "How does Vector Search Foundations optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-35", "title": "Chapter 35 Quiz — Vector Search", "questions": [
+{"id": "q35.1", "question": "A collection holds 1,000,000 vectors of 1,536 float32 dimensions. How much raw memory do the vectors need, in decimal GB, ignoring index overhead?", "options": [{"id": "a", "text": "1.536 GB"}, {"id": "b", "text": "6.144 GB"}, {"id": "c", "text": "0.384 GB"}, {"id": "d", "text": "61.44 GB"}], "correctOptionId": "b", "explanation": "Bytes = 1,000,000 x 1,536 x 4 = 6.144 x 10^9 bytes, so 6.144 GB (Lesson 35.4). The other options come from dropping the factor 4, using 1,536 bytes as 1 byte per dimension, or multiplying by 10 too many times."},
+{"id": "q35.2", "question": "The stored points are a=(0,0), b=(3,4), c=(1,2), d=(6,8) and e=(2,1). The query is q=(1,0). Which two points are nearest under squared Euclidean distance?", "options": [{"id": "a", "text": "a and c"}, {"id": "b", "text": "b and d"}, {"id": "c", "text": "a and e"}, {"id": "d", "text": "c and e"}], "correctOptionId": "c", "explanation": "The squared distances are a=1, b=20, c=4, d=89 and e=2 (Lesson 35.1). The two smallest are a and e."},
+{"id": "q35.3", "question": "The true top-3 neighbours of a query are {a, e, c}. An approximate search returns {a, c, b}. What is recall@3?", "options": [{"id": "a", "text": "0.667"}, {"id": "b", "text": "0.333"}, {"id": "c", "text": "1.000"}, {"id": "d", "text": "0.500"}], "correctOptionId": "a", "explanation": "The overlap is {a, c}, so recall@3 = 2/3, about 0.667 (Lesson 35.1). Recall ignores the order of the returned items and how far the missed item lies from the query."},
+{"id": "q35.4", "question": "Two sub-spaces each have two codewords: sub-space 1 is (0,0) and (2,2), and sub-space 2 is (1,0) and (4,4). For the query q=(0,1,3,2), the ADC table rows are [1, 5] and [8, 5]. Which stored code has the smallest ADC distance?", "options": [{"id": "a", "text": "(0, 0), with distance 9"}, {"id": "b", "text": "(1, 0), with distance 13"}, {"id": "c", "text": "(1, 1), with distance 10"}, {"id": "d", "text": "(0, 1), with distance 6"}], "correctOptionId": "d", "explanation": "ADC adds one table entry per sub-space: (0,0) gives 1+8=9, (0,1) gives 1+5=6, (1,0) gives 5+8=13 and (1,1) gives 5+5=10 (Lesson 35.2). The smallest is (0,1)."},
+{"id": "q35.5", "question": "In IVF-PQ, a stored vector x in cell c is encoded as its residual x minus c. Which statement about the ADC table is correct?", "options": [{"id": "a", "text": "One table is built per query and reused for every probed cell"}, {"id": "b", "text": "One table is built once for the whole database and reused for every query"}, {"id": "c", "text": "One table is built for each probed cell, from the query residual r = q minus c"}, {"id": "d", "text": "The table is built from the stored vector x, so it does not depend on the query"}], "correctOptionId": "c", "explanation": "The table depends on r = q minus c, which changes with the cell, so it must be rebuilt for each probed cell (Lesson 35.2). Reusing one table across cells gives distances to the wrong reference point, and no error is raised."},
+{"id": "q35.6", "question": "In the Lesson 35.2 setup (N = 5,000, d = 32, 32 cells, nprobe = 4, m = 8, 256 codewords), what is the approximate total operation count per query, using the lesson's measured average of 673 candidates?", "options": [{"id": "a", "text": "160,000"}, {"id": "b", "text": "5,400"}, {"id": "c", "text": "39,200"}, {"id": "d", "text": "33,792"}], "correctOptionId": "c", "explanation": "Coarse distances: 32 x 32 = 1,024. Four ADC tables: 4 x 8 x 256 x 4 = 32,768. Table reads: 673 x 8 = 5,384, about 5,400. Total is about 39,200, against 160,000 for exact search (Lesson 35.2). These are operation counts, not timings."},
+{"id": "q35.7", "question": "Five nodes lie on a line at positions a=0, b=2, c=5, d=9 and e=12. The links are a-b, b-c, c-d and d-e. The query is 11, and the walk starts at a. With the chain alone, the walk takes 4 hops. How many hops does it take after the link a-d is added?", "options": [{"id": "a", "text": "4"}, {"id": "b", "text": "1"}, {"id": "c", "text": "3"}, {"id": "d", "text": "2"}], "correctOptionId": "d", "explanation": "From a, the walk hops to d (distance 2), then to e (distance 1), and stops, so it takes 2 hops (Lesson 35.3). The hop count is machine-independent, but the lesson's point is that one long link covers what several short links would."},
+{"id": "q35.8", "question": "In HNSW with M = 8, each node draws its top layer l so that Pr(l >= j) = M^(-j). What is the probability that a node reaches layer 2 or above?", "options": [{"id": "a", "text": "1/8"}, {"id": "b", "text": "1/64"}, {"id": "c", "text": "1/16"}, {"id": "d", "text": "1/512"}], "correctOptionId": "b", "explanation": "Pr(l >= 2) = 8^(-2) = 1/64 (Lesson 35.3). In the measured N = 2000 build, 24 nodes reached layer 2 (expected 31.25)."},
+{"id": "q35.9", "question": "A sharded index splits 20,000 vectors across four shards. Each shard returns only its local top 3, and the coordinator merges the results. In the lesson experiment, for what fraction of the 200 queries did the merged result equal the global exact top 10?", "options": [{"id": "a", "text": "100%"}, {"id": "b", "text": "76.5%"}, {"id": "c", "text": "23.5%"}, {"id": "d", "text": "1.5%"}], "correctOptionId": "c", "explanation": "47 of 200 queries matched, which is 23.5% (Lesson 35.4). With local top 10 per shard, all 200 queries matched. Each shard must return at least k candidates for the merge to be exact."},
+{"id": "q35.10", "question": "A metadata post-filter keeps 10% of the rows. The index returns its top 10 candidates, and the filter then drops non-matching rows. What is the mean number of results out of 10 measured in the lesson experiment?", "options": [{"id": "a", "text": "1.00"}, {"id": "b", "text": "0.96"}, {"id": "c", "text": "8.80"}, {"id": "d", "text": "10.00"}], "correctOptionId": "b", "explanation": "The post-filter returned 0.96 rows on average at a 10% match (Lesson 35.4). The naive estimate is 10 x 0.10 = 1.0. Overfetching, which takes about K/p candidates before filtering, returned 8.80 rows at the same match rate."}
+]}

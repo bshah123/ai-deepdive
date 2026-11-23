@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-57",
-  "title": "Chapter 57 Quiz \u2014 LLM Evaluation Benchmarks",
-  "questions": [
-    {
-      "id": "q57.1",
-      "question": "What is the primary architectural mechanism in LLM Evaluation Benchmarks?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LLM Evaluation Benchmarks, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q57.2",
-      "question": "How does LLM Evaluation Benchmarks optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-57", "title": "Chapter 57 Quiz — Evaluation Benchmarks", "questions": [
+  {"id": "q57.1", "question": "In the RAG experiment, case D's retriever returns river-mill chunks, and the model answers \"Ferncliff Lab opened in 2014\" from memory. Which pattern of scores does the lesson report?", "options": [{"id": "a", "text": "Groundedness and context relevance high, answer relevance low"}, {"id": "b", "text": "Answer relevance high, groundedness and context relevance low"}, {"id": "c", "text": "Context relevance high, groundedness and answer relevance low"}, {"id": "d", "text": "All three scores high, because the answer is true"}], "correctOptionId": "b", "explanation": "Case D scores CR 0.00, F 0.00 and AR 0.87. The answer repeats the question's terms, so answer relevance is high, while the retrieved text does not bear on the question and the claim is not in the context."},
+  {"id": "q57.2", "question": "An answer's second claim has support 0.50 against its best chunk (case E). A claim counts as supported when its support is at least θ. What is the faithfulness F at θ = 0.5 and at θ = 0.8?", "options": [{"id": "a", "text": "0.50 at both thresholds"}, {"id": "b", "text": "0.00 at both thresholds"}, {"id": "c", "text": "1.00 at θ = 0.5 and 0.00 at θ = 0.8"}, {"id": "d", "text": "0.00 at θ = 0.5 and 1.00 at θ = 0.8"}], "correctOptionId": "c", "explanation": "With one claim, F is 1 if the claim is supported and 0 otherwise. Support 0.50 meets θ = 0.5 (at least θ), so F = 1.00. It falls short of θ = 0.8, so F = 0.00. The threshold decides the verdict, which is why it must be stated."},
+  {"id": "q57.3", "question": "A judge gives probabilities p = [0.05, 0.10, 0.20, 0.40, 0.25] over score tokens 1 to 5. What is the probability-weighted score, and what is the hard score?", "options": [{"id": "a", "text": "Weighted 3.00; hard 3"}, {"id": "b", "text": "Weighted 4.00; hard 4"}, {"id": "c", "text": "Weighted 3.25; hard 5"}, {"id": "d", "text": "Weighted 3.70; hard 4"}], "correctOptionId": "d", "explanation": "The weighted score is 0.05·1 + 0.10·2 + 0.20·3 + 0.40·4 + 0.25·5 = 3.70. The hard score is the most likely token, 4 (probability 0.40). The 0.25 on score 5 pulls the weighted score above the hard score."},
+  {"id": "q57.4", "question": "In a swap test, call 1 places response A in slot 1 and the judge picks slot 1. Call 2 swaps the responses, so B is in slot 1, and the judge picks slot 1 again. What verdict does the swap rule return?", "options": [{"id": "a", "text": "A wins"}, {"id": "b", "text": "B wins"}, {"id": "c", "text": "Tie"}, {"id": "d", "text": "Both win, because each was picked once"}], "correctOptionId": "c", "explanation": "Call 1 favours A and call 2 favours B, so the two verdicts are inconsistent. The lesson's swap rule declares a winner only when the same response wins both orders. An inconsistent pair counts as a tie."},
+  {"id": "q57.5", "question": "A judge always prefers longer responses, in either slot. Which statement about the swap test is correct?", "options": [{"id": "a", "text": "The swap test detects verbosity bias, so the judge fails it"}, {"id": "b", "text": "The swap test cannot detect a bias that is the same in both orders, so this judge can pass it"}, {"id": "c", "text": "The swap test removes verbosity bias from the scores"}, {"id": "d", "text": "Consistent verdicts show that the ranking is correct"}], "correctOptionId": "b", "explanation": "A preference for longer responses is the same in both orders, so the verdicts are consistent and the swap test passes. The lesson names verbosity bias as a separate problem that the swap test does not address."},
+  {"id": "q57.6", "question": "A problem has n = 10 samples, of which c = 3 pass. What is the unbiased pass@5, computed as 1 − C(n−c, k)/C(n, k)?", "options": [{"id": "a", "text": "0.917"}, {"id": "b", "text": "0.832"}, {"id": "c", "text": "0.300"}, {"id": "d", "text": "0.700"}], "correctOptionId": "a", "explanation": "C(7, 5) = 21 and C(10, 5) = 252, so pass@5 = 1 − 21/252 = 0.917. The naive value 1 − 0.7⁵ = 0.832 is the lower, biased form. The value 0.300 is pass@1."},
+  {"id": "q57.7", "question": "A 500-item test gives a model 70% accuracy. What is the half-width of its 95% normal-approximation interval, in percentage points?", "options": [{"id": "a", "text": "2.0"}, {"id": "b", "text": "3.0"}, {"id": "c", "text": "4.6"}, {"id": "d", "text": "4.0"}], "correctOptionId": "d", "explanation": "The half-width is 1.96 × √(0.7 × 0.3 / 500) = 1.96 × 0.0205 = 0.0402, which is 4.0 points. The interval is 66.0% to 74.0%."},
+  {"id": "q57.8", "question": "Using the Elo expected-score formula E_A = 1 / (1 + 10^((R_B − R_A)/400)), what is the expected score of a player rated 100 points above the opponent?", "options": [{"id": "a", "text": "0.50"}, {"id": "b", "text": "0.64"}, {"id": "c", "text": "0.76"}, {"id": "d", "text": "0.91"}], "correctOptionId": "b", "explanation": "E = 1 / (1 + 10^(−0.25)) = 1 / (1 + 0.5623) = 0.64. A 400-point lead gives 0.91, which is the value for the other comparison in the lesson."},
+  {"id": "q57.9", "question": "Four models play 800 random battles. Which estimator gives the same answer no matter how the battles are ordered?", "options": [{"id": "a", "text": "Sequential Elo with K-factor 32"}, {"id": "b", "text": "Sequential Elo started from 1500 for every model"}, {"id": "c", "text": "A Bradley-Terry maximum-likelihood fit over all battles"}, {"id": "d", "text": "The Elo rating after the final battle"}], "correctOptionId": "c", "explanation": "The Bradley-Terry fit depends only on which model won each battle, not on the order. Sequential Elo updates after each battle, so its final rating depends on the order. In the lesson, the top model's Elo ranged from −34 to 210 across 200 orders, while Bradley-Terry gave 90.8 with interval [64.4, 121.1]."},
+  {"id": "q57.10", "question": "Two models score 60% and 63% on the same benchmark. Using the two-proportion formula with two-sided alpha 0.05 and power 0.80, how many items per model are needed to detect a three-point gap?", "options": [{"id": "a", "text": "About 4,129"}, {"id": "b", "text": "About 1,000"}, {"id": "c", "text": "About 14,079"}, {"id": "d", "text": "About 164"}], "correctOptionId": "a", "explanation": "The formula in lesson 57.3 gives about 4,129 items per model. At 1,000 items the power is only about 28%, so a three-point gap is not reliable at that size."}
+]}

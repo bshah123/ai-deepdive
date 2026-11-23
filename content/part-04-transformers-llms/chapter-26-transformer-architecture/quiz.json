@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-26",
-  "title": "Chapter 26 Quiz \u2014 Transformer Architecture",
+  "title": "Chapter 26 Quiz — Transformer Architecture",
   "questions": [
     {
       "id": "q26.1",
-      "question": "What is the primary architectural mechanism in Transformer Architecture?",
+      "question": "In a decoder's cross-attention sub-layer, where do the queries, keys and values come from?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "Queries from the decoder's hidden states; keys and values from the encoder output"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "Queries from the encoder output; keys and values from the decoder's hidden states"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "All three from the decoder's hidden states, with the causal mask applied"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "All three from the encoder output, so the decoder never reads its own state"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Transformer Architecture, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "a",
+      "explanation": "Cross-attention takes its queries from the decoder and its keys and values from the encoder output (Lesson 26.1, Vaswani et al. 2017, Section 3.2.3). Swapping them runs without error but changes what the decoder reads."
     },
     {
       "id": "q26.2",
-      "question": "How does Transformer Architecture optimize performance in modern AI systems?",
+      "question": "Apply LayerNorm with gain 1, shift 0 and no epsilon to x = [2, 4, 6, 8]. Which vector is the output?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "[0.365, 0.730, 1.095, 1.461]"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "[-3, -1, 1, 3]"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "[-1.342, -0.447, 0.447, 1.342]"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "[-0.5, -0.25, 0.25, 0.5]"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The mean is 5 and the centred vector is [-3, -1, 1, 3]. The variance is 5, so each entry is divided by 2.236, giving [-1.342, -0.447, 0.447, 1.342] (Lesson 26.2). The first option is RMSNorm, and the second is the centred vector before scaling."
+    },
+    {
+      "id": "q26.3",
+      "question": "Add 100 to every feature of a token vector. Which normalization's output stays the same?",
+      "options": [
+        {
+          "id": "a",
+          "text": "RMSNorm, because its divisor is the root mean square"
+        },
+        {
+          "id": "b",
+          "text": "LayerNorm, because its centring step subtracts the mean"
+        },
+        {
+          "id": "c",
+          "text": "Both, because both divide by a scale that cancels the shift"
+        },
+        {
+          "id": "d",
+          "text": "Neither, because any shift changes the variance"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "LayerNorm subtracts the mean, which removes a constant shift. RMSNorm does not subtract a mean, so its output changes. The check in Lesson 26.2 gave a LayerNorm change of 0.0 and an RMSNorm change of 0.1526 for a shift of 100 on an offset input."
+    },
+    {
+      "id": "q26.4",
+      "question": "With d_model = 512 and d_ff = 2048, how many weights does one encoder block have, with the layer-norm gains and shifts counted as in Lesson 26.1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2,097,152"
+        },
+        {
+          "id": "b",
+          "text": "1,048,576"
+        },
+        {
+          "id": "c",
+          "text": "4,199,936"
+        },
+        {
+          "id": "d",
+          "text": "3,150,336"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Attention has 4D² = 1,048,576 weights, the FFN has 2·D·D_ff + D_ff + D = 2,099,712, and two layer norms have 4D = 2,048. The total is 3,150,336. The decoder block, with two attentions and three norms, has 4,199,936 (Lesson 26.1)."
+    },
+    {
+      "id": "q26.5",
+      "question": "A colleague writes mask = np.tril(np.ones((4, 4), bool), k=-1) and then sets the masked scores to -inf before a decoder's softmax. What does this block?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The future positions, strictly above the diagonal"
+        },
+        {
+          "id": "b",
+          "text": "The past positions, strictly below the diagonal, so the future stays visible"
+        },
+        {
+          "id": "c",
+          "text": "Only the diagonal, so each position sees everything else"
+        },
+        {
+          "id": "d",
+          "text": "Nothing, because -inf is removed by the softmax"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "np.tril with k = -1 selects the entries strictly below the diagonal, which are the past positions. The causal mask must select the strictly upper triangle, np.triu(..., k=1) (Lesson 26.1, Question 3)."
+    },
+    {
+      "id": "q26.6",
+      "question": "For a SwiGLU FFN to have the same weight count as a standard FFN with d_ff = 4d, what must its hidden width be?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4d, which keeps the width unchanged"
+        },
+        {
+          "id": "b",
+          "text": "2d, which halves the width"
+        },
+        {
+          "id": "c",
+          "text": "8d/3, because three matrices of size d × d_ff must total 8d²"
+        },
+        {
+          "id": "d",
+          "text": "3d, which is three times the model width"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The standard FFN has 2 · d · 4d = 8d² weights. SwiGLU has 3 · d · d_ff, so 3 · d · d_ff = 8d² gives d_ff = 8d/3 (Lesson 26.3, citing Shazeer 2020, Section 2). At d = 512, the rounded width 1365 gives 2,096,640 weights against 2,097,152."
+    },
+    {
+      "id": "q26.7",
+      "question": "A top-2 router gives scores [1.0, 2.5, 0.3, 2.0] for four experts. What are the weights for the two selected experts after renormalization?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.515 and 0.313, the raw softmax probabilities"
+        },
+        {
+          "id": "b",
+          "text": "0.6225 and 0.3775, the softmax over the two selected scores"
+        },
+        {
+          "id": "c",
+          "text": "0.5 and 0.5, because the router splits evenly"
+        },
+        {
+          "id": "d",
+          "text": "2.5 and 2.0, the raw scores"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The raw probabilities for experts 1 and 3 are 0.515 and 0.313, which sum to 0.828. Dividing by 0.828 gives 0.6225 and 0.3775 (Lesson 26.4). The renormalized weights sum to 1, and the output is 0.6225·[2, 2] + 0.3775·[3, 2] = [2.378, 2.000]."
+    },
+    {
+      "id": "q26.8",
+      "question": "A layer has T = 8192 tokens, E = 16 experts, k = 2 and capacity factor c = 1.5. What is each expert's capacity C?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1024"
+        },
+        {
+          "id": "b",
+          "text": "1280"
+        },
+        {
+          "id": "c",
+          "text": "1536"
+        },
+        {
+          "id": "d",
+          "text": "2048"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "C = ceil(c·k·T/E) = ceil(1.5 × 2 × 8192 / 16) = 1536 (Lesson 26.4). The option 1024 is the capacity at c = 1.0, and 2048 is the capacity at c = 2.0."
+    },
+    {
+      "id": "q26.9",
+      "question": "In the lesson's toy with 4,096 tokens, 8 experts, k = 2 and capacity factor 1.0, the skewed router sends 2,157 assignments to expert 0. What share of all assignments does it drop?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4.0%"
+        },
+        {
+          "id": "b",
+          "text": "14.5%"
+        },
+        {
+          "id": "c",
+          "text": "8.3%"
+        },
+        {
+          "id": "d",
+          "text": "22.9%"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The capacity is 1024. The drops are (2157 − 1024) + (1591 − 1024) + (1202 − 1024) = 1878 of Tk = 8192 assignments, which is 22.9% (Lesson 26.4). The 4.0% figure is the balanced router at the same factor. The 8.3% figure is the skewed router at c = 1.5, and the 14.5% figure is at c = 1.25."
     }
   ]
 }

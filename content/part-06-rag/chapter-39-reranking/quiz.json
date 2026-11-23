@@ -1,54 +1,198 @@
 {
   "chapterId": "chapter-39",
-  "title": "Chapter 39 Quiz \u2014 Chunking Strategies",
+  "title": "Chapter 39 Quiz — Reranking",
   "questions": [
     {
       "id": "q39.1",
-      "question": "What is the primary architectural mechanism in Chunking Strategies?",
+      "question": "Which design can compute its document-side representations once, store them, and reuse them for every query?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "Cross-encoder"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "Bi-encoder"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "Softmax score head"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "Truncated input window"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Chunking Strategies, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "A bi-encoder encodes the document without seeing the query, so the vectors can be indexed offline. A cross-encoder must run the query and document together, so its document representation changes with each query."
     },
     {
       "id": "q39.2",
-      "question": "How does Chunking Strategies optimize performance in modern AI systems?",
+      "question": "How many distinct pairs must an all-pairs cross-encoder score to find the most similar pair among 10,000 sentences?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "10,000"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "100,000,000"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "50,000,000"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "49,995,000"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "Each unordered pair is scored once, so the count is C(10,000, 2) = 10,000 x 9,999 / 2 = 49,995,000. The bi-encoder needs only 10,000 encodings."
+    },
+    {
+      "id": "q39.3",
+      "question": "A query has 12 tokens, the input limit is 512 tokens, and the document has 900 tokens. How many document tokens are kept, counting [CLS] and the two [SEP] tokens as special tokens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "500"
+        },
+        {
+          "id": "b",
+          "text": "512"
+        },
+        {
+          "id": "c",
+          "text": "509"
+        },
+        {
+          "id": "d",
+          "text": "497"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The document budget is 512 - (12 + 3) = 497, and the first 497 document tokens are kept if truncation trims from the end, as the lesson assumes."
+    },
+    {
+      "id": "q39.4",
+      "question": "What does this code print?\n\n```python\nimport numpy as np\n\ndef softmax(z, axis=-1):\n    z = z - z.max(axis=axis, keepdims=True)\n    e = np.exp(z)\n    return e / e.sum(axis=axis, keepdims=True)\n\nprint(softmax(np.array([[0.5], [2.0]]), axis=1).ravel())\n```",
+      "options": [
+        {
+          "id": "a",
+          "text": "[0.5 2. ]"
+        },
+        {
+          "id": "b",
+          "text": "[1. 1.]"
+        },
+        {
+          "id": "c",
+          "text": "[0.6225 0.8808]"
+        },
+        {
+          "id": "d",
+          "text": "IndexError"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each row has one entry, so softmax over that axis is e^z / e^z = 1 whatever z is. The correct score is the raw logit or a sigmoid, not a softmax."
+    },
+    {
+      "id": "q39.5",
+      "question": "A MonoT5-style head gives logit 1.0 for 'true' and -1.0 for 'false'. What is p(true) under the two-way softmax?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.8808"
+        },
+        {
+          "id": "b",
+          "text": "0.5000"
+        },
+        {
+          "id": "c",
+          "text": "0.1192"
+        },
+        {
+          "id": "d",
+          "text": "2.0000"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "p(true) = sigmoid(1.0 - (-1.0)) = sigmoid(2.0) = 1 / (1 + e^-2) = 0.8808 (rounded to four places)."
+    },
+    {
+      "id": "q39.6",
+      "question": "In the worked MaxSim example, the query token q2 = (0, 1) is replaced by the zero vector (0, 0). The other two query tokens are unchanged. What is the new MaxSim score?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.76"
+        },
+        {
+          "id": "b",
+          "text": "1.96"
+        },
+        {
+          "id": "c",
+          "text": "1.76"
+        },
+        {
+          "id": "d",
+          "text": "2.56"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The row for the zero vector is all zeros, so its maximum is 0. The other rows still give 0.80 and 0.96, so the score is 0.80 + 0 + 0.96 = 1.76."
+    },
+    {
+      "id": "q39.7",
+      "question": "A colleague computes (Q @ D.T).max(axis=0).sum() on the worked example matrix, which has rows for three query tokens and columns for four document tokens. What value is printed, and is it MaxSim?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.56, and it is not MaxSim"
+        },
+        {
+          "id": "b",
+          "text": "2.76, and it is MaxSim"
+        },
+        {
+          "id": "c",
+          "text": "1.76, and it is MaxSim"
+        },
+        {
+          "id": "d",
+          "text": "3.56, and it is MaxSim"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Column maxima are 0.96, 1.00, 0.00 and 0.60, which sum to 2.56. MaxSim needs the maximum over document tokens for each query token, which is max(axis=1), giving 2.76."
+    },
+    {
+      "id": "q39.8",
+      "question": "An index holds one million passages of 100 tokens each, with 128 numbers per token stored at 2 bytes each (fp16). Ignoring overhead, how large is the index?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12.8 GB"
+        },
+        {
+          "id": "b",
+          "text": "0.256 GB"
+        },
+        {
+          "id": "c",
+          "text": "25.6 GB"
+        },
+        {
+          "id": "d",
+          "text": "51.2 GB"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The count is 10^6 x 100 x 128 x 2 = 2.56 x 10^10 bytes, which is 25.6 GB. The 51.2 GB figure in the lesson is the same index at 4 bytes per number (fp32)."
     }
   ]
 }

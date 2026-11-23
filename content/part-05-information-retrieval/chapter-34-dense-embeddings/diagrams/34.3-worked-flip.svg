@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" aria-label="Ranking of two documents changes with prefix size" class="sketch"><title>Ranking of two documents changes with prefix size</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Same query, same documents, different winner</tspan></text>
+<text x="40" y="80" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">query  q = (1, 1, 1, 1)</tspan></text>
+<text x="40" y="110" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">doc a   = (0, 0, 3, 3)</tspan></text>
+<text x="40" y="140" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">doc b   = (2, 1, -1, -1)</tspan></text>
+<text x="120" y="196" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="120" dy="0">prefix m</tspan></text>
+<text x="400" y="196" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="400" dy="0">score a</tspan></text>
+<text x="580" y="196" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="580" dy="0">score b</tspan></text>
+<text x="760" y="196" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="760" dy="0">winner</tspan></text>
+<path d="M40.6 208.0 C212.2 208.8, 385.4 209.8, 839.7 207.6 M40.3 208.2 C248.1 211.5, 456.8 212.2, 840.5 207.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="120" y="240" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="120" dy="0">1</tspan></text>
+<text x="400" y="240" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="400" dy="0">0</tspan></text>
+<text x="580" y="240" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">2</tspan></text>
+<path d="M718.3 217.4 L801.3 214.5 L801.9 246.5 L720.7 246.3" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M720.1 214.9 C739.1 216.8, 753.7 215.7, 800.7 217.8 M721.1 215.6 C743.6 216.4, 764.0 215.0, 799.3 215.5 M801.1 214.7 C798.1 230.2, 800.5 241.1, 799.3 246.5 M800.4 216.3 C801.3 222.0, 801.4 230.0, 800.0 248.0 M802.1 247.3 C774.0 249.6, 743.0 247.0, 721.6 248.5 M799.5 247.7 C783.3 247.6, 767.4 249.9, 719.0 247.3 M721.3 247.9 C722.3 237.7, 720.8 227.3, 720.6 216.6 M721.1 249.1 C720.7 240.9, 721.5 231.0, 719.1 216.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="760" y="240" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="760" dy="0">b</tspan></text>
+<text x="120" y="276" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="120" dy="0">2</tspan></text>
+<text x="400" y="276" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="400" dy="0">0</tspan></text>
+<text x="580" y="276" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">3</tspan></text>
+<path d="M718.7 250.3 L800.1 250.3 L799.8 282.8 L719.4 281.7" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M718.8 249.6 C736.3 252.7, 755.4 252.9, 802.2 251.9 M719.2 253.1 C744.7 252.8, 768.7 253.1, 799.8 251.2 M800.6 251.0 C802.0 265.9, 800.5 278.6, 798.6 283.8 M799.5 252.6 C800.1 260.4, 799.0 271.6, 799.3 283.3 M800.9 285.5 C771.5 283.0, 740.9 284.5, 721.4 281.6 M799.6 284.7 C770.4 284.1, 739.0 283.7, 718.9 284.6 M718.0 285.9 C721.5 271.5, 722.8 260.4, 718.9 253.6 M720.2 285.1 C720.3 276.0, 719.2 269.5, 720.9 252.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="760" y="276" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="760" dy="0">b</tspan></text>
+<text x="120" y="312" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="120" dy="0">3</tspan></text>
+<text x="400" y="312" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="400" dy="0">3</tspan></text>
+<text x="580" y="312" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">2</tspan></text>
+<path d="M719.2 288.0 L799.0 286.0 L797.7 319.1 L718.1 322.0" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M722.2 289.2 C738.3 288.6, 752.3 290.1, 798.8 286.0 M719.6 288.3 C745.7 289.2, 771.0 288.9, 800.3 286.9 M800.0 287.3 C801.2 295.1, 800.5 303.4, 797.8 321.2 M801.1 288.8 C798.9 298.7, 799.0 310.8, 801.0 320.9 M799.8 318.8 C769.1 321.1, 738.7 322.0, 721.2 319.5 M799.6 319.3 C771.0 320.5, 742.6 322.1, 718.9 319.4 M719.5 319.2 C719.8 311.7, 719.0 301.4, 722.0 285.7 M719.2 321.1 C720.7 307.2, 720.3 295.1, 720.2 288.3" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="760" y="312" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="760" dy="0">a</tspan></text>
+<text x="120" y="348" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="120" dy="0">4</tspan></text>
+<text x="400" y="348" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="400" dy="0">6</tspan></text>
+<text x="580" y="348" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">1</tspan></text>
+<path d="M719.7 325.8 L797.8 321.8 L800.4 355.4 L721.6 357.4" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M720.8 323.9 C735.5 322.2, 754.0 325.1, 800.3 324.8 M720.0 323.4 C746.7 323.3, 775.7 322.3, 800.8 325.0 M799.5 323.6 C800.4 330.8, 800.5 340.9, 801.9 353.7 M800.2 325.0 C801.0 330.7, 800.0 337.2, 800.3 356.1 M798.7 357.0 C766.7 354.5, 736.6 354.7, 721.0 357.4 M799.7 356.4 C774.0 357.0, 746.2 355.9, 718.8 356.7 M721.1 357.2 C719.1 345.5, 721.0 334.5, 720.3 322.7 M720.7 357.1 C721.2 344.8, 718.9 333.5, 719.5 324.3" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="760" y="348" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="760" dy="0">a</tspan></text>
+<text x="440" y="366" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">The winner changes between m = 2 and m = 3, and the full vector gives a.</tspan></text>
+</svg>

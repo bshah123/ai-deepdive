@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-label="Naive name pattern span versus the gold span" class="sketch"><title>Naive name pattern span versus the gold span</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">A boundary error in the name pattern</tspan></text>
+<text x="60" y="130" class="sk-mono" font-size="22" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">Contact Alice Moreno at the lab.</tspan></text>
+<path d="M58.4 105.6 C96.9 106.1, 137.1 102.3, 230.6 104.8 M60.1 105.0 C108.6 103.2, 155.5 102.8, 230.7 105.2" style="stroke:var(--sk-rose);fill:none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="146" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="146" dy="0">naive match: Contact Alice</tspan></text>
+<path d="M167.8 158.3 C202.0 160.9, 239.0 158.5, 325.0 156.8 M166.5 158.1 C213.7 158.4, 259.9 159.7, 324.2 158.9" style="stroke:var(--sk-green);fill:none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="245" y="190" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="245" dy="0">gold: Alice Moreno</tspan></text>
+<text x="60" y="250" class="sk-mono" font-size="22" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">&lt;NAME&gt; Moreno at the lab.</tspan></text>
+<text x="430" y="250" class="sk-hand" font-size="20" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="430" dy="0">Moreno leaks</tspan></text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="One span record with name, IDs, timing, attributes and status" class="sketch"><title>One span record with name, IDs, timing, attributes and status</title>
+<text x="440" y="40" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">One span is one record</tspan></text>
+<path d="M60.4 64.4 C214.2 65.6, 368.7 66.0, 819.4 64.0 M60.0 64.2 C347.8 63.4, 635.4 63.6, 820.2 64.2 M818.4 62.8 C823.5 132.0, 823.5 202.7, 820.1 382.2 M820.8 63.7 C821.7 181.2, 821.9 298.8, 820.2 381.7 M819.3 382.1 C521.0 386.1, 223.5 385.7, 59.2 382.8 M820.4 381.7 C602.2 382.9, 384.1 382.8, 60.4 381.7 M59.8 380.4 C62.2 285.4, 62.3 192.0, 60.0 63.5 M60.2 382.0 C63.4 294.5, 63.4 209.1, 59.4 64.2" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M58.4 65.1 L821.9 63.8 L820.7 115.9 L57.8 113.1" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M59.9 63.9 C213.1 59.9, 367.5 60.9, 820.0 63.3 M60.2 63.9 C363.8 65.8, 667.4 65.7, 820.4 64.0 M822.0 62.6 C819.2 77.5, 819.9 87.5, 819.4 115.7 M820.4 63.8 C818.8 75.5, 820.2 88.3, 819.6 115.2 M820.8 113.1 C662.5 118.9, 503.9 118.2, 59.1 113.6 M820.4 114.1 C620.0 110.7, 420.6 111.4, 60.3 114.2 M61.2 113.8 C57.6 93.5, 60.5 74.3, 58.3 64.2 M59.4 114.0 C58.3 101.6, 58.8 91.4, 60.8 64.3" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="440" y="97" class="sk-mono" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">llm_call</tspan></text>
+<text x="90" y="150" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="90" dy="0">trace_id</tspan></text>
+<text x="300" y="150" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">00000000000000000000000000000001</tspan></text>
+<text x="90" y="180" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="90" dy="0">span_id</tspan></text>
+<text x="300" y="180" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">0000000000000005</tspan></text>
+<text x="90" y="210" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="90" dy="0">parent_id</tspan></text>
+<text x="300" y="210" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">0000000000000002</tspan></text>
+<text x="90" y="240" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="90" dy="0">time</tspan></text>
+<text x="300" y="240" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">109 ms -&gt; 1109 ms</tspan></text>
+<text x="90" y="276" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="90" dy="0">attributes</tspan></text>
+<text x="300" y="276" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">gen_ai.request.model = example-model</tspan></text>
+<text x="300" y="302" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">gen_ai.usage.input_tokens = 1840</tspan></text>
+<text x="300" y="328" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="300" dy="0">gen_ai.usage.output_tokens = 64</tspan></text>
+<text x="90" y="364" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="90" dy="0">status</tspan></text>
+<text x="300" y="364" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-green)"><tspan x="300" dy="0">OK</tspan></text>
+</svg>

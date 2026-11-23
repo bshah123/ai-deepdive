@@ -1,0 +1,110 @@
+{
+  "cost": {
+    "pair_len": 131,
+    "bi_online_tokens_per_query": 8,
+    "bi_offline_tokens_corpus": 120000,
+    "bi_dot_products": 1000,
+    "cross_full_tokens_per_query": 131000,
+    "two_stage_tokens_per_query": 13108,
+    "ratio_full_cross_vs_two_stage": 9.99,
+    "ratio_full_cross_vs_bi_online": 16375
+  },
+  "attention": {
+    "tokens": [
+      "[CLS]",
+      "capital",
+      "of",
+      "france",
+      "[SEP]",
+      "paris",
+      "is",
+      "the",
+      "capital",
+      "[SEP]"
+    ],
+    "query_rows": [
+      "capital",
+      "of",
+      "france"
+    ],
+    "doc_cols": [
+      "paris",
+      "is",
+      "the",
+      "capital"
+    ],
+    "query_to_doc_weights": [
+      [
+        0.026,
+        0.032,
+        0.027,
+        0.342
+      ],
+      [
+        0.025,
+        0.029,
+        0.059,
+        0.033
+      ],
+      [
+        0.126,
+        0.13,
+        0.153,
+        0.016
+      ]
+    ],
+    "query_to_doc_mass_per_row": [
+      0.427,
+      0.146,
+      0.426
+    ]
+  },
+  "monot5_style": {
+    "logit_true": [
+      2.0,
+      0.4,
+      -1.1
+    ],
+    "logit_false": [
+      -1.0,
+      0.1,
+      0.9
+    ],
+    "p_true": [
+      0.9526,
+      0.5744,
+      0.1192
+    ],
+    "max_abs_diff_vs_sigmoid_of_difference": 0.0
+  },
+  "single_logit_softmax_bug": {
+    "logits": [
+      3.2,
+      -1.0,
+      0.4
+    ],
+    "softmax_over_dim1": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "index_1_error": "index 1 is out of bounds for axis 1 with size 1"
+  },
+  "single_logit_sigmoid": [
+    0.9608,
+    0.2689,
+    0.5987
+  ],
+  "truncation": {
+    "max_len": 512,
+    "query_tokens": 8,
+    "special_tokens": 3,
+    "doc_tokens_kept": 501,
+    "doc_tokens_total": 700,
+    "relevant_span": [
+      600,
+      608
+    ],
+    "relevant_span_kept": false
+  }
+}

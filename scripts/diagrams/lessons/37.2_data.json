@@ -1,0 +1,203 @@
+{
+  "n_docs": 6,
+  "n_queries": 14,
+  "default_size": 16,
+  "default_chunks": 20,
+  "default_vocab": 160,
+  "default_counts": {
+    "lost_at_ingestion": 1,
+    "lost_at_retrieval": 0,
+    "in_top3": 13
+  },
+  "sweep": [
+    {
+      "size": 4,
+      "overlap": 0,
+      "n_chunks": 73,
+      "mean_words": 3.9,
+      "answer_in_index": 0.5714285714285714,
+      "answer_at_1": 0.07142857142857142,
+      "answer_at_k": 0.07142857142857142
+    },
+    {
+      "size": 4,
+      "overlap": 2,
+      "n_chunks": 137,
+      "mean_words": 4.0,
+      "answer_in_index": 1.0,
+      "answer_at_1": 0.07142857142857142,
+      "answer_at_k": 0.21428571428571427
+    },
+    {
+      "size": 8,
+      "overlap": 0,
+      "n_chunks": 37,
+      "mean_words": 7.6,
+      "answer_in_index": 0.8571428571428571,
+      "answer_at_1": 0.42857142857142855,
+      "answer_at_k": 0.5
+    },
+    {
+      "size": 8,
+      "overlap": 4,
+      "n_chunks": 67,
+      "mean_words": 7.9,
+      "answer_in_index": 1.0,
+      "answer_at_1": 0.35714285714285715,
+      "answer_at_k": 0.6428571428571429
+    },
+    {
+      "size": 16,
+      "overlap": 0,
+      "n_chunks": 20,
+      "mean_words": 14.2,
+      "answer_in_index": 0.9285714285714286,
+      "answer_at_1": 0.7142857142857143,
+      "answer_at_k": 0.9285714285714286
+    },
+    {
+      "size": 16,
+      "overlap": 8,
+      "n_chunks": 31,
+      "mean_words": 15.6,
+      "answer_in_index": 1.0,
+      "answer_at_1": 0.7142857142857143,
+      "answer_at_k": 0.9285714285714286
+    },
+    {
+      "size": 32,
+      "overlap": 0,
+      "n_chunks": 12,
+      "mean_words": 23.6,
+      "answer_in_index": 1.0,
+      "answer_at_1": 0.9285714285714286,
+      "answer_at_k": 1.0
+    },
+    {
+      "size": 32,
+      "overlap": 16,
+      "n_chunks": 14,
+      "mean_words": 29.4,
+      "answer_in_index": 1.0,
+      "answer_at_1": 1.0,
+      "answer_at_k": 1.0
+    },
+    {
+      "size": 64,
+      "overlap": 0,
+      "n_chunks": 7,
+      "mean_words": 40.4,
+      "answer_in_index": 1.0,
+      "answer_at_1": 1.0,
+      "answer_at_k": 1.0
+    },
+    {
+      "size": 1000000,
+      "overlap": 0,
+      "n_chunks": 6,
+      "mean_words": 47.2,
+      "answer_in_index": 1.0,
+      "answer_at_1": 1.0,
+      "answer_at_k": 1.0
+    }
+  ],
+  "per_query": [
+    {
+      "question": "How many days of annual leave do staff accrue each month?",
+      "gold": "1.5 days",
+      "status": "in_top3"
+    },
+    {
+      "question": "How long can unused leave carry over?",
+      "gold": "10 days",
+      "status": "lost_at_ingestion"
+    },
+    {
+      "question": "How far ahead must a leave request be approved?",
+      "gold": "5 working days",
+      "status": "in_top3"
+    },
+    {
+      "question": "By what time must I tell my manager I am sick?",
+      "gold": "9:30 a.m.",
+      "status": "in_top3"
+    },
+    {
+      "question": "When is a medical certificate needed?",
+      "gold": "3 consecutive days",
+      "status": "in_top3"
+    },
+    {
+      "question": "How soon after a trip must a travel claim be submitted?",
+      "gold": "30 days",
+      "status": "in_top3"
+    },
+    {
+      "question": "Who approves a claim above 500 dollars?",
+      "gold": "second approval",
+      "status": "in_top3"
+    },
+    {
+      "question": "Is alcohol reimbursable?",
+      "gold": "not reimbursable",
+      "status": "in_top3"
+    },
+    {
+      "question": "How many days a week can I work remotely?",
+      "gold": "2 days per week",
+      "status": "in_top3"
+    },
+    {
+      "question": "What are the core hours for remote staff?",
+      "gold": "10:00 to 15:00",
+      "status": "in_top3"
+    },
+    {
+      "question": "How quickly must a lost device be reported?",
+      "gold": "24 hours",
+      "status": "in_top3"
+    },
+    {
+      "question": "Can I connect a personal USB drive to a company laptop?",
+      "gold": "not permitted",
+      "status": "in_top3"
+    },
+    {
+      "question": "How long is probation?",
+      "gold": "3 months",
+      "status": "in_top3"
+    },
+    {
+      "question": "When is the first performance review?",
+      "gold": "week 12",
+      "status": "in_top3"
+    }
+  ],
+  "leave_chunks_16": [
+    "Full-time staff accrue 1.5 days of annual leave per completed month. Unused leave up to 10",
+    "days carries over to the next calendar year. Leave requests must be approved by a line",
+    "manager at least 5 working days in advance, except for sick leave. Sick leave does not"
+  ],
+  "example_query": "How far ahead must a leave request be approved?",
+  "example_gold": "5 working days",
+  "example_hits": [
+    {
+      "doc": "leave",
+      "text": "days carries over to the next calendar year. Leave requests must be approved by a line",
+      "score": 0.46,
+      "has_gold": false
+    },
+    {
+      "doc": "leave",
+      "text": "manager at least 5 working days in advance, except for sick leave. Sick leave does not",
+      "score": 0.253,
+      "has_gold": true
+    },
+    {
+      "doc": "leave",
+      "text": "Full-time staff accrue 1.5 days of annual leave per completed month. Unused leave up to 10",
+      "score": 0.238,
+      "has_gold": false
+    }
+  ]
+}

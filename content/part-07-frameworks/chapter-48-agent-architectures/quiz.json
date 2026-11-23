@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-48",
-  "title": "Chapter 48 Quiz \u2014 LlamaIndex Architecture",
+  "title": "Chapter 48 Quiz — Agent Architectures",
   "questions": [
     {
       "id": "q48.1",
-      "question": "What is the primary architectural mechanism in LlamaIndex Architecture?",
+      "question": "The lamp episode in Lesson 48.1 gives the prompt length at steps 1 to 5 as 10, 24, 41, 59 and 76 words. How many words does the model read across the whole episode?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "76 words"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "186 words"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "210 words"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "286 words"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LlamaIndex Architecture, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "10 + 24 + 41 + 59 + 76 = 210. The lesson's code prints the same total."
     },
     {
       "id": "q48.2",
-      "question": "How does LlamaIndex Architecture optimize performance in modern AI systems?",
+      "question": "Run the lamp loop from Lesson 48.1 with observations left out of the prompt and a budget of 8 steps. What does the loop report?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "Finished with L3 after five steps"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "Finished with L2 after four steps"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "A parse failure on the first step"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "Budget exhausted after 8 steps, with search[lamp] repeated"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "With no observations, the rule never sees the lamp list, so it writes search[lamp] on every step. No step is finish, so the episode ends with status budget exhausted after 8 steps."
+    },
+    {
+      "id": "q48.3",
+      "question": "In the Lesson 48.1 slip model with slip rate p = 0.2 and no retry, the loop stops at the first parse failure. What is the probability that an episode finishes with the correct answer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.328"
+        },
+        {
+          "id": "b",
+          "text": "0.590"
+        },
+        {
+          "id": "c",
+          "text": "0.200"
+        },
+        {
+          "id": "d",
+          "text": "0.800"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The episode has five actions (search, three info calls, finish), and each must parse. The probability is 0.8^5 = 0.32768, which the lesson prints as 0.328."
+    },
+    {
+      "id": "q48.4",
+      "question": "A colleague calls parse_action on the whole model output, using the anchored pattern from Lesson 48.1. Each output begins with a Thought line and then has an Action line. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It parses correctly, because match searches every line"
+        },
+        {
+          "id": "b",
+          "text": "Every step fails to parse, because the pattern must match at the start of the string and the output starts with Thought"
+        },
+        {
+          "id": "c",
+          "text": "It parses the last action, because match takes the last line"
+        },
+        {
+          "id": "d",
+          "text": "It raises KeyError in the TOOLS lookup"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "ACTION_RE is anchored with ^ and used with match, which tests only the start of the string. The fix is to parse each line, as the lesson's loop does."
+    },
+    {
+      "id": "q48.5",
+      "question": "A flat 12-step plan has per-step success 0.95, with no checks and independent steps. What is the probability that the whole plan succeeds?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.540"
+        },
+        {
+          "id": "b",
+          "text": "0.292"
+        },
+        {
+          "id": "c",
+          "text": "0.735"
+        },
+        {
+          "id": "d",
+          "text": "0.950"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "0.95^12 = 0.5404, which the lesson rounds to 0.540. The 0.735 value is for six steps and 0.292 is for 24 steps."
+    },
+    {
+      "id": "q48.6",
+      "question": "A plan has two blocks of three steps, each step succeeds with probability 0.95, and a block is retried up to three times. The verifier is perfect and attempts are independent. What is the success probability?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.857"
+        },
+        {
+          "id": "b",
+          "text": "0.997"
+        },
+        {
+          "id": "c",
+          "text": "0.735"
+        },
+        {
+          "id": "d",
+          "text": "0.994"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "A block succeeds in one attempt with 0.95^3 = 0.857. Three attempts give 1 - 0.143^3 = 0.997. Two blocks give 0.997^2 = 0.994."
+    },
+    {
+      "id": "q48.7",
+      "question": "In the evaluator-optimizer model of Lesson 48.3, the generator is correct with p = 0.4, the judge accepts correct answers with t = 0.9 and wrong answers with f = 0.2. What is the precision of one accepted answer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.36"
+        },
+        {
+          "id": "b",
+          "text": "0.48"
+        },
+        {
+          "id": "c",
+          "text": "0.75"
+        },
+        {
+          "id": "d",
+          "text": "0.40"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The accept probability is a = 0.4 × 0.9 + 0.6 × 0.2 = 0.48. The precision is pt/a = 0.36 / 0.48 = 0.75."
+    },
+    {
+      "id": "q48.8",
+      "question": "Take p = 0.5 and t = 0.8, as in Lesson 48.3, but raise the judge's false-accept rate to f = 0.9. As the number of attempts K grows without limit, output accuracy approaches which value?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.500"
+        },
+        {
+          "id": "b",
+          "text": "0.471"
+        },
+        {
+          "id": "c",
+          "text": "0.800"
+        },
+        {
+          "id": "d",
+          "text": "0.900"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Here a = 0.4 + 0.45 = 0.85 and the limit is pt/a = 0.40 / 0.85 = 0.471. Because f > t, the limit is below p = 0.5, so more attempts lower the output accuracy."
+    },
+    {
+      "id": "q48.9",
+      "question": "A student's simulation runs out_correct[accept] = correct[accept] on every attempt, without the mask new = accept & ~done. Which effect does this have?",
+      "options": [
+        {
+          "id": "a",
+          "text": "An item whose first accepted attempt was wrong, and whose later accepted attempt is correct, is scored as correct"
+        },
+        {
+          "id": "b",
+          "text": "Nothing changes, because each attempt writes the same answer"
+        },
+        {
+          "id": "c",
+          "text": "The judge's false-accept rate becomes zero"
+        },
+        {
+          "id": "d",
+          "text": "The loop stops after one attempt"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Each later accept overwrites the output, so the output becomes the last accepted attempt. That understates the accepted-error rate. The fix is to write only items that are newly accepted."
     }
   ]
 }

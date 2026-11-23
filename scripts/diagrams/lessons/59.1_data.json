@@ -1,0 +1,111 @@
+{
+  "seed": 59,
+  "P": 7,
+  "T": 4000,
+  "D_DIRECT": 2,
+  "ERR": 0.02,
+  "TOK_ANS": 3,
+  "TOK_STEP": 12,
+  "chance": 0.1429,
+  "e1": [
+    {
+      "n": 1,
+      "direct": 1.0,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.983,
+      "direct_tokens": 3,
+      "cot_tokens": 12
+    },
+    {
+      "n": 2,
+      "direct": 1.0,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.964,
+      "direct_tokens": 3,
+      "cot_tokens": 24
+    },
+    {
+      "n": 4,
+      "direct": 0.1457,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.9375,
+      "direct_tokens": 3,
+      "cot_tokens": 48
+    },
+    {
+      "n": 6,
+      "direct": 0.1333,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.8972,
+      "direct_tokens": 3,
+      "cot_tokens": 72
+    },
+    {
+      "n": 8,
+      "direct": 0.1383,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.8708,
+      "direct_tokens": 3,
+      "cot_tokens": 96
+    },
+    {
+      "n": 12,
+      "direct": 0.1475,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.8227,
+      "direct_tokens": 3,
+      "cot_tokens": 144
+    },
+    {
+      "n": 16,
+      "direct": 0.1395,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.7602,
+      "direct_tokens": 3,
+      "cot_tokens": 192
+    },
+    {
+      "n": 24,
+      "direct": 0.149,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.6737,
+      "direct_tokens": 3,
+      "cot_tokens": 288
+    },
+    {
+      "n": 32,
+      "direct": 0.1462,
+      "cot_ideal": 1.0,
+      "cot_noisy": 0.5985,
+      "direct_tokens": 3,
+      "cot_tokens": 384
+    }
+  ],
+  "e2": {
+    "p": 0.9,
+    "m": 10,
+    "q_single": 0.3487,
+    "vote": {
+      "1": 0.351,
+      "3": 0.4005,
+      "5": 0.507,
+      "11": 0.6856,
+      "21": 0.8461,
+      "41": 0.9665
+    },
+    "m5_q_single": 0.5905,
+    "m5_vote": {
+      "1": 0.5915,
+      "3": 0.7206,
+      "5": 0.8561,
+      "11": 0.9762,
+      "21": 0.9992,
+      "41": 1.0
+    }
+  },
+  "cost": {
+    "direct_tokens": 3,
+    "cot_tokens_m10": 120,
+    "sc11_tokens_m10": 1320
+  }
+}

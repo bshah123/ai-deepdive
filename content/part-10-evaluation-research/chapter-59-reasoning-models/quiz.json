@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-59",
-  "title": "Chapter 59 Quiz \u2014 LLM Safety & Guardrails",
+  "title": "Chapter 59 Quiz — Reasoning Models",
   "questions": [
     {
       "id": "q59.1",
-      "question": "What is the primary architectural mechanism in LLM Safety & Guardrails?",
+      "question": "In the lesson's toy task, a chain starts at x = 0 and applies the first two maps (3, 4) and (5, 1), each as x -> (a*x + b) mod 7. What does the chain write after map 2?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "4"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "21"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "0"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "6"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LLM Safety & Guardrails, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "Map 1 gives 3*0 + 4 = 4. Map 2 gives 5*4 + 1 = 21, and 21 mod 7 = 0. The raw value 21 is not a valid state, because states are 0 to 6."
     },
     {
       "id": "q59.2",
-      "question": "How does LLM Safety & Guardrails optimize performance in modern AI systems?",
+      "question": "In the lesson's noisy chain-of-thought experiment, each written state is corrupted with probability 0.02. Why does accuracy fall as the chain gets longer?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "Each extra written step adds a fresh 2% chance of an error that a later step always fixes."
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "The direct answerer gets more accurate as the chain grows, which pulls the average down."
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "Longer chains use more tokens, and the token limit truncates the answer."
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "Each map is a bijection on the seven states, so a wrong state stays wrong through every later map."
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "Every map a_i is nonzero mod 7, so it is a bijection. A wrong state therefore remains wrong unless a later error happens to land on the right value. In the measured table the noisy chain falls from 0.983 at n = 1 to 0.599 at n = 32."
+    },
+    {
+      "id": "q59.3",
+      "question": "Majority voting over k chains in the lesson's toy model uses a single-chain success probability q = 0.9^10 = 0.3487. Eleven chains of ten steps each, at 12 tokens per step, cost how many tokens in total?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1,320"
+        },
+        {
+          "id": "b",
+          "text": "120"
+        },
+        {
+          "id": "c",
+          "text": "2,520"
+        },
+        {
+          "id": "d",
+          "text": "3,487"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "One chain writes 10 * 12 = 120 tokens, so 11 chains write 11 * 120 = 1,320. The 0.3487 figure is the per-chain success probability and does not change the token cost."
+    },
+    {
+      "id": "q59.4",
+      "question": "A four-step chain is correct with probability Q = 0.5 per step, and the verifier is perfect. Best-of-N uses a budget of 16 generator calls. What is the probability of success?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.0625"
+        },
+        {
+          "id": "b",
+          "text": "0.6440"
+        },
+        {
+          "id": "c",
+          "text": "0.2275"
+        },
+        {
+          "id": "d",
+          "text": "0.9375"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "With D = 4, a budget of 16 gives N = 16 / 4 = 4 chains. Each chain is fully correct with probability 0.5^4 = 0.0625, so success is 1 - (1 - 0.0625)^4 = 1 - 0.9375^4 = 0.2275. The 0.0625 is the single-chain value, and 0.644 is the value at budget 64."
+    },
+    {
+      "id": "q59.5",
+      "question": "At budget 64 and verifier noise sigma = 0.5, the lesson's simulation reports the following success rates: beam search with a process reward 0.800, MCTS 0.615, and outcome best-of-N 0.400. Which conclusion does the lesson support?",
+      "options": [
+        {
+          "id": "a",
+          "text": "MCTS is the best strategy at every budget, so it should always be preferred."
+        },
+        {
+          "id": "b",
+          "text": "Beam search is the best of the three at this budget, but this is a toy result and does not predict accuracy on real models."
+        },
+        {
+          "id": "c",
+          "text": "Outcome best-of-N beats both process-reward methods at this noise level."
+        },
+        {
+          "id": "d",
+          "text": "The three strategies are statistically tied, since all standard errors are about 0.02."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Beam search leads at budget 64 (0.800 against 0.615 and 0.400). MCTS leads at budgets 16 and 32, so MCTS is not best at every budget. The lesson stresses that the simulation is a toy. The gaps are several standard errors wide, so they are not a tie."
+    },
+    {
+      "id": "q59.6",
+      "question": "Four children of a node have (visits, total reward): A (3, 2.4), B (1, 0.9), C (2, 1.1) and D (1, 1.0). The parent has N = 7 visits and c = 1.0. Which child does UCB1 select next?",
+      "options": [
+        {
+          "id": "a",
+          "text": "D"
+        },
+        {
+          "id": "b",
+          "text": "A"
+        },
+        {
+          "id": "c",
+          "text": "B"
+        },
+        {
+          "id": "d",
+          "text": "C"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "UCB1 scores are A 1.605, B 2.295, C 1.536 and D 2.395, which the code reproduces. D has the highest mean (1.0) and the same bonus as B, so it wins. The lesson's UCB example uses these same numbers."
+    },
+    {
+      "id": "q59.7",
+      "question": "A GRPO group of four answers has rewards [1, 1, 1, 0]. Using the population standard deviation, what is the advantage of each correct answer?",
+      "options": [
+        {
+          "id": "a",
+          "text": "+1.000"
+        },
+        {
+          "id": "b",
+          "text": "+0.250"
+        },
+        {
+          "id": "c",
+          "text": "-1.732"
+        },
+        {
+          "id": "d",
+          "text": "+0.577"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The mean is 0.75 and the population standard deviation is about 0.433. Each correct answer gets 0.25 / 0.433 = 0.577. The wrong answer gets -1.732, and the four advantages sum to zero."
+    },
+    {
+      "id": "q59.8",
+      "question": "In the lesson's one-prompt toy, the group-mean baseline (without the std division) is averaged over G = 8 samples. At success probability q = 0.5, the exact gradient is 0.25. What is the expected value of this estimator?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.250"
+        },
+        {
+          "id": "b",
+          "text": "0.464"
+        },
+        {
+          "id": "c",
+          "text": "0.219"
+        },
+        {
+          "id": "d",
+          "text": "0.125"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The group mean includes the sample being scored, so the estimator is biased by (G - 1)/G = 7/8. The expected value is 7/8 * 0.25 = 0.219, which matches the simulation. The GRPO estimator at the same q gives 0.464, which is a different quantity."
+    },
+    {
+      "id": "q59.9",
+      "question": "Which statement about the OpenAI o1 post (September 2024) is supported by the lesson?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The post says o1 is trained with RL on its chain of thought, and that the raw chain of thought is not shown to users."
+        },
+        {
+          "id": "b",
+          "text": "The post describes o1's architecture as a tree search at inference time."
+        },
+        {
+          "id": "c",
+          "text": "The post gives o1's parameter count and the reward model used in training."
+        },
+        {
+          "id": "d",
+          "text": "The post shows that o1 uses self-consistency voting over 64 samples by default."
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The post says RL is used to teach the model to reason with its chain of thought, and that a model-written summary is shown in place of the raw chain. It discloses no architecture, parameter count, reward model or search procedure, so the other options go beyond it."
     }
   ]
 }

@@ -1,54 +1,10 @@
-{
-  "chapterId": "chapter-42",
-  "title": "Chapter 42 Quiz \u2014 Reranking & Cross-Encoders",
-  "questions": [
-    {
-      "id": "q42.1",
-      "question": "What is the primary architectural mechanism in Reranking & Cross-Encoders?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Reranking & Cross-Encoders, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q42.2",
-      "question": "How does Reranking & Cross-Encoders optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-42", "title": "Chapter 42 Quiz — Graph RAG", "questions": [
+  {"id": "q42.1", "question": "In the property-graph version of the Alice example, where is the fact \"since 2019\" stored?", "options": [{"id": "a", "text": "As a property of the Person node for Alice"}, {"id": "b", "text": "As a property of the WORKS_AT edge from Alice to Acme"}, {"id": "c", "text": "As a fourth element of an RDF triple"}, {"id": "d", "text": "On a separate Year node linked to Acme"}], "correctOptionId": "b", "explanation": "Lesson 42.1 stores the date on the edge itself, since an edge in a property graph can carry its own properties. An RDF triple has exactly three slots (subject, predicate, object), so it has no place for a fourth value without a workaround."},
+  {"id": "q42.2", "question": "In the Lesson 42.1 run on 25 hand-labelled candidates, the schema accepted 14 records. What were the precision of those 14 against the hand labels and the number of accepted false facts?", "options": [{"id": "a", "text": "100% precision and 0 false facts"}, {"id": "b", "text": "56% precision (14 of 25) and 14 false facts"}, {"id": "c", "text": "79% precision (11 of 14) and 11 false facts"}, {"id": "d", "text": "About 79% precision (11 of 14) and 3 false facts"}], "correctOptionId": "d", "explanation": "The output shows 11 correct records among the 14 accepted, so precision is 11/14, about 79%. The other 3 accepted records are false facts, labelled by hand. The lesson stresses that these figures describe the hand-built test set, not a real extractor."},
+  {"id": "q42.3", "question": "Take two triangles, {0,1,2} and {3,4,5}, joined by one bridge edge 2–3, so m = 7 edges. What is the modularity Q of the partition that keeps each triangle together?", "options": [{"id": "a", "text": "0.0"}, {"id": "b", "text": "−0.1735"}, {"id": "c", "text": "0.3571 (that is, 5/14)"}, {"id": "d", "text": "0.6118"}], "correctOptionId": "c", "explanation": "Each triangle has L_c = 3 internal edges and degree sum K_c = 7. So Q = 2(3/7 − (7/14)²) = 2(3/7 − 1/4) = 5/14 ≈ 0.3571. Lesson 42.2 gives 0.0 for one community and −0.1735 for six singletons, and 0.6118 is the Q that leidenalg reaches on a different graph."},
+  {"id": "q42.4", "question": "On the same two-triangle graph, what is Q for the partition {0,1,2,3} and {4,5}?", "options": [{"id": "a", "text": "0.1224 (that is, 6/49)"}, {"id": "b", "text": "0.3571 (that is, 5/14)"}, {"id": "c", "text": "0.3036 (that is, 17/56)"}, {"id": "d", "text": "0.0"}], "correctOptionId": "a", "explanation": "For {0,1,2,3}: L = 4 and K = 2+2+3+3 = 10. For {4,5}: L = 1 and K = 2+2 = 4. So Q = (4/7 − (10/14)²) + (1/7 − (4/14)²) = 3/49 + 3/49 = 6/49 ≈ 0.1224, which is lower than 5/14. Lesson 42.2 uses this to show that cutting a triangle apart scores worse."},
+  {"id": "q42.5", "question": "In the six-node counterexample of Lesson 42.2, one greedy move raises Q from −0.0556 to −0.0139 and splits community 0. Why does a greedy method accept the move?", "options": [{"id": "a", "text": "Q is rounded to four decimals, so the two values tie and the move is chosen at random"}, {"id": "b", "text": "Q rises because the expected-edge penalty falls more than the internal-edge count does, and Q never checks whether a community stays connected"}, {"id": "c", "text": "Louvain requires every move to keep community sizes even"}, {"id": "d", "text": "The Leiden refinement step is switched on during local moving"}], "correctOptionId": "b", "explanation": "Lesson 42.2 writes Q as L/m minus the sum of K_c²/(4m²). After the move, internal edges drop from 4 to 3, but the degree penalty drops from 104/144 to 74/144, and the net effect raises Q. Modularity scores edges and degrees only, so a move that disconnects a community can still raise Q."},
+  {"id": "q42.6", "question": "What does Leiden's refinement step add over Louvain's local-moving phase?", "options": [{"id": "a", "text": "It makes the number of communities equal to the number of connected components of the graph"}, {"id": "b", "text": "It places every node in its own community"}, {"id": "c", "text": "It guarantees that modularity Q is never negative"}, {"id": "d", "text": "It merges nodes only inside each community and only into well-connected pieces, and Traag et al. (2019) prove that the communities it returns are connected"}], "correctOptionId": "d", "explanation": "Refinement restarts each community from singletons and merges nodes only within it, under a well-connected condition. That stops a community from splitting as Louvain's local moves can. Option a is wrong because community count and connected components are different things. Option c is wrong because Q is negative for singletons in the lesson's two-triangle example, −0.1735."},
+  {"id": "q42.7", "question": "In the seven-node toy graph of Lesson 42.3, the seeds are A and E, and the edges are A–B, A–D, E–F and B–C. The hop-first hybrid ranks the nodes A, E, B, F, D, C. At what budget does the hybrid first include C?", "options": [{"id": "a", "text": "Budget 4"}, {"id": "b", "text": "Budget 5"}, {"id": "c", "text": "Budget 6"}, {"id": "d", "text": "C is never included"}], "correctOptionId": "c", "explanation": "C is the sixth node in the hybrid ranking, so it enters at budget 6. The vector-only ranking also puts G, which has no edges, above C, so the vector top-6 misses C."},
+  {"id": "q42.8", "question": "At budget 40 on the synthetic graph of Lesson 42.3, two-hop hybrid recovers 43.0% of gold nodes and vector search recovers 21.6%. By how many percentage points does the hybrid lead?", "options": [{"id": "a", "text": "21.4 points"}, {"id": "b", "text": "43.0 points"}, {"id": "c", "text": "12.8 points"}, {"id": "d", "text": "30.2 points"}], "correctOptionId": "a", "explanation": "The lead is 43.0 − 21.6 = 21.4 percentage points. The 30.2-point difference is between the hybrid on the structured graph and the random-graph control, which is a different comparison. The lesson's sampling check gives a 95% half-width of at most about 4.4 points for a proportion from 500 questions."}
+]}

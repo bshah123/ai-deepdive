@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-30",
-  "title": "Chapter 30 Quiz \u2014 Hugging Face Transformers",
+  "title": "Chapter 30 Quiz — Hugging Face Transformers",
   "questions": [
     {
       "id": "q30.1",
-      "question": "What is the primary architectural mechanism in Hugging Face Transformers?",
+      "question": "In the NumPy mirror, a config has model_type \"bert\", hidden_size 5, vocab_size 8 and num_labels 2. How many numbers does AutoModelForSequenceClassification create?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "40"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "75"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "65"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "70"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Hugging Face Transformers, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "The embeddings take 8 x 5 = 40 numbers and the encoder takes 5 x 5 = 25, so AutoModel creates 65. The classification head adds classifier.weight with 2 x 5 = 10 numbers, for 75 in total. These counts follow the mirror's shapes, not the real BERT."
     },
     {
       "id": "q30.2",
-      "question": "How does Hugging Face Transformers optimize performance in modern AI systems?",
+      "question": "A checkpoint saved from the bare BERT encoder has keys embeddings.weight and encoder.weight only. It is loaded with AutoModelForSequenceClassification. Which keys are reported?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "Missing: none. Unexpected: classifier.weight"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "Missing: embeddings.weight and encoder.weight. Unexpected: none"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "Missing: classifier.weight. Unexpected: none"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "Missing: none. Unexpected: none, and a shape error is raised"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The loader adds the bert. prefix to the two encoder keys, so they match. classifier.weight has no source in the checkpoint, so it keeps its random start and is reported as missing. Nothing is unexpected."
+    },
+    {
+      "id": "q30.3",
+      "question": "Right after AutoModel.from_pretrained returns, what does model.training say, and what does it mean for dropout?",
+      "options": [
+        {
+          "id": "a",
+          "text": "False: dropout is off until model.train() is called"
+        },
+        {
+          "id": "b",
+          "text": "True: dropout is on and the model is ready to train"
+        },
+        {
+          "id": "c",
+          "text": "False: the weights are read-only"
+        },
+        {
+          "id": "d",
+          "text": "True: missing weights are re-initialised"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "from_pretrained sets the model to evaluation mode, so training is False and dropout is off. Calling model.train() before fine-tuning turns dropout back on. Output 2 of Lesson 30.1 prints training = False."
+    },
+    {
+      "id": "q30.4",
+      "question": "Using the toy model after the token \"the\", with temperature T = 0.5 and no top-k or top-p filter, what is the probability of \"cat\"?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0.476"
+        },
+        {
+          "id": "b",
+          "text": "0.506"
+        },
+        {
+          "id": "c",
+          "text": "0.328"
+        },
+        {
+          "id": "d",
+          "text": "0.663"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Dividing the logits by 0.5 doubles them, so the gap between cat (2) and mat (1.5) grows in the exponent. The softmax gives p(cat) = 0.663, the value printed by the script. At T = 1 it is 0.476."
+    },
+    {
+      "id": "q30.5",
+      "question": "Same context, T = 1, top-p = 0.7. Which tokens can the sampler return, and what is p(cat) after renormalising?",
+      "options": [
+        {
+          "id": "a",
+          "text": "cat, mat and sat; p(cat) = 0.506"
+        },
+        {
+          "id": "b",
+          "text": "cat and mat; p(cat) = 0.622"
+        },
+        {
+          "id": "c",
+          "text": "cat only; p(cat) = 1.000"
+        },
+        {
+          "id": "d",
+          "text": "cat and sat; p(cat) = 0.725"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "cat alone has probability 0.476, below 0.7. Adding mat gives 0.765, which reaches 0.7, so the kept set is {cat, mat}. Renormalised, p(cat) = 0.476 / 0.765 = 0.622."
+    },
+    {
+      "id": "q30.6",
+      "question": "You call generate(..., max_length=20) on a 15-token prompt, and no stopping rule fires. How many new tokens are produced?",
+      "options": [
+        {
+          "id": "a",
+          "text": "20"
+        },
+        {
+          "id": "b",
+          "text": "35"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "max_length counts the prompt, so 20 - 15 = 5 new tokens. To get 20 new tokens, pass max_new_tokens=20."
+    },
+    {
+      "id": "q30.7",
+      "question": "In the two-step tree (root to A 0.55 or B 0.45; A to a1 or a2 at 0.5 each; B to b1 0.95 or b2 0.05), which path does beam search with width 2 keep first, by total probability?",
+      "options": [
+        {
+          "id": "a",
+          "text": "B then b1, total 0.4275"
+        },
+        {
+          "id": "b",
+          "text": "A then a1, total 0.275"
+        },
+        {
+          "id": "c",
+          "text": "A then a1, total 0.550"
+        },
+        {
+          "id": "d",
+          "text": "B then b1, total 0.950"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "B then b1 gives 0.45 x 0.95 = 0.4275, the highest total. Greedy search takes A then a1 for 0.55 x 0.5 = 0.275 and never considers B. Beam search with width 2 keeps both candidates and so finds the better path."
+    },
+    {
+      "id": "q30.8",
+      "question": "A run uses per_device_train_batch_size = 8, gradient_accumulation_steps = 4 and 2 devices. What is the effective batch size per optimizer step?",
+      "options": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "32"
+        },
+        {
+          "id": "d",
+          "text": "64"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The effective batch is per-device batch x devices x accumulation steps = 8 x 2 x 4 = 64, as in Lesson 30.3."
+    },
+    {
+      "id": "q30.9",
+      "question": "A streamed dataset is passed straight to accelerator.prepare(model, dataset) with no DataLoader. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It raises a TypeError that names the dataset"
+        },
+        {
+          "id": "b",
+          "text": "It returns the dataset unchanged with no error, so the loop is not sharded"
+        },
+        {
+          "id": "c",
+          "text": "It wraps the dataset in a DataLoader with batch size 1"
+        },
+        {
+          "id": "d",
+          "text": "It shards the dataset across processes automatically"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "In the Accelerate source (accelerator.py, _prepare_one), an object whose type is not handled falls through to a return of the object unchanged. The check covered the excerpt I read, not the whole call path, so the exact behaviour in your Accelerate version should be confirmed."
     }
   ]
 }

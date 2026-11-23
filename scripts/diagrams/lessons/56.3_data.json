@@ -1,0 +1,140 @@
+{
+  "cost": {
+    "small": {
+      "input_per_req": 0.0003,
+      "output_per_req": 0.0003,
+      "total_per_req": 0.0006,
+      "input_per_10k": 2.9999999999999996,
+      "output_per_10k": 2.9999999999999996,
+      "total_per_10k": 5.999999999999999
+    },
+    "large": {
+      "input_per_req": 0.0036,
+      "output_per_req": 0.0045,
+      "total_per_req": 0.0081,
+      "input_per_10k": 36.0,
+      "output_per_10k": 45.0,
+      "total_per_10k": 81.0
+    }
+  },
+  "cost_ratio": 13.5,
+  "limit": 1.0,
+  "n_req": 200,
+  "worst": 0.0186,
+  "sweep": {
+    "1": {
+      "naive": {
+        "admitted": 86,
+        "spent": 1.0130918607841575,
+        "over_limit": 0.013091860784157472
+      },
+      "reserved": {
+        "admitted": 84,
+        "spent": 0.9831510096843572,
+        "over_limit": 0.0
+      }
+    },
+    "2": {
+      "naive": {
+        "admitted": 86,
+        "spent": 1.0130918607841575,
+        "over_limit": 0.013091860784157472
+      },
+      "reserved": {
+        "admitted": 84,
+        "spent": 0.9831510096843572,
+        "over_limit": 0.0
+      }
+    },
+    "4": {
+      "naive": {
+        "admitted": 88,
+        "spent": 1.037194061724239,
+        "over_limit": 0.037194061724239
+      },
+      "reserved": {
+        "admitted": 84,
+        "spent": 0.9831510096843572,
+        "over_limit": 0.0
+      }
+    },
+    "8": {
+      "naive": {
+        "admitted": 88,
+        "spent": 1.037194061724239,
+        "over_limit": 0.037194061724239
+      },
+      "reserved": {
+        "admitted": 84,
+        "spent": 0.9831510096843572,
+        "over_limit": 0.0
+      }
+    },
+    "16": {
+      "naive": {
+        "admitted": 96,
+        "spent": 1.145342646280489,
+        "over_limit": 0.14534264628048899
+      },
+      "reserved": {
+        "admitted": 84,
+        "spent": 0.9831510096843572,
+        "over_limit": 0.0
+      }
+    },
+    "32": {
+      "naive": {
+        "admitted": 96,
+        "spent": 1.145342646280489,
+        "over_limit": 0.14534264628048899
+      },
+      "reserved": {
+        "admitted": 84,
+        "spent": 0.9831510096843572,
+        "over_limit": 0.0
+      }
+    },
+    "64": {
+      "naive": {
+        "admitted": 128,
+        "spent": 1.5109520421761602,
+        "over_limit": 0.5109520421761602
+      },
+      "reserved": {
+        "admitted": 83,
+        "spent": 0.9749934143427003,
+        "over_limit": 0.0
+      }
+    }
+  },
+  "race": {
+    "naive_spent": 0.072,
+    "admits": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "held": 0.0372,
+    "limit": 0.05
+  },
+  "outage": {
+    "no_breaker": {
+      "primary_calls": 240,
+      "wasted_s": 600.0,
+      "served_primary": 120,
+      "served_fallback": 120
+    },
+    "breaker": {
+      "primary_calls": 126,
+      "wasted_s": 40.0,
+      "served_primary": 118,
+      "served_fallback": 122
+    }
+  },
+  "avail": {
+    "p": 0.99,
+    "q": 0.98,
+    "both_fail": 0.9998
+  }
+}

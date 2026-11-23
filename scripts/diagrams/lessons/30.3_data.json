@@ -1,0 +1,167 @@
+{
+ "lazy_first_batch": {
+  "batch_size": 2,
+  "source_read": 2,
+  "map_calls": 2,
+  "input_ids": [
+   [
+    1,
+    2,
+    3,
+    4,
+    0,
+    0
+   ],
+   [
+    5,
+    6,
+    7,
+    3,
+    8,
+    0
+   ]
+  ]
+ },
+ "lazy_total": {
+  "batches": 8,
+  "last_batch_size": 1,
+  "source_read": 15,
+  "map_calls": 15,
+  "vocab_size": 22
+ },
+ "shuffle": {
+  "1": {
+   "mean_displacement": 0.0,
+   "max_displacement": 0,
+   "adjacent_fraction": 1.0,
+   "first_10": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  "10": {
+   "mean_displacement": 6.88,
+   "max_displacement": 56,
+   "adjacent_fraction": 0.07307307307307308,
+   "first_10": [
+    8,
+    6,
+    5,
+    2,
+    3,
+    0,
+    15,
+    16,
+    1,
+    10
+   ]
+  },
+  "100": {
+   "mean_displacement": 71.098,
+   "max_displacement": 779,
+   "adjacent_fraction": 0.006006006006006006,
+   "first_10": [
+    85,
+    63,
+    51,
+    26,
+    30,
+    4,
+    7,
+    1,
+    17,
+    81
+   ]
+  },
+  "1000": {
+   "mean_displacement": 332.872,
+   "max_displacement": 974,
+   "adjacent_fraction": 0.001001001001001001,
+   "first_10": [
+    459,
+    206,
+    222,
+    162,
+    711,
+    814,
+    350,
+    890,
+    518,
+    264
+   ]
+  }
+ },
+ "shuffle_uniform_reference": 333.3333333333333,
+ "accum": {
+  "g_full": [
+   -1.3032326235108638,
+   3.027170936003223,
+   -0.40562762390210894
+  ],
+  "g_micro_0": [
+   -1.5171305435565259,
+   1.816664492598624,
+   1.0187839987225655
+  ],
+  "g_acc": [
+   -1.3032326235108638,
+   3.0271709360032224,
+   -0.40562762390210894
+  ],
+  "max_abs_diff_acc_vs_full": 4.440892098500626e-16,
+  "naive_over_full_ratio": 4.0,
+  "w_full": [
+   0.13032326235108638,
+   -0.3027170936003223,
+   0.040562762390210894
+  ],
+  "w_acc": [
+   0.13032326235108638,
+   -0.3027170936003223,
+   0.040562762390210894
+  ],
+  "max_abs_diff_w": 0.0,
+  "uneven_mean_of_means_rel_error": 0.08292684064077602
+ },
+ "trainer_effective_batch": {
+  "per_device": 8,
+  "grad_accum": 4,
+  "devices_1": 32,
+  "devices_2": 64
+ },
+ "sharding": {
+  "process_0": [
+   [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  ],
+  "process_1": [
+   [
+    5,
+    6,
+    7,
+    8,
+    0
+   ]
+  ],
+  "steps_per_epoch": 1,
+  "samples_seen_per_step": 10,
+  "gathered_before_dedup": 10,
+  "duplicated_ids": [
+   0
+  ],
+  "after_gather_for_metrics": 9
+ }
+}

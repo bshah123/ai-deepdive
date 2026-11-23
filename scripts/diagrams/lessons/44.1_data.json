@@ -1,0 +1,115 @@
+{
+ "versions": {
+  "llama_index_core": "0.14.26",
+  "numpy": "2.5.5"
+ },
+ "nodes_per_doc_size40": {
+  "kettle_manual": 4,
+  "river_log": 4,
+  "library_policy": 4
+ },
+ "n_nodes_size40": 12,
+ "words_per_doc": {
+  "kettle_manual": 112,
+  "river_log": 107,
+  "library_policy": 94
+ },
+ "node_word_counts_size40": [
+  36,
+  36,
+  36,
+  34,
+  36,
+  36,
+  36,
+  29,
+  36,
+  36,
+  36,
+  16
+ ],
+ "anatomy": {
+  "node_id": "kettle_manual-0",
+  "ref_doc_id": "kettle_manual",
+  "metadata": {
+   "file_name": "kettle_manual.txt"
+  },
+  "relationships": [
+   "1",
+   "3"
+  ],
+  "next_node_id": "kettle_manual-1",
+  "text_preview": "The Vemo K2 kettle holds up to 1.7 litres of water. Fill it "
+ },
+ "embedding_matrix_shape": [
+  12,
+  512
+ ],
+ "docstore_count": 12,
+ "example_query": "How much water does the Vemo K2 kettle hold?",
+ "example_hits": [
+  {
+   "node_id": "kettle_manual-0",
+   "score": 0.4472,
+   "text": "The Vemo K2 kettle holds up to 1.7 litres of water. Fill it only betwe"
+  },
+  {
+   "node_id": "kettle_manual-3",
+   "score": 0.2165,
+   "text": "a solution of one part white vinegar to two parts water. Never immerse"
+  },
+  {
+   "node_id": "kettle_manual-1",
+   "score": 0.2132,
+   "text": "lid may not close. The heating element switches off automatically once"
+  }
+ ],
+ "numpy_top3_ids": [
+  "kettle_manual-0",
+  "kettle_manual-3",
+  "kettle_manual-1"
+ ],
+ "retriever_top3_ids": [
+  "kettle_manual-0",
+  "kettle_manual-3",
+  "kettle_manual-1"
+ ],
+ "numpy_top3_scores": [
+  0.4472,
+  0.2165,
+  0.2132
+ ],
+ "numpy_matches_retriever": true,
+ "example_gold_hit_rank": 1,
+ "summary_index_retrieved_all": true,
+ "sweep": {
+  "20": {
+   "n_nodes": 29,
+   "answer_inside_some_node": 4,
+   "answer_in_top2": 4,
+   "n_questions": 9,
+   "mean_words_per_node": 15.3
+  },
+  "40": {
+   "n_nodes": 12,
+   "answer_inside_some_node": 7,
+   "answer_in_top2": 7,
+   "n_questions": 9,
+   "mean_words_per_node": 33.6
+  },
+  "80": {
+   "n_nodes": 6,
+   "answer_inside_some_node": 9,
+   "answer_in_top2": 9,
+   "n_questions": 9,
+   "mean_words_per_node": 62.2
+  },
+  "160": {
+   "n_nodes": 3,
+   "answer_inside_some_node": 9,
+   "answer_in_top2": 9,
+   "n_questions": 9,
+   "mean_words_per_node": 104.3
+  }
+ }
+}

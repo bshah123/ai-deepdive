@@ -1,0 +1,223 @@
+{
+ "doc_tokens": 160,
+ "n_sentences": 8,
+ "gold_total": 6,
+ "rows": {
+  "surprisal": [
+   {
+    "keep_target": 0.8,
+    "kept_fraction": 0.8,
+    "gold_retained": 6
+   },
+   {
+    "keep_target": 0.6,
+    "kept_fraction": 0.6,
+    "gold_retained": 6
+   },
+   {
+    "keep_target": 0.5,
+    "kept_fraction": 0.5,
+    "gold_retained": 6
+   },
+   {
+    "keep_target": 0.4,
+    "kept_fraction": 0.4,
+    "gold_retained": 4
+   },
+   {
+    "keep_target": 0.3,
+    "kept_fraction": 0.3,
+    "gold_retained": 2
+   },
+   {
+    "keep_target": 0.2,
+    "kept_fraction": 0.2,
+    "gold_retained": 1
+   },
+   {
+    "keep_target": 0.15,
+    "kept_fraction": 0.15,
+    "gold_retained": 0
+   }
+  ],
+  "lsa": [
+   {
+    "keep_target": 0.8,
+    "kept_fraction": 0.781,
+    "gold_retained": 5
+   },
+   {
+    "keep_target": 0.6,
+    "kept_fraction": 0.581,
+    "gold_retained": 3
+   },
+   {
+    "keep_target": 0.5,
+    "kept_fraction": 0.456,
+    "gold_retained": 2
+   },
+   {
+    "keep_target": 0.4,
+    "kept_fraction": 0.325,
+    "gold_retained": 2
+   },
+   {
+    "keep_target": 0.3,
+    "kept_fraction": 0.287,
+    "gold_retained": 1
+   },
+   {
+    "keep_target": 0.2,
+    "kept_fraction": 0.156,
+    "gold_retained": 1
+   },
+   {
+    "keep_target": 0.15,
+    "kept_fraction": 0.131,
+    "gold_retained": 0
+   }
+  ],
+  "random": [
+   {
+    "keep_target": 0.8,
+    "kept_fraction": 0.738,
+    "gold_retained": 3
+   },
+   {
+    "keep_target": 0.6,
+    "kept_fraction": 0.631,
+    "gold_retained": 4
+   },
+   {
+    "keep_target": 0.5,
+    "kept_fraction": 0.469,
+    "gold_retained": 3
+   },
+   {
+    "keep_target": 0.4,
+    "kept_fraction": 0.444,
+    "gold_retained": 1
+   },
+   {
+    "keep_target": 0.3,
+    "kept_fraction": 0.331,
+    "gold_retained": 0
+   },
+   {
+    "keep_target": 0.2,
+    "kept_fraction": 0.2,
+    "gold_retained": 0
+   },
+   {
+    "keep_target": 0.15,
+    "kept_fraction": 0.144,
+    "gold_retained": 0
+   }
+  ],
+  "first": [
+   {
+    "keep_target": 0.8,
+    "kept_fraction": 0.8,
+    "gold_retained": 4
+   },
+   {
+    "keep_target": 0.6,
+    "kept_fraction": 0.6,
+    "gold_retained": 4
+   },
+   {
+    "keep_target": 0.5,
+    "kept_fraction": 0.5,
+    "gold_retained": 4
+   },
+   {
+    "keep_target": 0.4,
+    "kept_fraction": 0.4,
+    "gold_retained": 3
+   },
+   {
+    "keep_target": 0.3,
+    "kept_fraction": 0.3,
+    "gold_retained": 2
+   },
+   {
+    "keep_target": 0.2,
+    "kept_fraction": 0.2,
+    "gold_retained": 2
+   },
+   {
+    "keep_target": 0.15,
+    "kept_fraction": 0.15,
+    "gold_retained": 1
+   }
+  ]
+ },
+ "example": {
+  "text": "The bridge was designed by the engineer Ada Lindqvist, who had previously worked on harbour cranes.",
+  "tokens": [
+   "The",
+   "bridge",
+   "was",
+   "designed",
+   "by",
+   "the",
+   "engineer",
+   "Ada",
+   "Lindqvist",
+   ",",
+   "who",
+   "had",
+   "previously",
+   "worked",
+   "on",
+   "harbour",
+   "cranes",
+   "."
+  ],
+  "bits": [
+   3.2,
+   9.4,
+   7.84,
+   7.84,
+   7.84,
+   3.82,
+   9.4,
+   7.84,
+   7.84,
+   6.78,
+   8.05,
+   7.21,
+   7.95,
+   7.84,
+   6.78,
+   8.05,
+   7.84,
+   5.03
+  ],
+  "kept_mask": [
+   false,
+   true,
+   true,
+   true,
+   true,
+   false,
+   true,
+   true,
+   false,
+   false,
+   true,
+   false,
+   true,
+   false,
+   false,
+   true,
+   false,
+   false
+  ]
+ },
+ "lsa_ids_at_half": [
+  2,
+  4,
+  6
+ ]
+}

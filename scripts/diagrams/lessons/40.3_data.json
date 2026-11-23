@@ -1,0 +1,116 @@
+{
+ "prefix_len": 8,
+ "suffix_len": 4,
+ "tokens_no_cache": 12,
+ "tokens_cached": 4,
+ "suffix_matches": true,
+ "changed_positions": {
+  "layer1": [
+   2
+  ],
+  "layer2": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ "gaps": [
+  60,
+  120,
+  240,
+  400,
+  100,
+  2000,
+  90,
+  3700,
+  30
+ ],
+ "times": [
+  0,
+  60,
+  180,
+  420,
+  820,
+  920,
+  2920,
+  3010,
+  6710,
+  6740
+ ],
+ "policies": {
+  "no cache": {
+   "total": 202000.0,
+   "log": [
+    "full",
+    "full",
+    "full",
+    "full",
+    "full",
+    "full",
+    "full",
+    "full",
+    "full",
+    "full"
+   ]
+  },
+  "5-minute TTL": {
+   "total": 114000.0,
+   "log": [
+    "miss",
+    "hit",
+    "hit",
+    "hit",
+    "miss",
+    "hit",
+    "miss",
+    "hit",
+    "miss",
+    "hit"
+   ]
+  },
+  "1-hour TTL": {
+   "total": 98000.0,
+   "log": [
+    "miss",
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "hit",
+    "miss",
+    "hit"
+   ]
+  }
+ },
+ "ratios": {
+  "5-minute TTL": [
+   1.2475,
+   0.6782,
+   0.4884,
+   0.3366,
+   0.2228,
+   0.1203
+  ],
+  "1-hour TTL": [
+   1.9901,
+   1.0495,
+   0.736,
+   0.4851,
+   0.297,
+   0.1277
+  ]
+ },
+ "prefix_match": [
+  "0 of 4 blocks reused",
+  "3 of 4 blocks reused",
+  "1 of 4 blocks reused",
+  "0 of 4 blocks reused"
+ ],
+ "prefix_tokens": 20000,
+ "new_tokens": 200
+}

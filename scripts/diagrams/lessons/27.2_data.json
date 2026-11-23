@@ -1,0 +1,206 @@
+{
+ "prompt": [
+  3,
+  7,
+  1,
+  9
+ ],
+ "generated": [
+  3,
+  6,
+  10,
+  6,
+  5,
+  3,
+  6,
+  3
+ ],
+ "steps_recompute": [
+  [
+   0,
+   1,
+   2,
+   3
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ]
+ ],
+ "steps_cached": [
+  [
+   0,
+   1,
+   2,
+   3
+  ],
+  [
+   4
+  ],
+  [
+   5
+  ],
+  [
+   6
+  ],
+  [
+   7
+  ],
+  [
+   8
+  ],
+  [
+   9
+  ],
+  [
+   10
+  ]
+ ],
+ "table": [
+  {
+   "n": 4,
+   "rec_passes": 22,
+   "cache_passes": 7,
+   "rec_scores": 504,
+   "cache_scores": 136
+  },
+  {
+   "n": 8,
+   "rec_passes": 60,
+   "cache_passes": 11,
+   "rec_scores": 1968,
+   "cache_scores": 288
+  },
+  {
+   "n": 16,
+   "rec_passes": 184,
+   "cache_passes": 19,
+   "rec_scores": 9824,
+   "cache_scores": 784
+  },
+  {
+   "n": 32,
+   "rec_passes": 624,
+   "cache_passes": 35,
+   "rec_scores": 59584,
+   "cache_scores": 2544
+  },
+  {
+   "n": 64,
+   "rec_passes": 2272,
+   "cache_passes": 67,
+   "rec_scores": 409984,
+   "cache_scores": 9136
+  }
+ ],
+ "cache_T": 11,
+ "cache_bytes": 5632,
+ "max_diff_ok": true,
+ "bad_generated": [
+  3,
+  3,
+  3,
+  3,
+  3,
+  3,
+  3,
+  3
+ ],
+ "worked_scores": [
+  0.0,
+  1.0,
+  2.0
+ ],
+ "worked_weights": [
+  0.09003057317038046,
+  0.24472847105479764,
+  0.6652409557748218
+ ],
+ "worked_output": 2.5752103826044412,
+ "kv": [
+  {
+   "name": "32 KV heads",
+   "kv_heads": 32,
+   "bytes_per_token": 524288,
+   "gib_4096": 2.0
+  },
+  {
+   "name": "8 KV heads",
+   "kv_heads": 8,
+   "bytes_per_token": 131072,
+   "gib_4096": 0.5
+  },
+  {
+   "name": "1 KV head",
+   "kv_heads": 1,
+   "bytes_per_token": 16384,
+   "gib_4096": 0.0625
+  }
+ ]
+}

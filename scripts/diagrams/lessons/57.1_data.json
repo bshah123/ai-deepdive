@@ -1,0 +1,63 @@
+{
+  "retrieved_question": [
+    0,
+    5,
+    1
+  ],
+  "retrieved_mill": [
+    3,
+    4
+  ],
+  "cases": {
+    "A grounded and on topic": {
+      "F": 1.0,
+      "CR": 0.3333333333333333,
+      "AR": 0.8660254037844387
+    },
+    "B one invented date": {
+      "F": 0.5,
+      "CR": 0.3333333333333333,
+      "AR": 0.6546536707079772
+    },
+    "C grounded, off topic": {
+      "F": 1.0,
+      "CR": 0.3333333333333333,
+      "AR": 0.2886751345948129
+    },
+    "D right answer, wrong context": {
+      "F": 0.0,
+      "CR": 0.0,
+      "AR": 0.8660254037844387
+    },
+    "E near miss paraphrase": {
+      "F": 0.0,
+      "CR": 0.3333333333333333,
+      "AR": 0.47140452079103173
+    }
+  },
+  "sweepE": {
+    "0.5": 1.0,
+    "0.8": 0.0,
+    "1.0": 0.0
+  },
+  "claimsB": [
+    [
+      "Ferncliff Lab opened in 2014.",
+      1.0
+    ],
+    [
+      "The state funded it in 2016.",
+      0.0
+    ]
+  ],
+  "supportE": 0.5,
+  "chunks": [
+    "Ferncliff Lab opened in 2014 in the town of Brindle.",
+    "The lab has 42 staff members, of whom 11 hold doctorates.",
+    "Its main instrument is a cryo-microscope bought in 2019.",
+    "Brindle is a market town known for its river mill.",
+    "The river mill closed to visitors in 2011 for repairs.",
+    "Staff at the lab publish on protein structure every year."
+  ],
+  "question": "When did Ferncliff Lab open?"
+}
