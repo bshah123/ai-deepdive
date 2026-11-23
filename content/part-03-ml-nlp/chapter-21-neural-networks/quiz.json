@@ -1,54 +1,246 @@
 {
   "chapterId": "chapter-21",
-  "title": "Chapter 21 Quiz \u2014 Neural Networks",
+  "title": "Chapter 21 Quiz — Neural Networks",
   "questions": [
     {
       "id": "q21.1",
-      "question": "What is the primary architectural mechanism in Neural Networks?",
+      "question": "A hand-built XOR network has hidden unit h1 = OR, computed as step(x1 + x2 - 0.5), and hidden unit h2 = AND, computed as step(x1 + x2 - 1.5). The output is step(h1 - h2 - 0.5). What is the output for the input (1, 0)?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "0, because the output unit computes the AND of both hidden units"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "1, because h = (1, 0) gives an output pre-activation of 0.5, and the step outputs 1 for values of 0 or more"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "-0.5, because the output is the raw pre-activation with no step"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "0, because both hidden units are 1 for this input"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Neural Networks, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "For (1, 0), h1 = step(1 - 0.5) = 1 and h2 = step(1 - 1.5) = 0. The output pre-activation is 1 - 0 - 0.5 = 0.5, which is at least 0, so the output is 1. This matches the lesson's code output."
     },
     {
       "id": "q21.2",
-      "question": "How does Neural Networks optimize performance in modern AI systems?",
+      "question": "Why can no choice of weights w1, w2 and bias b make a single threshold unit compute XOR?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "XOR has four inputs, and a single unit can only fit three of them"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "The weights would have to be non-zero, and gradient descent never finds non-zero weights for XOR"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "The bias must be zero for any threshold unit, and XOR needs a non-zero bias"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "Firing on (1, 0) and (0, 1) while not firing on (0, 0) and (1, 1) forces w1 + w2 + b to be both above -b, which is positive, and below 0"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "Not firing on (0, 0) gives b < 0. Firing on (1, 0) and (0, 1) gives w1 + b >= 0 and w2 + b >= 0. Adding these gives w1 + w2 + 2b >= 0, so w1 + w2 + b >= -b > 0. But not firing on (1, 1) needs w1 + w2 + b < 0. The four conditions contradict each other, so no line separates XOR."
+    },
+    {
+      "id": "q21.3",
+      "question": "A training loop calls net.train_step(y) in every epoch but never calls net.forward(X) in that epoch. What goes wrong?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The gradients use the cached activations h and a from an earlier forward pass, so each update is wrong, and no error is raised"
+        },
+        {
+          "id": "b",
+          "text": "Python raises an error on the first call, and the loop stops"
+        },
+        {
+          "id": "c",
+          "text": "The loss is counted twice, so the learning rate is effectively doubled"
+        },
+        {
+          "id": "d",
+          "text": "The weights are reset to zero at the start of every epoch"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The gradient code reads self.h and self.a from the last forward pass. Those values belong to earlier weights, so the update is wrong. The code does not check for this, and the loss stops falling where it should. The lesson's trap section gives the symptom."
+    },
+    {
+      "id": "q21.4",
+      "question": "Each sigmoid layer multiplies the backpropagated gradient by its slope, which is at most 0.25. What is the largest possible shrink factor for the gradient at the first layer of a 10-layer sigmoid network?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.5, from 0.25 times 10"
+        },
+        {
+          "id": "b",
+          "text": "About 9.8 times 10 to the power of -4, from 0.5 to the power of 10"
+        },
+        {
+          "id": "c",
+          "text": "About 9.5 times 10 to the power of -7, from 0.25 to the power of 10"
+        },
+        {
+          "id": "d",
+          "text": "1, because the sigmoid's peak slope is 1"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Ten layers each multiply by at most 0.25, so the product is at most 0.25^10 = 1/1,048,576, about 9.5 times 10 to the power of -7. This is an upper bound on the shrink factor. Units with large |z| have much smaller slopes."
+    },
+    {
+      "id": "q21.5",
+      "question": "Approximately what is SiLU(-10), and how does it differ from ReLU(-10)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0, the same as ReLU(-10)"
+        },
+        {
+          "id": "b",
+          "text": "-10, because SiLU(x) = x for every negative x"
+        },
+        {
+          "id": "d",
+          "text": "About +4.5 times 10 to the power of -5, always positive"
+        },
+        {
+          "id": "c",
+          "text": "About -4.5 times 10 to the power of -4, a small non-zero negative value where ReLU gives exactly 0"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "SiLU(-10) = -10 times sigmoid(-10) = -10 times 1/(1 + e^10), which is about -10 times 4.54 times 10^-5, or about -4.5 times 10^-4. ReLU(-10) is exactly 0. This is reasoning from the lesson's formula, checked in Python."
+    },
+    {
+      "id": "q21.6",
+      "question": "SwiGLU replaces the standard two-matrix feed-forward block. What changes in the matrices and the hidden width, and why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Three matrices, with the hidden width reduced by a factor of 2/3, so the parameter count stays close to the two-matrix block"
+        },
+        {
+          "id": "b",
+          "text": "Two matrices, with the same width, because the gate is a sigmoid"
+        },
+        {
+          "id": "c",
+          "text": "Three matrices, with the hidden width doubled, to give the gate more capacity"
+        },
+        {
+          "id": "d",
+          "text": "One matrix, because the gate and value branches share their weights"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "SwiGLU computes (SiLU(xW) times xV) W2, which uses three weight matrices. Shazeer (2020) shrinks the hidden width by 2/3 to keep the parameter count close to the two-matrix block, as the lesson's trap section states."
+    },
+    {
+      "id": "q21.7",
+      "question": "Start at w = 2 with learning rate 0.1 on f(w) = w^2, and use AdamW with weight decay 0.01. What is w after one step?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.600"
+        },
+        {
+          "id": "b",
+          "text": "1.000"
+        },
+        {
+          "id": "c",
+          "text": "1.898"
+        },
+        {
+          "id": "d",
+          "text": "1.998"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The gradient is 4. Decay gives 2 times (1 - 0.1 times 0.01) = 1.998. The bias-corrected moments are m_hat = 4 and v_hat = 16, so the Adam step is 0.1 times 4 divided by 4, which is 0.1. The result is 1.998 - 0.1 = 1.898. Option d is only the decay step."
+    },
+    {
+      "id": "q21.8",
+      "question": "Start at w = 2 with learning rate 0.1 on f(w) = 1000 w^2, so the gradient is 4000. What does one RMSprop step with alpha = 0.99 do, and why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It moves w to -398, the same as SGD, because the gradient is 4000"
+        },
+        {
+          "id": "b",
+          "text": "It moves w to 1.0, a step of 1.0 per weight, because the first step is set by eta over the square root of (1 - alpha), not by the gradient's size"
+        },
+        {
+          "id": "c",
+          "text": "It moves w to 1.9, a step of 0.1 as in AdamW"
+        },
+        {
+          "id": "d",
+          "text": "It diverges, because the squared-gradient average is zero on the first step"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "On step 1, s = (1 - alpha) g^2, so the step is eta times g divided by sqrt((1 - alpha) g^2), which is eta times sign(g) over sqrt(1 - alpha). With eta = 0.1 and alpha = 0.99 that is 1.0 per weight, whatever g is. The same step applies to f(w) = w^2, which is the lesson's point about RMSprop."
+    },
+    {
+      "id": "q21.9",
+      "question": "The perceptron has weights w = (1, -1, 0) and sees the augmented point x = (1, 1, 1) with label y = +1. Which statement is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It is classified correctly, because the score is 0 and the update rule only fires on negative scores"
+        },
+        {
+          "id": "b",
+          "text": "It is a mistake, because y times (w dot x) = 0 is at most 0. The new weights are (2, 0, 1)"
+        },
+        {
+          "id": "c",
+          "text": "It is a mistake, and the new weights are (0, -2, -1)"
+        },
+        {
+          "id": "d",
+          "text": "It is correct, because the bias is zero"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The score is 1 - 1 + 0 = 0. Zero counts as a mistake in this lesson's rule, so the update is w + yx = (1, -1, 0) + (1, 1, 1) = (2, 0, 1). Option c uses the wrong sign, w - yx."
+    },
+    {
+      "id": "q21.10",
+      "question": "A separable dataset has radius R = 2 and margin gamma = 0.5, where R is the augmented radius and gamma is the margin of a unit separator. What is the largest number of perceptron updates Novikoff's theorem allows, in any order of the points?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4, from R divided by gamma"
+        },
+        {
+          "id": "b",
+          "text": "8, from 2 times R divided by gamma"
+        },
+        {
+          "id": "c",
+          "text": "16, from (R divided by gamma) squared"
+        },
+        {
+          "id": "d",
+          "text": "32, from (R divided by gamma) squared, times 2"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The theorem gives at most (R/gamma)^2 = (2/0.5)^2 = 16 updates. The bound is a worst-case guarantee, not a prediction of the count."
     }
   ]
 }

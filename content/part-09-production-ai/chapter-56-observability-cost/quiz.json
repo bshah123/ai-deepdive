@@ -1,54 +1,11 @@
-{
-  "chapterId": "chapter-56",
-  "title": "Chapter 56 Quiz \u2014 AI System Design",
-  "questions": [
-    {
-      "id": "q56.1",
-      "question": "What is the primary architectural mechanism in AI System Design?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In AI System Design, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q56.2",
-      "question": "How does AI System Design optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-56", "title": "Chapter 56 Quiz — Observability and Cost", "questions": [
+  {"id": "q56.1", "question": "In the Lesson 56.1 waterfall, the root chat_request takes 2,410 ms and its two llm_call children take 1,000 ms each. What share of the request's time do the LLM calls take?", "options": [{"id": "a", "text": "3%"}, {"id": "b", "text": "41%"}, {"id": "c", "text": "83%"}, {"id": "d", "text": "100%"}], "correctOptionId": "c", "explanation": "The two LLM calls take 2,000 ms, and 2,000 / 2,410 = 0.83, or 83%. The 3% figure is the most a free vector_search of 71 ms could save, not the LLM share."},
+  {"id": "q56.2", "question": "A gateway forgets to write the traceparent header before calling the retrieval service. What does the backend show for the request?", "options": [{"id": "a", "text": "One trace tree, with vector_search joined to chat_request by a shared trace ID"}, {"id": "b", "text": "Two trace trees: one rooted at chat_request and one rooted at vector_search, which has a new trace ID"}, {"id": "c", "text": "A failed request, because the retrieval service rejects calls without a header"}, {"id": "d", "text": "One trace tree, because the SDK adds the header automatically on every HTTP call"}], "correctOptionId": "b", "explanation": "The receiver finds no parent in the request, so it starts a new root with a new trace ID. That splits the request into two trees, and the search time no longer appears under the request."},
+  {"id": "q56.3", "question": "Why can head sampling not keep only the requests that fail?", "options": [{"id": "a", "text": "Failed requests have no trace ID, so they cannot be matched to a sampling rule"}, {"id": "b", "text": "The sampler draws a fresh random number in every service, so the decisions disagree"}, {"id": "c", "text": "The sampler only applies to LLM calls, not to errors in other steps"}, {"id": "d", "text": "The keep-or-drop decision is made when the root span starts, before the outcome is known"}], "correctOptionId": "d", "explanation": "Head sampling decides at the root, before the request finishes, so it cannot condition on whether the request fails. Keeping only errors needs a rule that waits until the trace ends. The sampler draws from the trace ID, so every service reaches the same decision."},
+  {"id": "q56.4", "question": "The tracer in Lesson 56.2 sends a batch whenever the buffer reaches batch_size, and flush() sends what remains. How many POST calls does it make for 800 observations with batch_size=200?", "options": [{"id": "a", "text": "2"}, {"id": "b", "text": "4"}, {"id": "c", "text": "8"}, {"id": "d", "text": "800"}], "correctOptionId": "b", "explanation": "800 / 200 = 4 full batches, and the buffer is empty when flush() runs, so it sends nothing more. Each batch is one POST, so there are 4 POST calls."},
+  {"id": "q56.5", "question": "Each request in a trace has 5 observations, and each observation is kept independently with probability 0.5 (per-observation sampling). What is the probability that a request keeps all 5 of its observations?", "options": [{"id": "a", "text": "3.125%"}, {"id": "b", "text": "6.25%"}, {"id": "c", "text": "2.5%"}, {"id": "d", "text": "12.5%"}], "correctOptionId": "a", "explanation": "With independent decisions, a complete trace needs all 5 to survive, so the probability is 0.5 to the power 5, which is 0.03125, or 3.125%. Lesson 56.2 gives 6.25% for the 4-observation case, which is 0.5 to the power 4."},
+  {"id": "q56.6", "question": "Using the illustrative large-model prices in Lesson 56.3 (3.00 USD per million input tokens, 15.00 USD per million output tokens), what does one call with 2,000 input tokens and 500 output tokens cost?", "options": [{"id": "a", "text": "0.0060 USD"}, {"id": "b", "text": "0.0075 USD"}, {"id": "c", "text": "0.0081 USD"}, {"id": "d", "text": "0.0135 USD"}], "correctOptionId": "d", "explanation": "Input costs 2,000 × 3.00 / 10^6 = 0.0060 USD and output costs 500 × 15.00 / 10^6 = 0.0075 USD, which sum to 0.0135 USD. The 0.0060 and 0.0075 options are one term each, and 0.0081 is the lesson's cost for a different call (1,200 input and 300 output tokens)."},
+  {"id": "q56.7", "question": "A budget holds the worst-case cost of 0.0186 USD for each request, with a limit of 0.05 USD. Four requests arrive at the same time, before any has finished. How many does a reservation admit?", "options": [{"id": "a", "text": "1"}, {"id": "b", "text": "3"}, {"id": "c", "text": "2"}, {"id": "d", "text": "4"}], "correctOptionId": "c", "explanation": "Two holds total 0.0372 USD, within the limit. A third hold would bring the total to 0.0558 USD, which is above 0.05, so the third and fourth requests are refused."},
+  {"id": "q56.8", "question": "This circuit breaker should open after three consecutive failures, but it can open on failures that are not consecutive. What is the fix?", "options": [{"id": "a", "text": "Reset the failure counter to 0 whenever a call succeeds"}, {"id": "b", "text": "Raise the threshold from 3 to 30 so that the breaker opens less often"}, {"id": "c", "text": "Add a per-tenant key so that each customer has its own counter"}, {"id": "d", "text": "Set max_tokens on the primary provider's calls"}], "correctOptionId": "a", "explanation": "Without a reset, failures that are far apart in time add up and open the breaker. Resetting the counter on every success means only consecutive failures count. The lesson's version also reopens the breaker correctly after a successful probe."},
+  {"id": "q56.9", "question": "A primary provider succeeds with probability 0.99 and a fallback with probability 0.98, and their failures are independent. What is the probability that at least one of them serves the request?", "options": [{"id": "a", "text": "0.9702"}, {"id": "b", "text": "0.9998"}, {"id": "c", "text": "0.9900"}, {"id": "d", "text": "0.0002"}], "correctOptionId": "b", "explanation": "The request fails only when both providers fail, with probability (1 − 0.99)(1 − 0.98) = 0.0002. So at least one serves it with probability 1 − 0.0002 = 0.9998. The lesson labels this as reasoning from an independence assumption, and correlated outages would lower it."}
+]}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" role="img" aria-label="Token pruning keeps scattered words; sentence selection keeps whole sentences" class="sketch"><title>Token pruning keeps scattered words; sentence selection keeps whole sentences</title>
+<text x="440" y="40" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Two ways to shrink one passage</tspan></text>
+<path d="M37.9 66.1 L429.1 63.9 L432.1 295.8 L39.0 294.2" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.8 65.0 C118.5 67.3, 197.0 67.1, 431.2 66.9 M39.9 66.1 C181.4 69.1, 322.9 68.8, 429.5 65.9 M430.2 64.4 C433.1 117.6, 434.4 164.5, 431.6 295.4 M429.4 65.5 C429.7 117.2, 430.1 171.3, 429.1 295.2 M428.7 294.9 C319.8 297.3, 208.6 298.7, 40.3 294.7 M429.8 296.3 C297.6 295.5, 163.5 296.3, 40.4 296.5 M39.0 295.1 C44.4 246.7, 41.6 199.3, 41.3 66.4 M39.4 296.3 C39.0 233.6, 37.9 172.6, 40.8 66.2" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="235" y="100" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="235" dy="0">Token pruning (LLMLingua family)</tspan></text>
+<text x="235" y="134" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="235" dy="0">Scores each token and drops</tspan></text>
+<text x="235" y="158" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="235" dy="0">the predictable ones.</tspan></text>
+<text x="235" y="200" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="235" dy="0">bridge was designed by engineer Ada</tspan></text>
+<text x="235" y="224" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="235" dy="0">who previously harbour</tspan></text>
+<text x="235" y="262" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="235" dy="0">Keeps 9 of 18 tokens; the name Lindqvist is lost.</tspan></text>
+<path d="M468.4 67.8 L838.0 63.6 L840.0 296.1 L467.7 293.7" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M469.0 67.1 C545.7 65.6, 620.0 63.3, 839.2 65.8 M470.2 65.5 C611.6 64.3, 753.6 63.5, 839.8 65.7 M839.8 64.7 C838.0 120.8, 840.1 172.9, 841.0 296.5 M840.7 65.7 C839.0 133.1, 838.5 201.7, 840.6 296.6 M840.9 296.1 C729.0 298.5, 618.6 299.7, 470.2 295.8 M839.8 295.4 C722.5 292.1, 606.2 292.7, 470.3 295.9 M470.3 296.9 C468.7 227.2, 468.3 157.5, 469.9 67.2 M470.6 296.3 C468.2 242.3, 469.7 187.3, 470.2 66.2" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="655" y="100" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="655" dy="0">Sentence selection (LSA-style)</tspan></text>
+<text x="655" y="134" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="655" dy="0">Scores each sentence and keeps</tspan></text>
+<text x="655" y="158" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="655" dy="0">the top ones whole.</tspan></text>
+<text x="655" y="200" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="655" dy="0">kept sentences 2, 4, 6 of 8</tspan></text>
+<text x="655" y="224" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="655" dy="0">tokens kept: 46%</tspan></text>
+<text x="655" y="262" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="655" dy="0">Keeps grammar, but also whole weak sentences.</tspan></text>
+<text x="440" y="318" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Key facts kept at a 50% budget: token pruning 6 of 6, sentences 2 of 6</tspan></text>
+</svg>

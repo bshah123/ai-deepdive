@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 336" role="img" aria-label="Metadata of a plain wrapper versus a functools.wraps wrapper" class="sketch"><title>Metadata of a plain wrapper versus a functools.wraps wrapper</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">What the decorated function reports about itself</tspan></text>
+<path d="M39.7 71.3 L441.2 70.3 L439.8 297.7 L41.0 295.5" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.9 70.6 C122.2 72.0, 203.2 72.1, 440.9 69.7 M40.2 70.6 C132.2 68.0, 223.2 68.3, 439.6 70.4 M439.1 69.2 C442.9 117.7, 440.3 168.9, 441.1 294.0 M440.6 70.6 C442.5 140.0, 443.1 211.2, 439.7 296.1 M439.4 297.2 C325.7 295.3, 209.6 296.8, 41.0 295.4 M440.2 296.0 C325.6 294.8, 210.8 294.3, 40.0 296.6 M38.2 297.0 C40.8 231.2, 38.1 165.1, 38.1 70.9 M40.0 295.5 C41.1 218.0, 41.6 140.2, 40.0 69.0" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="240" y="104" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="240" dy="0">plain wrapper</tspan></text>
+<text x="70" y="150" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">__name__     'wrapper'</tspan></text>
+<text x="70" y="186" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">__doc__      None</tspan></text>
+<text x="70" y="222" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">__wrapped__  missing</tspan></text>
+<text x="70" y="258" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">signature    (*args, **kwargs)</tspan></text>
+<path d="M440.2 68.2 L840.1 70.0 L837.7 298.0 L439.7 295.0" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M439.1 69.9 C520.6 67.5, 604.2 68.3, 839.0 71.4 M440.5 70.1 C540.3 69.8, 639.6 69.6, 839.9 70.2 M838.6 69.5 C837.9 120.9, 836.0 173.1, 840.5 295.2 M839.9 70.8 C839.8 155.6, 839.5 241.1, 839.1 295.5 M838.7 295.7 C718.7 296.5, 597.2 294.9, 440.9 296.4 M840.2 296.6 C734.5 297.9, 629.9 298.7, 440.0 296.0 M439.6 294.7 C440.8 212.1, 440.5 128.1, 440.8 71.8 M439.2 295.5 C442.4 226.6, 441.4 156.7, 439.4 71.0" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="640" y="104" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="640" dy="0">with functools.wraps</tspan></text>
+<text x="470" y="150" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="470" dy="0">__name__     'add_wrapped'</tspan></text>
+<text x="470" y="186" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="470" dy="0">__doc__      'Return a plus b.'</tspan></text>
+<text x="470" y="222" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="470" dy="0">__wrapped__  the original</tspan></text>
+<text x="470" y="258" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="470" dy="0">signature    (a, b)</tspan></text>
+<text x="440" y="322" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">Same result when called; only the reported metadata differs</tspan></text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 350" role="img" aria-label="Least-squares residual is orthogonal to both columns of X" class="sketch"><title>Least-squares residual is orthogonal to both columns of X</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Least squares: the residual is perpendicular to each column</tspan></text>
+<text x="160" y="84" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="160" dy="0">1</tspan></text>
+<text x="290" y="84" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="290" dy="0">x</tspan></text>
+<text x="420" y="84" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="420" dy="0">y</tspan></text>
+<text x="550" y="84" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="550" dy="0">fit</tspan></text>
+<text x="680" y="84" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="680" dy="0">resid</tspan></text>
+<path d="M89.9 98.8 C229.9 99.1, 371.9 100.5, 790.6 98.2 M89.5 98.1 C354.0 96.4, 617.9 96.0, 789.5 98.2" style="stroke:var(--sk-muted);fill:none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="160" dy="0">1</tspan></text>
+<text x="290" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="290" dy="0">0</tspan></text>
+<text x="420" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="420" dy="0">1</tspan></text>
+<text x="550" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="550" dy="0">0.9</tspan></text>
+<text x="680" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="680" dy="0">0.1</tspan></text>
+<text x="160" y="170" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="160" dy="0">1</tspan></text>
+<text x="290" y="170" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="290" dy="0">1</tspan></text>
+<text x="420" y="170" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="420" dy="0">2</tspan></text>
+<text x="550" y="170" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="550" dy="0">1.8</tspan></text>
+<text x="680" y="170" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="680" dy="0">0.2</tspan></text>
+<text x="160" y="208" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="160" dy="0">1</tspan></text>
+<text x="290" y="208" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="290" dy="0">2</tspan></text>
+<text x="420" y="208" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="420" dy="0">2</tspan></text>
+<text x="550" y="208" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="550" dy="0">2.7</tspan></text>
+<text x="680" y="208" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="680" dy="0">-0.7</tspan></text>
+<text x="160" y="246" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="160" dy="0">1</tspan></text>
+<text x="290" y="246" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="290" dy="0">3</tspan></text>
+<text x="420" y="246" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="420" dy="0">4</tspan></text>
+<text x="550" y="246" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="550" dy="0">3.6</tspan></text>
+<text x="680" y="246" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="680" dy="0">0.4</tspan></text>
+<path d="M89.3 292.3 C230.7 289.8, 370.6 289.7, 789.3 291.4 M89.7 291.8 C368.7 292.6, 648.3 291.9, 789.7 292.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="130" y="322" class="sk-mono" font-size="20" text-anchor="start" style="fill:var(--sk-green)"><tspan x="130" dy="0">1ᵀr = 0</tspan></text>
+<text x="310" y="322" class="sk-mono" font-size="20" text-anchor="start" style="fill:var(--sk-green)"><tspan x="310" dy="0">xᵀr = 0</tspan></text>
+<text x="640" y="322" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="640" dy="0">exact up to rounding</tspan></text>
+</svg>

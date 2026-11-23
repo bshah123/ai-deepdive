@@ -1,0 +1,156 @@
+{
+  "python": "3.12.13",
+  "n": 10000,
+  "example": [
+    5,
+    9,
+    12,
+    3,
+    2,
+    8,
+    14,
+    10,
+    1,
+    4,
+    7,
+    11,
+    6,
+    13,
+    15,
+    16
+  ],
+  "example_runs": [
+    {
+      "start": 0,
+      "len": 3,
+      "kind": "asc"
+    },
+    {
+      "start": 3,
+      "len": 2,
+      "kind": "desc"
+    },
+    {
+      "start": 5,
+      "len": 2,
+      "kind": "asc"
+    },
+    {
+      "start": 7,
+      "len": 2,
+      "kind": "desc"
+    },
+    {
+      "start": 9,
+      "len": 3,
+      "kind": "asc"
+    },
+    {
+      "start": 12,
+      "len": 4,
+      "kind": "asc"
+    }
+  ],
+  "example_comparisons": 45,
+  "inputs": [
+    {
+      "input": "random",
+      "comparisons": 119838,
+      "per_n": 11.98,
+      "natural_runs": 4135
+    },
+    {
+      "input": "ascending",
+      "comparisons": 9999,
+      "per_n": 1.0,
+      "natural_runs": 1
+    },
+    {
+      "input": "descending",
+      "comparisons": 9999,
+      "per_n": 1.0,
+      "natural_runs": 1
+    },
+    {
+      "input": "nearly_sorted_100_swaps",
+      "comparisons": 23446,
+      "per_n": 2.34,
+      "natural_runs": 199
+    },
+    {
+      "input": "eight_ascending_runs",
+      "comparisons": 39991,
+      "per_n": 4.0,
+      "natural_runs": 8
+    },
+    {
+      "input": "two_interleaved_runs",
+      "comparisons": 19998,
+      "per_n": 2.0,
+      "natural_runs": 2
+    },
+    {
+      "input": "two_disjoint_runs",
+      "comparisons": 10031,
+      "per_n": 1.0,
+      "natural_runs": 2
+    }
+  ],
+  "n_log2_n": 132877,
+  "scaling": [
+    {
+      "n": 1000,
+      "disjoint": 1025,
+      "interleaved": 1998
+    },
+    {
+      "n": 10000,
+      "disjoint": 10031,
+      "interleaved": 19998
+    },
+    {
+      "n": 100000,
+      "disjoint": 100039,
+      "interleaved": 199998
+    }
+  ],
+  "gallop": {
+    "key5": {
+      "index": 5,
+      "probes": [
+        0,
+        1,
+        3,
+        7,
+        5,
+        4
+      ],
+      "bisect_probes": 10
+    },
+    "key700": {
+      "index": 700,
+      "probes": [
+        0,
+        1,
+        3,
+        7,
+        15,
+        31,
+        63,
+        127,
+        255,
+        511,
+        755,
+        633,
+        694,
+        724,
+        709,
+        701,
+        697,
+        699,
+        700
+      ],
+      "bisect_probes": 10
+    }
+  }
+}

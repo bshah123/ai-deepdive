@@ -1,54 +1,198 @@
 {
   "chapterId": "chapter-53",
-  "title": "Chapter 53 Quiz \u2014 FastAPI for AI Services",
+  "title": "Chapter 53 Quiz — Serving Metrics",
   "questions": [
     {
       "id": "q53.1",
-      "question": "What is the primary architectural mechanism in FastAPI for AI Services?",
+      "question": "A request arrives at t = 0. Its first token appears at 0.50 s and its 101st token at 2.50 s. What is its TPOT (time per output token)?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "25.0 ms"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "2.0 ms"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "20.0 ms"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "40.4 ms"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In FastAPI for AI Services, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "TPOT = (t_n - t_1)/(n - 1) = (2.50 - 0.50)/100 = 0.020 s = 20.0 ms. The 25.0 ms option divides the end-to-end time by 100 instead of the gap count. The 40.4 ms option is an end-to-end tokens/s figure, not a time."
     },
     {
       "id": "q53.2",
-      "question": "How does FastAPI for AI Services optimize performance in modern AI systems?",
+      "question": "The request in the previous question has 101 output tokens and ends at 2.50 s. What is its end-to-end tokens/s?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "50.0"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "40.4"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "40.0"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "47.6"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "b",
+      "explanation": "End-to-end tokens/s = n / E2E = 101 / 2.50 = 40.4. The 40.0 option uses 100 tokens. The 50.0 option is the decode-only rate, 1/TPOT, which excludes the 0.50 s wait."
+    },
+    {
+      "id": "q53.3",
+      "question": "In the cost model of Lesson 53.1 (14 ms per iteration plus 0.25 ms per running sequence), what are the per-user and system tokens/s at batch size 16?",
+      "options": [
+        {
+          "id": "a",
+          "text": "a per-user rate of 45.5 and a system rate of 1,455 tokens/s (B = 32)"
+        },
+        {
+          "id": "b",
+          "text": "a per-user rate of 62.5 and a system rate of 500 tokens/s (B = 8)"
+        },
+        {
+          "id": "c",
+          "text": "a per-user rate of 55.6 and a system rate of 889 tokens/s (B = 16)"
+        },
+        {
+          "id": "d",
+          "text": "a per-user rate of 33.3 and a system rate of 2,133 tokens/s (B = 64)"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "One iteration takes 14 + 0.25 x 16 = 18 ms. Per-user rate is 1000/18 = 55.6 tokens/s. System rate is 16 x 1000/18 = 889 tokens/s. The other options are the values at B = 32, 8 and 64."
+    },
+    {
+      "id": "q53.4",
+      "question": "Four requests with output lengths 1, 5, 1 and 1 arrive at time 0. There are two slots, and each decode step takes one time unit. What are the makespans under static and under continuous batching?",
+      "options": [
+        {
+          "id": "a",
+          "text": "static 6 steps, continuous 5 steps"
+        },
+        {
+          "id": "b",
+          "text": "static 5 steps, continuous 5 steps"
+        },
+        {
+          "id": "c",
+          "text": "static 6 steps, continuous 6 steps"
+        },
+        {
+          "id": "d",
+          "text": "static 4 steps, continuous 3 steps"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Static: batch {r1, r2} runs max(1, 5) = 5 steps, then batch {r3, r4} runs 1 step, for 6. Continuous: r1 frees its slot at time 1, so r3 runs from 1 to 2 and r4 from 2 to 3 in that slot, while r2 runs to time 5. The makespan is 5, set by the long request."
+    },
+    {
+      "id": "q53.5",
+      "question": "A cache keys each block by a hash of its own tokens only. Which property of this design causes it to return KV computed under a different prefix?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Hashing only the full blocks of a prompt"
+        },
+        {
+          "id": "b",
+          "text": "Chaining the parent block's hash into each block's hash"
+        },
+        {
+          "id": "c",
+          "text": "Hashing the block's own tokens without the parent block's hash"
+        },
+        {
+          "id": "d",
+          "text": "Using a block size of 16 tokens"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Attention makes a token's keys and values depend on the earlier tokens, so the same block after a different prefix has different KV. A key without the parent hash cannot tell the two apart. Chaining the parent hash, as in the lesson, gives each block an identity that covers its whole prefix."
+    },
+    {
+      "id": "q53.6",
+      "question": "A shared system prompt has 2,010 tokens. The engine uses block size 16 and caches only full blocks. How many prompt tokens are reusable, and how many are recomputed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2,010 reusable and 0 recomputed"
+        },
+        {
+          "id": "b",
+          "text": "2,000 reusable and 10 recomputed"
+        },
+        {
+          "id": "c",
+          "text": "2,016 reusable and 0 recomputed"
+        },
+        {
+          "id": "d",
+          "text": "1,984 reusable and 26 recomputed"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "There are floor(2010 / 16) = 125 full blocks, which hold 125 x 16 = 2,000 tokens. The last 10 tokens form a partial block and are recomputed."
+    },
+    {
+      "id": "q53.7",
+      "question": "A model has 40 layers, 8 KV heads, head dimension 128 and fp16 KV. A 1,024-token prompt is shared by 16 users. How much KV memory do the users need without sharing, and with one shared copy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.5 GiB without sharing and 0.16 GiB with one shared copy"
+        },
+        {
+          "id": "b",
+          "text": "2.5 GiB without sharing and 0.63 GiB with one shared copy"
+        },
+        {
+          "id": "c",
+          "text": "160 MiB without sharing and 160 MiB with one shared copy"
+        },
+        {
+          "id": "d",
+          "text": "40 GiB without sharing and 2.5 GiB with one shared copy"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Per token: 2 x 40 x 8 x 128 x 2 = 163,840 bytes (160 KiB). One 1,024-token copy is 160 MiB. Sixteen copies are 2,560 MiB, which is 2.5 GiB. One shared copy is 160 MiB, which is 0.16 GiB. The 0.63 GiB option is not the result of any of these steps."
+    },
+    {
+      "id": "q53.8",
+      "question": "A server reports a median ITL of 15 ms and a p99 ITL of 55 ms. Which reading is correct?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The median gap is high, so most tokens are slow"
+        },
+        {
+          "id": "b",
+          "text": "Some gaps are far longer than typical, plausibly from another request's prefill stalling the decode"
+        },
+        {
+          "id": "c",
+          "text": "The mean ITL must be 55 ms"
+        },
+        {
+          "id": "d",
+          "text": "TTFT must be 55 ms"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The median describes a typical gap, and the 99th percentile describes the rare long ones. A gap of 55 ms in the tail is consistent with a prefill of another prompt pausing a decode step. The percentiles alone do not fix the mean or the TTFT."
     }
   ]
 }

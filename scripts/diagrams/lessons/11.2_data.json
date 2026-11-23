@@ -1,0 +1,95 @@
+{
+  "nested": {
+    "case": "nested",
+    "events": [
+      "enter A",
+      "enter B",
+      "enter C",
+      "body",
+      "exit C None",
+      "exit B None",
+      "exit A None"
+    ],
+    "outcome": "continues after with"
+  },
+  "exc_false": {
+    "case": "exc_false",
+    "events": [
+      "enter X",
+      "exit X ValueError"
+    ],
+    "outcome": "propagates ValueError"
+  },
+  "exc_true": {
+    "case": "exc_true",
+    "events": [
+      "enter X",
+      "exit X ValueError"
+    ],
+    "outcome": "continues after with"
+  },
+  "no_exc": {
+    "case": "no_exc",
+    "events": [
+      "enter X",
+      "exit X None"
+    ],
+    "outcome": "continues after with"
+  },
+  "enter_fails": {
+    "case": "enter_fails",
+    "events": [
+      "enter E"
+    ],
+    "outcome": "propagates RuntimeError"
+  },
+  "exit_raises": {
+    "final": "KeyError",
+    "context": "ValueError"
+  },
+  "gen_no_finally": {
+    "case": "gen_no_finally",
+    "events": [
+      "open R",
+      "body"
+    ],
+    "outcome": "propagates ValueError"
+  },
+  "gen_with_finally": {
+    "case": "gen_with_finally",
+    "events": [
+      "open R",
+      "body",
+      "close R"
+    ],
+    "outcome": "propagates ValueError"
+  },
+  "gen_no_finally_ok": {
+    "case": "gen_no_finally_ok",
+    "events": [
+      "open R",
+      "body",
+      "close R"
+    ],
+    "outcome": "continues after with"
+  },
+  "reuse": {
+    "second_use": "AttributeError: '_GeneratorContextManager' object has no attribute 'args'"
+  },
+  "file": {
+    "closed_after_normal": true,
+    "closed_after_exception": true
+  },
+  "suppress": {
+    "continued": true
+  },
+  "exitstack": [
+    "enter one",
+    "enter two",
+    "enter three",
+    "body",
+    "exit three None",
+    "exit two None",
+    "exit one None"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "n": 8,
+  "topologies": [
+    {
+      "name": "star",
+      "edges": 7,
+      "hops": 1,
+      "hub_gone": 0.0,
+      "avg_one_lost": 0.875
+    },
+    {
+      "name": "binary tree",
+      "edges": 7,
+      "hops": 3,
+      "hub_gone": 0.429,
+      "avg_one_lost": 0.744
+    },
+    {
+      "name": "complete",
+      "edges": 28,
+      "hops": 1,
+      "hub_gone": 1.0,
+      "avg_one_lost": 1.0
+    }
+  ],
+  "p": 0.3,
+  "three_indep": 0.216,
+  "five_by_rho": [
+    {
+      "rho": 0.0,
+      "err": 0.163
+    },
+    {
+      "rho": 0.25,
+      "err": 0.197
+    },
+    {
+      "rho": 0.5,
+      "err": 0.232
+    },
+    {
+      "rho": 0.75,
+      "err": 0.266
+    },
+    {
+      "rho": 1.0,
+      "err": 0.3
+    }
+  ],
+  "messages": {
+    "supervisor_3": 6,
+    "supervisor_5": 10,
+    "debate_3x2": 12,
+    "debate_5x2": 40
+  }
+}

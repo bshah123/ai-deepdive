@@ -1,54 +1,102 @@
 {
   "chapterId": "chapter-33",
-  "title": "Chapter 33 Quiz \u2014 Search Engines & Inverted Indices",
+  "title": "Chapter 33 Quiz — Search Engines: Inverted Indices and BM25",
   "questions": [
     {
       "id": "q33.1",
-      "question": "What is the primary architectural mechanism in Search Engines & Inverted Indices?",
+      "question": "An inverted index answers a query without reading every document. What does it store that makes this possible?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "A copy of each document, sorted by its length"},
+        {"id": "b", "text": "For each term, a sorted postings list of the documents that contain it, so a query reads only the lists of its own terms"},
+        {"id": "c", "text": "The similarity between every pair of documents, precomputed"},
+        {"id": "d", "text": "Only the first occurrence of each term in each document"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Search Engines & Inverted Indices, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "Lesson 33.1 defines the inverted index as a map from each term to its postings list. A query reads only the lists of its own terms, so when the answer is one document the work does not scale with the whole corpus."
     },
     {
       "id": "q33.2",
-      "question": "How does Search Engines & Inverted Indices optimize performance in modern AI systems?",
+      "question": "Intersect the sorted lists [3, 5, 9] and [1, 5, 7, 9] with the two-pointer AND of Lesson 33.1. What does it return, and how many comparisons does it make?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "[5, 9] after 4 comparisons"},
+        {"id": "b", "text": "[3, 5, 9] after 5 comparisons"},
+        {"id": "c", "text": "[5, 9] after 5 comparisons"},
+        {"id": "d", "text": "[1, 3, 5, 7, 9] after 8 comparisons"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "Trace: 3 against 1 advances the second list; 3 against 5 advances the first; 5 equals 5 and is output; 9 against 7 advances the second list; 9 equals 9 and is output. That is five comparisons and the result [5, 9]."
+    },
+    {
+      "id": "q33.3",
+      "question": "Encode 300 with VByte, using the convention of Lesson 33.1 in which flag bit 1 means more bytes follow. Which pair of bytes is correct?",
+      "options": [
+        {"id": "a", "text": "00101100 10000010"},
+        {"id": "b", "text": "00000010 00101100"},
+        {"id": "c", "text": "10000010 00101100"},
+        {"id": "d", "text": "10101100 00000010"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "300 = 2 × 128 + 44. The high group 2 = 0000010 gets flag 1, giving 10000010. The low group 44 = 0101100 gets flag 0, giving 00101100. Option a reverses the groups, option b clears the flag on the high group, and option d reverses the groups and keeps the wrong flags."
+    },
+    {
+      "id": "q33.4",
+      "question": "A term appears in 900 of 1,000 documents. Which statement about its IDF is correct?",
+      "options": [
+        {"id": "a", "text": "The Robertson–Spärck Jones form gives about −2.19, and the Lucene form gives about 0.106"},
+        {"id": "b", "text": "Both forms give about 0.106"},
+        {"id": "c", "text": "Both forms give about −2.19"},
+        {"id": "d", "text": "Both forms give 0, because the term is common"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Robertson–Spärck Jones (RSJ): log((1000 − 900 + 0.5)/(900 + 0.5)) = log(0.1116) ≈ −2.1928. Lucene: log(1 + 0.1116) ≈ 0.1058. Both values are in the Lesson 33.2 output. A common term does not get IDF 0 under either form."
+    },
+    {
+      "id": "q33.5",
+      "question": "A document has length equal to the average length (avgdl). The query term occurs 3 times, and k1 = 1.2. What is the tf part of the BM25 score?",
+      "options": [
+        {"id": "a", "text": "1.0000"},
+        {"id": "b", "text": "2.2000"},
+        {"id": "c", "text": "1.5714"},
+        {"id": "d", "text": "3.0000"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "With |D| = avgdl the length term is k1, so the tf part is 3 × 2.2 / (3 + 1.2) = 6.6 / 4.2 = 1.5714 (Lesson 33.2). The value 1.0000 is the f = 1 value, 2.2000 is the ceiling k1 + 1 that the tf part approaches but does not reach at f = 3, and 3.0000 is the raw count."
+    },
+    {
+      "id": "q33.6",
+      "question": "In BM25, set the length parameter b to 0. Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "Longer documents always score lower"},
+        {"id": "b", "text": "Longer documents always score higher"},
+        {"id": "c", "text": "Length matters only when k1 is 0"},
+        {"id": "d", "text": "Length has no effect, because the length term equals k1 for every document"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The length term is k1 (1 − b + b·|D|/avgdl). At b = 0 it reduces to k1 for every document, so the tf part depends only on the count f (Lesson 33.2, Question 2)."
+    },
+    {
+      "id": "q33.7",
+      "question": "On the three-document corpus of Lesson 33.3 (lengths 9, 16 and 7), the query 'quick brown fox' has two postings for each term. How many postings entries does the index read, and how many token comparisons does a brute-force scan make?",
+      "options": [
+        {"id": "a", "text": "3 postings entries and 32 comparisons"},
+        {"id": "b", "text": "6 postings entries and 96 comparisons"},
+        {"id": "c", "text": "6 postings entries and 32 comparisons"},
+        {"id": "d", "text": "9 postings entries and 96 comparisons"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Three terms with two postings each give 3 × 2 = 6 entries read. The brute-force scan reads every token of every document once per query term: (9 + 16 + 7) × 3 = 96 (Lesson 33.3, Question 4)."
+    },
+    {
+      "id": "q33.8",
+      "question": "A colleague calls add() for 1,000 more documents and then calls search() without calling build(). What happens?",
+      "options": [
+        {"id": "a", "text": "The search runs on the old statistics and returns scores with no error"},
+        {"id": "b", "text": "accumulate() raises an AssertionError with the message 'call build() after the last add()'"},
+        {"id": "c", "text": "The new documents are indexed automatically, so the scores are correct"},
+        {"id": "d", "text": "search() returns an empty list, because the IDF table is cleared"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "add() sets built to False, and accumulate() asserts that it is True. Without that check, N, avgdl and the length factors would be stale and the scores wrong, with no error (Lesson 33.3, Common traps and Question 3)."
     }
   ]
 }

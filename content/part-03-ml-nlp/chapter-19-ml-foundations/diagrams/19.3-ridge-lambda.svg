@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" role="img" aria-label="Expected error against ridge strength at polynomial degree 12: a U shape in log lambda, with the minimum at lambda equal to 1" class="sketch"><title>Expected error against ridge strength at polynomial degree 12: a U shape in log lambda, with the minimum at lambda equal to 1</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Ridge strength at degree 12</tspan></text>
+<path d="M120.0 330.0 L800.0 330.0" fill="none" stroke="var(--sk-muted)" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 7"/>
+<text x="105" y="336" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="105" dy="0">0.0</tspan></text>
+<path d="M120.0 243.3 L800.0 243.3" fill="none" stroke="var(--sk-muted)" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 7"/>
+<text x="105" y="249.33333333333331" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="105" dy="0">0.2</tspan></text>
+<path d="M120.0 156.7 L800.0 156.7" fill="none" stroke="var(--sk-muted)" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 7"/>
+<text x="105" y="162.66666666666666" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="105" dy="0">0.4</tspan></text>
+<path d="M120.0 70.0 L800.0 70.0" fill="none" stroke="var(--sk-muted)" stroke-width="1" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="3 7"/>
+<text x="105" y="76" class="sk-mono" font-size="16" text-anchor="end" style="fill:var(--sk-ink)"><tspan x="105" dy="0">0.6</tspan></text>
+<text x="120" y="358" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="120" dy="0">1e-6</tspan></text>
+<text x="290" y="358" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="290" dy="0">1e-4</tspan></text>
+<text x="460" y="358" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="460" dy="0">1e-2</tspan></text>
+<text x="630" y="358" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="630" dy="0">1e0</tspan></text>
+<text x="800" y="358" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="800" dy="0">1e2</tspan></text>
+<text x="460" y="390" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="460" dy="0">ridge penalty lambda (log scale)</tspan></text>
+<text x="40" y="200" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" transform="rotate(-90 40 200)"><tspan x="40" dy="0">expected squared error</tspan></text>
+<path d="M120.0 291.0 L800.0 291.0" fill="none" stroke="var(--sk-green)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10 8"/>
+<path d="M120.0 144.6 L290.0 183.1 L460.0 313.6 L545.0 321.1 L630.0 325.2 L715.0 327.9 L800.0 328.1" fill="none" stroke="var(--sk-amber)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M120.0 105.3 L290.0 144.0 L460.0 274.6 L545.0 282.1 L630.0 285.6 L715.0 266.0 L800.0 149.5" fill="none" stroke="var(--sk-ink)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="120.0" cy="105.3" r="5" fill="var(--sk-ink)"/>
+<circle cx="290.0" cy="144.0" r="5" fill="var(--sk-ink)"/>
+<circle cx="460.0" cy="274.6" r="5" fill="var(--sk-ink)"/>
+<circle cx="545.0" cy="282.1" r="5" fill="var(--sk-ink)"/>
+<circle cx="630.0" cy="285.6" r="5" fill="var(--sk-ink)"/>
+<circle cx="715.0" cy="266.0" r="5" fill="var(--sk-ink)"/>
+<circle cx="800.0" cy="149.5" r="5" fill="var(--sk-ink)"/>
+<text x="630" y="263.5509223149936" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="630" dy="0">best lambda = 1: 0.103</tspan></text>
+<text x="120" y="60" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="120" dy="0">no penalty (lambda = 0): expected error 0.520, off this scale</tspan></text>
+<path d="M560.0 78.0 L600.0 78.0" fill="none" stroke="var(--sk-amber)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="610" y="84" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="610" dy="0">variance</tspan></text>
+</svg>

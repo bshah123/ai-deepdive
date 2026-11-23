@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-44",
-  "title": "Chapter 44 Quiz \u2014 GraphRAG & Knowledge Graphs",
+  "title": "Chapter 44 Quiz — LlamaIndex",
   "questions": [
     {
       "id": "q44.1",
-      "question": "What is the primary architectural mechanism in GraphRAG & Knowledge Graphs?",
+      "question": "In the worked example, what is the cosine similarity between chunk 1 (\"Fill the water up to the lid.\") and the query \"How much water is in a litre?\" over the six-word vocabulary?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "0.00, because chunk 1 shares no word with the query"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "0.50"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "0.71, the value that chunk 0 and chunk 1 tie at for a one-word query"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "1.00, the same as chunk 0"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In GraphRAG & Knowledge Graphs, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "Chunk 1 is (1, 0, 1, 0, 0, 0) and the query is (1, 1, 0, 0, 0, 0). The dot product is 1 and both lengths are √2, so the cosine is 1 / 2 = 0.50 (Lesson 44.1, worked example)."
     },
     {
       "id": "q44.2",
-      "question": "How does GraphRAG & Knowledge Graphs optimize performance in modern AI systems?",
+      "question": "LlamaIndex's TokenTextSplitter is run on a 112-word manual with chunk_size=40 and chunk_overlap=10. How many nodes result, and why do the nodes hold 36 text words rather than 40?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "3 nodes, because 112 divided by 40 rounds down"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "112 nodes, one per word"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "4 nodes of 36, 36, 36 and 34 text words, because 4 tokens of each node are reserved for the metadata string"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "4 nodes of 40 words each, because the metadata is stored outside the node text"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The metadata reserve is 4 tokens, so the effective size is 40 - 4 = 36 text words. The step is 36 - 10 = 26 words, which gives windows starting at words 0, 26, 52 and 78. The last window holds the final 34 words (Lesson 44.1, the chunking section and quiz question 4)."
+    },
+    {
+      "id": "q44.3",
+      "question": "Calling chunk_words(text, size=3, overlap=3) fails. What exactly goes wrong?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The window is only 3 words, so the function cannot read the final word of the text"
+        },
+        {
+          "id": "b",
+          "text": "The step size is size minus overlap, which is 0, so range(0, len(words), 0) raises ValueError"
+        },
+        {
+          "id": "c",
+          "text": "The overlap is larger than the text, so the function returns an empty list"
+        },
+        {
+          "id": "d",
+          "text": "Python lists cannot be sliced with overlapping windows"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The step is size - overlap = 0, and range() rejects a step of zero. A splitter should require 0 <= overlap < size and raise a clear error before it splits (Lesson 44.1, the common traps and quiz question 3)."
+    },
+    {
+      "id": "q44.4",
+      "question": "Six retrieved chunks of 20, 12, 17, 17, 18 and 19 words go to compact synthesis with a 78-word budget for chunk text. How many prompts are made, and how many chunk words does each hold?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 prompt of 103 words, which fits because 103 is above 78"
+        },
+        {
+          "id": "b",
+          "text": "3 prompts of 66, 18 and 19 words"
+        },
+        {
+          "id": "c",
+          "text": "2 prompts of 84 and 19 words"
+        },
+        {
+          "id": "d",
+          "text": "2 prompts of 66 and 37 words"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Greedy packing in retrieval order: 20 + 12 + 17 + 17 = 66. Adding 18 would give 84, which is over 78, so the first prompt closes at 66. The second prompt holds 18 + 19 = 37 words (Lesson 44.2, reading the output on the synthesis budget)."
+    },
+    {
+      "id": "q44.5",
+      "question": "In the synthesis demo, which response mode makes three LLM calls for the six retrieved chunks?",
+      "options": [
+        {
+          "id": "a",
+          "text": "tree_summarize"
+        },
+        {
+          "id": "b",
+          "text": "refine"
+        },
+        {
+          "id": "c",
+          "text": "compact"
+        },
+        {
+          "id": "d",
+          "text": "simple_summarize"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "tree_summarize packs the six chunks into two groups (2 calls), then summarizes the two group outputs in one more call (1 call), for 3. Refine makes 6, compact makes 2 and simple_summarize makes 1 (Lesson 44.2, the list of six modes)."
+    },
+    {
+      "id": "q44.6",
+      "question": "A chat engine has history and receives a follow-up. How many LLM calls does one turn make, and what does each one do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "One call, which synthesizes the answer from the raw follow-up"
+        },
+        {
+          "id": "b",
+          "text": "Two calls, both of which synthesize an answer, so the better one is kept"
+        },
+        {
+          "id": "c",
+          "text": "Two calls: the first condenses the follow-up into a standalone question, and the second synthesizes the answer from the retrieved chunks"
+        },
+        {
+          "id": "d",
+          "text": "Three calls: one to condense, one to retrieve and one to synthesize"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "With history, the condense step makes one call to rewrite the follow-up as a standalone question, and retrieval uses that question. The synthesis step makes the second call. Retrieval makes no LLM call. The first turn, with no history, makes one call (Lesson 44.2, the chat turn section)."
+    },
+    {
+      "id": "q44.7",
+      "question": "A SubQuestionQueryEngine splits one question into three sub-questions. Counting question generation, the sub-answers and the final synthesis, how many LLM calls does it make?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The count is N + 2 for N sub-questions: 1 call to generate the sub-questions, 3 for the sub-answers and 1 for synthesis, so 5 (Lesson 44.3, how SubQuestionQueryEngine works)."
+    },
+    {
+      "id": "q44.8",
+      "question": "In the demo, the single query with a budget of 2 returns chunks 6 and 0, so the Borealis revenue chunk is missing. Which chunk is that?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Chunk 2, \"Borealis Ltd reported revenue of 85 million dollars in 2023.\""
+        },
+        {
+          "id": "b",
+          "text": "Chunk 3, \"Borealis Ltd hired 400 engineers in Norway during 2023.\""
+        },
+        {
+          "id": "c",
+          "text": "Chunk 4, \"Cobalt Inc reported revenue of 40 million dollars in 2023.\""
+        },
+        {
+          "id": "d",
+          "text": "Chunk 7, \"Borealis Ltd sells wind turbines to farms in Scotland.\""
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Chunk 2 is the Borealis revenue sentence, one of the two chunks that answer the two-part question. The single query finds it at budget 4, where it returns chunks 6, 0, 2 and 1 (Lesson 44.3, the first code block and the budget table)."
+    },
+    {
+      "id": "q44.9",
+      "question": "Four tools all have the description \"companies and their 2023 results\". A keyword-overlap router scores a query that shares no word with that description. Which tool does it choose?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The tool whose name best matches the query"
+        },
+        {
+          "id": "b",
+          "text": "The first tool listed"
+        },
+        {
+          "id": "c",
+          "text": "The last tool listed"
+        },
+        {
+          "id": "d",
+          "text": "None, so the router raises an error"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Every score is 0, so the tie goes to the first tool in the listing. The fix is a description that names what each tool holds, such as its revenue figures or its hiring records (Lesson 44.3, the RouterQueryEngine section and the traps)."
     }
   ]
 }

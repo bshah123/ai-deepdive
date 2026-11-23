@@ -1,0 +1,213 @@
+{
+ "python": "3.12.13",
+ "platform": "darwin",
+ "calls_table": [
+  {
+   "n": 5,
+   "naive_calls": 15,
+   "primitive": 1,
+   "closed_form": 15,
+   "loop_calls": 1
+  },
+  {
+   "n": 10,
+   "naive_calls": 177,
+   "primitive": 1,
+   "closed_form": 177,
+   "loop_calls": 1
+  },
+  {
+   "n": 15,
+   "naive_calls": 1973,
+   "primitive": 1,
+   "closed_form": 1973,
+   "loop_calls": 1
+  },
+  {
+   "n": 20,
+   "naive_calls": 21891,
+   "primitive": 1,
+   "closed_form": 21891,
+   "loop_calls": 1
+  },
+  {
+   "n": 25,
+   "naive_calls": 242785,
+   "primitive": 1,
+   "closed_form": 242785,
+   "loop_calls": 1
+  }
+ ],
+ "fib3": {
+  "result": 2,
+  "events": [
+   [
+    1,
+    "call",
+    3,
+    12,
+    null
+   ],
+   [
+    1,
+    "line",
+    3,
+    13,
+    null
+   ],
+   [
+    1,
+    "line",
+    3,
+    15,
+    null
+   ],
+   [
+    2,
+    "call",
+    2,
+    12,
+    null
+   ],
+   [
+    2,
+    "line",
+    2,
+    13,
+    null
+   ],
+   [
+    2,
+    "line",
+    2,
+    15,
+    null
+   ],
+   [
+    3,
+    "call",
+    1,
+    12,
+    null
+   ],
+   [
+    3,
+    "line",
+    1,
+    13,
+    null
+   ],
+   [
+    3,
+    "line",
+    1,
+    14,
+    null
+   ],
+   [
+    3,
+    "return",
+    1,
+    14,
+    1
+   ],
+   [
+    3,
+    "call",
+    0,
+    12,
+    null
+   ],
+   [
+    3,
+    "line",
+    0,
+    13,
+    null
+   ],
+   [
+    3,
+    "line",
+    0,
+    14,
+    null
+   ],
+   [
+    3,
+    "return",
+    0,
+    14,
+    0
+   ],
+   [
+    2,
+    "return",
+    2,
+    15,
+    1
+   ],
+   [
+    2,
+    "call",
+    1,
+    12,
+    null
+   ],
+   [
+    2,
+    "line",
+    1,
+    13,
+    null
+   ],
+   [
+    2,
+    "line",
+    1,
+    14,
+    null
+   ],
+   [
+    2,
+    "return",
+    1,
+    14,
+    1
+   ],
+   [
+    1,
+    "return",
+    3,
+    15,
+    2
+   ]
+  ],
+  "calls": 5
+ },
+ "bad_tracer_line_events": 0,
+ "thread_events": 0,
+ "overhead_fib22": {
+  "none": {
+   "seconds": 0.00202,
+   "multiplier": 1.0
+  },
+  "cProfile": {
+   "seconds": 0.00771,
+   "multiplier": 3.8
+  },
+  "settrace, call events only": {
+   "seconds": 0.00827,
+   "multiplier": 4.1
+  },
+  "settrace, call+line+return": {
+   "seconds": 0.02387,
+   "multiplier": 11.8
+  }
+ },
+ "event_counts_fib22": {
+  "call": 57313,
+  "line": 114626,
+  "return": 57313
+ },
+ "fib22_calls": 57313
+}

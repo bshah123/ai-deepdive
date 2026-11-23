@@ -1,0 +1,51 @@
+== E0 platform
+python 3.12.13 | numpy 2.5.5 | byteorder little
+array('i') itemsize 4
+
+== E1 Py_buffer fields seen from Python
+format       i
+itemsize     4
+ndim         1
+shape        (5,)
+strides      (4,)
+readonly     False
+c_contiguous True
+nbytes       20
+float64 3x4 : format d itemsize 8 shape (3, 4) strides (32, 8) c_contiguous True
+
+== E2 who shares memory
+slice.obj is buf: True
+after sl[0] = 'X': bytearray(b'abXdefgh')
+after frombuffer[7] = 'Z': bytearray(b'abXdefgZ')
+asarray(mv) shares: True
+np.array(mv) shares: False
+buf[0] after changing the copy: 97 == ord('a') = 97
+
+== E3 read-only and reinterpretation
+bytes view readonly: True
+TypeError: cannot modify read-only memory
+cast('I') -> [1, 2] format I itemsize 4
+
+== E4 strided slices
+m[::2] tolist: [0, 2, 4, 6, 8] | strides (2,) | c_contiguous False
+tobytes() of strided view: b'\x00\x02\x04\x06\x08'
+
+== E5 exports lock resizing
+BufferError: Existing exports of data: object cannot be re-sized
+after release: bytearray(b'hello!')
+
+== E6 objects without a buffer
+TypeError: memoryview: a bytes-like object is required, not 'list'
+
+== E7 peak and retained allocation, 16 MiB source
+memoryview(src)                    peak    0.00 MiB   retained    0.00 MiB
+memoryview(src)[1024:]             peak    0.00 MiB   retained    0.00 MiB
+np.frombuffer(src, uint8)          peak    0.00 MiB   retained    0.00 MiB
+bytes(src)  (copy)                 peak   16.00 MiB   retained   16.00 MiB
+src[:]  (bytearray slice copy)     peak   16.00 MiB   retained   16.00 MiB
+np.array(memoryview(src))  (copy)  peak   16.00 MiB   retained   16.00 MiB
+
+== E8 timing (machine-dependent, one run, best of 5 repeats)
+memoryview(src)  :      0.077 us
+bytes(src) copy :      0.408 ms
+ratio copy/view :       5293x

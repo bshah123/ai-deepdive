@@ -1,22 +1,114 @@
 {
   "chapterId": "chapter-13",
-  "title": "Chapter 13 Quiz \u2014 Modules, Packages & Environments",
+  "title": "Chapter 13 Quiz — Modules, Packages & Environments",
   "questions": [
     {
       "id": "q13.1",
-      "question": "Key question regarding Modules, Packages & Environments?",
+      "question": "In one process, `import greeter` has already run once. Another file then runs `import greeter`. What happens?",
       "options": [
-        {
-          "id": "a",
-          "text": "Correct conceptual model option"
-        },
-        {
-          "id": "b",
-          "text": "Incorrect option"
-        }
+        {"id": "a", "text": "One finder search runs and the module body runs again, creating a new module object."},
+        {"id": "b", "text": "No finder search runs, the body does not run, and the cached object is returned."},
+        {"id": "c", "text": "No finder search runs, but the body runs again and a new module object is stored."},
+        {"id": "d", "text": "One finder search runs, and the body is skipped because the same object is returned."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The key 'greeter' is already in sys.modules, so the engine returns the stored object at once. The lesson's counter shows zero searches and no second body run on imports 2 and 3, and the same object comes back each time."
+    },
+    {
+      "id": "q13.2",
+      "question": "sys.path is [A, B, C]. Folder A has no util.py. Folders B and C both contain a util.py. Which file does `import util` load?",
+      "options": [
+        {"id": "a", "text": "The file in C, because the last match overrides the earlier ones."},
+        {"id": "b", "text": "Both files, merged into one module."},
+        {"id": "c", "text": "Neither; ModuleNotFoundError is raised because two copies exist."},
+        {"id": "d", "text": "The file in B, because the search stops at the first match."}
+      ],
+      "correctOptionId": "d",
+      "explanation": "PathFinder walks sys.path from first to last and stops at the first directory that holds a match, so B wins and C's copy is never read. The lesson's dir_a example uses the same rule."
+    },
+    {
+      "id": "q13.3",
+      "question": "A file contains `sys.modules[\"json\"] = None` followed by `import json`. What happens?",
+      "options": [
+        {"id": "a", "text": "ModuleNotFoundError is raised, with the message that None is in sys.modules, before any search runs."},
+        {"id": "b", "text": "The standard-library json module loads, because the search ignores sys.modules."},
+        {"id": "c", "text": "RuntimeError is raised from inside the json module's body."},
+        {"id": "d", "text": "The import succeeds and json is an empty dictionary."}
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Modules, Packages & Environments internal mechanisms."
+      "explanation": "The cache check finds a None entry and raises ModuleNotFoundError before any finder runs. The lesson's ghost example shows the message 'import of ghost halted; None in sys.modules'. The fix is to delete the assignment line."
+    },
+    {
+      "id": "q13.4",
+      "question": "The lesson measured a median first import of about 240 microseconds and a median cache hit of about 321 nanoseconds on one machine. Roughly how many times faster is the cache hit?",
+      "options": [
+        {"id": "a", "text": "About 75 times"},
+        {"id": "b", "text": "About 7,500 times"},
+        {"id": "c", "text": "About 750 times"},
+        {"id": "d", "text": "About 75,000 times"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "240 microseconds is 240,000 nanoseconds, and 240,000 / 321 is about 748, which the lesson rounds to about 750. The ratio comes from one run on one machine, so read the order of magnitude, not the exact value."
+    },
+    {
+      "id": "q13.5",
+      "question": "From the project root, `python my_package/sub_package2/module3.py` fails with ModuleNotFoundError: No module named 'my_package'. Which fix does the lesson recommend?",
+      "options": [
+        {"id": "a", "text": "Add sys.path.append(\"/Users/me/project\") at the top of module3.py."},
+        {"id": "b", "text": "Run python -m my_package.sub_package2.module3 from the project root."},
+        {"id": "c", "text": "Delete the __init__.py files so Python treats the folders as plain scripts."},
+        {"id": "d", "text": "Rename module3.py to __main__.py so Python can find it."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Running a file by path puts its own folder first on sys.path, so my_package is not found. Running with -m from the root puts the root first. The lesson's table measured the -m run as exit 0. The sys.path.append fix hardcodes one machine's path and hides the cause."
+    },
+    {
+      "id": "q13.6",
+      "question": "The module my_package/sub_package1/module2.py contains `from ...module1 import greet`, and it is imported as my_package.sub_package1.module2. What happens?",
+      "options": [
+        {"id": "a", "text": "ImportError: attempted relative import beyond top-level package."},
+        {"id": "b", "text": "It imports my_package.module1, as two dots would."},
+        {"id": "c", "text": "It imports my_package.sub_package1.module1."},
+        {"id": "d", "text": "ModuleNotFoundError: No module named 'module1'."}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The package is my_package.sub_package1, two parts. Three dots remove two parts, leaving nothing to build the name from. importlib.util.resolve_name('...module1', 'my_package.sub_package1') raises this same ImportError, which the lesson checked. Two dots give my_package.module1."
+    },
+    {
+      "id": "q13.7",
+      "question": "Folder portA (first on PYTHONPATH) has shared/__init__.py and shared/a.py. Folder portB has shared/b.py and no __init__.py. What does `import shared.a, shared.b` do?",
+      "options": [
+        {"id": "a", "text": "It loads both files, because namespace packages always merge folders."},
+        {"id": "b", "text": "It raises ModuleNotFoundError for shared.a, because the merge fails."},
+        {"id": "c", "text": "It prints 3, because the two folders are merged."},
+        {"id": "d", "text": "It raises ModuleNotFoundError: No module named 'shared.b'."}
+      ],
+      "correctOptionId": "d",
+      "explanation": "A regular package (shared/ with __init__.py) found first on the path hides other folders of the same name, so shared.b is not found. The lesson measured this. Without portA's __init__.py, the same two folders merge and the sum prints 3."
+    },
+    {
+      "id": "q13.8",
+      "question": "In a fresh venv on the lesson's machine, sys.path has five entries: (cwd), the zipped standard library, the standard library, the lib-dynload folder and site-packages. At what zero-based index is site-packages?",
+      "options": [
+        {"id": "a", "text": "3"},
+        {"id": "b", "text": "5"},
+        {"id": "c", "text": "4"},
+        {"id": "d", "text": "0"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Counting from zero, (cwd) is 0, the zip slot is 1, the standard library is 2, lib-dynload is 3 and site-packages is 4. A .pth directory added by the lesson's test landed at index 5, directly after it. The lesson's measured list is the source."
+    },
+    {
+      "id": "q13.9",
+      "question": "After a venv folder is moved, `venv/bin/python -c \"import sys; print(sys.prefix)\"` prints the new location, but `venv/bin/pip --version` raises FileNotFoundError. Why?",
+      "options": [
+        {"id": "a", "text": "pip keeps a cached copy of the old site-packages path, and the python binary does not."},
+        {"id": "b", "text": "python finds pyvenv.cfg beside itself, while the pip script's shebang line holds the old absolute interpreter path."},
+        {"id": "c", "text": "Moving the folder deletes the pip package, but python is part of the base installation."},
+        {"id": "d", "text": "python is a symlink that resolves to the new location, while pip is a symlink that cannot."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The interpreter locates pyvenv.cfg from its own path, so sys.prefix follows the move. The pip script is a text file whose first line is an absolute shebang path, which no longer exists. The venv documentation says environments are non-portable in the general case, and the advice is to recreate the venv."
     }
   ]
 }

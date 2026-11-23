@@ -1,54 +1,126 @@
 {
   "chapterId": "chapter-36",
-  "title": "Chapter 36 Quiz \u2014 ANN Algorithms (HNSW & IVF-PQ)",
+  "title": "Chapter 36 Quiz — Hybrid Search",
   "questions": [
     {
       "id": "q36.1",
-      "question": "What is the primary architectural mechanism in ANN Algorithms (HNSW & IVF-PQ)?",
+      "question": "A term appears in 1 of 12 documents, with frequency f = 2 in that document. The document length equals the average length. Using k1 = 1.2 and b = 0.75, what is the term's BM25 contribution (inverse document frequency about 2.1595)?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "1.38"},
+        {"id": "b", "text": "2.20"},
+        {"id": "c", "text": "2.97"},
+        {"id": "d", "text": "4.32"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In ANN Algorithms (HNSW & IVF-PQ), predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "With |d| equal to the average, the length factor is k1 = 1.2, so the denominator is f + k1 = 3.2. The saturating factor is 2 x 2.2 / 3.2 = 1.375, and the contribution is 2.1595 x 1.375 = 2.97. The option 1.38 omits the inverse document frequency; 2.20 is the value for f = 1; 4.32 multiplies by f without saturation."
     },
     {
       "id": "q36.2",
-      "question": "How does ANN Algorithms (HNSW & IVF-PQ) optimize performance in modern AI systems?",
+      "question": "A document is ranked first by the lexical (BM25) list and tenth by the dense list. Using reciprocal rank fusion (RRF) with k = 60, what is its fused score?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "0.0164"},
+        {"id": "b", "text": "0.0307"},
+        {"id": "c", "text": "0.0328"},
+        {"id": "d", "text": "0.1100"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "b",
+      "explanation": "RRF adds 1/(k + rank) for each list: 1/61 + 1/70 = 0.016393 + 0.014286 = 0.030679, which rounds to 0.0307. The option 0.0164 counts only the first list; 0.0328 is 2/61, which would need two first places; 0.1100 uses 1/1 + 1/10, which ignores k."
+    },
+    {
+      "id": "q36.3",
+      "question": "In the 12-document experiment, the query 'clean corroded battery terminals' ranks the relevant document first under BM25 but seventh under latent semantic analysis (LSA) with k = 4. Which explanation does the lesson give?",
+      "options": [
+        {"id": "a", "text": "BM25 removes stopwords from the query, and LSA does not."},
+        {"id": "b", "text": "LSA cannot represent any word that appears in only one document, so the query has no vector."},
+        {"id": "c", "text": "BM25 uses a larger k1 than LSA uses for its rank."},
+        {"id": "d", "text": "LSA keeps only the strongest co-occurrence patterns, and a term in one document is too weak to survive a 4-dimensional projection."}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The lesson presents this as its explanation from the method, not a measurement. The sweep over k supports it: LSA ranks the document first only from k = 6 upward. Option a is not used by the experiment's BM25, which keeps stopwords; option b is wrong because LSA still produces vectors for such words in the reduced space; option c is not a property of the experiment."
+    },
+    {
+      "id": "q36.4",
+      "question": "The query 'controller error code 4471' does not rank document 3 (which contains 'E4471') first. Which cause does the lesson identify?",
+      "options": [
+        {"id": "a", "text": "The tokenizer keeps 'e4471' as one token, so the query token '4471' matches nothing in document 3."},
+        {"id": "b", "text": "The inverse document frequency of 'controller' is negative."},
+        {"id": "c", "text": "The LSA dimension k is too small to hold the word 'error'."},
+        {"id": "d", "text": "Cosine similarity exceeded 1 for document 3."}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Both methods see the same tokens, so the mismatch is in tokenization. The lesson suggests splitting letters from digits as the first fix to try, and states that it did not test that fix. Option b is false because the inverse document frequency of any term present in the corpus is positive in this formula; option c does not describe the failure; option d is impossible for a cosine."
+    },
+    {
+      "id": "q36.5",
+      "question": "For query 'avoid losing traction in icy weather', BM25 gives the relevant document 'Skidding on black ice...' a score of 0.00. What does the lesson conclude?",
+      "options": [
+        {"id": "a", "text": "The document is not relevant, so its label should be removed."},
+        {"id": "b", "text": "A zero score means no shared token, not irrelevance, so relevant documents must be checked by reading them."},
+        {"id": "c", "text": "BM25 cannot score any document longer than the average length."},
+        {"id": "d", "text": "Reciprocal rank fusion gives zero-score documents a rank of 0, so they are ignored."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "BM25 counts only shared tokens, and 'icy' and 'ice' do not match. The lesson's trap box says to check relevant documents by reading them, not by reading the scores. Option d is false because RRF counts ranks from 1 and never assigns rank 0."
+    },
+    {
+      "id": "q36.6",
+      "question": "Which property is the main reason reciprocal rank fusion (RRF) is popular for merging a lexical list and a dense list?",
+      "options": [
+        {"id": "a", "text": "It uses the raw score magnitudes, so it can tell how far apart two documents are."},
+        {"id": "b", "text": "It always gives the same order as the raw sum of scores."},
+        {"id": "c", "text": "It removes the need to choose any constant."},
+        {"id": "d", "text": "It depends only on ranks, so any strictly increasing transform of one list's scores leaves its contribution unchanged."}
+      ],
+      "correctOptionId": "d",
+      "explanation": "RRF uses only ranks counted from 1, so multiplying BM25 by 1,000 or taking its logarithm does not change any rank. The cost is that it discards how far apart the scores are. Option a is the opposite of its design; option b is false, since the raw sum can change order when units change; option c is false, because k = 60 is a constant the formula uses."
+    },
+    {
+      "id": "q36.7",
+      "question": "Candidate lexical scores for one query are 2, 6 and 10. Using min-max normalization over these candidates, what is the normalized value of the score 4?",
+      "options": [
+        {"id": "a", "text": "0.25"},
+        {"id": "b", "text": "0.33"},
+        {"id": "c", "text": "0.40"},
+        {"id": "d", "text": "0.50"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Min-max uses the candidate minimum and maximum: (4 - 2) / (10 - 2) = 2 / 8 = 0.25. Option b divides by 12, option c divides 4 by the maximum, and option d divides by the range without subtracting the minimum. Min-max uses each list's own candidates, so the same score can map to a different value in another query."
+    },
+    {
+      "id": "q36.8",
+      "question": "Under RRF with k = 60, document A is first in the BM25 list and fifth in the dense list. Document B is second in the BM25 list and first in the dense list. Which document scores higher, and what are the scores?",
+      "options": [
+        {"id": "a", "text": "A, because a first place outweighs any other pair of ranks."},
+        {"id": "b", "text": "They tie, because the ranks add to six in both cases."},
+        {"id": "c", "text": "B, with 0.03252 against 0.03178 for A."},
+        {"id": "d", "text": "A, with 0.03178 against 0.03252 for B."}
+      ],
+      "correctOptionId": "c",
+      "explanation": "A scores 1/61 + 1/65 = 0.03178, and B scores 1/62 + 1/61 = 0.03252. B wins because a dense first place (1/61) plus a BM25 second place (1/62) exceeds a BM25 first place (1/61) plus a dense fifth place (1/65). This is the mechanism that lets a dense favourite overtake an exact match under equal weights."
+    },
+    {
+      "id": "q36.9",
+      "question": "A post-filter keeps 10% of documents, and you want 10 results. Using the rule of thumb from the production experiment, what candidate depth should each retriever return before fusion?",
+      "options": [
+        {"id": "a", "text": "10"},
+        {"id": "b", "text": "100"},
+        {"id": "c", "text": "20"},
+        {"id": "d", "text": "1,000"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The rule is depth about k divided by selectivity: 10 / 0.1 = 100. The experiment shows why depth 10 fails: the post-filter returned 1.23 results on average, and depth 100 returned 9.04. The lesson labels this rule its own reasoning, consistent with its numbers, not a tested law."
+    },
+    {
+      "id": "q36.10",
+      "question": "In the production experiment, raising the IVF probe count nprobe from 1 to 32 raised recall@100 from 0.416 to 0.997, but lowered hybrid nDCG@10 from 0.850 to 0.821. What explains the drop?",
+      "options": [
+        {"id": "a", "text": "Better dense recall brings in dense-favoured documents, and RRF can rank them above exact matches."},
+        {"id": "b", "text": "The IVF index returns random documents when nprobe is large."},
+        {"id": "c", "text": "RRF is undefined for lists longer than 16 documents."},
+        {"id": "d", "text": "A larger nprobe changes the BM25 parameter k1."}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Higher recall adds more candidates from the dense list. Under RRF, a dense favourite near the top of the lexical list can overtake an exact match that the dense list ranks low, so higher recall does not guarantee a better fused list. The scanned share is a work proxy, and latency was not measured."
     }
   ]
 }

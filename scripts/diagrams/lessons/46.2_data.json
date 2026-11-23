@@ -1,0 +1,9 @@
+{
+  "source": "scratchpad/46.2/mini.py stdout (section D: prompt characters; section E: simulated parse success, N=2000, seed 42)",
+  "sim": [
+    {"p": 0.9, "one_try": 0.900, "one_try_plus_retry": 0.990},
+    {"p": 0.7, "one_try": 0.699, "one_try_plus_retry": 0.916},
+    {"p": 0.5, "one_try": 0.493, "one_try_plus_retry": 0.748}
+  ],
+  "prompt_chars": {"predict_0_demos": 266, "predict_1_demo": 326, "predict_2_demos": 387, "predict_4_demos": 509, "chain_of_thought_0_demos": 277}
+}

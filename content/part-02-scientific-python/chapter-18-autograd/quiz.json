@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-18",
-  "title": "Chapter 18 Quiz \u2014 Autograd & Computational Graphs",
+  "title": "Chapter 18 Quiz — Autograd & Computational Graphs",
   "questions": [
     {
       "id": "q18.1",
-      "question": "What is the primary architectural mechanism in Autograd & Computational Graphs?",
+      "question": "A scalar training loss depends on 1,000,000 parameters. How many reverse-mode sweeps give the full gradient, and how many forward-mode sweeps would it take?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "1 reverse-mode sweep; 1,000,000 forward-mode sweeps"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "1,000,000 reverse-mode sweeps; 1 forward-mode sweep"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "2 sweeps in each mode"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "1,000,000 sweeps in each mode"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Autograd & Computational Graphs, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "a",
+      "explanation": "Reverse mode starts from the scalar output and returns the gradient for every input in one sweep. Forward mode carries one input direction per sweep, so it needs one sweep per input. Lesson 18.1 counts 3 rule evaluations for reverse mode at every n and 3n for forward mode."
     },
     {
       "id": "q18.2",
-      "question": "How does Autograd & Computational Graphs optimize performance in modern AI systems?",
+      "question": "For e = relu(a*b + a) at a = 2 and b = 3, what is the gradient de/da?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "1"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "3"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "6"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "4"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "There are two paths from a to e. The direct path gives 1, and the path through c = a*b gives b = 3. The contributions add, so de/da = 1 + 3 = 4. Lesson 18.2 gets the same value."
+    },
+    {
+      "id": "q18.3",
+      "question": "For f = (x*y + y)^2 at x = 2 and y = 1, what is df/dy?",
+      "options": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "18"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The lesson's closed form is f = y^2 (x+1)^2, so df/dy = 2y (x+1)^2 = 2 * 1 * 9 = 18. By the tape method: b = a + y = 3 and f = 9. The path through b gives 2b = 6, and the path through a = x*y gives 2b * x = 12. The total is 18."
+    },
+    {
+      "id": "q18.4",
+      "question": "A backward rule for y = a*a writes `a.grad = other.data * out.grad` in place of `a.grad += ...`. With a = 3, what does a.grad receive, and what should it be?",
+      "options": [
+        {
+          "id": "a",
+          "text": "It gets 6; it should be 6"
+        },
+        {
+          "id": "b",
+          "text": "It gets 3; it should be 6"
+        },
+        {
+          "id": "c",
+          "text": "It gets 9; it should be 6"
+        },
+        {
+          "id": "d",
+          "text": "It gets 3; it should be 9"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Both operands of a*a are the same node, so the multiply rule's two assignments both write to a. Each writes 3, and the second write overwrites the first, so a.grad = 3. With `+=` the total is 3 + 3 = 6, which equals 2a. This is the overwrite trap in lesson 18.2."
+    },
+    {
+      "id": "q18.5",
+      "question": "For e = a*b + a with a = 2 and b = 3, backward() is called twice without zeroing. The second call leaves a.grad = 11.0 instead of 8.0. Why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The closures capture b twice, so b's gradient is added twice"
+        },
+        {
+          "id": "b",
+          "text": "Python's float addition loses precision after the first call"
+        },
+        {
+          "id": "c",
+          "text": "The second call reads b from a stale cache, so the value of b changes to 5"
+        },
+        {
+          "id": "d",
+          "text": "Only the root is reset to 1. The intermediate nodes c and d keep their gradients from the first pass and add into a again"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The first pass gives a.grad = 4. In the second pass the root is reset to 1, but c.grad and d.grad still hold 1 from the first pass. The rules add them again: d's rule adds 1 to c.grad (now 2) and 1 to a.grad (now 5), then c's rule adds b * c.grad = 3 * 2 = 6 to a.grad, giving 11. Lesson 18.2 says to rebuild the graph each step and zero the parameters' gradients before backward()."
+    },
+    {
+      "id": "q18.6",
+      "question": "A custom torch.autograd.Function computes y = x**3 and its backward returns grad_out * 3 * x**2. For x = 2 and grad_out = 1, what gradient is returned?",
+      "options": [
+        {
+          "id": "a",
+          "text": "12"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The backward applies the local derivative 3x^2 = 3 * 4 = 12 to the incoming gradient 1. The distractors match the errors a reader might make: 4 is the buggy version without the factor 3, 6 is 3x, and 8 is x^3. Lesson 18.3 uses this rule in its CubeFn example."
+    },
+    {
+      "id": "q18.7",
+      "question": "A clipped straight-through estimator computes y = round(x) with backward factor 1[|x| <= 1]. The loss is L = sum_i w_i y_i with w = [1, -2, 4] and x = [1.2, 0.3, -0.5]. What is dL/dx?",
+      "options": [
+        {
+          "id": "a",
+          "text": "[1, -2, 4]"
+        },
+        {
+          "id": "b",
+          "text": "[0, -2, 4]"
+        },
+        {
+          "id": "c",
+          "text": "[0, 0, 0]"
+        },
+        {
+          "id": "d",
+          "text": "[1, 0, 0]"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The upstream gradient is w. The clip factor is [0, 1, 1], because |1.2| > 1 and |0.3|, |-0.5| <= 1. So dL/dx = [0, -2, 4]. The plain straight-through estimator would give [1, -2, 4], and the true derivative of round is 0 almost everywhere, so the answer [0, 0, 0] is the gradient autograd would return for torch.round."
+    },
+    {
+      "id": "q18.8",
+      "question": "A tensor hook returns 3 * g. You run two backward passes with incoming gradient 1 each and never call zero_(). What is x.grad afterwards?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.0"
+        },
+        {
+          "id": "b",
+          "text": "6.0"
+        },
+        {
+          "id": "c",
+          "text": "2.0"
+        },
+        {
+          "id": "d",
+          "text": "3.0"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each pass adds the hook's returned value 3 * 1 = 3 to x.grad, and the gradients accumulate. After two passes x.grad = 6.0. Lesson 18.3 shows the same accumulation with a 0.5 hook."
+    },
+    {
+      "id": "q18.9",
+      "question": "gradcheck fails for a straight-through estimator of round. What is the correct interpretation?",
+      "options": [
+        {
+          "id": "a",
+          "text": "gradcheck has a bug, so the tolerance should be loosened until it passes"
+        },
+        {
+          "id": "b",
+          "text": "The check is run in float32, which is always too imprecise for gradient checks"
+        },
+        {
+          "id": "c",
+          "text": "The estimator's backward returns 1, but finite differences of round are 0 away from its jumps. The failure is expected, because the estimator is not the derivative of the forward"
+        },
+        {
+          "id": "d",
+          "text": "The custom Function forgot to call save_for_backward, so the gradient is missing"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "gradcheck compares the analytic backward with finite differences of the forward. For round the finite-difference derivative is 0 away from the jumps, and the straight-through backward returns 1, so the mismatch is real. Lesson 18.3 says to keep gradcheck for smooth operations and to test an estimator against the formula it was designed to use."
     }
   ]
 }

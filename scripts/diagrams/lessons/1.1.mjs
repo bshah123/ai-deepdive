@@ -87,7 +87,7 @@ const save = (name, sk) => {
     s.text(cx, 34, p.title, { size: 25, weight: 700 });
     p.lines.forEach((ln, i) => {
       const bad = i === 2;
-      s.text(p.x0 + 6, 78 + i * 36, String(i + 1), { font: 'mono', size: 14, color: C.muted, anchor: 'start' });
+      s.text(p.x0 + 6, 78 + i * 36, String(i + 1), { font: 'mono', size: 15, color: C.muted, anchor: 'start' });
       s.rect(p.x0 + 28, 56 + i * 36, 350, 30, { color: bad ? C.rose : C.blue, fill: bad ? C.roseSoft : C.blueSoft, fillStyle: 'solid', width: 1.3 });
       s.text(p.x0 + 40, 77 + i * 36, ln, { font: 'mono', size: 15, anchor: 'start' });
     });
@@ -98,10 +98,10 @@ const save = (name, sk) => {
     s.arrow(cx, 260, cx, 290, { color: p.ok ? C.muted : C.rose, width: 1.6, head: 10, dash: p.ok ? undefined : '5 6' });
     if (p.ok) {
       s.rect(p.x0 + 10, 294, 390, 108, { color: C.green, fill: C.greenSoft, fillStyle: 'solid', width: 1.6 });
-      s.text(cx, 316, 'phase 2: run it, line by line', { size: 20, weight: 700 });
+      s.text(cx, 316, 'phase 2: run it, statement by statement', { size: 20, weight: 700 });
       s.text(p.x0 + 30, 342, 'step 1', { font: 'mono', size: 15, anchor: 'start' });
       s.text(p.x0 + 30, 364, 'step 2', { font: 'mono', size: 15, anchor: 'start' });
-      s.text(p.x0 + 30, 386, "NameError: name 'undefined_name' is not defined", { font: 'mono', size: 12, anchor: 'start', color: C.rose });
+      s.text(p.x0 + 30, 386, 'NameError on line 3', { font: 'mono', size: 15, anchor: 'start', color: C.rose });
     } else {
       s.rect(p.x0 + 10, 294, 390, 108, { color: C.muted, width: 1.4, dash: '6 7' });
       s.text(cx, 330, 'phase 2 never starts', { size: 22, color: C.muted, weight: 700 });
@@ -175,9 +175,44 @@ const save = (name, sk) => {
     if (hasTok) {
       const ind = r[4] === 'INDENT';
       s.rect(cols[4].x + 2, y + 8, cols[4].w - 4, 36, { color: ind ? C.green : C.rose, fill: ind ? C.greenSoft : C.roseSoft, fillStyle: 'solid', width: 1.3 });
-      s.text(cols[4].x + cols[4].w / 2, y + 33, r[4], { font: 'mono', size: 14, weight: 700 });
+      s.text(cols[4].x + cols[4].w / 2, y + 33, r[4], { font: 'mono', size: 15, weight: 700 });
     }
   });
   s.text(440, 380, 'The stack starts as [0] and its bottom entry is never popped. Blank lines are skipped.', { size: 20, color: C.muted });
   save('1.1-indent-stack.svg', s);
+}
+
+// ---------------------------------------------------------------- bytes -> characters
+// Data: lesson encoding block: file bytes 6e 61 6d 65 20 3d 20 22 63 61 66 c3 a9 22 0a (15 bytes);
+// UTF-8 decode -> 14 characters, len(name) = 4; latin-1 decode -> 15 characters, len(name) = 5
+{
+  const s = new Sketch(880, 440, { title: 'The same 15 bytes decoded as UTF-8 give name = "café"; decoded as latin-1 they give "cafÃ©"', seed: 1105 });
+  const hex = ['6e', '61', '6d', '65', '20', '3d', '20', '22', '63', '61', '66', 'c3', 'a9', '22', '0a'];
+  const u8 = ['n', 'a', 'm', 'e', '·', '=', '·', '"', 'c', 'a', 'f', 'é', null, '"', '\\n'];
+  const l1 = ['n', 'a', 'm', 'e', '·', '=', '·', '"', 'c', 'a', 'f', 'Ã', '©', '"', '\\n'];
+  const X0 = 20, W = 52, G = 4, step = W + G;
+  const bx = (i) => X0 + i * step;
+  s.text(20, 34, 'bytes in the file (hex), 15 of them', { size: 22, anchor: 'start', weight: 700 });
+  hex.forEach((h, i) => {
+    const hot = i === 11 || i === 12;
+    s.rect(bx(i), 48, W, 40, { color: hot ? C.amber : C.ink, fill: hot ? C.amberSoft : undefined, fillStyle: 'solid', width: 1.3 });
+    s.text(bx(i) + W / 2, 75, h, { font: 'mono', size: 16 });
+  });
+  const row = (y, label, chars, col, fill, tail, tailCol, ay) => {
+    s.arrow(440, ay, 440, y - 34, { color: C.muted, width: 1.6, head: 10 });
+    s.text(456, y - 46, label, { size: 21, anchor: 'start', color: C.muted });
+    chars.forEach((ch, i) => {
+      if (ch === null) return;
+      const merged = chars[i + 1] === null;
+      const w = merged ? 2 * W + G : W;
+      const hot = i === 11 || i === 12;
+      s.rect(bx(i), y, w, 40, { color: hot ? col : C.blue, fill: hot ? fill : C.blueSoft, fillStyle: 'solid', width: 1.3 });
+      s.text(bx(i) + w / 2, y + 28, ch, { font: 'mono', size: 18 });
+    });
+    s.text(20, y + 68, tail, { size: 22, anchor: 'start', color: tailCol });
+  };
+  row(180, 'decode as UTF-8 (the default)', u8, C.green, C.greenSoft, '14 characters.  name = "café"  has len(name) = 4', C.ink, 94);
+  row(310, 'same bytes, decoded as latin-1 (if a coding line asks)', l1, C.rose, C.roseSoft, '15 characters.  name = "cafÃ©"  has len(name) = 5', C.ink, 262);
+  s.text(440, 424, 'bytes c3 a9 are one character in UTF-8 and two in latin-1', { size: 18, color: C.muted });
+  save('1.1-bytes-to-text.svg', s);
 }

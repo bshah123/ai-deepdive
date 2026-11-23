@@ -1,0 +1,90 @@
+{
+ "spans": [
+  {
+   "name": "embed_query",
+   "trace_id": "00000000000000000000000000000001",
+   "span_id": "0000000000000003",
+   "parent_id": "0000000000000002",
+   "start_ms": 0.0,
+   "end_ms": 38.0,
+   "status": "OK",
+   "attributes": {
+    "model": "example-embedder"
+   }
+  },
+  {
+   "name": "chat_request",
+   "trace_id": "00000000000000000000000000000001",
+   "span_id": "0000000000000002",
+   "parent_id": null,
+   "start_ms": 0.0,
+   "end_ms": 2410.0,
+   "status": "OK",
+   "attributes": {
+    "question_chars": 37
+   }
+  },
+  {
+   "name": "vector_search",
+   "trace_id": "00000000000000000000000000000001",
+   "span_id": "0000000000000004",
+   "parent_id": "0000000000000002",
+   "start_ms": 38.0,
+   "end_ms": 109.0,
+   "status": "OK",
+   "attributes": {
+    "db.system": "vector-store"
+   }
+  },
+  {
+   "name": "llm_call",
+   "trace_id": "00000000000000000000000000000001",
+   "span_id": "0000000000000005",
+   "parent_id": "0000000000000002",
+   "start_ms": 109.0,
+   "end_ms": 1109.0,
+   "status": "OK",
+   "attributes": {
+    "step": 1,
+    "gen_ai.request.model": "example-model",
+    "gen_ai.usage.input_tokens": 1840,
+    "gen_ai.usage.output_tokens": 64
+   }
+  },
+  {
+   "name": "tool_call",
+   "trace_id": "00000000000000000000000000000001",
+   "span_id": "0000000000000006",
+   "parent_id": "0000000000000002",
+   "start_ms": 1109.0,
+   "end_ms": 1409.0,
+   "status": "ERROR: weather API timed out after 300 ms",
+   "attributes": {
+    "tool.name": "get_weather"
+   }
+  },
+  {
+   "name": "llm_call",
+   "trace_id": "00000000000000000000000000000001",
+   "span_id": "0000000000000007",
+   "parent_id": "0000000000000002",
+   "start_ms": 1409.0,
+   "end_ms": 2409.0,
+   "status": "OK",
+   "attributes": {
+    "step": 2,
+    "gen_ai.request.model": "example-model",
+    "gen_ai.usage.input_tokens": 2310,
+    "gen_ai.usage.output_tokens": 58
+   }
+  }
+ ],
+ "header": "00-00000000000000000000000000000001-0000000000000002-01",
+ "total_ms": 2410.0,
+ "llm_ms": 2000.0,
+ "llm_share": 0.8299,
+ "n_spans": 6,
+ "sample_ratio": 0.1,
+ "sample_kept": 956,
+ "sample_total": 10000
+}

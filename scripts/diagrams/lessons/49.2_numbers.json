@@ -1,0 +1,368 @@
+{
+  "dim": 256,
+  "n_memories": 12,
+  "worked3d": {
+    "dots": {
+      "m1": 4.0,
+      "m2": 2.0,
+      "m3": 5.0
+    },
+    "norms": {
+      "m1": 2.23606797749979,
+      "m2": 2.23606797749979,
+      "m3": 2.29128784747792
+    },
+    "cos": {
+      "m1": 0.7999999999999998,
+      "m2": 0.3999999999999999,
+      "m3": 0.9759000729485332
+    },
+    "norm_q": 2.23606797749979
+  },
+  "recall": {
+    "lexical": {
+      "n": 4,
+      "recall_at_1": 1.0,
+      "recall_at_3": 1.0
+    },
+    "paraphrase": {
+      "n": 4,
+      "recall_at_1": 0.0,
+      "recall_at_3": 0.25
+    }
+  },
+  "per_query": [
+    {
+      "group": "lexical",
+      "query": "pandas groupby NaN sales",
+      "gold": "E1",
+      "top3": [
+        "E1",
+        "E3",
+        "E2"
+      ],
+      "hit1": true,
+      "hit3": true
+    },
+    {
+      "group": "lexical",
+      "query": "vegetarian lentil curry recipe",
+      "gold": "E3",
+      "top3": [
+        "E3",
+        "E1",
+        "E6"
+      ],
+      "hit1": true,
+      "hit3": true
+    },
+    {
+      "group": "lexical",
+      "query": "flight Chennai wedding",
+      "gold": "E4",
+      "top3": [
+        "E4",
+        "E1",
+        "E2"
+      ],
+      "hit1": true,
+      "hit3": true
+    },
+    {
+      "group": "lexical",
+      "query": "parquet schema",
+      "gold": "E6",
+      "top3": [
+        "E6",
+        "E1",
+        "E2"
+      ],
+      "hit1": true,
+      "hit3": true
+    },
+    {
+      "group": "paraphrase",
+      "query": "the optimizer exploded when the step size was too big",
+      "gold": "E5",
+      "top3": [
+        "E7",
+        "F2",
+        "E4"
+      ],
+      "hit1": false,
+      "hit3": false
+    },
+    {
+      "group": "paraphrase",
+      "query": "the user avoids meat in their dinner plans",
+      "gold": "E3",
+      "top3": [
+        "F2",
+        "E6",
+        "E3"
+      ],
+      "hit1": false,
+      "hit3": true
+    },
+    {
+      "group": "paraphrase",
+      "query": "a trip to see family for a marriage",
+      "gold": "E4",
+      "top3": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "hit1": false,
+      "hit3": false
+    },
+    {
+      "group": "paraphrase",
+      "query": "who does the user report to at work",
+      "gold": "F3",
+      "top3": [
+        "F2",
+        "E2",
+        "F4"
+      ],
+      "hit1": false,
+      "hit3": false
+    }
+  ],
+  "scoring": {
+    "query": "when is the quarterly report deadline",
+    "relevance_only_top3": [
+      {
+        "id": "E2",
+        "rel": 0.577,
+        "rec": 0.049,
+        "imp": 8,
+        "comb": 1.868
+      },
+      {
+        "id": "E4",
+        "rel": 0.115,
+        "rec": 0.102,
+        "imp": 5,
+        "comb": 0.694
+      },
+      {
+        "id": "E1",
+        "rel": 0.0,
+        "rec": 0.039,
+        "imp": 6,
+        "comb": 0.571
+      }
+    ],
+    "combined_top3": [
+      {
+        "id": "F1",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      },
+      {
+        "id": "F2",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      },
+      {
+        "id": "F3",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      }
+    ],
+    "all": [
+      {
+        "id": "E1",
+        "rel": 0.0,
+        "rec": 0.039,
+        "imp": 6,
+        "comb": 0.571
+      },
+      {
+        "id": "E2",
+        "rel": 0.577,
+        "rec": 0.049,
+        "imp": 8,
+        "comb": 1.868
+      },
+      {
+        "id": "E3",
+        "rel": 0.0,
+        "rec": 0.063,
+        "imp": 3,
+        "comb": 0.168
+      },
+      {
+        "id": "E4",
+        "rel": 0.115,
+        "rec": 0.102,
+        "imp": 5,
+        "comb": 0.694
+      },
+      {
+        "id": "E5",
+        "rel": 0.0,
+        "rec": 0.146,
+        "imp": 7,
+        "comb": 0.826
+      },
+      {
+        "id": "E6",
+        "rel": 0.0,
+        "rec": 0.186,
+        "imp": 4,
+        "comb": 0.438
+      },
+      {
+        "id": "E7",
+        "rel": 0.0,
+        "rec": 0.382,
+        "imp": 2,
+        "comb": 0.357
+      },
+      {
+        "id": "E8",
+        "rel": 0.0,
+        "rec": 0.887,
+        "imp": 6,
+        "comb": 1.454
+      },
+      {
+        "id": "F1",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      },
+      {
+        "id": "F2",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      },
+      {
+        "id": "F3",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      },
+      {
+        "id": "F4",
+        "rel": 0.0,
+        "rec": 1.0,
+        "imp": 9,
+        "comb": 2.0
+      }
+    ]
+  },
+  "dedup_pairs": [
+    {
+      "a": "User lives in Delhi.",
+      "b": "The user's home is in Delhi.",
+      "same": 1,
+      "cos": 0.338
+    },
+    {
+      "a": "User is allergic to peanuts.",
+      "b": "Peanuts cause the user an allergic reaction.",
+      "same": 1,
+      "cos": 0.436
+    },
+    {
+      "a": "User prefers Python 3.12.",
+      "b": "The user likes to use Python 3.12 for projects.",
+      "same": 1,
+      "cos": 0.555
+    },
+    {
+      "a": "User's manager is Priya.",
+      "b": "Priya is the user's manager.",
+      "same": 1,
+      "cos": 0.857
+    },
+    {
+      "a": "User moved to Pune in 2025.",
+      "b": "The user relocated to Pune in 2025.",
+      "same": 1,
+      "cos": 0.571
+    },
+    {
+      "a": "User lives in Delhi.",
+      "b": "User is allergic to peanuts.",
+      "same": 0,
+      "cos": 0.258
+    },
+    {
+      "a": "User prefers Python 3.12.",
+      "b": "User prefers dark mode in the editor.",
+      "same": 0,
+      "cos": 0.333
+    },
+    {
+      "a": "User moved to Pune in 2025.",
+      "b": "User moved their home office into the second bedroom.",
+      "same": 0,
+      "cos": 0.342
+    },
+    {
+      "a": "User's manager is Priya.",
+      "b": "User's sister is getting married in March.",
+      "same": 0,
+      "cos": 0.228
+    }
+  ],
+  "threshold_sweep": [
+    {
+      "threshold": 0.3,
+      "merged_correct": 5,
+      "merged_wrong": 2,
+      "missed": 0
+    },
+    {
+      "threshold": 0.4,
+      "merged_correct": 4,
+      "merged_wrong": 0,
+      "missed": 1
+    },
+    {
+      "threshold": 0.5,
+      "merged_correct": 3,
+      "merged_wrong": 0,
+      "missed": 2
+    },
+    {
+      "threshold": 0.6,
+      "merged_correct": 1,
+      "merged_wrong": 0,
+      "missed": 4
+    },
+    {
+      "threshold": 0.7,
+      "merged_correct": 1,
+      "merged_wrong": 0,
+      "missed": 4
+    },
+    {
+      "threshold": 0.8,
+      "merged_correct": 1,
+      "merged_wrong": 0,
+      "missed": 4
+    }
+  ],
+  "footprint": {
+    "N": 1000000,
+    "d": 1536,
+    "bytes_float32": 6144000000,
+    "GB_float32": 6.144,
+    "madds_per_query": 1536000000
+  }
+}

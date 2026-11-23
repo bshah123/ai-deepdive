@@ -1,54 +1,114 @@
 {
   "chapterId": "chapter-32",
-  "title": "Chapter 32 Quiz \u2014 LLM Optimization & Quantization",
+  "title": "Chapter 32 Quiz — LLM Optimization & Quantization",
   "questions": [
     {
       "id": "q32.1",
-      "question": "What is the primary architectural mechanism in LLM Optimization & Quantization?",
+      "question": "A value of 70,000 is stored in FP16 and in BF16 (bfloat16). What does each format return?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "FP16 returns 65,504 (clipped); BF16 returns 70,000 exactly"},
+        {"id": "b", "text": "FP16 returns infinity; BF16 returns about 70,144"},
+        {"id": "c", "text": "Both return 70,000 with an error below 0.1%"},
+        {"id": "d", "text": "Both return infinity, because 70,000 is outside the FP32 range"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LLM Optimization & Quantization, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "The FP16 maximum is 65,504, so 70,000 overflows to infinity. BF16 has the same 8-bit exponent as FP32, so the value stays finite. With 7 mantissa bits the spacing near 70,000 is 512, and the nearest BF16 value is 70,144, which matches the lesson's output."
     },
     {
       "id": "q32.2",
-      "question": "How does LLM Optimization & Quantization optimize performance in modern AI systems?",
+      "question": "An unsigned 8-bit grid must cover the range [-1, 3], and real 0.0 must map to an exact integer code. What is the zero-point z?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "255"},
+        {"id": "b", "text": "63"},
+        {"id": "c", "text": "64"},
+        {"id": "d", "text": "128"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The scale is s = (3 - (-1)) / 255 = 4/255 = 0.01569. The zero-point is z = round(-x_min / s) = round(1 / 0.01569) = round(63.75) = 64, so real 0.0 maps to code 64."
+    },
+    {
+      "id": "q32.3",
+      "question": "Use the lesson's 4-bit example: x in [-1.5, 2.3], scale s = 0.2533, zero-point z = 6. Which code does the value 0.7 receive?",
+      "options": [
+        {"id": "a", "text": "9"},
+        {"id": "b", "text": "8"},
+        {"id": "c", "text": "10"},
+        {"id": "d", "text": "3"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The code is round(0.7 / 0.2533) + z = round(2.76) + 6 = 3 + 6 = 9. The option 3 forgets the zero-point. Decoding 9 gives 0.2533 × (9 - 6) = 0.76, the value in the lesson's output."
+    },
+    {
+      "id": "q32.4",
+      "question": "A 7-billion-weight model is stored in llama.cpp's Q4_0 format, which costs 4.5 bits per weight. Using decimal gigabytes, what is the size of the weights?",
+      "options": [
+        {"id": "a", "text": "3.50 GB"},
+        {"id": "b", "text": "3.64 GB"},
+        {"id": "c", "text": "4.50 GB"},
+        {"id": "d", "text": "3.94 GB"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "7 × 10^9 × 4.5 / 8 = 3.9375 × 10^9 bytes, or 3.94 GB. The value 3.50 GB assumes exactly 4 bits per weight. The value 3.64 GB is the cost of the group-128 scheme with an FP16 scale and a 4-bit zero-point in Lesson 32.1, which is 4.16 bits per weight."
+    },
+    {
+      "id": "q32.5",
+      "question": "In a Q4_0 block, the largest-magnitude weight is 0.91 and the scale is d = -0.11375. What does level 0 rebuild to?",
+      "options": [
+        {"id": "a", "text": "-0.910"},
+        {"id": "b", "text": "0.910"},
+        {"id": "c", "text": "0.0"},
+        {"id": "d", "text": "-0.796"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The reconstruction is w' = (q - 8) × d. With q = 0 this gives -8 × (-0.11375) = 0.91, which is the largest weight. The quantizer sends the largest magnitude to level 0, so the largest weight is recovered exactly, up to the FP16 rounding of the scale."
+    },
+    {
+      "id": "q32.6",
+      "question": "The AWQ-style search includes the exponent alpha = 0 in its grid. On the seed-0 calibration data, what output error does alpha = 0 give?",
+      "options": [
+        {"id": "a", "text": "0.0964, the same as plain round-to-nearest"},
+        {"id": "b", "text": "0.0461, the best value in the search"},
+        {"id": "c", "text": "0.1615, the value at alpha = 1"},
+        {"id": "d", "text": "0.0681, the GPTQ-style calibration error"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "At alpha = 0 every scale is x̄^0 = 1, so the method is round-to-nearest with no change. The seed-0 calibration error at alpha = 0 is 0.0964. The best value in the search is alpha = 0.4, with error 0.0461. The value 0.1615 is the error at alpha = 1."
+    },
+    {
+      "id": "q32.7",
+      "question": "A colleague implements SmoothQuant as X × s and W / s, which reverses the correct direction. Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "The full-precision output is wrong, so the code fails the unit test"},
+        {"id": "b", "text": "The full-precision output is still correct, but after INT8 quantization the seed-0 W8A8 error rises from 0.014 to 0.234"},
+        {"id": "c", "text": "The error falls to about 0.002, because larger activations use more of the INT8 range"},
+        {"id": "d", "text": "The direction has no effect, because the scales cancel after quantization"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "X diag(s) diag(s)^-1 W = XW, so the full-precision output is unchanged. The problem is the grid. Multiplying the activations by s enlarges the outlier channels, so the per-tensor INT8 activation scale becomes coarser. The lesson's seed-0 run gives 0.234 for the reversed direction and 0.014 for the correct one."
+    },
+    {
+      "id": "q32.8",
+      "question": "Input channels are independent, the calibration set has 256 tokens, and the GPTQ-style loop is run with the mean over five seeds. How does its held-out error compare with round-to-nearest (RTN), which has 0.0972?",
+      "options": [
+        {"id": "a", "text": "0.0946, a small improvement over RTN"},
+        {"id": "b", "text": "0.0849, a modest improvement over RTN"},
+        {"id": "c", "text": "0.0972, identical to RTN"},
+        {"id": "d", "text": "0.1120, worse than RTN"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "With uncorrelated inputs, the Hessian estimate contains sampling noise in its off-diagonal entries, and the correction spends that noise on the wrong target. The result is 0.1120, worse than RTN. Option a (256 tokens) and option b (4,096 tokens) are correlated-input results. Option c would hold only if the estimated Hessian were exactly diagonal, which 256 calibration tokens do not give."
+    },
+    {
+      "id": "q32.9",
+      "question": "A GGUF loader reads a tensor with np.frombuffer(blob, dtype=np.float32, count=n, offset=t['offset']). What is the bug?",
+      "options": [
+        {"id": "a", "text": "The dtype should be float16, because GGUF stores all tensors in half precision"},
+        {"id": "b", "text": "The tensor count in the header is off by one"},
+        {"id": "c", "text": "The offset is relative to the start of tensor data, so the loader must add the aligned data_start"},
+        {"id": "d", "text": "Q4_0 tensors are 4.5 bits per weight, so the loader must unpack them before reading"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Tensor offsets are relative to data_start, the first multiple of general.alignment (32 by default) after the tensor table. Reading from blob at the raw offset returns bytes from the wrong place, often without an error. The fix is offset = data_start + t['offset']."
     }
   ]
 }

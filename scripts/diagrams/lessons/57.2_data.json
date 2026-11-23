@@ -1,0 +1,56 @@
+{
+  "worked": {
+    "p": [
+      0.05,
+      0.1,
+      0.2,
+      0.4,
+      0.25
+    ],
+    "expected": 3.6999999999999997,
+    "argmax": 4
+  },
+  "bias": [
+    {
+      "beta": 0.0,
+      "slot1_pref_rate": 0.503,
+      "naive_acc": 0.882,
+      "naive_acc_on_consistent": 0.9588550983899821,
+      "consistency": 0.8385,
+      "tie_rate": 0.16149999999999998,
+      "swap_acc_decided": 0.9588550983899821,
+      "swap_acc_ties_wrong": 0.804
+    },
+    {
+      "beta": 0.5,
+      "slot1_pref_rate": 0.556,
+      "naive_acc": 0.877,
+      "naive_acc_on_consistent": 0.9653250773993808,
+      "consistency": 0.8075,
+      "tie_rate": 0.1925,
+      "swap_acc_decided": 0.9653250773993808,
+      "swap_acc_ties_wrong": 0.7795
+    },
+    {
+      "beta": 1.0,
+      "slot1_pref_rate": 0.624,
+      "naive_acc": 0.841,
+      "naive_acc_on_consistent": 0.9744651483781919,
+      "consistency": 0.7245,
+      "tie_rate": 0.27549999999999997,
+      "swap_acc_decided": 0.9744651483781919,
+      "swap_acc_ties_wrong": 0.706
+    }
+  ],
+  "resolution": {
+    "distinct_hard": 5,
+    "distinct_weighted": 300,
+    "rho_hard": 0.6088701845999681,
+    "rho_weighted": 0.6301630018111312
+  },
+  "seeds": {
+    "mean_gap": 0.016873259508168315,
+    "min_gap": -0.004920157040649076,
+    "max_gap": 0.04666649181470883
+  }
+}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" role="img" aria-label="Table: the same attempt to change x on four types, with the exception each raises" class="sketch"><title>Table: the same attempt to change x on four types, with the exception each raises</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Same attempt, four types</tspan></text>
+<text x="40" y="84" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="40" dy="0">type</tspan></text>
+<text x="250" y="84" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="250" dy="0">attempt</tspan></text>
+<text x="400" y="84" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="400" dy="0">what happens</tspan></text>
+<path d="M39.1 97.8 C219.2 95.0, 398.9 95.3, 839.8 98.3 M40.1 97.6 C223.5 100.4, 406.6 100.9, 840.1 98.1" style="stroke:var(--sk-ink);fill:none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="150" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="40" dy="0">namedtuple</tspan></text>
+<text x="250" y="150" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="250" dy="0">p.x = 10</tspan></text>
+<text x="400" y="140" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="400" dy="0">AttributeError</tspan><tspan x="400" dy="16.5">can't set attribute</tspan></text>
+<path d="M40.4 185.3 C218.1 186.2, 397.7 187.1, 840.4 185.5 M40.2 186.2 C240.3 182.6, 440.3 181.9, 840.3 186.0" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="228" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-blue)" font-weight="700"><tspan x="40" dy="0">namedtuple</tspan></text>
+<text x="250" y="228" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="250" dy="0">p[0] = 10</tspan></text>
+<text x="400" y="218" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="400" dy="0">TypeError</tspan><tspan x="400" dy="16.5">'Point' object does not support item assignment</tspan></text>
+<path d="M39.9 264.7 C218.9 267.5, 398.4 268.9, 841.0 264.6 M40.4 263.9 C257.1 263.2, 475.0 263.1, 839.6 263.9" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="306" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-rose)" font-weight="700"><tspan x="40" dy="0">dataclass</tspan></text>
+<text x="250" y="306" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="250" dy="0">p.x = 10</tspan></text>
+<text x="400" y="296" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="400" dy="0">no error: p is now Point(x=10, y=2)</tspan></text>
+<path d="M39.3 342.2 C219.7 341.5, 399.1 341.5, 839.6 341.9 M39.6 342.5 C274.9 343.7, 508.7 343.4, 839.8 341.7" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="384" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-green)" font-weight="700"><tspan x="40" dy="0">frozen dataclass</tspan></text>
+<text x="250" y="384" class="sk-mono" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="250" dy="0">p.x = 10</tspan></text>
+<text x="400" y="374" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="400" dy="0">FrozenInstanceError</tspan><tspan x="400" dy="16.5">cannot assign to field 'x'</tspan></text>
+<g transform="rotate(-1.5 440 463)">
+<path d="M39.2 438.7 L840.7 439.2 L838.5 486.2 L39.9 486.8" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40.5 439.8 C218.8 442.1, 398.0 441.0, 840.1 439.3 M39.8 440.1 C291.7 443.2, 543.4 442.7, 840.0 439.7 M839.4 439.8 C839.7 454.0, 841.5 466.5, 839.7 484.5 M839.8 440.2 C840.7 456.7, 840.6 475.5, 839.4 485.4 M839.7 485.7 C541.1 485.8, 242.3 485.7, 39.3 485.5 M839.7 485.7 C545.4 484.1, 251.1 483.8, 39.6 486.0 M39.8 484.4 C39.3 473.1, 41.0 458.0, 40.6 439.4 M40.6 485.6 C38.7 471.4, 40.1 456.9, 39.1 439.5" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="465" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="54" dy="0">FrozenInstanceError is a subclass of AttributeError, so except AttributeError catches it.</tspan></text>
+</g>
+</svg>

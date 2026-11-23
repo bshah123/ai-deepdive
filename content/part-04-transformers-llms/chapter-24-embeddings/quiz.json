@@ -1,54 +1,126 @@
 {
   "chapterId": "chapter-24",
-  "title": "Chapter 24 Quiz \u2014 Embeddings & Positional Encodings",
+  "title": "Chapter 24 Quiz — Embeddings & Positional Encodings",
   "questions": [
     {
       "id": "q24.1",
-      "question": "What is the primary architectural mechanism in Embeddings & Positional Encodings?",
+      "question": "A model has vocabulary size V = 32,000 and width d = 512, and it ties its output head to its input table. How many parameters does tying remove?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        { "id": "a", "text": "16,384,000 (V × d)" },
+        { "id": "b", "text": "32,768,000 (2 × V × d)" },
+        { "id": "c", "text": "32,512 (V + d)" },
+        { "id": "d", "text": "8,192,000 (V × d ÷ 4)" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Embeddings & Positional Encodings, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "a",
+      "explanation": "Untied, the model stores two V × d matrices. Tied, it stores one, so tying removes V × d = 32,000 × 512 = 16,384,000 parameters. Option b is the untied total, not the saving (Lesson 24.1)."
     },
     {
       "id": "q24.2",
-      "question": "How does Embeddings & Positional Encodings optimize performance in modern AI systems?",
+      "question": "A tied embedding table E receives gradient from the input path and from the output path. Which statement is correct?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        { "id": "a", "text": "Only row t, the current input token, receives gradient, because the output head only reads the table." },
+        { "id": "b", "text": "The output path alone is exact, so the input path can be dropped once E is tied." },
+        { "id": "c", "text": "The output path gives a nonzero gradient to every row, the input path gives one only to row t, and the two must be summed." },
+        { "id": "d", "text": "Both paths give the same gradient, so one of them can be discarded to save memory." }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The output path gives (p − e_y) h^T, which is nonzero in every row because softmax probabilities are positive. The input path reaches only row t. The lesson's finite-difference check shows that the output path alone is wrong by 0.63 (Lesson 24.1)."
+    },
+    {
+      "id": "q24.3",
+      "question": "For sinusoidal encodings with d = 64, PE(5) · PE(7) equals PE(0) · PE(2) exactly. Why?",
+      "options": [
+        { "id": "a", "text": "The sine and cosine terms cancel in pairs for every offset, so only a constant survives." },
+        { "id": "b", "text": "Each dot product equals the sum over pairs of cos(k ω_i) with the same offset k = 2, so it depends only on the offset." },
+        { "id": "c", "text": "The encoding is normalised to unit length, so every dot product of two rows with the same width is equal." },
+        { "id": "d", "text": "Positions 5 and 7, and positions 0 and 2, both lie inside the first wavelength of pair 0." }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Identity 1 in Lesson 24.2 gives PE(p) · PE(p + k) = Σ_i cos(k ω_i), which depends only on k. Both pairs have offset k = 2, and the code prints 28.304 for each."
+    },
+    {
+      "id": "q24.4",
+      "question": "A colleague calls sinusoidal_encoding(4, 5) and gets a ValueError. What is the cause?",
+      "options": [
+        { "id": "a", "text": "Positions must be at least as many as the width, so 4 positions cannot cover width 5." },
+        { "id": "b", "text": "np.arange(0, 5, 2) returns floats, which NumPy cannot use as column indices." },
+        { "id": "c", "text": "The frequency ω_i = 10000^(+2i/d) overflows when d = 5." },
+        { "id": "d", "text": "For odd d the sine slice has three columns and the cosine slice has two, so the assignment shapes do not match." }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The formulas pair each sine with a cosine, so d must be even. With d = 5 the sine columns are 0, 2, 4 and the cosine columns are 1, 3, which is the shape mismatch in the Lesson 24.2 trap on odd width."
+    },
+    {
+      "id": "q24.5",
+      "question": "The identity PE(p) · PE(p + k) = Σ_i cos(k ω_i) holds for raw sinusoidal encodings. Why does it stop holding for attention scores of the form (x_p W_Q)(x_q W_K)^T?",
+      "options": [
+        { "id": "a", "text": "Because the encodings are added to the values, and values are not rotated." },
+        { "id": "b", "text": "Because the frequencies ω_i differ from pair to pair." },
+        { "id": "c", "text": "Because softmax is not invariant to a shift of the scores." },
+        { "id": "d", "text": "Because a learned matrix sits between each encoding and the dot product, and it breaks the cancellation that gives the identity." }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The identity is a bare dot product, which is the special case W_Q = W_K = I. With fixed non-identity matrices in the lesson's code, the scores vary along diagonals with a spread of 0.51, not zero (Lesson 24.2)."
+    },
+    {
+      "id": "q24.6",
+      "question": "With d = 2 and θ = 30° per position, the query q = (1, 0) sits at position 4 and the key k = (1, 0) sits at position 2. What is the RoPE score q · k after rotation?",
+      "options": [
+        { "id": "a", "text": "0.000" },
+        { "id": "b", "text": "0.500" },
+        { "id": "c", "text": "0.866" },
+        { "id": "d", "text": "−0.500" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The query turns by 4 × 30° = 120° and the key by 2 × 30° = 60°. The gap is 60°, so the score is cos 60° = 0.5. Only the gap sets the score, not the absolute positions (Lesson 24.3)."
+    },
+    {
+      "id": "q24.7",
+      "question": "Which change leaves every RoPE attention score unchanged?",
+      "options": [
+        { "id": "a", "text": "Adding 100 to every query position and every key position." },
+        { "id": "b", "text": "Adding 100 to the query positions only." },
+        { "id": "c", "text": "Changing the base from 10000 to 500." },
+        { "id": "d", "text": "Using half-split pairing for the keys only." }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The score depends only on m − n, so a common shift cancels, up to floating-point rounding (Lesson 24.3). Shifting only the queries changes m − n, and changing the base changes every θ_i."
+    },
+    {
+      "id": "q24.8",
+      "question": "A model is trained with adjacent-pair RoPE. At inference, the code applies half-split pairing to both queries and keys, with the same weights. What happens?",
+      "options": [
+        { "id": "a", "text": "Nothing: the two pairings give identical scores on every input." },
+        { "id": "b", "text": "The code raises an error, because the shapes of the two pairings differ." },
+        { "id": "c", "text": "The scores change, so the model misbehaves even though the code runs." },
+        { "id": "d", "text": "The scores match only when the head width is 2." }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The two pairings are permutations of the coordinates, but applying the wrong one to unpermuted inputs changed the lesson's example score from −1.30 to −2.69 (Lesson 24.3)."
+    },
+    {
+      "id": "q24.9",
+      "question": "ALiBi with slope m = 1/8 and zero content scores: a query at position 3 attends to keys 0 to 3. What is the ratio w_0 / w_3 of the weight on key 0 to the weight on key 3?",
+      "options": [
+        { "id": "a", "text": "0.375" },
+        { "id": "b", "text": "0.687" },
+        { "id": "c", "text": "1.455" },
+        { "id": "d", "text": "0.125" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The bias difference is −m(3 − 0) = −3/8. The content scores are equal, so the ratio is e^(−3/8) = 0.687. Option c is the inverse ratio, w_3 / w_0 (Lesson 24.4)."
+    },
+    {
+      "id": "q24.10",
+      "question": "With zero content scores, what is D90 for the ALiBi head with slope m = 1/64? Here D90 is the smallest distance D such that 90 percent of the weight lies on distances 0 to D.",
+      "options": [
+        { "id": "a", "text": "63" },
+        { "id": "b", "text": "92" },
+        { "id": "c", "text": "146" },
+        { "id": "d", "text": "147" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "With r = e^(−1/64), D90 = ceil(ln 0.1 / ln r) − 1 = ceil(147.37) − 1 = 147. At D = 146 the fraction is 0.8994, just short of 0.9. At D = 147 it is 0.901 (Lesson 24.4)."
     }
   ]
 }

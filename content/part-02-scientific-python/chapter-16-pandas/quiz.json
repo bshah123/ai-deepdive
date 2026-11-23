@@ -1,54 +1,126 @@
 {
   "chapterId": "chapter-16",
-  "title": "Chapter 16 Quiz \u2014 Pandas DataFrames",
+  "title": "Chapter 16 Quiz — Pandas DataFrames",
   "questions": [
     {
       "id": "q16.1",
-      "question": "What is the primary architectural mechanism in Pandas DataFrames?",
+      "question": "A DataFrame has columns a (int64), b (float64), c (int64), d (float64) and s (str), in that order. Which block holds column c, and at which row of that block?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "Block 2, row 0"},
+        {"id": "b", "text": "Block 0, row 0"},
+        {"id": "c", "text": "Block 0, row 1"},
+        {"id": "d", "text": "Block 1, row 1"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Pandas DataFrames, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "Lesson 16.1 groups the int64 columns a and c into block 0, so blknos[2] = 0. Within the block, blklocs[2] = 1, which is row 1 (the output shows blklocs [0, 0, 1, 1, 0])."
     },
     {
       "id": "q16.2",
-      "question": "How does Pandas DataFrames optimize performance in modern AI systems?",
+      "question": "In pandas 3.1.1, the code below runs. What does it print?\n\nx = df[\"a\"]\nx.iloc[0] = 99\nprint(df[\"a\"].iloc[0])",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "1"},
+        {"id": "b", "text": "99"},
+        {"id": "c", "text": "98"},
+        {"id": "d", "text": "It raises a ChainedAssignmentError"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "a",
+      "explanation": "Under copy-on-write, x behaves as a copy for writes, so the parent frame keeps its original value 1 (Lesson 16.1, measured output). The value 98 appears only when the private block array is written directly through df._mgr, which copy-on-write does not protect."
+    },
+    {
+      "id": "q16.3",
+      "question": "Block 0 of a frame is a 2 × 3 int64 array with strides (24, 8). What is the byte offset of the element at block index (1, 2), the value 30 in the lesson's example?",
+      "options": [
+        {"id": "a", "text": "16 bytes"},
+        {"id": "b", "text": "24 bytes"},
+        {"id": "c", "text": "32 bytes"},
+        {"id": "d", "text": "40 bytes"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The byte offset is i × s0 + j × s1 = 1 × 24 + 2 × 8 = 40 (Lesson 16.1). The NumPy check in the lesson confirms the strides (24, 8)."
+    },
+    {
+      "id": "q16.4",
+      "question": "Which set of Arrow buffers does the string array [\"x\", \"yy\", None, \"zzz\"] produce?",
+      "options": [
+        {"id": "a", "text": "validity 13, offsets [0, 1, 2, 2, 5], data b'xyyzz'"},
+        {"id": "b", "text": "validity 11, offsets [0, 1, 3, 3, 6], data b'xyyzzz'"},
+        {"id": "c", "text": "validity 11, offsets [0, 1, 2, 4, 7], data b'xyyzzz'"},
+        {"id": "d", "text": "validity 7, offsets [0, 1, 3, 3, 6], data b'xyyzzz'"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The validity bits are 1, 1, 0, 1 (least-significant bit first), which is 1 + 2 + 8 = 11. The lengths are 1, 2, 0, 3, so the offsets are [0, 1, 3, 3, 6]. The data is b'xyyzzz' (Lesson 16.2, the same method as its worked example)."
+    },
+    {
+      "id": "q16.5",
+      "question": "An Arrow string array holds [\"ann\", \"bob\", None, \"cy\"]. What is its payload size in bytes (validity byte, offsets and data)?",
+      "options": [
+        {"id": "a", "text": "29"},
+        {"id": "b", "text": "25"},
+        {"id": "c", "text": "33"},
+        {"id": "d", "text": "37"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The validity buffer is 1 byte, the offsets are five int32 values (20 bytes), and the data is 'annbobcy' (8 bytes). The total is 1 + 20 + 8 = 29 bytes (Lesson 16.2, worked example and measured output)."
+    },
+    {
+      "id": "q16.6",
+      "question": "One million city names take 55,251,604 bytes as object dtype and 1,000,190 bytes as category, with four distinct cities. Roughly how many times smaller is the categorical column?",
+      "options": [
+        {"id": "a", "text": "About 2 times"},
+        {"id": "b", "text": "About 14 times"},
+        {"id": "c", "text": "About 55 times"},
+        {"id": "d", "text": "About 1,000 times"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "55,251,604 / 1,000,190 ≈ 55.2, so the categorical is about 55 times smaller than the object column (Lesson 16.3, measured output). It is about 14 times smaller than the default str column, which is a different comparison."
+    },
+    {
+      "id": "q16.7",
+      "question": "A column holds the values 1, 2 and a missing entry. Which dtype keeps it an integer type while representing the missing entry?",
+      "options": [
+        {"id": "a", "text": "pd.to_numeric(s, downcast=\"integer\") on the float64 column"},
+        {"id": "b", "text": "dtype=\"Int8\""},
+        {"id": "c", "text": "dtype=\"float32\""},
+        {"id": "d", "text": "dtype=\"int8\""}
+      ],
+      "correctOptionId": "b",
+      "explanation": "A missing value makes the column float64, and downcast=\"integer\" cannot undo that (output: float64 -> float64). The nullable Int8 dtype keeps integers and uses pd.NA as the missing marker (Lesson 16.3). Plain int8 cannot hold a missing value."
+    },
+    {
+      "id": "q16.8",
+      "question": "In float32, which integer is the first one that cannot be stored exactly?",
+      "options": [
+        {"id": "a", "text": "16777215"},
+        {"id": "b", "text": "8388609"},
+        {"id": "c", "text": "16777216"},
+        {"id": "d", "text": "16777217"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "float32 holds every integer up to 16,777,216 exactly. float(np.float32(16777217.0)) returns 16777216.0, so 16777217 is the first value that changes (Lesson 16.3, measured output)."
+    },
+    {
+      "id": "q16.9",
+      "question": "Four threads each run Shared.n += 1 two hundred thousand times on the same counter. Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "The total is always 800,000 on every CPython build."},
+        {"id": "b", "text": "On the GIL build the total was 800,000 in five runs, but the code is still not guaranteed correct."},
+        {"id": "c", "text": "On the free-threaded build the total is always 800,000."},
+        {"id": "d", "text": "The GIL prevents the race, so a lock is never needed."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The GIL build gave 800,000 in all five measured runs, but the three-step increment has no lock, so correctness is not guaranteed (Lesson 16.4). The free-threaded build counted 348,362 to 360,927 in the lesson's runs, so option c is contradicted."
+    },
+    {
+      "id": "q16.10",
+      "question": "An array.array('d', range(1000)) holds float64 values. How many bytes does memoryview(a)[::10].tobytes() allocate?",
+      "options": [
+        {"id": "a", "text": "80 bytes"},
+        {"id": "b", "text": "100 bytes"},
+        {"id": "c", "text": "800 bytes"},
+        {"id": "d", "text": "8,000 bytes"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The slice [::10] selects 100 elements, each 8 bytes, so tobytes() builds a 800-byte bytes object (Lesson 16.5). The view itself allocates only its small header; the 80 bytes is the stride between selected elements, not the total."
     }
   ]
 }

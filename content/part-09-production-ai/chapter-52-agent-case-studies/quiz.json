@@ -1,54 +1,11 @@
-{
-  "chapterId": "chapter-52",
-  "title": "Chapter 52 Quiz \u2014 AI APIs & Protocols",
-  "questions": [
-    {
-      "id": "q52.1",
-      "question": "What is the primary architectural mechanism in AI APIs & Protocols?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In AI APIs & Protocols, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q52.2",
-      "question": "How does AI APIs & Protocols optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-52", "title": "Chapter 52 Quiz — Agent Case Studies", "questions": [
+  {"id": "q52.1", "question": "SWE-bench, as described in Lesson 52.1, has how many task instances, and from how many repositories are they drawn?", "options": [{"id": "a", "text": "300 instances from 12 repositories"}, {"id": "b", "text": "1,000 instances from 5 repositories"}, {"id": "c", "text": "2,294 instances from 12 repositories"}, {"id": "d", "text": "2,294 instances from 50 repositories"}], "correctOptionId": "c", "explanation": "The SWE-bench abstract gives 2,294 software engineering problems drawn from real GitHub issues, across 12 popular Python repositories. Lesson 52.1 uses the same counts."},
+  {"id": "q52.2", "question": "Across the six CPython standard library files in Lesson 52.1, roughly how many times more tokens does a whole-file view cost than a 100-line window, using characters divided by four as the token estimate?", "options": [{"id": "a", "text": "1.0 times"}, {"id": "b", "text": "13.5 times"}, {"id": "c", "text": "28.2 times"}, {"id": "d", "text": "61.3 times"}], "correctOptionId": "b", "explanation": "The six whole files cost 61,332 estimated tokens and their first 100-line windows cost 4,554, a ratio of about 13.47. The per-file ratio for argparse.py is 28.15, and 61.3 is the whole-file total in thousands, not a ratio."},
+  {"id": "q52.3", "question": "An agent makes three independent attempts, each correct with probability 0.3. What is the probability that at least one attempt is correct?", "options": [{"id": "a", "text": "0.210"}, {"id": "b", "text": "0.343"}, {"id": "c", "text": "0.657"}, {"id": "d", "text": "0.900"}], "correctOptionId": "c", "explanation": "The probability that all three fail is 0.7 cubed, which is 0.343. The probability of at least one success is 1 minus 0.343, which is 0.657. This assumes independent attempts, which Lesson 52.1 says real attempts are not."},
+  {"id": "q52.4", "question": "In the toy coding agent of Lesson 52.1, step 3 calls edit('stats.py', 'return', 'return'). What does the tool return?", "options": [{"id": "a", "text": "error: old text matches 3 times; it must match exactly once"}, {"id": "b", "text": "edit applied"}, {"id": "c", "text": "error: edit rejected, SyntaxError on line 9"}, {"id": "d", "text": "error while loading"}], "correctOptionId": "a", "explanation": "The word 'return' occurs three times in stats.py, so the uniqueness check refuses the edit before the file is changed. The trace in Lesson 52.1 shows this message."},
+  {"id": "q52.5", "question": "In the research agent of Lesson 52.2, the loop without verification runs with a budget of nine pages. It accepts six claims, and three of them name the right pilot. What are its coverage and precision?", "options": [{"id": "a", "text": "coverage 0.67, precision 1.00"}, {"id": "b", "text": "coverage 0.50, precision 0.67"}, {"id": "c", "text": "coverage 0.17, precision 0.33"}, {"id": "d", "text": "coverage 0.50, precision 0.50"}], "correctOptionId": "d", "explanation": "Coverage is the share of the six facts reported with a Halden page: 3 of 6, which is 0.50. Precision is the share of the six accepted claims that cite a Halden page: 3 of 6, which is 0.50. Both values appear in the budget-9 row of the table in Lesson 52.2."},
+  {"id": "q52.6", "question": "The loop with verification, budget nine, reports four claims, all about Halden. What is its coverage?", "options": [{"id": "a", "text": "0.50"}, {"id": "b", "text": "0.67"}, {"id": "c", "text": "0.83"}, {"id": "d", "text": "1.00"}], "correctOptionId": "b", "explanation": "Coverage is 4 of the 6 facts, which is 0.67. Precision is 4 of 4, which is 1.00. Lesson 52.2 gives the same two numbers for this budget."},
+  {"id": "q52.7", "question": "Why does the loop without verification stay at coverage 0.50 for every budget of six pages or more?", "options": [{"id": "a", "text": "The planner runs out of search queries after six pages."}, {"id": "b", "text": "The corpus contains only six pages that match the questions."}, {"id": "c", "text": "The budget is capped at six pages by the design of the loop."}, {"id": "d", "text": "Each gap closes on its first accepted page, and the loop stops once no gap is open."}], "correctOptionId": "d", "explanation": "Without verification, the first page on each attribute is accepted. Three of those pages are about look-alike pilots, so three facts are reported wrongly and never reopen. Once all six gaps have closed, the loop stops after six pages, so a larger budget changes nothing."},
+  {"id": "q52.8", "question": "The loop with verification reaches full coverage of the six facts. How many pages does it open to get there, according to Lesson 52.2?", "options": [{"id": "a", "text": "15 pages"}, {"id": "b", "text": "6 pages"}, {"id": "c", "text": "9 pages"}, {"id": "d", "text": "36 pages"}], "correctOptionId": "a", "explanation": "The run reaches coverage 1.00 after 15 pages. The loop without verification uses 6 pages, and the whole corpus has 36 pages, which is the total number of pages in the corpus rather than the number the loop needs."},
+  {"id": "q52.9", "question": "Anthropic's June 2025 post on its multi-agent research system, cited in Lesson 52.2, reports that multi-agent systems use about how many times more tokens than chat interactions?", "options": [{"id": "a", "text": "4 times"}, {"id": "b", "text": "2 times"}, {"id": "c", "text": "15 times"}, {"id": "d", "text": "60 times"}], "correctOptionId": "c", "explanation": "The post states that agents use about 4 times more tokens than chat, and multi-agent systems about 15 times more. Lesson 52.2 uses the 15 times figure to argue that the loop is paid for in tokens."}
+]}

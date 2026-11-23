@@ -1,0 +1,93 @@
+{
+  "python": "3.12.13",
+  "type_of_def": "function",
+  "name_def": "square",
+  "name_lambda": "<lambda>",
+  "code_name_lambda": "<lambda>",
+  "alias_is_same_object": true,
+  "square_5": 25,
+  "lambda_statement_error": "invalid syntax",
+  "bytecode_equal_def_vs_lambda": true,
+  "opnames_lambda": [
+    "RESUME",
+    "LOAD_FAST",
+    "LOAD_FAST",
+    "BINARY_OP",
+    "RETURN_VALUE"
+  ],
+  "map_type": "map",
+  "map_is_iterator": true,
+  "calls_before_consuming": 0,
+  "map_pass_1": [
+    1,
+    4,
+    9,
+    16,
+    25
+  ],
+  "calls_after_pass_1": 5,
+  "map_pass_2": [],
+  "calls_after_pass_2": 5,
+  "comprehension_result": [
+    1,
+    4,
+    9,
+    16,
+    25
+  ],
+  "calls_from_comprehension": 0,
+  "filter_pass_1": [
+    2,
+    4
+  ],
+  "filter_pass_1_obj": [
+    2,
+    4
+  ],
+  "filter_pass_2_obj": [],
+  "sort_input": [
+    5,
+    2,
+    9,
+    1,
+    7,
+    3,
+    8,
+    6
+  ],
+  "sort_result": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "sort_n": 8,
+  "sort_key_calls": 8,
+  "sort_comparisons": 15,
+  "closure_freevars": [
+    "multiplier"
+  ],
+  "closure_cell_value": 2,
+  "double_5": 10,
+  "late_binding_result": [
+    2,
+    2,
+    2
+  ],
+  "default_arg_fix_result": [
+    0,
+    1,
+    2
+  ],
+  "factory_fix_result": [
+    0,
+    1,
+    2
+  ],
+  "reduce_1_to_5": 15,
+  "partial_binary": 11
+}

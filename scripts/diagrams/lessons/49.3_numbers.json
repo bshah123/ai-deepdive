@@ -1,0 +1,127 @@
+{
+ "worked": {
+  "lives_in_append_only": [
+   "Delhi",
+   "Mumbai"
+  ],
+  "lives_in_supersede": [
+   "Mumbai"
+  ],
+  "returned_1hop_supersede": 4,
+  "returned_1hop_append_only": 5,
+  "gold_hits": 1,
+  "precision_1hop": 0.25
+ },
+ "supersession": {
+  "moved_users": 26,
+  "stale_in_context_append_only": 26,
+  "stale_in_context_supersede": 0
+ },
+ "retrieval": {
+  "hops0_budgetnone": {
+   "recall": 0.0,
+   "precision": 0.0,
+   "facts_per_user": 8.0,
+   "gold_total": 714
+  },
+  "hops0_budget20": {
+   "recall": 0.0,
+   "precision": 0.0,
+   "facts_per_user": 8.0,
+   "gold_total": 714
+  },
+  "hops1_budgetnone": {
+   "recall": 1.0,
+   "precision": 0.287,
+   "facts_per_user": 41.4,
+   "gold_total": 714
+  },
+  "hops1_budget20": {
+   "recall": 0.259,
+   "precision": 0.154,
+   "facts_per_user": 20.0,
+   "gold_total": 714
+  },
+  "hops2_budgetnone": {
+   "recall": 1.0,
+   "precision": 0.083,
+   "facts_per_user": 143.5,
+   "gold_total": 714
+  },
+  "hops2_budget20": {
+   "recall": 0.259,
+   "precision": 0.154,
+   "facts_per_user": 20.0,
+   "gold_total": 714
+  }
+ },
+ "resolution": {
+  "1.0": {
+   "tp": 20,
+   "fp": 0,
+   "recall": 0.5,
+   "precision": 1.0,
+   "false_merges_hard": 0,
+   "recall_by_kind": {
+    "lower-case": 10,
+    "initial": 0,
+    "typo": 0,
+    "reversed": 10
+   }
+  },
+  "0.9": {
+   "tp": 30,
+   "fp": 0,
+   "recall": 0.75,
+   "precision": 1.0,
+   "false_merges_hard": 0,
+   "recall_by_kind": {
+    "lower-case": 10,
+    "initial": 0,
+    "typo": 10,
+    "reversed": 10
+   }
+  },
+  "0.8": {
+   "tp": 33,
+   "fp": 1,
+   "recall": 0.825,
+   "precision": 0.971,
+   "false_merges_hard": 1,
+   "recall_by_kind": {
+    "lower-case": 10,
+    "initial": 3,
+    "typo": 10,
+    "reversed": 10
+   }
+  },
+  "0.7": {
+   "tp": 38,
+   "fp": 12,
+   "recall": 0.95,
+   "precision": 0.76,
+   "false_merges_hard": 12,
+   "recall_by_kind": {
+    "lower-case": 10,
+    "initial": 8,
+    "typo": 10,
+    "reversed": 10
+   }
+  },
+  "0.6": {
+   "tp": 40,
+   "fp": 20,
+   "recall": 1.0,
+   "precision": 0.667,
+   "false_merges_hard": 20,
+   "recall_by_kind": {
+    "lower-case": 10,
+    "initial": 10,
+    "typo": 10,
+    "reversed": 10
+   }
+  }
+ },
+ "n_positive": 40,
+ "n_negative": 80
+}

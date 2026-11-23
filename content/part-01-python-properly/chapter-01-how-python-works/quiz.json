@@ -3,108 +3,244 @@
   "title": "Chapter 1 Quiz — How Python Actually Works",
   "questions": [
     {
-      "id": "ch1-q1",
-      "type": "multiple-choice",
-      "question": "What is the correct order of stages when Python runs a `.py` file?",
+      "id": "q1.1",
+      "question": "A file has `print(\"start\")` on line 1 and an unclosed bracket on line 40. You run `python file.py`. What happens?",
       "options": [
-        "Tokenize → Parse → Execute → Compile",
-        "Tokenize → Parse (AST) → Compile → Execute (PVM)",
-        "Compile → Tokenize → Parse → Execute",
-        "Parse → Compile → Tokenize → Execute"
+        {
+          "id": "a",
+          "text": "`start` is printed, then a `SyntaxError` is raised when line 40 is reached"
+        },
+        {
+          "id": "b",
+          "text": "`start` is printed, then the interpreter silently stops"
+        },
+        {
+          "id": "c",
+          "text": "Nothing is printed to standard output and a `SyntaxError` is reported"
+        },
+        {
+          "id": "d",
+          "text": "`start` is printed and line 40 is skipped"
+        }
       ],
-      "correctIndex": 1,
-      "explanation": "Python tokenizes the source text first, parses tokens into an AST, compiles the AST to bytecode, then executes the bytecode in the Python Virtual Machine (PVM). You can inspect each step using the `tokenize`, `ast`, and `dis` modules."
+      "correctOptionId": "c",
+      "explanation": "The whole file is tokenized, parsed and compiled before anything runs (Lessons 1.1 and 1.2). A syntax error is found in that phase, so no instruction, including the first print, executes."
     },
     {
-      "id": "ch1-q2",
-      "type": "multiple-choice",
-      "question": "What is the value of `__name__` when a module `utils.py` is imported by another script?",
+      "id": "q1.2",
+      "question": "How many `INDENT` and how many `DEDENT` tokens does this file produce, counting the end of the file?\n\n```python\ndef f():\n    for i in x:\n        if i:\n            pass\n        else:\n            pass\n    return 1\n```",
       "options": [
-        "\"__main__\"",
-        "\"utils\"",
-        "None",
-        "\"utils.py\""
+        {
+          "id": "a",
+          "text": "4 INDENT and 4 DEDENT"
+        },
+        {
+          "id": "b",
+          "text": "3 INDENT and 3 DEDENT"
+        },
+        {
+          "id": "c",
+          "text": "4 INDENT and 3 DEDENT"
+        },
+        {
+          "id": "d",
+          "text": "3 INDENT and 4 DEDENT"
+        }
       ],
-      "correctIndex": 1,
-      "explanation": "`__name__` is set to `\"__main__\"` only when a script is run directly. When imported, `__name__` is set to the module's name (the filename without `.py`). This is the basis for the `if __name__ == \"__main__\":` guard pattern."
+      "correctOptionId": "a",
+      "explanation": "Widths go 0, 4, 8, 12, 8, 12, 4. Each deeper line is a push (the `for` body, the `if` body, the `else` body and the function body make four INDENT). `else:` at width 8 pops 12 (one DEDENT), `return` at width 4 pops 12 and 8 (two DEDENT), and the end of the file pops the final 4 (one DEDENT): four in all. Checked with `tokenize` on Python 3.12."
     },
     {
-      "id": "ch1-q3",
-      "type": "multiple-choice",
-      "question": "Which Python implementation uses Just-In-Time compilation to speed up pure Python code?",
+      "id": "q1.3",
+      "question": "`tool.py` has a top-level `print(\"loaded\")` and a `main()` call inside `if __name__ == \"__main__\":`. Another file runs `import tool`. What runs?",
       "options": [
-        "CPython",
-        "Cython",
-        "PyPy",
-        "MicroPython"
+        {
+          "id": "a",
+          "text": "Only `main()`, because it is the entry point"
+        },
+        {
+          "id": "b",
+          "text": "Only the top-level `print`; the guarded `main()` call is skipped"
+        },
+        {
+          "id": "c",
+          "text": "Both the `print` and `main()`"
+        },
+        {
+          "id": "d",
+          "text": "Nothing, because `import` only records the name"
+        }
       ],
-      "correctIndex": 2,
-      "explanation": "PyPy uses a JIT compiler that observes hot loops and compiles them to native machine code at runtime, achieving 5–50× speedups over CPython on pure Python code. CPython is the reference interpreter (no JIT). Cython is a language that compiles to C extensions."
+      "correctOptionId": "b",
+      "explanation": "Importing executes the module's top-level code, so `loaded` is printed. `__name__` is then `\"tool\"`, not `\"__main__\"`, so the guarded block does not run (Lesson 1.1)."
     },
     {
-      "id": "ch1-q4",
-      "type": "multiple-choice",
-      "question": "What does the Global Interpreter Lock (GIL) in CPython prevent?",
+      "id": "q1.4",
+      "question": "At module level, `x = 2 + 3 * n` compiles to `LOAD_CONST 2`, `LOAD_CONST 3`, `LOAD_NAME n`, `BINARY_OP *`, `BINARY_OP +`, `STORE_NAME x`. What is the greatest number of values on the stack at once?",
       "options": [
-        "Multiple processes from using the same Python installation",
-        "Multiple threads from executing Python bytecode simultaneously",
-        "Importing the same module twice",
-        "Accessing global variables from nested functions"
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
       ],
-      "correctIndex": 1,
-      "explanation": "The GIL is a mutex that allows only one thread to execute Python bytecode at a time. It protects CPython's reference counting from race conditions. This means CPU-bound code cannot be parallelized with `threading` in CPython — use `multiprocessing` or CFFI/C extensions that release the GIL instead."
+      "correctOptionId": "d",
+      "explanation": "Depth after each instruction: 1, 2, 3, then `*` pops two and pushes one (2), `+` gives 1, `STORE_NAME` gives 0. The maximum is 3, reached after `LOAD_NAME n`. Computed with `dis.stack_effect` on 3.12."
     },
     {
-      "id": "ch1-q5",
-      "type": "multiple-choice",
-      "question": "You run `python -m mypackage.script` from your project root. What is `sys.path[0]`?",
+      "id": "q1.5",
+      "question": "On CPython 3.12, when does `import mod` reuse the `.pyc` file in `__pycache__` instead of recompiling?",
       "options": [
-        "The directory containing `script.py`",
-        "The current working directory",
-        "The Python standard library directory",
-        "The `site-packages` directory"
+        {
+          "id": "a",
+          "text": "When the `.pyc` is newer than the Python executable"
+        },
+        {
+          "id": "b",
+          "text": "When the modification time and size recorded in the `.pyc` header match the source file"
+        },
+        {
+          "id": "c",
+          "text": "When the hash of the source text equals the hash in the `.pyc`, always"
+        },
+        {
+          "id": "d",
+          "text": "Whenever the script that imports it has not changed"
+        }
       ],
-      "correctIndex": 1,
-      "explanation": "With `python -m`, `sys.path[0]` is the current working directory (CWD). With `python path/to/script.py`, `sys.path[0]` is the directory containing the script. This distinction matters for relative imports within a package."
+      "correctOptionId": "b",
+      "explanation": "A timestamp-based `.pyc` (flags 0, the default) stores the source's modification time and size, and is used when both match (PEP 552, Lesson 1.2). The content is not compared, so a same-size edit with a restored timestamp is missed. Hash-based `.pyc` files exist, but they are not the default."
     },
     {
-      "id": "ch1-q6",
-      "type": "multiple-choice",
-      "question": "What does `dis.dis(my_function)` output?",
+      "id": "q1.6",
+      "question": "A PyPy function takes 30 ms on its first call and 2 ms on every later call. CPython takes 6 ms on every call. After how many calls is PyPy's total time lower than CPython's?",
       "options": [
-        "The AST of the function",
-        "The source code of the function",
-        "The bytecode instructions the PVM will execute",
-        "The function's memory address"
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
       ],
-      "correctIndex": 2,
-      "explanation": "`dis.dis()` disassembles a function's code object and prints its bytecode instructions — operations like `LOAD_FAST`, `BINARY_OP`, and `RETURN_VALUE`. These are the actual instructions CPython's virtual machine executes."
+      "correctOptionId": "d",
+      "explanation": "PyPy's total after n calls is $30 + 2(n - 1)$ and CPython's is $6n$. At n = 7 both are 42 ms, so PyPy is not yet lower. At n = 8 it is 44 ms against 48 ms. Solving $30 + 2(n-1) < 6n$ gives $28 < 4n$, so $n > 7$."
     },
     {
-      "id": "ch1-q7",
-      "type": "multiple-choice",
-      "question": "What is the primary purpose of a Python virtual environment?",
+      "id": "q1.7",
+      "question": "`dir_a/mod.py` and `dir_b/mod.py` both exist and `sys.path` is `[dir_a, dir_b, ...]`. After `import mod` (which loads `dir_a`), the code runs `del sys.modules[\"mod\"]`, then `sys.path.remove(dir_a)`, then `import mod` again. Which version does `mod.WHO` report?",
       "options": [
-        "To run Python faster using JIT compilation",
-        "To isolate package installations per project, preventing version conflicts",
-        "To encrypt Python source code",
-        "To enable multi-threading without the GIL"
+        {
+          "id": "a",
+          "text": "`dir_a`, because the first import is remembered forever"
+        },
+        {
+          "id": "b",
+          "text": "An `ImportError`, because the folder was removed"
+        },
+        {
+          "id": "c",
+          "text": "`dir_b`"
+        },
+        {
+          "id": "d",
+          "text": "Whichever folder was created first"
+        }
       ],
-      "correctIndex": 1,
-      "explanation": "A virtual environment creates an isolated directory with its own Python interpreter and `site-packages`. This means each project can have different versions of the same package without conflicts. It's the standard solution to dependency management in Python."
+      "correctOptionId": "c",
+      "explanation": "Deleting the cache entry forces a fresh search (Lesson 1.4). With `dir_a` gone from `sys.path`, the first match is `dir_b/mod.py`. Without the `del`, the second import would return the cached `dir_a` module and the `sys.path` change would not matter. I ran this on Python 3.12.13."
     },
     {
-      "id": "ch1-q8",
-      "type": "multiple-choice",
-      "question": "Which module lets you install a trace function to intercept every function call and line execution?",
+      "id": "q1.8",
+      "question": "A folder contains `main.py` (which does `import random` and calls `random.randint(1, 6)`) and a helper called `random.py`. `python main.py` fails with `AttributeError`. Why?",
       "options": [
-        "inspect",
-        "traceback",
-        "sys",
-        "gc"
+        {
+          "id": "a",
+          "text": "The script's folder is first on `sys.path`, so the local `random.py` is found before the standard library's"
+        },
+        {
+          "id": "b",
+          "text": "`random` is a built-in module, so the local file is never searched"
+        },
+        {
+          "id": "c",
+          "text": "The standard library's `random` must be imported with a full path"
+        },
+        {
+          "id": "d",
+          "text": "`.pyc` caching reuses an old copy of `random`"
+        }
       ],
-      "correctIndex": 2,
-      "explanation": "`sys.settrace()` installs a trace function that is called on every function call (`'call'` event), line (`'line'` event), and return (`'return'` event). This is how Python debuggers like `pdb` implement breakpoints."
+      "correctOptionId": "a",
+      "explanation": "For `python script.py` the script's folder is `sys.path[0]`, ahead of the standard library, so the local file wins and has no `randint` (Lesson 1.4). `python -P main.py` keeps that folder off the path. The built-in explanation fails because `random` is not a built-in module; for one that is, such as `math` on the lesson's build, the local file would be ignored."
+    },
+    {
+      "id": "q1.9",
+      "question": "On CPython 3.12, how many instructions does `def k(n): return 3 * 4 * n * 5` have, not counting `RESUME`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "5"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Python evaluates left to right, so `3 * 4` is a constant and is folded to 12. What remains is `LOAD_CONST 12`, `LOAD_FAST n`, `BINARY_OP *`, `LOAD_CONST 5`, `BINARY_OP *`, `RETURN_VALUE`: six. With `n` first, nothing before it could be folded (Lesson 1.5). Checked with `dis` on 3.12."
+    },
+    {
+      "id": "q1.10",
+      "question": "`def g(a: int, b: int) -> int: return a + b` is called twice as `g(1.5, 2.5)` on CPython 3.12. What does `dis.get_instructions(g, adaptive=True)` show for the addition?",
+      "options": [
+        {
+          "id": "a",
+          "text": "`BINARY_OP_ADD_INT`, because of the `int` hints"
+        },
+        {
+          "id": "b",
+          "text": "`BINARY_OP_ADD_FLOAT`"
+        },
+        {
+          "id": "c",
+          "text": "`BINARY_OP` unchanged, because two calls are too few"
+        },
+        {
+          "id": "d",
+          "text": "`BINARY_OP_ADD_UNICODE`"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "An instruction specializes on its second execution for the types it actually saw, and the runtime ignores annotations (Lesson 1.6). Two float calls give `BINARY_OP_ADD_FLOAT`. I ran this on 3.12.13."
     }
   ]
 }

@@ -1,54 +1,114 @@
 {
   "chapterId": "chapter-45",
-  "title": "Chapter 45 Quiz \u2014 RAG Evaluation Harness",
+  "title": "Chapter 45 Quiz — Semantic Kernel",
   "questions": [
     {
       "id": "q45.1",
-      "question": "What is the primary architectural mechanism in RAG Evaluation Harness?",
+      "question": "A plugin class named MathPlugin with an add method is registered with kernel.add_plugin(MathPlugin(), plugin_name=\"math\"). What name does the kernel give the function?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        { "id": "a", "text": "add" },
+        { "id": "b", "text": "MathPlugin-add" },
+        { "id": "c", "text": "math-add" },
+        { "id": "d", "text": "math.add" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In RAG Evaluation Harness, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "The kernel names each function plugin-function. The plugin name comes from the add_plugin call, not from the class name, so the result is math-add (Lesson 45.1)."
     },
     {
       "id": "q45.2",
-      "question": "How does RAG Evaluation Harness optimize performance in modern AI systems?",
+      "question": "The mini kernel of Lesson 45.1 receives {\"function\": \"math-add\", \"arguments\": {\"num1\": \"5\"}}. What happens?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        { "id": "a", "text": "It raises ValueError saying num2 is a missing required argument" },
+        { "id": "b", "text": "It returns \"5.0\" because num2 defaults to 0" },
+        { "id": "c", "text": "It returns \"5.0\" and leaves num2 as None" },
+        { "id": "d", "text": "It raises TypeError from inside the add method" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "a",
+      "explanation": "invoke checks that every parameter without a default is present. num2 has no default, so the call raises ValueError (Lesson 45.1, trap on missing arguments)."
+    },
+    {
+      "id": "q45.3",
+      "question": "Which statement about the current Semantic Kernel Python API (semantic-kernel 1.36.0) is correct?",
+      "options": [
+        { "id": "a", "text": "Plugins are registered with kernel.import_skill and marked with sk_function" },
+        { "id": "b", "text": "Functions must take an SKContext parameter" },
+        { "id": "c", "text": "Plugins are imported from semantic_kernel.skill_definition" },
+        { "id": "d", "text": "Plugins are registered with kernel.add_plugin, and their methods are marked with @kernel_function" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The older names import_skill, sk_function, SKContext and the module semantic_kernel.skill_definition are not available in 1.36.0 (Lesson 45.1, trap on old API names)."
+    },
+    {
+      "id": "q45.4",
+      "question": "A plugin method divides by zero and is called through kernel.invoke in Semantic Kernel 1.36.0. What does the application receive?",
+      "options": [
+        { "id": "a", "text": "The string \"inf\" as the function result" },
+        { "id": "b", "text": "A KernelInvokeException whose cause is the ZeroDivisionError" },
+        { "id": "c", "text": "None, with the error written to the log" },
+        { "id": "d", "text": "A bare ZeroDivisionError with no wrapping" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The lesson ran this case: Semantic Kernel raises KernelInvokeException, and the original ZeroDivisionError is available as its __cause__ (Lesson 45.1, recorded output)."
+    },
+    {
+      "id": "q45.5",
+      "question": "For the lesson's keyword_planner, what does keyword_planner(\"Please calculate the sum of 2 and 3\", [calculate_sum]) return?",
+      "options": [
+        { "id": "a", "text": "[]" },
+        { "id": "b", "text": "[\"calculate_sum\"]" },
+        { "id": "c", "text": "[\"calculate\"]" },
+        { "id": "d", "text": "It raises KeyError" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The test is 'calculate_sum' in goal.lower(). The goal contains the words calculate and sum, but not the exact string calculate_sum, so nothing is selected. This is the trap that keyword matching is not planning (Lesson 45.2)."
+    },
+    {
+      "id": "q45.6",
+      "question": "The schema that to_schema builds for a function omits which part of the signature?",
+      "options": [
+        { "id": "a", "text": "The parameter names" },
+        { "id": "b", "text": "The parameter types" },
+        { "id": "c", "text": "The parameters without defaults, which go in required" },
+        { "id": "d", "text": "The return annotation" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Return types are not serialised into the schema. Parameter names, types and the required list are all sent (Lesson 45.2, worked example; the Microsoft function-calling guide says the same)."
+    },
+    {
+      "id": "q45.7",
+      "question": "For def double(x: int) -> int, the kernel accepts invoke(\"double\", {\"x\": True}) and returns 2. Why does the isinstance check pass?",
+      "options": [
+        { "id": "a", "text": "True is converted to 1 before the check runs" },
+        { "id": "b", "text": "bool is a subclass of int, so isinstance(True, int) is True" },
+        { "id": "c", "text": "sig.bind accepts any value for an int parameter" },
+        { "id": "d", "text": "The type check runs only for str parameters" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "In Python, bool is a subclass of int. The fix is type(value) is want, or an explicit rejection of bool. Add a test with a boolean argument (Lesson 45.2, Question 3)."
+    },
+    {
+      "id": "q45.8",
+      "question": "Why does Kernel.invoke in Lesson 45.2 return a bad-argument error as text instead of raising it to the caller?",
+      "options": [
+        { "id": "a", "text": "So the model reads the error on its next call and can retry with correct arguments" },
+        { "id": "b", "text": "Because Python cannot catch exceptions raised inside a loop" },
+        { "id": "c", "text": "So that the run never reaches max_iterations" },
+        { "id": "d", "text": "Because the schema has no place for error messages" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "The error becomes the content of a tool message. In the run in Lesson 45.2, the model sends integers after reading error: a must be int, got str. The iteration limit is still needed in case the model keeps failing."
+    },
+    {
+      "id": "q45.9",
+      "question": "The lesson's loop sends 44,340 characters over a run of 20 model calls and 154,980 characters over a run of 40 calls. What is the ratio of the 40-call total to the 20-call total?",
+      "options": [
+        { "id": "a", "text": "About 2, because the cost grows linearly with the number of calls" },
+        { "id": "b", "text": "About 8, because each call sends the history of every earlier call" },
+        { "id": "c", "text": "About 3.5, between the linear ratio of 2 and the quadratic ratio of 4" },
+        { "id": "d", "text": "About 4, because the total grows as the square of the number of calls" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "154,980 / 44,340 ≈ 3.50 (checked in Python). The ratio lies between 2 and 4 because the schema cost is paid per call, while the re-sent history grows with the square of the number of calls. The ratio approaches 4 only for long runs (Lesson 45.2)."
     }
   ]
 }

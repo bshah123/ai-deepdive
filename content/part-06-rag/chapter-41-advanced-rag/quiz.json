@@ -1,54 +1,11 @@
-{
-  "chapterId": "chapter-41",
-  "title": "Chapter 41 Quiz \u2014 Retrieval & Hybrid Search",
-  "questions": [
-    {
-      "id": "q41.1",
-      "question": "What is the primary architectural mechanism in Retrieval & Hybrid Search?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Retrieval & Hybrid Search, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q41.2",
-      "question": "How does Retrieval & Hybrid Search optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-41", "title": "Chapter 41 Quiz — Advanced RAG", "questions": [
+  {"id": "q41.1", "question": "In HyDE (hypothetical document embeddings), which text's vector is used to search the corpus?", "options": [{"id": "a", "text": "The user's question, unchanged"}, {"id": "b", "text": "A hypothetical answer written by a language model and embedded as the query"}, {"id": "c", "text": "The average vector of all corpus passages"}, {"id": "d", "text": "A short summary of the single top-ranked passage"}], "correctOptionId": "b", "explanation": "HyDE asks an instruction-following language model for a hypothetical answer and embeds that answer as the query vector. The answer may contain invented details; it only has to point the vector the right way (Lesson 41.1)."},
+  {"id": "q41.2", "question": "A query contains no word from the corpus vocabulary of the Lesson 41.1 encoder. Which statement describes its ranking of the relevant passage?", "options": [{"id": "a", "text": "The relevant passage is ranked 9th because the query is far from it in meaning"}, {"id": "b", "text": "The rank reflects the encoder's similarity judgement and can be trusted"}, {"id": "c", "text": "Every cosine is 0, so the rank comes from the sort's tie-break and carries no signal"}, {"id": "d", "text": "The rank is a benchmark result and should be reported as recall"}], "correctOptionId": "c", "explanation": "The vector is all zeros, so every dot product is 0. The stable sort orders tied passages by index. Query 4 shows rank 9 only because of the tie-break, and should be reported as 'no signal' (Lesson 41.1, worked example and traps)."},
+  {"id": "q41.3", "question": "In the Lesson 41.1 experiment, how does replacing the query with a HyDE hypothesis change recall@2 across the six queries?", "options": [{"id": "a", "text": "From 6 of 6 to 4 of 6, because hypotheses add noise"}, {"id": "b", "text": "From 4 of 6 to 5 of 6, with query 4 unchanged"}, {"id": "c", "text": "Unchanged at 4 of 6, because 48.9% of hypothesis tokens are out of vocabulary"}, {"id": "d", "text": "From 4 of 6 to 6 of 6, with no query getting worse in rank"}], "correctOptionId": "d", "explanation": "Query-only ranks are 3, 1, 1, 1, 9, 1, so 4 of 6 are in the top two. HyDE ranks are all 1, so 6 of 6 are. No query gets worse in rank (Lesson 41.1, 'What the numbers show'). Six queries are an illustration, not a benchmark."},
+  {"id": "q41.4", "question": "Using the stub probabilities in the Lesson 41.2 code, how many of the five queries retrieve at threshold t = 0.5, and which ones?", "options": [{"id": "a", "text": "Two: q0 and q1"}, {"id": "b", "text": "Three: q0, q2 and q4"}, {"id": "c", "text": "Three: q0, q1 and q4"}, {"id": "d", "text": "Five, because every probability exceeds 0.05"}], "correctOptionId": "c", "explanation": "The stub probabilities are 0.91, 0.84, 0.07, 0.12 and 0.66 for q0 to q4. Only q0, q1 and q4 exceed 0.5, and the output shows the same set at t = 0.2 (Lesson 41.2, Step 1)."},
+  {"id": "q41.5", "question": "Candidate B in the Lesson 41.2 code has gen = 0.30, s_rel = 0.35, s_sup = 0.10 and s_use = 0.20. Using the weights 1.0, 1.0 and 0.5, what is its total?", "options": [{"id": "a", "text": "0.30"}, {"id": "b", "text": "0.55"}, {"id": "c", "text": "0.85"}, {"id": "d", "text": "1.05"}], "correctOptionId": "c", "explanation": "The critique score is S = 1.0 × 0.35 + 1.0 × 0.10 + 0.5 × 0.20 = 0.55, so the total is 0.30 + 0.55 = 0.85. This matches the output (Lesson 41.2, Question 2)."},
+  {"id": "q41.6", "question": "In the Lesson 41.2 failure case, the critic is confidently wrong about candidate C, so C's total becomes 2.83, above candidate A's 2.45. What does the selection rule do?", "options": [{"id": "a", "text": "It selects A, because the rule penalises ungrounded segments"}, {"id": "b", "text": "It selects C, because the rule trusts the critic scores and cannot detect that they are wrong"}, {"id": "c", "text": "It selects B, because the generation term decides ties"}, {"id": "d", "text": "It returns a tie, because both totals exceed 2"}], "correctOptionId": "b", "explanation": "The rule computes its formula exactly as specified. Its inputs are the critic's probabilities, and nothing in the rule checks them. C is selected because the critic was wrong, not because the segment is grounded (Lesson 41.2, 'What a wrong critic does')."},
+  {"id": "q41.7", "question": "A query's three document scores are [0.50, −0.50, −1.00]. With upper threshold 0.5 and lower threshold −0.5, what action does CRAG take?", "options": [{"id": "a", "text": "Ambiguous: both the local and the web sources are used"}, {"id": "b", "text": "Correct: the top document is kept and only its strips are refined"}, {"id": "c", "text": "Incorrect: every local document is discarded and the web is searched"}, {"id": "d", "text": "Incorrect: 0.50 is below the upper threshold, so nothing is trusted"}], "correctOptionId": "a", "explanation": "No score is strictly above 0.5, so the result is not Correct. The first score is 0.50, which is not below −0.5, so the result is not Incorrect. The result is Ambiguous (Lesson 41.3, worked example and Question 2)."},
+  {"id": "q41.8", "question": "In the fixed CRAG-sim configuration (upper 0.5, lower −0.5) on the twelve queries of Lesson 41.3, how does the result compare with plain RAG?", "options": [{"id": "a", "text": "Context rises from 9.00 to 1.58 strips per query and gold recall stays at 7 of 10"}, {"id": "b", "text": "Context falls from 9.00 to 1.25 strips per query and gold recall drops from 8 of 10 to 7 of 10"}, {"id": "c", "text": "Context falls from 9.00 to 1.25 strips per query and gold recall drops from 7 of 10 to 6 of 10"}, {"id": "d", "text": "Context falls from 9.00 to 1.25 strips per query and gold recall rises from 7 of 10 to 8 of 10"}], "correctOptionId": "d", "explanation": "Plain RAG passes 9 strips for each query, which is 9.00 per query, and keeps 7 of 10 gold answers. The fixed configuration passes 15 strips in total, which is 1.25 per query, and keeps 8 of 10 (Lesson 41.3, 'Read the four blocks' and results). The figure of 1.58 belongs to upper 1.0, not to the fixed setting."},
+  {"id": "q41.9", "question": "The code keeps a strip when score(q, s) >= 0. A colleague changes the test to score(q, s) > 0. What happens in the Tarn thrust example (query 2)?", "options": [{"id": "a", "text": "Every strip is kept, because the test is more permissive"}, {"id": "b", "text": "The zero-score strip 'The Tarn engine burns liquid oxygen and kerosene.' is dropped, and query 2 is left with no context"}, {"id": "c", "text": "Nothing changes, because the gold strip scores −0.50 either way"}, {"id": "d", "text": "Only the gold sentence is kept, because it is the only strip with a term in common with the query"}], "correctOptionId": "b", "explanation": "Only Document C is used for query 2, because its score of 0.50 is above the lower threshold and the other two documents are not. Its first strip scores exactly 0.00, and the other two strips score −0.50 and −1.00. A strict test therefore leaves the context empty (Lesson 41.3, Question 4)."}
+]}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 390" role="img" aria-label="Table of __cause__, __context__, suppress and printed message for four forms of raise." class="sketch"><title>Table of __cause__, __context__, suppress and printed message for four forms of raise.</title>
+<text x="40" y="60" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="40" dy="0">form</tspan></text>
+<text x="300" y="60" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="300" dy="0">__cause__</tspan></text>
+<text x="440" y="60" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">__context__</tspan></text>
+<text x="580" y="60" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="580" dy="0">suppress</tspan></text>
+<text x="680" y="60" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="680" dy="0">printed</tspan></text>
+<path d="M29.1 73.3 C198.9 68.5, 366.7 68.7, 849.3 73.2 M30.0 73.8 C282.3 70.6, 534.1 70.7, 850.1 73.7" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29.6 86.9 L849.9 86.0 L852.0 132.1 L29.2 130.4" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.5 88.7 C197.8 87.8, 367.4 86.6, 849.9 88.4 M30.2 88.4 C299.6 87.2, 569.7 87.0, 850.3 87.6 M849.7 87.9 C850.0 98.9, 851.5 112.2, 849.5 132.5 M850.8 89.0 C849.2 97.0, 848.4 108.2, 850.3 132.5 M850.3 131.4 C616.8 132.0, 381.7 132.5, 30.4 132.8 M849.6 132.4 C542.8 131.6, 235.1 132.0, 29.7 132.2 M29.6 133.0 C28.7 120.9, 29.2 115.0, 31.3 86.4 M30.8 133.0 C29.5 117.1, 29.2 103.3, 28.9 88.7" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="116" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">from e</tspan></text>
+<text x="300" y="116" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="300" dy="0">KeyError</tspan></text>
+<text x="440" y="116" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">KeyError</tspan></text>
+<text x="580" y="116" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">True</tspan></text>
+<text x="680" y="116" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="680" dy="0">direct cause</tspan></text>
+<text x="40" y="166" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">bare raise</tspan></text>
+<text x="300" y="166" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="300" dy="0">None</tspan></text>
+<text x="440" y="166" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">KeyError</tspan></text>
+<text x="580" y="166" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">False</tspan></text>
+<text x="680" y="166" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="680" dy="0">during handling</tspan></text>
+<text x="40" y="216" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">from None</tspan></text>
+<text x="300" y="216" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="300" dy="0">None</tspan></text>
+<text x="440" y="216" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">KeyError</tspan></text>
+<text x="580" y="216" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">True</tspan></text>
+<text x="680" y="216" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="680" dy="0">none</tspan></text>
+<text x="40" y="266" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">no handler</tspan></text>
+<text x="300" y="266" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="300" dy="0">None</tspan></text>
+<text x="440" y="266" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">None</tspan></text>
+<text x="580" y="266" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="580" dy="0">False</tspan></text>
+<text x="680" y="266" class="sk-mono" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="680" dy="0">none</tspan></text>
+<path d="M29.9 296.2 C198.6 299.2, 366.2 298.5, 850.4 295.6 M30.3 296.1 C317.8 297.8, 604.2 297.3, 849.6 296.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="320" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">from e: raise X from e, inside except. bare raise: raise X, inside except.</tspan></text>
+<text x="40" y="344" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">from None: raise X from None, inside except. no handler: raise X outside any except.</tspan></text>
+<text x="40" y="368" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">suppress = __suppress_context__</tspan></text>
+</svg>

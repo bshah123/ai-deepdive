@@ -1,0 +1,81 @@
+{
+ "toy_per_token": 64,
+ "toy_elements": 96,
+ "toy_bytes": 192,
+ "mha_per_token_bytes": 524288,
+ "mha_per_token_KiB": 512.0,
+ "mha_seq4096_GiB": 2.0,
+ "gqa8_seq4096_GiB": 0.5,
+ "gqa8_per_token_KiB": 128.0,
+ "weights_GiB": 12.479722499847412,
+ "card_80GB_in_GiB": 74.50580596923828,
+ "batch32_kv_GiB": 64.0,
+ "batch32_total_GiB": 76.47972249984741,
+ "sweep_T": [
+  512,
+  1024,
+  2048,
+  4096,
+  8192,
+  16384,
+  32768
+ ],
+ "sweep_mha_GiB": [
+  0.25,
+  0.5,
+  1.0,
+  2.0,
+  4.0,
+  8.0,
+  16.0
+ ],
+ "sweep_gqa8_GiB": [
+  0.0625,
+  0.125,
+  0.25,
+  0.5,
+  1.0,
+  2.0,
+  4.0
+ ],
+ "BW_GBps": 2039.0,
+ "ridge_flop_per_byte": 153.01618440411966,
+ "decode_rows_T4096_MHA": [
+  {
+   "batch": 1,
+   "step_GB": 15.547483648,
+   "kv_share": 0.1381241940252015,
+   "step_ms": 7.6250532849436,
+   "tok_per_s": 131.14662450616524
+  },
+  {
+   "batch": 8,
+   "step_GB": 30.579869184,
+   "kv_share": 0.5618032268427379,
+   "step_ms": 14.99748366061795,
+   "tok_per_s": 533.4228181896464
+  },
+  {
+   "batch": 32,
+   "step_GB": 82.119476736,
+   "kv_share": 0.8368231200123365,
+   "step_ms": 40.27438780578715,
+   "tok_per_s": 794.549631748886
+  }
+ ],
+ "ceiling_MHA_T4096_tok_s": 949.4833648204803,
+ "ceiling_GQA8_T4096_tok_s": 3797.9334592819214,
+ "ceiling_MHA_T512_tok_s": 7595.866918563843,
+ "intensity_attn_MHA": 1.0,
+ "intensity_attn_GQA8": 4.0,
+ "intensity_weights_B": {
+  "1": 1.0,
+  "8": 8.0,
+  "32": 32.0,
+  "153": 153.0
+ },
+ "concat_copied_TiB": 3.9990234375,
+ "prealloc_written_GiB": 2.0,
+ "toy_concat_copied_T8_per8": 224,
+ "toy_formula_T8_per8": 224
+}

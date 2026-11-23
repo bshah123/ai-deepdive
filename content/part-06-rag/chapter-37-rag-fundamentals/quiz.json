@@ -1,54 +1,198 @@
 {
   "chapterId": "chapter-37",
-  "title": "Chapter 37 Quiz \u2014 RAG Fundamentals",
+  "title": "Chapter 37 Quiz — RAG Fundamentals",
   "questions": [
     {
       "id": "q37.1",
-      "question": "What is the primary architectural mechanism in RAG Fundamentals?",
+      "question": "What does vector search return for a query, by itself?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "A generated answer with citations to the source chunks"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "The k chunks most similar to the query, with their scores"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "A yes or no decision on whether the corpus contains the answer"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "The full documents that contain the query words, ranked by length"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In RAG Fundamentals, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "Vector search returns chunks and scores, never an answer, and it always returns k results even when none of them is relevant (lesson 37.1)."
     },
     {
       "id": "q37.2",
-      "question": "How does RAG Fundamentals optimize performance in modern AI systems?",
+      "question": "A query keeps 4 distinct words after stop-word removal. A chunk keeps 9 distinct words, and 2 of them match the query. With no bucket collisions, what is the cosine similarity under the lesson's formula?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "0.500"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "0.222"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "0.333"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "0.167"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "cos = s / sqrt(n_q n_c) = 2 / sqrt(4 * 9) = 2 / 6 = 0.333 (lesson 37.1)."
+    },
+    {
+      "id": "q37.3",
+      "question": "At chunk size 8 with no overlap, the index contains the gold answer for 86% of 14 questions, and the top three contain it for 50%. How many questions have the answer in the index but not in the top three?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "7"
+        },
+        {
+          "id": "c",
+          "text": "12"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "0.86 x 14 = 12 questions are in the index and 0.50 x 14 = 7 are in the top three, so 12 - 7 = 5 are retrieval losses (lesson 37.2)."
+    },
+    {
+      "id": "q37.4",
+      "question": "At chunk size 4 with 2 words of overlap, the index contains 100% of the gold answers, but only 21% are in the top three. Which stage loses the answer, and which check shows it?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ingestion: the answers are missing from every chunk"
+        },
+        {
+          "id": "b",
+          "text": "Retrieval: the answers are in the index but not ranked into the top three"
+        },
+        {
+          "id": "c",
+          "text": "Generation: the model ignores sources that were in the prompt"
+        },
+        {
+          "id": "d",
+          "text": "Abstention: the gate blocks answers that were retrieved correctly"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The answer is in some chunk, so ingestion did not lose it. It is not in the top three, so retrieval lost it. Generation is not measured in that lesson (lesson 37.2)."
+    },
+    {
+      "id": "q37.5",
+      "question": "A corpus has N = 21 chunks, and the term appears in df = 6 of them. Using idf = ln(1 + (N - df + 0.5) / (df + 0.5)), what is the idf?",
+      "options": [
+        {
+          "id": "a",
+          "text": "2.175"
+        },
+        {
+          "id": "b",
+          "text": "1.219"
+        },
+        {
+          "id": "c",
+          "text": "0.023"
+        },
+        {
+          "id": "d",
+          "text": "0.500"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "ln(1 + 15.5 / 6.5) = ln(3.385) = 1.219. The value 2.175 is the idf for df = 2 in the lesson's leave example (lesson 37.3)."
+    },
+    {
+      "id": "q37.6",
+      "question": "With k1 = 1.2, b = 0.75 and a chunk of average length, what is the term-frequency factor in BM25 when a term appears 8 times in the chunk?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1.000"
+        },
+        {
+          "id": "b",
+          "text": "1.375"
+        },
+        {
+          "id": "c",
+          "text": "1.913"
+        },
+        {
+          "id": "d",
+          "text": "8.000"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "f (k1 + 1) / (f + k1 (1 - b + b |d| / avgdl)) = 8 x 2.2 / (8 + 1.2) = 1.913. Repeated occurrences saturate, so eight occurrences score far less than eight times one (lesson 37.3)."
+    },
+    {
+      "id": "q37.7",
+      "question": "The pure-Python system in lesson 37.3 chunks its eight policy documents with size 10 and overlap 2. How many chunks result?",
+      "options": [
+        {
+          "id": "a",
+          "text": "21"
+        },
+        {
+          "id": "b",
+          "text": "40"
+        },
+        {
+          "id": "c",
+          "text": "72"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The step is size minus overlap, which is 8 words. The code gives 72 chunks. The same corpus at size 40 with overlap 10 gives 21 chunks (lesson 37.3)."
+    },
+    {
+      "id": "q37.8",
+      "question": "In lesson 37.3, a question's best BM25 score is 2.544 and the gate is 4.0. What does answer() return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The best-matching sentence with the citation [1]"
+        },
+        {
+          "id": "b",
+          "text": "I don't know: the sources do not say."
+        },
+        {
+          "id": "c",
+          "text": "The top three chunks, unfiltered, with the gate lowered to 2.544"
+        },
+        {
+          "id": "d",
+          "text": "An error, because the score is below zero"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "answer() abstains when the best score is below the gate tau = 4.0, and returns the 'I don't know' message. The score 2.544 is the lesson's badge-question miss (lesson 37.3)."
     }
   ]
 }

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 410" role="img" aria-label="Three levels of container: plain class, Sequence subclass, MutableSequence subclass" class="sketch"><title>Three levels of container: plain class, Sequence subclass, MutableSequence subclass</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">What you get at each level</tspan></text>
+<path d="M29.7 65.6 L289.0 65.6 L290.0 365.7 L28.8 365.5" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30.6 64.7 C84.0 66.1, 136.8 66.1, 289.5 66.8 M29.8 66.2 C91.4 65.7, 151.9 66.6, 289.5 66.3 M290.1 65.1 C289.4 145.7, 290.0 226.1, 289.0 366.8 M289.9 66.5 C288.9 134.6, 288.7 204.1, 289.9 365.9 M289.3 367.1 C190.0 368.2, 88.8 367.6, 30.2 364.7 M289.5 366.6 C222.4 365.5, 154.0 365.4, 29.8 365.7 M28.9 366.3 C30.0 268.2, 31.0 169.0, 29.8 65.5 M29.6 366.6 C29.1 283.5, 29.4 201.1, 30.1 65.7" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="160" y="100" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="160" dy="0">Plain class</tspan></text>
+<text x="160" y="128" class="sk-hand" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="160" dy="0">you write: __len__, __getitem__</tspan></text>
+<text x="160" y="176" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="160" dy="0">fallbacks give:</tspan></text>
+<text x="160" y="204" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="160" dy="0">len(), s[i], s[a:b]</tspan></text>
+<text x="160" y="230" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="160" dy="0">for, in, reversed()</tspan></text>
+<text x="160" y="256" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="160" dy="0">missing: index(), count()</tspan></text>
+<text x="160" y="336" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="160" dy="0">isinstance(Sequence): False</tspan></text>
+<path d="M310.0 66.8 L571.4 65.5 L568.6 365.9 L311.1 365.1" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M309.9 66.6 C362.5 67.2, 417.7 67.9, 570.3 65.8 M310.1 65.7 C376.6 66.7, 442.4 67.3, 569.8 66.1 M569.8 65.2 C570.1 150.5, 571.0 234.4, 571.0 365.1 M569.5 65.4 C571.2 155.2, 571.7 244.6, 569.5 365.5 M571.3 365.7 C517.3 366.8, 464.9 368.4, 310.1 365.7 M569.5 365.8 C507.9 364.5, 446.4 364.3, 309.8 366.3 M309.6 365.0 C310.2 302.4, 310.1 235.9, 309.0 65.9 M310.4 366.6 C310.1 294.5, 310.6 222.9, 309.8 65.6" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="440" y="100" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Sequence subclass</tspan></text>
+<text x="440" y="128" class="sk-hand" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">you write: __getitem__, __len__</tspan></text>
+<text x="440" y="176" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">mixins add:</tspan></text>
+<text x="440" y="204" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">__contains__, __iter__</tspan></text>
+<text x="440" y="230" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">__reversed__, index()</tspan></text>
+<text x="440" y="256" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">count()</tspan></text>
+<text x="440" y="336" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">isinstance(Sequence): True</tspan></text>
+<path d="M590.4 64.7 L850.6 65.3 L850.4 366.1 L590.3 364.7" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M589.2 66.0 C643.6 64.2, 696.1 65.7, 851.1 64.8 M590.3 66.5 C661.8 63.8, 734.2 63.9, 850.1 66.0 M849.5 65.4 C848.8 155.3, 847.8 245.1, 850.6 365.7 M850.3 65.5 C849.4 175.8, 850.4 285.0, 850.4 366.3 M850.7 366.8 C792.6 367.9, 736.9 366.6, 590.0 366.8 M849.6 366.4 C794.8 366.3, 740.1 365.8, 589.7 365.7 M590.4 366.0 C592.6 274.3, 591.6 185.1, 590.5 66.4 M589.9 366.6 C591.0 305.6, 590.7 244.7, 589.5 65.6" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="720" y="100" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="720" dy="0">MutableSequence</tspan></text>
+<text x="720" y="128" class="sk-hand" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="720" dy="0">you write: __setitem__,</tspan></text>
+<text x="720" y="150" class="sk-hand" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="720" dy="0">__delitem__, insert</tspan></text>
+<text x="720" y="186" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="720" dy="0">mixins add:</tspan></text>
+<text x="720" y="214" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="720" dy="0">append(), extend()</tspan></text>
+<text x="720" y="240" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="720" dy="0">pop(), remove()</tspan></text>
+<text x="720" y="266" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="720" dy="0">reverse(), +=</tspan></text>
+<text x="720" y="336" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="720" dy="0">isinstance(MutableSequence): True</tspan></text>
+<text x="440" y="392" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Each column keeps everything from the column before it.</tspan></text>
+</svg>

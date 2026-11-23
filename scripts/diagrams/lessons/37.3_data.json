@@ -1,0 +1,313 @@
+{
+ "sweep": [
+  {
+   "size": "10",
+   "overlap": 2,
+   "chunks": 72,
+   "words_per_chunk": 7.9,
+   "gold_in_some_chunk": 1,
+   "hit_at_1": 0,
+   "hit_at_3": 0,
+   "context_words_mean_top3": 26.9
+  },
+  {
+   "size": "20",
+   "overlap": 5,
+   "chunks": 40,
+   "words_per_chunk": 14.2,
+   "gold_in_some_chunk": 8,
+   "hit_at_1": 6,
+   "hit_at_3": 6,
+   "context_words_mean_top3": 51
+  },
+  {
+   "size": "40",
+   "overlap": 10,
+   "chunks": 21,
+   "words_per_chunk": 27.0,
+   "gold_in_some_chunk": 8,
+   "hit_at_1": 6,
+   "hit_at_3": 6,
+   "context_words_mean_top3": 91.2
+  },
+  {
+   "size": "80",
+   "overlap": 20,
+   "chunks": 9,
+   "words_per_chunk": 63.1,
+   "gold_in_some_chunk": 8,
+   "hit_at_1": 6,
+   "hit_at_3": 6,
+   "context_words_mean_top3": 155.8
+  },
+  {
+   "size": "whole",
+   "overlap": 0,
+   "chunks": 8,
+   "words_per_chunk": 71.0,
+   "gold_in_some_chunk": 8,
+   "hit_at_1": 6,
+   "hit_at_3": 6,
+   "context_words_mean_top3": 154.2
+  }
+ ],
+ "per_query": [
+  {
+   "query": "How much annual leave do I earn each month?",
+   "gold_doc": "Leave policy",
+   "bm25_top1_title": "Leave policy",
+   "bm25_top1_score": 6.842,
+   "bm25_hit1": true,
+   "bm25_hit3": true,
+   "naive_hit1": true,
+   "naive_hit3": true
+  },
+  {
+   "query": "What is the deadline to submit an expense claim?",
+   "gold_doc": "Expense claims",
+   "bm25_top1_title": "Expense claims",
+   "bm25_top1_score": 7.53,
+   "bm25_hit1": true,
+   "bm25_hit3": true,
+   "naive_hit1": true,
+   "naive_hit3": true
+  },
+  {
+   "query": "How many days a week can I work from home?",
+   "gold_doc": "Remote work",
+   "bm25_top1_title": "Remote work",
+   "bm25_top1_score": 9.384,
+   "bm25_hit1": true,
+   "bm25_hit3": true,
+   "naive_hit1": true,
+   "naive_hit3": true
+  },
+  {
+   "query": "After how many failed sign-in attempts does an account lock?",
+   "gold_doc": "Account security",
+   "bm25_top1_title": "Account security",
+   "bm25_top1_score": 10.372,
+   "bm25_hit1": true,
+   "bm25_hit3": true,
+   "naive_hit1": true,
+   "naive_hit3": true
+  },
+  {
+   "query": "How far in advance should I book flights?",
+   "gold_doc": "Business travel",
+   "bm25_top1_title": "Business travel",
+   "bm25_top1_score": 5.864,
+   "bm25_hit1": true,
+   "bm25_hit3": true,
+   "naive_hit1": true,
+   "naive_hit3": true
+  },
+  {
+   "query": "How long is paid leave for a primary caregiver?",
+   "gold_doc": "Parental leave",
+   "bm25_top1_title": "Parental leave",
+   "bm25_top1_score": 5.77,
+   "bm25_hit1": true,
+   "bm25_hit3": true,
+   "naive_hit1": true,
+   "naive_hit3": true
+  },
+  {
+   "query": "What happens if I lose my badge?",
+   "gold_doc": "Office access",
+   "bm25_top1_title": "Account security",
+   "bm25_top1_score": 2.544,
+   "bm25_hit1": false,
+   "bm25_hit3": false,
+   "naive_hit1": false,
+   "naive_hit3": false
+  },
+  {
+   "query": "What is the yearly allowance for training?",
+   "gold_doc": "Learning budget",
+   "bm25_top1_title": "Leave policy",
+   "bm25_top1_score": 2.561,
+   "bm25_hit1": false,
+   "bm25_hit3": false,
+   "naive_hit1": false,
+   "naive_hit3": false
+  }
+ ],
+ "bm25_hit1_total": 6,
+ "bm25_hit3_total": 6,
+ "naive_hit1_total": 6,
+ "naive_hit3_total": 6,
+ "abstain": {
+  "min_correct_top1": 5.77,
+  "max_miss_top1": 2.561,
+  "ooc": [
+   {
+    "query": "What is the capital of France?",
+    "top1_score": 0.0
+   },
+   {
+    "query": "How do I configure a Kubernetes ingress?",
+    "top1_score": 0.0
+   }
+  ],
+  "max_ooc": 0.0
+ },
+ "q0_terms": {
+  "annual": {
+   "df": 2,
+   "idf": 2.1748
+  },
+  "earn": {
+   "df": 0,
+   "idf": 3.7842
+  },
+  "leave": {
+   "df": 5,
+   "idf": 1.3863
+  },
+  "month": {
+   "df": 2,
+   "idf": 2.1748
+  },
+  "much": {
+   "df": 0,
+   "idf": 3.7842
+  }
+ },
+ "q0_contrib": [
+  {
+   "chunk": "Leave policy",
+   "dl": 32,
+   "score": 6.842,
+   "terms": {
+    "annual": {
+     "tf": 2,
+     "contribution": 2.725
+    },
+    "leave": {
+     "tf": 4,
+     "contribution": 2.213
+    },
+    "month": {
+     "tf": 1,
+     "contribution": 1.905
+    }
+   }
+  },
+  {
+   "chunk": "Learning budget",
+   "dl": 22,
+   "score": 2.243,
+   "terms": {
+    "month": {
+     "tf": 1,
+     "contribution": 2.243
+    }
+   }
+  },
+  {
+   "chunk": "Parental leave",
+   "dl": 32,
+   "score": 2.028,
+   "terms": {
+    "leave": {
+     "tf": 3,
+     "contribution": 2.028
+    }
+   }
+  }
+ ],
+ "avgdl_size40": 23.76,
+ "n_chunks_size40": 21,
+ "annual_idf_size40": 2.1748,
+ "annual_df_size40": 2,
+ "saturation": {
+  "1.0": {
+   "1": 1.0,
+   "2": 1.375,
+   "4": 1.6923,
+   "8": 1.913
+  },
+  "2.0": {
+   "1": 0.7097,
+   "2": 1.0732,
+   "4": 1.4426,
+   "8": 1.7426
+  }
+ },
+ "postings_whole": {
+  "annual": [
+   [
+    "Leave policy",
+    2
+   ],
+   [
+    "Learning budget",
+    1
+   ]
+  ],
+  "leave": [
+   [
+    "Leave policy",
+    5
+   ],
+   [
+    "Parental leave",
+    4
+   ]
+  ],
+  "days": [
+   [
+    "Leave policy",
+    3
+   ],
+   [
+    "Expense claims",
+    1
+   ],
+   [
+    "Remote work",
+    1
+   ],
+   [
+    "Account security",
+    1
+   ],
+   [
+    "Business travel",
+    1
+   ],
+   [
+    "Parental leave",
+    1
+   ]
+  ],
+  "badge": [
+   [
+    "Account security",
+    1
+   ]
+  ],
+  "budget": [
+   [
+    "Learning budget",
+    4
+   ]
+  ],
+  "learning": [
+   [
+    "Learning budget",
+    2
+   ]
+  ]
+ },
+ "idf_whole": {
+  "annual": 1.2809,
+  "leave": 1.2809,
+  "days": 0.3254,
+  "badge": 1.7918,
+  "budget": 1.7918,
+  "learning": 1.7918
+ },
+ "n_docs": 8
+}

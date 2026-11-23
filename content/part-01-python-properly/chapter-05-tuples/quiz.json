@@ -1,30 +1,102 @@
 {
   "chapterId": "chapter-05",
-  "title": "Chapter 5 Quiz \u2014 Tuples & Immutability",
+  "title": "Chapter 5 Quiz — Tuples & Immutability",
   "questions": [
     {
-      "id": "ch5-q1",
-      "question": "When is a Python tuple hashable and usable as a dictionary key?",
+      "id": "q5.1",
+      "question": "On CPython 3.12 (64-bit), what does `sys.getsizeof((1, 2, 3))` report?",
       "options": [
-        {
-          "id": "a",
-          "text": "Only when all of its contained items are also hashable"
-        },
-        {
-          "id": "b",
-          "text": "Always, because tuples are immutable objects"
-        },
-        {
-          "id": "c",
-          "text": "Never, only strings and ints can be dictionary keys"
-        },
-        {
-          "id": "d",
-          "text": "Only if created with the namedtuple constructor"
-        }
+        {"id": "a", "text": "24 bytes, the object header alone"},
+        {"id": "b", "text": "40 bytes, the empty tuple"},
+        {"id": "c", "text": "64 bytes, which is 40 + 8 × 3"},
+        {"id": "d", "text": "88 bytes, the same as a list of three items"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The lesson measures 40 + 8n bytes for a tuple of n items on this build, so n = 3 gives 64 bytes. The list [1, 2, 3] reports 88 bytes because it reserves four slots."
+    },
+    {
+      "id": "q5.2",
+      "question": "Why does `d = {(1, [2]): \"x\"}` raise an exception?",
+      "options": [
+        {"id": "a", "text": "Dictionary keys must be strings"},
+        {"id": "b", "text": "The tuple's hash() calls hash() on its list item, and lists are not hashable"},
+        {"id": "c", "text": "Tuples cannot contain lists, so the literal is invalid syntax"},
+        {"id": "d", "text": "Dictionary values cannot be lists, and the key is treated as a value"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "A tuple is hashable only if every item is hashable. The list [2] is not, so hash((1, [2])) raises TypeError: unhashable type: 'list'. Tuples can contain lists; the problem is only the key."
+    },
+    {
+      "id": "q5.3",
+      "question": "What does this print?\n\n```python\ndef add_item(items, x):\n    items += (x,)\n\nt = ()\nadd_item(t, 5)\nprint(t)\n```",
+      "options": [
+        {"id": "a", "text": "(5,)"},
+        {"id": "b", "text": "()"},
+        {"id": "c", "text": "TypeError, because tuples cannot be changed"},
+        {"id": "d", "text": "[5]"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "`items += (x,)` builds a new tuple and rebinds the local name `items`. The caller's `t` is unchanged, so it prints `()`. Returning the new tuple and assigning it at the call site fixes this."
+    },
+    {
+      "id": "q5.4",
+      "question": "What does `print(type((7)).__name__, type((7,)).__name__)` print?",
+      "options": [
+        {"id": "a", "text": "tuple tuple"},
+        {"id": "b", "text": "int int"},
+        {"id": "c", "text": "int tuple"},
+        {"id": "d", "text": "tuple int"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The parentheses around 7 are grouping only, so (7) is an int. The trailing comma in (7,) makes a one-item tuple."
+    },
+    {
+      "id": "q5.5",
+      "question": "After `first, *middle, last = range(6)`, what are the values and type of `middle`?",
+      "options": [
+        {"id": "a", "text": "(1, 2, 3, 4), a tuple"},
+        {"id": "b", "text": "[0, 1, 2, 3, 4, 5], a list"},
+        {"id": "c", "text": "[1, 2, 3, 4], a tuple"},
+        {"id": "d", "text": "[1, 2, 3, 4], a list"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "`first` takes 0 and `last` takes 5, so the starred name receives the leftover items 1 to 4. The starred target always receives a list, possibly empty; `tuple(middle)` gives a tuple if the code needs one."
+    },
+    {
+      "id": "q5.6",
+      "question": "Which line does this function print for `order((0, 0))`?\n\n```python\ndef order(p):\n    match p:\n        case (x, y):\n            return \"generic\"\n        case (0, 0):\n            return \"origin\"\n\nprint(order((0, 0)))\n```",
+      "options": [
+        {"id": "a", "text": "generic"},
+        {"id": "b", "text": "origin"},
+        {"id": "c", "text": "SyntaxError at compile time"},
+        {"id": "d", "text": "TypeError at run time"}
       ],
       "correctOptionId": "a",
-      "explanation": "If a tuple contains a mutable object (e.g. `(1, [2, 3])`), `hash(t)` raises `TypeError: unhashable type: 'list'`."
+      "explanation": "The sequence pattern (x, y) matches (0, 0) first, and the first match wins, so the literal (0, 0) case never runs. The compiler does not report this for a sequence pattern; only a bare-name capture followed by another case is a SyntaxError."
+    },
+    {
+      "id": "q5.7",
+      "question": "A `typing.NamedTuple` instance `p` is created with `class P(NamedTuple): x: int`. What does `p.x = 10` do?",
+      "options": [
+        {"id": "a", "text": "It succeeds and changes the field"},
+        {"id": "b", "text": "It raises AttributeError: can't set attribute"},
+        {"id": "c", "text": "It raises TypeError: 'P' object does not support item assignment"},
+        {"id": "d", "text": "It raises FrozenInstanceError"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The lesson ran this on Python 3.12.13 and observed AttributeError: can't set attribute. The TypeError message belongs to item assignment, `p[0] = 10`. FrozenInstanceError is raised by frozen dataclasses, not by named tuples."
+    },
+    {
+      "id": "q5.8",
+      "question": "A team needs a record that is hashable, read-only, and does not compare equal to a plain tuple with the same values. Which type fits?",
+      "options": [
+        {"id": "a", "text": "collections.namedtuple"},
+        {"id": "b", "text": "typing.NamedTuple"},
+        {"id": "c", "text": "A dataclass with frozen=True and annotated fields"},
+        {"id": "d", "text": "A plain dataclass with eq=True"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "A frozen dataclass is read-only and hashable (when its fields are hashable), and its generated equality does not match plain tuples. Both named-tuple types compare equal to plain tuples, and a plain dataclass with eq=True sets __hash__ to None."
     }
   ]
 }

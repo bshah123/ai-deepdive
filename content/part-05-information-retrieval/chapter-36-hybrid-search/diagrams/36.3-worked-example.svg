@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 396" role="img" aria-label="Worked example: five fused documents, each with its BM25 rank, dense rank and RRF score" class="sketch"><title>Worked example: five fused documents, each with its BM25 rank, dense rank and RRF score</title>
+<text x="440" y="36" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">One identifier query through fusion</tspan></text>
+<text x="440" y="62" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">query ['SKU01789', 'c39w5'], target doc 1789</tspan></text>
+<text x="150" y="100" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="150" dy="0">doc</tspan></text>
+<text x="340" y="100" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="340" dy="0">BM25 rank</tspan></text>
+<text x="510" y="100" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="510" dy="0">dense rank</tspan></text>
+<text x="690" y="100" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="690" dy="0">RRF score</tspan></text>
+<path d="M42.0 110.4 L840.1 113.6 L839.8 153.4 L39.8 149.6" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40.9 112.9 C212.1 107.4, 386.1 108.5, 839.7 111.6 M40.2 112.0 C287.6 111.8, 535.3 111.8, 840.2 112.3 M841.5 112.6 C840.2 123.4, 838.9 131.3, 838.5 150.3 M839.1 112.0 C841.5 127.5, 840.0 140.2, 840.7 151.7 M839.1 152.6 C639.0 152.8, 437.2 153.9, 40.4 152.2 M840.4 151.7 C650.5 148.3, 460.6 148.4, 39.6 151.9 M38.1 152.2 C39.7 141.4, 39.4 127.0, 42.0 114.0 M40.1 152.7 C41.4 140.0, 40.0 128.4, 40.7 111.9" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150" y="138" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">1789 (target)</tspan></text>
+<text x="340" y="138" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="340" dy="0">1</tspan></text>
+<text x="510" y="138" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="510" dy="0">2</tspan></text>
+<text x="690" y="138" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.03252</tspan></text>
+<text x="150" y="186" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">2989</tspan></text>
+<text x="340" y="186" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="340" dy="0">3</tspan></text>
+<text x="510" y="186" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="510" dy="0">4</tspan></text>
+<text x="690" y="186" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.03150</tspan></text>
+<text x="150" y="234" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">2589</tspan></text>
+<text x="340" y="234" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="340" dy="0">5</tspan></text>
+<text x="510" y="234" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="510" dy="0">5</tspan></text>
+<text x="690" y="234" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.03077</tspan></text>
+<text x="150" y="282" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">1189</tspan></text>
+<text x="340" y="282" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="340" dy="0">4</tspan></text>
+<text x="510" y="282" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="510" dy="0">10</tspan></text>
+<text x="690" y="282" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.02991</tspan></text>
+<text x="150" y="330" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">239</tspan></text>
+<text x="340" y="330" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="340" dy="0">2</tspan></text>
+<text x="510" y="330" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="510" dy="0">16</tspan></text>
+<text x="690" y="330" class="sk-mono" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.02929</tspan></text>
+<text x="440" y="378" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Target: 1/(60+1) + 1/(60+2) = 0.03252. Doc 239 has the second-best BM25 rank but scores lower, because its dense rank is 16.</tspan></text>
+</svg>

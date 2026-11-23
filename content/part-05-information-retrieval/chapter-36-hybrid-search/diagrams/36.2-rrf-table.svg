@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 372" role="img" aria-label="RRF worked example: ranks, per-list contributions and totals" class="sketch"><title>RRF worked example: ranks, per-list contributions and totals</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">RRF with k = 60: each list adds 1 / (60 + rank)</tspan></text>
+<text x="110" y="84" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)" font-weight="700"><tspan x="110" dy="0">doc</tspan></text>
+<text x="260" y="84" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)" font-weight="700"><tspan x="260" dy="0">lexical rank</tspan></text>
+<text x="380" y="84" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)" font-weight="700"><tspan x="380" dy="0">dense rank</tspan></text>
+<text x="540" y="84" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)" font-weight="700"><tspan x="540" dy="0">1 / (60 + lex)</tspan></text>
+<text x="690" y="84" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)" font-weight="700"><tspan x="690" dy="0">1 / (60 + dense)</tspan></text>
+<text x="820" y="84" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)" font-weight="700"><tspan x="820" dy="0">RRF score</tspan></text>
+<path d="M40.9 98.9 C216.4 93.3, 394.8 94.4, 859.7 97.6 M40.2 98.0 C293.8 97.8, 547.7 97.8, 860.2 98.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M769.7 118.1 L868.9 119.4 L867.7 159.6 L770.5 159.8" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M772.9 119.1 C793.1 116.4, 816.6 115.6, 870.8 119.9 M773.0 117.2 C803.6 118.5, 836.0 117.8, 871.1 118.5 M870.9 118.9 C869.5 129.2, 869.0 139.1, 867.8 157.7 M870.6 118.3 C870.2 128.4, 869.9 136.9, 870.0 157.0 M871.5 156.8 C844.5 159.0, 815.1 156.3, 772.9 155.7 M871.0 158.2 C848.4 159.2, 827.9 159.1, 770.8 158.9 M771.6 160.2 C769.8 144.5, 772.2 128.7, 772.3 116.2 M771.2 158.7 C772.8 147.8, 771.9 137.5, 772.0 117.8" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="110" y="146" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="110" dy="0">A</tspan></text>
+<text x="260" y="146" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="260" dy="0">1</tspan></text>
+<text x="380" y="146" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="380" dy="0">2</tspan></text>
+<text x="540" y="146" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="540" dy="0">0.01639</tspan></text>
+<text x="690" y="146" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.01613</tspan></text>
+<text x="820" y="146" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="820" dy="0">0.03252</tspan></text>
+<text x="110" y="192" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="110" dy="0">C</tspan></text>
+<text x="260" y="192" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="260" dy="0">3</tspan></text>
+<text x="380" y="192" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="380" dy="0">1</tspan></text>
+<text x="540" y="192" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="540" dy="0">0.01587</tspan></text>
+<text x="690" y="192" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.01639</tspan></text>
+<text x="820" y="192" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="820" dy="0">0.03227</tspan></text>
+<text x="110" y="238" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="110" dy="0">B</tspan></text>
+<text x="260" y="238" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="260" dy="0">2</tspan></text>
+<text x="380" y="238" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="380" dy="0">4</tspan></text>
+<text x="540" y="238" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="540" dy="0">0.01613</tspan></text>
+<text x="690" y="238" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.01563</tspan></text>
+<text x="820" y="238" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="820" dy="0">0.03175</tspan></text>
+<text x="110" y="284" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="110" dy="0">D</tspan></text>
+<text x="260" y="284" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="260" dy="0">4</tspan></text>
+<text x="380" y="284" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="380" dy="0">3</tspan></text>
+<text x="540" y="284" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="540" dy="0">0.01563</tspan></text>
+<text x="690" y="284" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="690" dy="0">0.01587</tspan></text>
+<text x="820" y="284" class="sk-mono" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="820" dy="0">0.03150</tspan></text>
+<g transform="rotate(-1.5 450 328)">
+<path d="M38.6 303.4 L858.4 302.9 L860.3 355.4 L41.5 355.0" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.8 301.9 C217.9 303.5, 394.3 303.7, 860.7 302.0 M39.7 302.2 C329.1 298.6, 617.8 299.0, 859.8 302.1 M860.3 302.9 C859.1 316.3, 859.4 331.5, 861.4 354.8 M859.8 302.4 C859.1 316.7, 859.8 332.5, 859.4 354.4 M860.1 354.3 C627.3 354.4, 394.3 354.8, 40.2 353.9 M860.3 354.4 C541.2 352.2, 221.9 352.1, 40.4 353.9 M40.8 353.6 C41.3 342.0, 38.0 325.7, 39.0 301.4 M40.5 354.5 C39.1 343.1, 40.7 331.5, 39.5 301.9" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="329" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="54" dy="0">Order A, C, B, D. Rank 1 in one list contributes 1/61 = 0.0164.</tspan></text>
+</g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-label="Unbounded T versus T bound to a protocol" class="sketch"><title>Unbounded T versus T bound to a protocol</title>
+<text x="440" y="36" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">What the checker may assume about T</tspan></text>
+<path d="M28.5 65.8 L428.2 65.0 L427.6 315.1 L31.7 315.5" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29.8 65.2 C110.7 66.2, 189.5 66.9, 430.9 67.2 M30.6 66.4 C122.4 65.4, 215.1 64.8, 430.4 65.9 M430.2 67.5 C426.4 138.0, 428.6 209.7, 429.5 314.6 M429.3 65.5 C428.5 144.9, 429.8 223.0, 430.8 315.0 M429.7 315.8 C340.0 313.3, 248.9 315.2, 29.2 316.5 M429.3 316.4 C278.5 313.9, 126.3 313.5, 30.2 316.6 M29.7 314.1 C30.8 235.2, 28.9 152.1, 28.1 64.8 M30.0 316.7 C29.8 252.4, 29.6 187.7, 29.6 65.3" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="230" y="102" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="230" dy="0">Unbounded T</tspan></text>
+<text x="230" y="144" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="230" dy="0">def larger(x: T, y: T) -&gt; T:</tspan></text>
+<text x="230" y="172" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="230" dy="0">return x if x &gt; y else y</tspan></text>
+<text x="230" y="230" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="230" dy="0">mypy: Unsupported left operand</tspan></text>
+<text x="230" y="256" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="230" dy="0">type for &gt; ("T")</tspan></text>
+<path d="M449.0 67.6 L851.8 64.8 L850.3 315.4 L450.4 315.0" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M449.0 67.2 C529.1 61.7, 610.4 63.2, 849.0 66.1 M449.5 65.9 C551.9 67.1, 652.9 67.5, 849.3 65.8 M849.8 67.8 C851.0 141.6, 850.0 218.8, 848.9 315.7 M850.6 65.7 C847.7 160.2, 848.1 256.2, 850.2 316.4 M849.0 317.0 C753.1 314.5, 656.6 313.3, 449.1 314.8 M849.4 315.6 C707.4 317.0, 565.5 317.8, 450.2 316.0 M450.9 315.8 C450.9 264.0, 451.2 210.8, 450.6 65.5 M449.2 316.7 C449.2 261.8, 449.5 206.0, 449.0 65.3" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="650" y="102" class="sk-hand" font-size="22" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="650" dy="0">T bound to Orderable</tspan></text>
+<text x="650" y="144" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="650" dy="0">O = TypeVar("O", bound=Orderable)</tspan></text>
+<text x="650" y="172" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="650" dy="0">mypy accepts x &gt; y for O</tspan></text>
+<text x="650" y="230" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="650" dy="0">larger(Plain(), Plain())</tspan></text>
+<text x="650" y="256" class="sk-mono" font-size="16" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="650" dy="0">mypy: cannot be "Plain"</tspan></text>
+<text x="440" y="330" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="440" dy="0">The bound is a promise the checker can use.</tspan></text>
+</svg>

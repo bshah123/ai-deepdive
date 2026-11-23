@@ -1,0 +1,71 @@
+{
+  "python": "3.12.13",
+  "diamond_mro": [
+    "D",
+    "B",
+    "C",
+    "A",
+    "object"
+  ],
+  "coop_trace": [
+    "D",
+    "B",
+    "C",
+    "A"
+  ],
+  "naive_trace": [
+    "ND",
+    "NB",
+    "NA",
+    "NC",
+    "NA"
+  ],
+  "count_A_cooperative": 1,
+  "count_A_naive": 2,
+  "broken_trace": [
+    "Child",
+    "ParentA"
+  ],
+  "broken_has_b": false,
+  "broken_error": "AttributeError: 'Child' object has no attribute 'b'",
+  "bottom_mro": [
+    "Bottom",
+    "Left",
+    "Right",
+    "Base",
+    "object"
+  ],
+  "who_bottom": "Bottom>Left>Right>Base",
+  "who_left_on_left": "Left>Base",
+  "who_left_on_bottom": "Left>Right>Base",
+  "explicit_two_arg": "Right>Base",
+  "zero_arg_outside": "RuntimeError: super(): no arguments",
+  "zero_arg_static": "RuntimeError: super(): no arguments",
+  "kw_hops": [
+    [
+      "Shape",
+      {
+        "name": "square",
+        "color": "red"
+      }
+    ],
+    [
+      "Named",
+      {
+        "name": "square",
+        "color": "red"
+      }
+    ],
+    [
+      "Colored",
+      {
+        "color": "red"
+      }
+    ]
+  ],
+  "kw_error": "TypeError: object.__init__() takes exactly one argument (the instance to initialize)",
+  "shape_attrs": {
+    "name": "square",
+    "color": "red"
+  }
+}

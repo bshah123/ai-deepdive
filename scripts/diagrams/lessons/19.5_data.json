@@ -1,0 +1,155 @@
+{
+ "lines_3pts": {
+  "realized": 8,
+  "total": 8
+ },
+ "lines_4xor": {
+  "realized": 14,
+  "total": 16,
+  "unrealized": [
+   [
+    -1,
+    -1,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    -1,
+    -1
+   ]
+  ]
+ },
+ "rect_cross4": {
+  "realized": 16,
+  "total": 16
+ },
+ "rect_max_over_random5": {
+  "max_realized": 28,
+  "total": 32,
+  "trials": 3000
+ },
+ "rect_growth_random_lower": {
+  "1": 2,
+  "2": 4,
+  "3": 8,
+  "4": 16,
+  "5": 28,
+  "6": 49,
+  "7": 77,
+  "8": 113
+ },
+ "sauer_d4": {
+  "1": {
+   "two_pow_n": 2,
+   "sauer_sum": 2,
+   "poly_bound": 0.21327402356696964
+  },
+  "2": {
+   "two_pow_n": 4,
+   "sauer_sum": 4,
+   "poly_bound": 3.4123843770715143
+  },
+  "3": {
+   "two_pow_n": 8,
+   "sauer_sum": 8,
+   "poly_bound": 17.275195908924545
+  },
+  "4": {
+   "two_pow_n": 16,
+   "sauer_sum": 16,
+   "poly_bound": 54.59815003314423
+  },
+  "5": {
+   "two_pow_n": 32,
+   "sauer_sum": 31,
+   "poly_bound": 133.296264729356
+  },
+  "6": {
+   "two_pow_n": 64,
+   "sauer_sum": 57,
+   "poly_bound": 276.4031345427927
+  },
+  "7": {
+   "two_pow_n": 128,
+   "sauer_sum": 99,
+   "poly_bound": 512.0709305842942
+  },
+  "8": {
+   "two_pow_n": 256,
+   "sauer_sum": 163,
+   "poly_bound": 873.5704005303077
+  },
+  "9": {
+   "two_pow_n": 512,
+   "sauer_sum": 256,
+   "poly_bound": 1399.2908686228877
+  },
+  "10": {
+   "two_pow_n": 1024,
+   "sauer_sum": 386,
+   "poly_bound": 2132.740235669696
+  },
+  "20": {
+   "two_pow_n": 1048576,
+   "sauer_sum": 6196,
+   "poly_bound": 34123.84377071514
+  },
+  "50": {
+   "two_pow_n": 1125899906842624,
+   "sauer_sum": 251176,
+   "poly_bound": 1332962.6472935602
+  }
+ },
+ "sine_shattered": {
+  "points": 6,
+  "realized": 64,
+  "total": 64
+ },
+ "finite_class_eps005_delta001": [
+  {
+   "log2_H": 10,
+   "n": 2446
+  },
+  {
+   "log2_H": 20,
+   "n": 3833
+  },
+  {
+   "log2_H": 40,
+   "n": 6605
+  },
+  {
+   "log2_H": 64,
+   "n": 9932
+  }
+ ],
+ "ln_2_pow_64": 44.3614195558365,
+ "mc_threshold": {
+  "B": 90,
+  "eps": 0.05,
+  "by_n": {
+   "10": {
+    "measured_fail_rate": 0.545,
+    "union_bound": 1.0,
+    "trials": 4000
+   },
+   "20": {
+    "measured_fail_rate": 0.296,
+    "union_bound": 1.0,
+    "trials": 4000
+   },
+   "50": {
+    "measured_fail_rate": 0.04075,
+    "union_bound": 1.0,
+    "trials": 4000
+   },
+   "100": {
+    "measured_fail_rate": 0.0025,
+    "union_bound": 0.5328476298300597,
+    "trials": 4000
+   }
+  }
+ }
+}

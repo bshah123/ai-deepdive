@@ -1,54 +1,114 @@
 {
   "chapterId": "chapter-43",
-  "title": "Chapter 43 Quiz \u2014 Advanced RAG Techniques",
+  "title": "Chapter 43 Quiz — LangChain LCEL",
   "questions": [
     {
       "id": "q43.1",
-      "question": "What is the primary architectural mechanism in Advanced RAG Techniques?",
+      "question": "What does `RunnableLambda(lambda x: x * 2).batch([3, 1, 2])` return?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "[3, 1, 2]"},
+        {"id": "b", "text": "[6, 4, 2]"},
+        {"id": "c", "text": "[6, 2, 4]"},
+        {"id": "d", "text": "[3, 1, 2, 3, 1, 2]"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Advanced RAG Techniques, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "`batch` calls `invoke` once per input and returns the outputs in input order, so 3, 1, 2 become 6, 2, 4 (Lesson 43.1). Option d is what the lambda returns if it receives the whole list, which `batch` does not do."
     },
     {
       "id": "q43.2",
-      "question": "How does Advanced RAG Techniques optimize performance in modern AI systems?",
+      "question": "The chain `{\"input_text\": RunnablePassthrough()} | prompt | RunnableLambda(g) | StrOutputParser()` is one object. How many steps does it have, and what is the first step?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "Three steps; the first is the PromptTemplate"},
+        {"id": "b", "text": "Four steps; the first is a RunnableParallel built from the dictionary"},
+        {"id": "c", "text": "Two steps; the first is the RunnablePassthrough"},
+        {"id": "d", "text": "Four steps; the first is a RunnableLambda wrapping the dictionary"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "b",
+      "explanation": "Each `|` adds one step to a flat RunnableSequence, and the dictionary on the left is coerced to a RunnableParallel. The run in the collapsed block of Lesson 43.1 prints `steps: 4` with RunnableParallel first."
+    },
+    {
+      "id": "q43.3",
+      "question": "A colleague runs `RunnableLambda(add_numbers).invoke({\"a\": 5, \"b\": 3})`, where `def add_numbers(a, b): return a + b`. What happens?",
+      "options": [
+        {"id": "a", "text": "It returns 8, because the dictionary is unpacked into the arguments"},
+        {"id": "b", "text": "It returns the dictionary unchanged"},
+        {"id": "c", "text": "It raises a KeyError for the key 'a'"},
+        {"id": "d", "text": "It raises a TypeError, because the function receives the whole dictionary as one argument and b is missing"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "`RunnableLambda` passes its whole input as one argument, so `add_numbers` receives one value and `b` is missing (Lesson 43.1). Wrapping the call as `RunnableLambda(lambda d: add_numbers(d[\"a\"], d[\"b\"]))` returns 8."
+    },
+    {
+      "id": "q43.4",
+      "question": "A chain is `prompt | RunnableLambda(f)`, where the prompt is `Process this input: {input_text}` and `f` returns `f\"Model processed: {x}\"`. What does the chain return for `{\"input_text\": \"Hello\"}`?",
+      "options": [
+        {"id": "a", "text": "Model processed: text='Process this input: Hello'"},
+        {"id": "b", "text": "Model processed: Process this input: Hello"},
+        {"id": "c", "text": "A TypeError, because f cannot format a prompt value"},
+        {"id": "d", "text": "Model processed: Hello, because the template is removed before f runs"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "`PromptTemplate.invoke` returns a `StringPromptValue`, and the f-string formats the wrapper object, which prints its `text` field (Lesson 43.1). No exception is raised. Calling `.to_string()` on the value first gives option b."
+    },
+    {
+      "id": "q43.5",
+      "question": "How many chunks does `RunnableLambda(lambda x: x * 2).stream(3)` yield, and how many does `RunnableLambda(gen).stream(3)` yield if `gen` yields three values?",
+      "options": [
+        {"id": "a", "text": "3 and 3"},
+        {"id": "b", "text": "1 and 1"},
+        {"id": "c", "text": "1 and 3"},
+        {"id": "d", "text": "3 and 1"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "An ordinary function has nothing to stream until it returns, so it yields one chunk. A generator yields one chunk per `yield`, so three (Lesson 43.2)."
+    },
+    {
+      "id": "q43.6",
+      "question": "Four `RunnableParallel` branches each call `time.sleep(1)` inside an `async def`, and the chain runs with `await par.ainvoke({})`. What wall-clock time do you expect, and what fixes it?",
+      "options": [
+        {"id": "a", "text": "About 1 s, because the event loop runs all four at once"},
+        {"id": "b", "text": "About 4 s, because the blocking calls hold the event loop; use `await asyncio.sleep(1)` instead"},
+        {"id": "c", "text": "About 0.25 s, because the branches run in parallel on four cores"},
+        {"id": "d", "text": "About 2 s, because the first two branches overlap and the rest wait"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "A coroutine that calls a blocking function stops the event loop, so the branches run one after another (Lesson 43.2, measured as 0.9 s for three 0.3 s branches). `await asyncio.sleep` lets the loop run the other branches."
+    },
+    {
+      "id": "q43.7",
+      "question": "Six branches of 0.2 s each run with `max_concurrency=2`. The lesson measured 0.6 s with `invoke` and 0.2 s with `ainvoke`. Which explanation fits both numbers?",
+      "options": [
+        {"id": "a", "text": "`invoke` uses a thread pool capped at two workers, so six branches take three waves of 0.2 s; `RunnableParallel.ainvoke` uses `asyncio.gather` with no limit, so all six overlap"},
+        {"id": "b", "text": "`max_concurrency` caps `ainvoke` and `invoke` alike, so both should take 0.6 s; the 0.2 s is a measurement error"},
+        {"id": "c", "text": "`invoke` runs the branches on one thread, and `ainvoke` runs them in a separate process"},
+        {"id": "d", "text": "The 0.6 s comes from thread start-up, and the limit has no effect on the timing"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "`max_concurrency` sets the thread pool size for `invoke` (Lesson 43.2). `RunnableParallel.ainvoke` calls a bare `asyncio.gather`, so the limit does not apply to it. Six branches over two workers take ceil(6/2) × 0.2 s = 0.6 s."
+    },
+    {
+      "id": "q43.8",
+      "question": "A trace has these self times: answer_chain 0.004 s, retrieve 0.350 s, prompt 0.003 s, ChatModel 0.812 s, parse 0.001 s. Which run do you examine first for speed, and why?",
+      "options": [
+        {"id": "a", "text": "answer_chain, because its total time of 1.170 s is the largest"},
+        {"id": "b", "text": "retrieve, because it is the first step that runs after the root"},
+        {"id": "c", "text": "ChatModel, because its self time of 0.812 s is about 69.4 % of the 1.170 s total"},
+        {"id": "d", "text": "parse, because it is the last step and so ends the chain"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Rank runs by self time, which excludes children (Lesson 43.3). The root's total includes every child, so it is always the largest. 0.812 / 1.170 ≈ 69.4 %, which matches the lesson's figure."
+    },
+    {
+      "id": "q43.9",
+      "question": "In a trace, `retrieve` returns an empty list, the prompt reads `Context: []`, and the final answer is fluent. Where do you start debugging?",
+      "options": [
+        {"id": "a", "text": "At ChatModel, because it produced the final answer"},
+        {"id": "b", "text": "At parse, because StrOutputParser can drop context from the answer"},
+        {"id": "c", "text": "At the root answer_chain, because its total time is the largest"},
+        {"id": "d", "text": "At retrieve, the first run whose output is wrong for its input"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "Read the trace from the top down and stop at the first wrong output (Lesson 43.3). The empty prompt context is a symptom of the empty retrieval. A fluent answer does not show that an early step failed."
     }
   ]
 }

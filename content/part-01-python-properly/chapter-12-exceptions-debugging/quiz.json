@@ -1,22 +1,126 @@
 {
   "chapterId": "chapter-12",
-  "title": "Chapter 12 Quiz \u2014 Exceptions & Debugging",
+  "title": "Chapter 12 Quiz — Exceptions & Debugging",
   "questions": [
     {
       "id": "q12.1",
-      "question": "Key question regarding Exceptions & Debugging?",
+      "question": "What does this code print?\n\n```python\ntry:\n    {}['k']\nexcept Exception:\n    result = 'exception'\nexcept KeyError:\n    result = 'key'\nprint(result)\n```",
       "options": [
-        {
-          "id": "a",
-          "text": "Correct conceptual model option"
-        },
-        {
-          "id": "b",
-          "text": "Incorrect option"
-        }
+        {"id": "a", "text": "key"},
+        {"id": "b", "text": "exception"},
+        {"id": "c", "text": "A SyntaxError, because the clauses are in the wrong order"},
+        {"id": "d", "text": "KeyError, because the exception escapes the try block"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "KeyError is a subclass of LookupError, which is a subclass of Exception. The first clause matches, so it runs, and the second clause is never reached. Python accepts this order without a SyntaxError, so the mistake is silent. Put the more specific clause first."
+    },
+    {
+      "id": "q12.2",
+      "question": "What does issubclass(KeyboardInterrupt, Exception) return in Python 3.12?",
+      "options": [
+        {"id": "a", "text": "True, so except Exception catches Ctrl+C"},
+        {"id": "b", "text": "TypeError, because KeyboardInterrupt is not a class"},
+        {"id": "c", "text": "True, because every built-in exception inherits from Exception"},
+        {"id": "d", "text": "False, because KeyboardInterrupt inherits from BaseException directly"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The result is False. KeyboardInterrupt is a direct child of BaseException, outside the Exception branch, so an except Exception clause does not catch it. Use except KeyboardInterrupt, or except BaseException at the top level of a program, to catch it."
+    },
+    {
+      "id": "q12.3",
+      "question": "main calls a, a calls b, b calls c, and c calls d. d raises ZeroDivisionError. No function between d and main catches it, and main has an except clause for it. How many traceback entries does main's handler see?",
+      "options": [
+        {"id": "a", "text": "3"},
+        {"id": "b", "text": "4"},
+        {"id": "c", "text": "5"},
+        {"id": "d", "text": "6"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Five: main, a, b, c and d. Each frame the exception passes through adds one entry, and the catching frame (main) counts too. Lesson 12.1 measured the same count for a five-frame chain."
+    },
+    {
+      "id": "q12.4",
+      "question": "Frames a, b, c and d each have a finally block, and d raises an exception that none of them catches. In which order do the finally blocks run?",
+      "options": [
+        {"id": "a", "text": "d, then c, then b, then a (deepest frame first)"},
+        {"id": "b", "text": "a, then b, then c, then d (outermost frame first)"},
+        {"id": "c", "text": "All four at once, before any frame is left"},
+        {"id": "d", "text": "Only the finally of d runs; the others are skipped"}
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Exceptions & Debugging internal mechanisms."
+      "explanation": "The exception leaves each frame in turn, starting with the frame that raised it. Each finally block runs as its frame is left, so the order is deepest first. Lesson 12.1 shows this in the logged trace: finally d, finally c, finally b, finally a."
+    },
+    {
+      "id": "q12.5",
+      "question": "Inside an except KeyError: block, the code runs raise ConfigError('missing') from None. The ConfigError is caught outside the block. What is type(err.__context__).__name__?",
+      "options": [
+        {"id": "a", "text": "None"},
+        {"id": "b", "text": "ConfigError"},
+        {"id": "c", "text": "KeyError"},
+        {"id": "d", "text": "TypeError"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "from None sets __cause__ to None and __suppress_context__ to True, but it does not clear __context__. The context is still the KeyError. Only the printed traceback hides it, which is why the attribute is useful when you debug."
+    },
+    {
+      "id": "q12.6",
+      "question": "A handler runs a bare raise ConfigError('missing') inside except KeyError. A logger prints err.__cause__ and sees None. Where is the original KeyError?",
+      "options": [
+        {"id": "a", "text": "It is lost, because a bare raise discards the handled exception"},
+        {"id": "b", "text": "In err.__context__; the traceback prints it under 'During handling of the above exception, another exception occurred'"},
+        {"id": "c", "text": "In err.args[1]"},
+        {"id": "d", "text": "In err.__suppress_context__, stored as a message"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "A raise inside a handler sets __context__ automatically and leaves __cause__ as None. A logger that reads only __cause__ misses the link. Log err.__context__ too, or use raise ... from e so that the link is explicit."
+    },
+    {
+      "id": "q12.7",
+      "question": "Exception B is a KeyError raised outside any handler. Exception A is raised with a bare raise inside an except clause that caught B. Neither has a __cause__, and A.__suppress_context__ is False. How many items does walk(A) return, using the walk function from Lesson 12.2?",
+      "options": [
+        {"id": "a", "text": "1"},
+        {"id": "b", "text": "2"},
+        {"id": "c", "text": "3"},
+        {"id": "d", "text": "0"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "walk visits A first. A has no cause and is not suppressed, so it follows A.__context__ to B. B has no cause and no context, so the walk stops. The result has two items, one for A and one for B."
+    },
+    {
+      "id": "q12.8",
+      "question": "How many calls does cProfile report for fib(4), where fib is the naive recursive function from Lesson 12.3?",
+      "options": [
+        {"id": "a", "text": "5"},
+        {"id": "b", "text": "7"},
+        {"id": "c", "text": "9"},
+        {"id": "d", "text": "15"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The closed form is 2F(5)-1 = 2·5-1 = 9, because F(5) = 5. The profiler reports 9 total calls with 1 primitive call. The value 15 is the count for fib(5), which is a common off-by-one slip."
+    },
+    {
+      "id": "q12.9",
+      "question": "The tracer in Lesson 12.3 returns itself on every call event, so every frame gets line events. How many line events does fib(3) produce, using the lesson's version of fib with one statement per line?",
+      "options": [
+        {"id": "a", "text": "5"},
+        {"id": "b", "text": "7"},
+        {"id": "c", "text": "20"},
+        {"id": "d", "text": "10"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The five calls each reach two lines: the if line and either the return n line or the recursive return line. That makes 10 line events. Counting the five call and five return events as well gives 20 events in total, which is the figure the lesson's trace shows."
+    },
+    {
+      "id": "q12.10",
+      "question": "A tracer is installed with sys.settrace in the main thread. The program then starts a worker thread that runs fib(5). How many events does the tracer receive from the worker thread?",
+      "options": [
+        {"id": "a", "text": "0"},
+        {"id": "b", "text": "All of them: call, line and return events"},
+        {"id": "c", "text": "Only call events"},
+        {"id": "d", "text": "Only line events"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "sys.settrace is per thread, so the worker thread runs untraced. Lesson 12.3 measured zero worker-thread events. To trace a thread you create, call threading.settrace before you start it."
     }
   ]
 }

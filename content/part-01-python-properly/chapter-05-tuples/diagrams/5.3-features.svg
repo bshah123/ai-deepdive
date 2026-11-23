@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" role="img" aria-label="Grid of features for four record types: yes or no per cell" class="sketch"><title>Grid of features for four record types: yes or no per cell</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">What each type gives you</tspan></text>
+<text x="470" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="470" dy="0">namedtuple</tspan></text>
+<text x="580" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="580" dy="0">NamedTuple</tspan></text>
+<text x="690" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="690" dy="0">dataclass</tspan></text>
+<text x="800" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="800" dy="0">frozen</tspan><tspan x="800" dy="19.8">dataclass</tspan></text>
+<path d="M40.4 109.3 C220.4 110.3, 402.2 111.1, 850.4 109.5 M40.2 110.2 C242.8 106.6, 445.3 105.8, 850.3 110.0" style="stroke:var(--sk-ink);fill:none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="158" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">unpack, index, == a tuple</tspan></text>
+<text x="470" y="158" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="470" dy="0">yes</tspan></text>
+<text x="580" y="158" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="580" dy="0">yes</tspan></text>
+<text x="690" y="158" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="690" dy="0">no</tspan></text>
+<text x="800" y="158" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="800" dy="0">no</tspan></text>
+<text x="40" y="210" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">assign a field after creation</tspan></text>
+<text x="470" y="210" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="470" dy="0">no</tspan></text>
+<text x="580" y="210" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="580" dy="0">no</tspan></text>
+<text x="690" y="210" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="690" dy="0">yes</tspan></text>
+<text x="800" y="210" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="800" dy="0">no</tspan></text>
+<text x="40" y="262" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">hashable (usable as dict key)</tspan></text>
+<text x="470" y="262" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="470" dy="0">yes</tspan></text>
+<text x="580" y="262" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="580" dy="0">yes</tspan></text>
+<text x="690" y="262" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="690" dy="0">no</tspan></text>
+<text x="800" y="262" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="800" dy="0">yes</tspan></text>
+<text x="40" y="314" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">type annotations kept</tspan></text>
+<text x="470" y="314" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-rose)" font-weight="700"><tspan x="470" dy="0">no</tspan></text>
+<text x="580" y="314" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="580" dy="0">yes</tspan></text>
+<text x="690" y="314" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="690" dy="0">yes</tspan></text>
+<text x="800" y="314" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="800" dy="0">yes</tspan></text>
+<text x="40" y="366" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">default values for fields</tspan></text>
+<text x="470" y="366" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="470" dy="0">yes</tspan></text>
+<text x="580" y="366" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="580" dy="0">yes</tspan></text>
+<text x="690" y="366" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="690" dy="0">yes</tspan></text>
+<text x="800" y="366" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-green)" font-weight="700"><tspan x="800" dy="0">yes</tspan></text>
+<path d="M39.9 420.7 C221.2 423.6, 402.9 424.9, 851.0 420.6 M40.4 419.9 C259.8 419.1, 480.4 419.1, 849.6 419.9" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:4 8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="452" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0">Checked on Python 3.12.13 (experiment for this lesson), not copied from a table.</tspan></text>
+</svg>

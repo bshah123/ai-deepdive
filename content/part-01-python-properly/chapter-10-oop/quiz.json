@@ -1,22 +1,222 @@
 {
   "chapterId": "chapter-10",
-  "title": "Chapter 10 Quiz \u2014 Object-Oriented Python",
+  "title": "Chapter 10 Quiz — Object-Oriented Python",
   "questions": [
     {
       "id": "q10.1",
-      "question": "Key question regarding Object-Oriented Python?",
+      "question": "Given `class Base: pass`, `class Left(Base): pass` and `class Right(Base): pass`, what is `K.__mro__` for `class K(Right, Left): pass`?",
       "options": [
         {
           "id": "a",
-          "text": "Correct conceptual model option"
+          "text": "K, Left, Right, Base, object"
         },
         {
           "id": "b",
-          "text": "Incorrect option"
+          "text": "K, Right, Left, Base, object"
+        },
+        {
+          "id": "c",
+          "text": "K, Right, Base, Left, object"
+        },
+        {
+          "id": "d",
+          "text": "K, Left, Base, Right, object"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The C3 merge takes Right, then Left, then Base, then object. Swapping the bases swaps the two middle classes and leaves Base and object at the end (Lesson 10.2)."
+    },
+    {
+      "id": "q10.2",
+      "question": "In a diamond where `C` overrides `show()` and `B` does not, what does `D().show()` return for `class D(B, C)`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A.show"
+        },
+        {
+          "id": "b",
+          "text": "AttributeError"
+        },
+        {
+          "id": "c",
+          "text": "C.show"
+        },
+        {
+          "id": "d",
+          "text": "TypeError"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The C3 order is D, B, C, A, object, so Python finds C.show before A.show. The naive depth-first order would find A.show first (Lesson 10.2)."
+    },
+    {
+      "id": "q10.3",
+      "question": "With `Bottom(Left, Right)` and `Left.hello()` calling `super().hello()`, what does `Left().hello()` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "['Left', 'Right', 'Base']"
+        },
+        {
+          "id": "b",
+          "text": "['Bottom', 'Left', 'Right', 'Base']"
+        },
+        {
+          "id": "c",
+          "text": "['Left', 'Base', 'object']"
+        },
+        {
+          "id": "d",
+          "text": "['Left', 'Base']"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The instance is a Left, so its MRO is Left, Base, object. super() inside Left searches the classes after Left, and Right is not in that MRO (Lesson 10.3)."
+    },
+    {
+      "id": "q10.4",
+      "question": "In a diamond `D(B, C)` with `A` at the root, every class calls `super().__init__()`. How many times does `A.__init__` run during one `D()`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "2"
+        },
+        {
+          "id": "c",
+          "text": "3"
+        },
+        {
+          "id": "d",
+          "text": "4"
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Object-Oriented Python internal mechanisms."
+      "explanation": "The chain runs D, B, C, A, and A does not call super(), so it ends there with A visited once. Naming A directly in B and C is what makes it run twice (Lesson 10.3)."
+    },
+    {
+      "id": "q10.5",
+      "question": "Which base list can Python turn into a class, given `class GrandParent: pass` and `class Parent(GrandParent): pass`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "class Child(GrandParent, Parent)"
+        },
+        {
+          "id": "b",
+          "text": "class Child(Parent, Parent)"
+        },
+        {
+          "id": "c",
+          "text": "class Child(Parent, GrandParent)"
+        },
+        {
+          "id": "d",
+          "text": "class Child(object, Parent)"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Parent must precede GrandParent, because Parent's own MRO puts it first. The other three either repeat a base (a TypeError for a duplicate base) or put a class before one that must follow it, and then no consistent MRO exists (Lesson 10.2)."
+    },
+    {
+      "id": "q10.6",
+      "question": "A class declares `__slots__ = ['x', 'y']`. What happens when code runs `pt.z = 3` on an instance `pt`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The line prints nothing, and z is added as a new attribute"
+        },
+        {
+          "id": "b",
+          "text": "AttributeError: 'Point' object has no attribute 'z'"
+        },
+        {
+          "id": "c",
+          "text": "The statement succeeds, and z is stored in a separate dictionary"
+        },
+        {
+          "id": "d",
+          "text": "ValueError, because z is not a slot name"
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Slotted instances have no __dict__, so an attribute that is not in __slots__ cannot be created. The failure occurs at the assignment, so later code never runs (Lesson 10.1)."
+    },
+    {
+      "id": "q10.7",
+      "question": "A simulation creates 1,000,000 instances with 4 attributes. The measured container cost is 96 bytes with `__dict__` and 64 bytes with `__slots__`. About how much container memory does `__slots__` save?",
+      "options": [
+        {
+          "id": "a",
+          "text": "About 96 MB"
+        },
+        {
+          "id": "b",
+          "text": "About 64 MB"
+        },
+        {
+          "id": "c",
+          "text": "About 160 MB"
+        },
+        {
+          "id": "d",
+          "text": "About 32 MB"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "(96 − 64) bytes × 1,000,000 = 32,000,000 bytes, about 32 MB. The estimate leaves out the attribute values and the list that holds the instances (Lesson 10.1)."
+    },
+    {
+      "id": "q10.8",
+      "question": "A class has a non-data descriptor `d` (it defines `__get__` only). Then `o.d = 5` and `print(o.d)` run. What is printed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The descriptor's return value"
+        },
+        {
+          "id": "b",
+          "text": "AttributeError"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "None"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "A non-data descriptor has no __set__, so the assignment writes 5 into o.__dict__. The instance dictionary takes precedence over a non-data descriptor, so o.d returns 5 (Lesson 10.4)."
+    },
+    {
+      "id": "q10.9",
+      "question": "A class defines a read-only `property` named `v` that returns 1. The code runs `a.__dict__['v'] = 99` and then `print(a.v)`. What is printed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "99"
+        },
+        {
+          "id": "c",
+          "text": "AttributeError"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "A property is a data descriptor because it defines __set__, so its __get__ runs before the instance dictionary is checked. The stored 99 is never read through a.v (Lesson 10.5)."
     }
   ]
 }

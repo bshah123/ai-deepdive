@@ -1,22 +1,126 @@
 {
   "chapterId": "chapter-07",
-  "title": "Chapter 7 Quiz \u2014 Functions & Call Stack",
+  "title": "Chapter 7 Quiz — Functions & Call Stack",
   "questions": [
     {
       "id": "q7.1",
-      "question": "Key question regarding Functions & Call Stack?",
+      "question": "In a running recursive call, what does `frame.f_back` refer to?",
       "options": [
-        {
-          "id": "a",
-          "text": "Correct conceptual model option"
-        },
-        {
-          "id": "b",
-          "text": "Incorrect option"
-        }
+        {"id": "a", "text": "The function that this frame is about to call"},
+        {"id": "b", "text": "The local variables of this frame, as a dict"},
+        {"id": "c", "text": "The module frame, on every call"},
+        {"id": "d", "text": "The frame of the caller, one step towards the bottom of the stack"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "f_back links each frame to the frame that made the call. It is None only at the bottom of the stack. Lesson 7.1 walks f_back outward from the innermost probe(0) call until it reaches the module frame. Option c is wrong because only the bottom of the stack is the module frame."
+    },
+    {
+      "id": "q7.2",
+      "question": "Inside `factorial`, the recursive branch is `return n * factorial(n - 1)`. Immediately after the CALL instruction, how many items are on this frame's value stack?",
+      "options": [
+        {"id": "a", "text": "1"},
+        {"id": "b", "text": "5"},
+        {"id": "c", "text": "2"},
+        {"id": "d", "text": "3"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The left operand n stays on the value stack while the recursive call runs. CALL consumes the function, its NULL marker and the argument, and pushes the result, so two items remain: n and the result. Lesson 7.1 measures a depth of 2 after CALL with dis.stack_effect. The peak of 5 is co_stacksize, not the depth after CALL."
+    },
+    {
+      "id": "q7.3",
+      "question": "A function `outer()` returns `who_called_me()`, and `who_called_me` runs `return sys._getframe().f_back.f_code.co_name`. What does `outer()` return?",
+      "options": [
+        {"id": "a", "text": "\"outer\""},
+        {"id": "b", "text": "\"who_called_me\""},
+        {"id": "c", "text": "\"<module>\""},
+        {"id": "d", "text": "\"sys\""}
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Functions & Call Stack internal mechanisms."
+      "explanation": "The frame of who_called_me has f_back pointing to the frame of outer, whose co_name is 'outer'. The buggy version in Lesson 7.1 walks all the way down to the bottom and returns '<module>' instead."
+    },
+    {
+      "id": "q7.4",
+      "question": "With `def h(x, y=10, *rest, flag=False, **opts):`, what does the call `h(1, 2, 3, flag=True, color=\"red\")` bind to `rest`?",
+      "options": [
+        {"id": "a", "text": "()"},
+        {"id": "b", "text": "(2, 3)"},
+        {"id": "c", "text": "({'color': 'red'},)"},
+        {"id": "d", "text": "(3,)"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The positional values 1 and 2 fill x and y, so the leftover 3 goes into rest as the tuple (3,). flag=True fills the keyword-only flag, and color=\"red\" matches no parameter, so it goes into opts (Lesson 7.2)."
+    },
+    {
+      "id": "q7.5",
+      "question": "The function is `def add_item(item, box=[]): box.append(item); return len(box)`. What does `print(add_item(\"a\"), add_item(\"b\"))` print?",
+      "options": [
+        {"id": "a", "text": "1 1"},
+        {"id": "b", "text": "a b"},
+        {"id": "c", "text": "1 2"},
+        {"id": "d", "text": "A TypeError, because the default is mutable"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The default list is created once, when def runs, and both calls share it. The first call appends 'a' and returns 1. The second call appends 'b' to the same list and returns 2. Python evaluates the arguments of print from left to right. With a None default and a new list per call, the output would be 1 1."
+    },
+    {
+      "id": "q7.6",
+      "question": "For `def f(a, b, *args, c, d=4, **kwargs):`, which call raises TypeError?",
+      "options": [
+        {"id": "a", "text": "f(1, 2, a=0)"},
+        {"id": "b", "text": "f(1, 2, 3, 4, c=5, z=9)"},
+        {"id": "c", "text": "f(1, 2, c=5)"},
+        {"id": "d", "text": "f(1, 2, c=5, z=9)"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Argument a is filled by position (the value 1) and again by name (a=0), which raises 'got multiple values for argument a'. The other three calls bind cleanly: the extra positional values go to args, and z=9 goes to kwargs (Lesson 7.2)."
+    },
+    {
+      "id": "q7.7",
+      "question": "The list is `fs = [lambda: i for i in range(3)]`, and the code then runs `print([f() for f in fs])`. What is printed?",
+      "options": [
+        {"id": "a", "text": "[0, 1, 2]"},
+        {"id": "b", "text": "[0, 0, 0]"},
+        {"id": "c", "text": "NameError"},
+        {"id": "d", "text": "[2, 2, 2]"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "Each lambda reads i when it is called, not when it is created. By then the loop has finished with i = 2, so all three return 2. A default argument, lambda i=i: i, gives [0, 1, 2] (Lesson 7.3)."
+    },
+    {
+      "id": "q7.8",
+      "question": "A list of 8 values is sorted with `sorted(values, key=f)`. How many times is `f` called?",
+      "options": [
+        {"id": "a", "text": "7"},
+        {"id": "b", "text": "8"},
+        {"id": "c", "text": "15"},
+        {"id": "d", "text": "It depends on the input order"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The key function runs once per input record, so it is called 8 times. The 15 comparisons in Lesson 7.3 belong to one particular list, [5, 2, 9, 1, 7, 3, 8, 6], and they are a separate count from the key calls."
+    },
+    {
+      "id": "q7.9",
+      "question": "A recursive sum over a list of 1,000,000 numbers raises RecursionError at the default limit. Which fix is the most reliable?",
+      "options": [
+        {"id": "a", "text": "Call sys.setrecursionlimit(10**6) and keep the recursion."},
+        {"id": "b", "text": "Rewrite the sum as a loop, which holds one frame whatever the length of the list."},
+        {"id": "c", "text": "Wrap the call in try/except RecursionError and retry it."},
+        {"id": "d", "text": "Run the same recursion in a new thread."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "A loop holds one frame, so the depth no longer grows with the input (Lesson 7.4). Raising the limit moves the crash point, and the sys docs warn that a too-high limit can crash the interpreter. Catching the error does not finish the work, because the function has already stopped and its frames are gone."
+    },
+    {
+      "id": "q7.10",
+      "question": "For the tree `{0: [1, 2], 1: [3, 4], 2: [], 3: [], 4: []}`, what order does the explicit-stack DFS in Lesson 7.4 visit the nodes?",
+      "options": [
+        {"id": "a", "text": "0, 2, 1, 4, 3"},
+        {"id": "b", "text": "0, 1, 3, 4, 2"},
+        {"id": "c", "text": "0, 1, 2, 3, 4"},
+        {"id": "d", "text": "0, 2, 4, 1, 3"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The stack pops the most recently pushed child first. Node 0 pushes 1 and 2, so 2 is popped first. Node 1 then pushes 3 and 4, so 4 is popped before 3. Order 0, 1, 3, 4, 2 is what a recursive version that visits children in listed order produces; it is a different order over the same nodes."
     }
   ]
 }

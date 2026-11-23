@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-58",
-  "title": "Chapter 58 Quiz \u2014 RAG & Agent Evaluation",
-  "questions": [
-    {
-      "id": "q58.1",
-      "question": "What is the primary architectural mechanism in RAG & Agent Evaluation?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In RAG & Agent Evaluation, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q58.2",
-      "question": "How does RAG & Agent Evaluation optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-58", "title": "Chapter 58 Quiz — Synthetic Data Distillation", "questions": [
+  {"id": "q58.1", "question": "A candidate instruction is \"Explain an email.\" and the existing reference is \"Explain an email about volcanoes.\" The LCS (longest common subsequence) is 3 words. What is the ROUGE-L F1 score, and does the Self-Instruct threshold of 0.7 accept the candidate?", "options": [{"id": "a", "text": "0.600, accepted"}, {"id": "b", "text": "0.750, rejected"}, {"id": "c", "text": "0.857, accepted"}, {"id": "d", "text": "1.000, rejected"}], "correctOptionId": "b", "explanation": "Precision is 3/3 = 1 and recall is 3/5 = 0.6, so F1 = 2 x 1 x 0.6 / (1 + 0.6) = 0.75. Since 0.75 is at or above 0.7, the candidate is rejected (Lesson 58.1, worked calculation and quiz Question 1)."},
+  {"id": "q58.2", "question": "A new instruction paraphrases an existing one, using different words for the same task. What does the ROUGE-L filter at 0.7 do with it?", "options": [{"id": "a", "text": "It rejects it, because ROUGE-L measures meaning rather than wording."}, {"id": "b", "text": "It rejects it only when the two texts are identical after lower-casing."}, {"id": "c", "text": "It accepts every paraphrase, because the threshold applies only to exact copies."}, {"id": "d", "text": "It accepts it if its shared word sequence scores below 0.7, because ROUGE-L is lexical."}], "correctOptionId": "d", "explanation": "ROUGE-L is an F1 score on the longest common subsequence of words, so it measures shared word order. It catches copies and misses paraphrases, and it can also reject different topics that share a template (Lesson 58.1, Common traps)."},
+  {"id": "q58.3", "question": "In the stub's Self-Instruct sweep, accepted instructions were 40 at threshold 0.7, 200 at 0.8 and 596 at 0.9. The distinct-word count was 75, 84 and 84. What is the best conclusion?", "options": [{"id": "a", "text": "Choose 0.9, because it keeps the most instructions."}, {"id": "b", "text": "The threshold has no effect on the diversity of the pool."}, {"id": "c", "text": "Accepted count alone does not show a better pool, because distinct words saturate at 84 from 0.8 on."}, {"id": "d", "text": "Choose 0.5, because a stricter filter always gives more diverse data."}], "correctOptionId": "c", "explanation": "The accepted count rises about fifteen-fold from 0.7 to 0.9, but the distinct-word count stays at 84. The sweep is a stub result, and it does not measure pairwise similarity inside the pool (Lesson 58.1, threshold sweep and trap on pool size)."},
+  {"id": "q58.4", "question": "The Evol-Instruct stub starts 40 seeds and runs four rounds. Survivors at depths 0 to 4 are 40, 40, 36, 34 and 26. How many lineages were eliminated in the last round?", "options": [{"id": "a", "text": "2"}, {"id": "b", "text": "6"}, {"id": "c", "text": "8"}, {"id": "d", "text": "14"}], "correctOptionId": "c", "explanation": "The last round starts with 34 lineages and ends with 26, so 34 - 26 = 8 were eliminated. The per-round elimination list is [0, 4, 2, 8] (Lesson 58.1, Evol-Instruct section)."},
+  {"id": "q58.5", "question": "In the collapse toy, pure self-training falls from 50 categories to about 9 by generation 30, while training on samples that are half real data keeps about 40. Why does the anchored run keep its tail?", "options": [{"id": "a", "text": "Each generation draws fresh real samples, so every category keeps positive probability and can return."}, {"id": "b", "text": "Anchoring halves the sample size, which makes the model less confident and more uniform."}, {"id": "c", "text": "Anchoring lowers the entropy, so rare categories are sampled more often."}, {"id": "d", "text": "Refitting by frequency is only applied to the generated half of each sample."}], "correctOptionId": "a", "explanation": "A category with zero count gets zero probability and can never recover. Fresh draws from the real distribution keep the tail alive in every generation. The result is a toy mechanism check, not evidence about a language model (Lesson 58.1, model collapse section)."},
+  {"id": "q58.6", "question": "The logits are [2.0, 1.0, 0.1]. What is the top-class probability at temperature T = 4?", "options": [{"id": "a", "text": "0.659"}, {"id": "b", "text": "0.502"}, {"id": "c", "text": "0.417"}, {"id": "d", "text": "0.324"}], "correctOptionId": "c", "explanation": "Dividing by 4 gives [0.5, 0.25, 0.025]. Their exponentials are [1.649, 1.284, 1.025] with sum 3.958, so the top probability is 1.649 / 3.958 = 0.417. At T = 1 it is 0.659, and at T = 2 it is 0.502 (Lesson 58.2, temperature section)."},
+  {"id": "q58.7", "question": "In the gradient check of the distillation loss, the soft-term gradient at T = 32 is compared with its size at T = 1. Which statement matches the measured values?", "options": [{"id": "a", "text": "Both versions grow with T, so the T squared factor is not needed."}, {"id": "b", "text": "Without the T squared factor the gradient is about 0.0012 of its T = 1 size; with it, about 1.25."}, {"id": "c", "text": "Without the factor the gradient is about 1.25 of its T = 1 size; with it, about 0.0012."}, {"id": "d", "text": "Both versions stay within 1% of their T = 1 size at every temperature."}], "correctOptionId": "b", "explanation": "The table in Lesson 58.2 shows 0.0012 without the factor and 1.2545 with it, relative to T = 1. The factor keeps the gradient near constant, and without it the gradient shrinks like 1/T squared."},
+  {"id": "q58.8", "question": "A hosted teacher model returns only text, not logits. Which training target can you build from it?", "options": [{"id": "a", "text": "One sampled output sequence per prompt, used as a one-hot target (sequence-level distillation)."}, {"id": "b", "text": "The teacher's full softmax at temperature T, which the API returns for each token."}, {"id": "c", "text": "The teacher's logits, which the student then matches with a KL term."}, {"id": "d", "text": "The teacher's probabilities for each class, averaged over prompts."}], "correctOptionId": "a", "explanation": "A text-only teacher gives one output per prompt, so each target is one-hot. The student copies the teacher's behaviour on those prompts but never sees the teacher's probabilities. Check the teacher's terms of use before generating data (Lesson 58.2, black-box section and traps)."},
+  {"id": "q58.9", "question": "At N = 30 training examples, hard labels give 0.608 test accuracy, the teacher's argmax as hard labels gives 0.638, and distillation at T = 4 gives 0.691. How much of the gain is due to the soft targets beyond the teacher's argmax?", "options": [{"id": "a", "text": "0.030"}, {"id": "b", "text": "0.053"}, {"id": "c", "text": "0.083"}, {"id": "d", "text": "0.638"}], "correctOptionId": "b", "explanation": "0.691 - 0.638 = 0.053 is the extra gain from soft targets over the teacher's argmax. 0.030 is the gain from the argmax alone, and 0.083 is the total gain over hard labels (Lesson 58.2, reading the table)."},
+  {"id": "q58.10", "question": "Using MinHash LSH with 32 bands of 4 rows, what is the probability that a pair with Jaccard similarity 0.5 becomes a candidate?", "options": [{"id": "a", "text": "0.061"}, {"id": "b", "text": "0.873"}, {"id": "c", "text": "0.237"}, {"id": "d", "text": "0.988"}], "correctOptionId": "b", "explanation": "P = 1 - (1 - 0.5^4)^32 = 1 - (0.9375)^32, which is about 1 - 0.127 = 0.873. The 16 bands of 8 rows give 0.061 at the same similarity (Lesson 58.3, Step 3)."}
+]}

@@ -1,0 +1,39 @@
+{
+  "python": "3.12.13",
+  "platform": "darwin",
+  "trace_before": {
+    "balance": 10
+  },
+  "trace_is_data_descriptor": true,
+  "trace_name": "balance",
+  "class_access_type": "Positive",
+  "trace_error": "ValueError: balance must be >= 0",
+  "trace_after": {
+    "balance": 10
+  },
+  "trace_read_after": 10,
+  "getattr_unset": "missing",
+  "after_delete_getattr": "missing",
+  "precedence": {
+    "data_descriptor": "descriptor",
+    "non_data_descriptor": "instance",
+    "class_attribute": "instance"
+  },
+  "shared_bad_reads": [
+    2,
+    2
+  ],
+  "shared_good_reads": [
+    1,
+    2
+  ],
+  "timing_ns": {
+    "plain_read": 8.6,
+    "property_read": 24.8,
+    "data_descriptor_read": 71.4,
+    "plain_write": 9.0,
+    "data_descriptor_write": 86.4
+  },
+  "timing_n": 1000000,
+  "timing_repeat": 5
+}

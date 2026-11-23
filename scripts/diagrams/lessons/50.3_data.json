@@ -1,0 +1,127 @@
+{
+ "patterns": {
+  "single_agent": {
+   "calls": 1,
+   "prompt_words": 55,
+   "reply_words": 150,
+   "max_call_prompt": 55
+  },
+  "sequential_default": {
+   "calls": 3,
+   "prompt_words": 375,
+   "reply_words": 360,
+   "max_call_prompt": 175
+  },
+  "sequential_all_context": {
+   "calls": 3,
+   "prompt_words": 495,
+   "reply_words": 360,
+   "max_call_prompt": 265
+  },
+  "hierarchical": {
+   "calls": 7,
+   "prompt_words": 945,
+   "reply_words": 470,
+   "max_call_prompt": 225
+  }
+ },
+ "group_chat": {
+  "4": {
+   "round_robin": {
+    "calls": 4,
+    "prompt_words": 580,
+    "reply_words": 240,
+    "max_call_prompt": 235
+   },
+   "selector": {
+    "calls": 8,
+    "prompt_words": 1180,
+    "reply_words": 248,
+    "max_call_prompt": 240
+   }
+  },
+  "8": {
+   "round_robin": {
+    "calls": 8,
+    "prompt_words": 2120,
+    "reply_words": 480,
+    "max_call_prompt": 475
+   },
+   "selector": {
+    "calls": 16,
+    "prompt_words": 4280,
+    "reply_words": 496,
+    "max_call_prompt": 480
+   }
+  },
+  "12": {
+   "round_robin": {
+    "calls": 12,
+    "prompt_words": 4620,
+    "reply_words": 720,
+    "max_call_prompt": 715
+   },
+   "selector": {
+    "calls": 24,
+    "prompt_words": 9300,
+    "reply_words": 744,
+    "max_call_prompt": 720
+   }
+  },
+  "16": {
+   "round_robin": {
+    "calls": 16,
+    "prompt_words": 8080,
+    "reply_words": 960,
+    "max_call_prompt": 955
+   },
+   "selector": {
+    "calls": 32,
+    "prompt_words": 16240,
+    "reply_words": 992,
+    "max_call_prompt": 960
+   }
+  },
+  "20": {
+   "round_robin": {
+    "calls": 20,
+    "prompt_words": 12500,
+    "reply_words": 1200,
+    "max_call_prompt": 1195
+   },
+   "selector": {
+    "calls": 40,
+    "prompt_words": 25100,
+    "reply_words": 1240,
+    "max_call_prompt": 1200
+   }
+  },
+  "25": {
+   "round_robin": {
+    "calls": 25,
+    "prompt_words": 19375,
+    "reply_words": 1500,
+    "max_call_prompt": 1495
+   },
+   "selector": {
+    "calls": 50,
+    "prompt_words": 38875,
+    "reply_words": 1550,
+    "max_call_prompt": 1500
+   }
+  }
+ },
+ "closed_form_rr": {
+  "4": 580,
+  "8": 2120,
+  "12": 4620,
+  "16": 8080,
+  "20": 12500,
+  "25": 19375
+ },
+ "ratios": {
+  "cap25_over_stop8_rr": 9.14,
+  "hierarchical_over_seq_default_prompt": 2.52,
+  "seq_default_over_single_total_words": 3.59
+ }
+}

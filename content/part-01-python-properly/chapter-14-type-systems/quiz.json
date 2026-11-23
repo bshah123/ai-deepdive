@@ -1,22 +1,222 @@
 {
   "chapterId": "chapter-14",
-  "title": "Chapter 14 Quiz \u2014 Type Systems & Data Validation",
+  "title": "Chapter 14 Quiz — Type Systems & Data Validation",
   "questions": [
     {
       "id": "q14.1",
-      "question": "Key question regarding Type Systems & Data Validation?",
+      "question": "The function `def double(x: int) -> int: return x * 2` is called as `double(\"ab\")`. What happens?",
       "options": [
         {
           "id": "a",
-          "text": "Correct conceptual model option"
+          "text": "A TypeError is raised at the call, and mypy reports nothing."
         },
         {
           "id": "b",
-          "text": "Incorrect option"
+          "text": "It prints 4, because the string is converted to an int first."
+        },
+        {
+          "id": "c",
+          "text": "It prints abab, and mypy reports nothing, because the function is annotated."
+        },
+        {
+          "id": "d",
+          "text": "It prints abab, and mypy reports an incompatible argument type for \"ab\"."
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Annotations are stored, not enforced. CPython runs x * 2 on the string and returns abab. Mypy reads the annotation and reports Argument 1 to \"double\" has incompatible type \"str\"; expected \"int\". Lesson 14.1."
+    },
+    {
+      "id": "q14.2",
+      "question": "A file contains `def total(prices):` with `x: int = \"3\"` in its body and `return sum(prices) + x`. What does default mypy report, with no flags?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Success, with a note that the bodies of untyped functions are not checked by default."
+        },
+        {
+          "id": "b",
+          "text": "An assignment error on the line with x: int = \"3\"."
+        },
+        {
+          "id": "c",
+          "text": "A missing-annotation error for total."
+        },
+        {
+          "id": "d",
+          "text": "Success with no note, because annotations are optional in Python."
         }
       ],
       "correctOptionId": "a",
-      "explanation": "Explanation of Type Systems & Data Validation internal mechanisms."
+      "explanation": "Default mypy skips the body of a function with no annotations and prints an annotation-unchecked note. --check-untyped-defs reports the assignment error on line 2. --strict adds the no-untyped-def error. Lesson 14.1."
+    },
+    {
+      "id": "q14.3",
+      "question": "Which body makes mypy --strict report success for `def shout(name: str | None) -> str:`?",
+      "options": [
+        {
+          "id": "a",
+          "text": "return name.upper()"
+        },
+        {
+          "id": "b",
+          "text": "return name.upper() or \"\""
+        },
+        {
+          "id": "c",
+          "text": "if name is None: return \"\", then return name.upper()"
+        },
+        {
+          "id": "d",
+          "text": "return name.lower().upper()"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The None guard narrows name to str on the path that reaches .upper(). The other three still call .upper() on a value that may be None, so mypy reports union-attr. Lesson 14.1."
+    },
+    {
+      "id": "q14.4",
+      "question": "Mypy rejects `def larger(x: T, y: T) -> T: return x if x > y else y` with an unbounded T. Why?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Because > is not defined for int."
+        },
+        {
+          "id": "b",
+          "text": "Because an unbounded T promises no methods, so the checker cannot verify x > y. Binding T to a Protocol that declares __gt__ fixes it."
+        },
+        {
+          "id": "c",
+          "text": "Because a TypeVar must always be bound to a class, not to a Protocol."
+        },
+        {
+          "id": "d",
+          "text": "Because the return type must be Any when two arguments are compared."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "At run time larger(1, 2) prints 2. The error exists only in the checker's view: mypy reports Unsupported left operand type for > (\"T\"). Lesson 14.2."
+    },
+    {
+      "id": "q14.5",
+      "question": "A runtime-checkable Protocol `Closable` declares `close(self) -> None`. A class `WrongParams` defines `close(self, force: bool) -> None`. What does `isinstance(WrongParams(), Closable)` return?",
+      "options": [
+        {
+          "id": "a",
+          "text": "False, because the signatures differ."
+        },
+        {
+          "id": "b",
+          "text": "TypeError, because the Protocol has a method member."
+        },
+        {
+          "id": "c",
+          "text": "None, because close returns None."
+        },
+        {
+          "id": "d",
+          "text": "True, because runtime_checkable checks only that a close attribute exists."
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "isinstance on a runtime-checkable Protocol checks attribute names, not signatures, so it prints True. Mypy reports the conflict in the signature. Lesson 14.2."
+    },
+    {
+      "id": "q14.6",
+      "question": "`def total(xs: list[float]) -> float` is called with `ints: list[int] = [1, 2]`. Why is the call rejected, and which annotation fixes it without changing the body?",
+      "options": [
+        {
+          "id": "a",
+          "text": "int is not a subclass of float in Python, so convert the list with float() first."
+        },
+        {
+          "id": "b",
+          "text": "The return type must be int when the input is int, so change the return annotation."
+        },
+        {
+          "id": "c",
+          "text": "list is invariant: the function could append a float to the caller's list. Annotating xs as Sequence[float] fixes it."
+        },
+        {
+          "id": "d",
+          "text": "Mypy does not check list arguments, so add a runtime isinstance check instead."
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "A list[int] is not a list[float] because list is invariant. Sequence is read-only and covariant, so a list[int] is accepted by Sequence[float]; mypy --strict reports no issues on that version. Lesson 14.2."
+    },
+    {
+      "id": "q14.7",
+      "question": "In Pydantic V2, what does `TypeAdapter(int).validate_python(\" 7 \")` return, and what does `TypeAdapter(int).validate_python(\"1\", strict=True)` raise?",
+      "options": [
+        {
+          "id": "a",
+          "text": "7, and an int_type error."
+        },
+        {
+          "id": "b",
+          "text": "7, and a float_parsing error."
+        },
+        {
+          "id": "c",
+          "text": "\" 7 \" unchanged, with no error."
+        },
+        {
+          "id": "d",
+          "text": "7, with no error."
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Lax mode (the default) strips the spaces and converts the string to 7. Strict mode accepts only an int, so the string \"1\" fails with int_type. Lesson 14.3."
+    },
+    {
+      "id": "q14.8",
+      "question": "What does `class Sample(BaseModel): note: Optional[str]` followed by `Sample()` raise?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Nothing; note is set to None."
+        },
+        {
+          "id": "b",
+          "text": "A TypeError, because Optional fields cannot be omitted."
+        },
+        {
+          "id": "c",
+          "text": "A ValidationError whose error type is missing."
+        },
+        {
+          "id": "d",
+          "text": "A ValidationError whose error type is string_type."
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "In Pydantic V2, Optional[str] with no default is required: the field may hold None but must be supplied. The fix is note: Optional[str] = None. Lesson 14.3."
+    },
+    {
+      "id": "q14.9",
+      "question": "Mypy reports \"Success: no issues found\" for `def average(xs: list[float]) -> float: return sum(xs) / len(xs)`. What does `average([])` do?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Returns 0.0."
+        },
+        {
+          "id": "b",
+          "text": "Mypy reports an error at the call site."
+        },
+        {
+          "id": "c",
+          "text": "Returns nan."
+        },
+        {
+          "id": "d",
+          "text": "Raises ZeroDivisionError."
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Mypy checks types, not values, so an empty list passes. sum([]) / len([]) divides 0 by 0 at run time and raises ZeroDivisionError. Lesson 14.1."
     }
   ]
 }

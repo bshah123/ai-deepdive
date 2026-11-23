@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" role="img" aria-label="Cosine similarity: angle between cat, dog and car vectors" class="sketch"><title>Cosine similarity: angle between cat, dog and car vectors</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Cosine similarity compares direction, not length</tspan></text>
+<path d="M100.9 288.5 C141.2 278.3, 180.3 270.1, 300.1 237.9 M100.7 291.0 C171.6 275.7, 242.7 257.6, 300.6 240.6" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M299.8 241.1 C297.0 240.4, 297.1 244.0, 291.7 248.0 M299.3 240.2 C296.5 243.5, 292.8 245.9, 290.1 247.9" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M299.0 240.4 C297.7 240.8, 294.3 240.3, 287.2 236.7 M299.5 239.6 C295.0 239.5, 291.2 237.5, 287.9 237.6" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M101.7 289.4 C132.0 270.9, 160.1 252.1, 249.7 191.5 M99.7 290.9 C133.1 269.9, 164.7 248.0, 249.8 189.8" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M250.2 188.9 C248.5 192.0, 248.7 192.7, 244.6 200.1 M250.1 190.0 C248.8 192.7, 247.7 194.9, 244.1 200.0" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M249.4 191.0 C248.5 189.7, 244.5 189.6, 236.8 193.1 M250.3 189.5 C246.8 190.5, 243.8 190.2, 238.6 191.2" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M97.9 290.4 C107.0 248.2, 118.7 208.5, 149.3 90.4 M100.8 290.6 C115.8 233.3, 129.9 176.9, 149.1 89.0" style="stroke:var(--sk-rose);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M150.6 89.6 C151.0 93.4, 152.4 93.9, 152.8 100.9 M149.4 89.9 C151.2 93.4, 151.6 96.8, 152.1 102.4" style="stroke:var(--sk-rose);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M149.8 88.8 C147.0 92.3, 146.2 93.1, 143.6 100.1 M149.6 89.3 C147.7 92.7, 144.6 96.6, 142.3 99.6" style="stroke:var(--sk-rose);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="312" y="246" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-amber)"><tspan x="312" dy="0">cat (4, 1)</tspan></text>
+<text x="262" y="182" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-blue)"><tspan x="262" dy="0">dog (3, 2)</tspan></text>
+<text x="164" y="94" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="164" dy="0">car (1, 4)</tspan></text>
+<g transform="rotate(-1.5 660 185)">
+<path d="M469.2 90.7 L848.8 91.6 L848.2 279.9 L471.0 278.6" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M469.2 90.7 C546.3 91.9, 623.1 91.8, 849.4 89.8 M469.9 90.2 C602.0 89.7, 734.7 90.1, 850.2 90.2 M849.4 89.4 C847.5 150.6, 850.5 213.3, 850.2 278.9 M849.5 89.8 C847.7 160.7, 847.7 229.8, 850.6 279.1 M850.1 279.2 C721.2 281.2, 593.7 281.3, 469.5 278.9 M849.5 279.7 C747.2 281.0, 645.0 281.1, 470.0 280.5 M468.7 280.0 C469.3 223.4, 468.4 168.2, 468.2 89.2 M470.4 280.6 C472.7 227.0, 472.5 172.9, 469.9 90.4" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="484" y="117" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="484" dy="0">cos θ = a·b / (|a| |b|)</tspan><tspan x="484" dy="20.900000000000002">cat·dog = 14, |cat||dog| = 14.87</tspan><tspan x="484" dy="20.900000000000002">cos(cat, dog) = 0.942</tspan><tspan x="484" dy="20.900000000000002">cos(dog, car) = 0.740</tspan><tspan x="484" dy="20.900000000000002">cos(cat, car) = 0.471</tspan><tspan x="484" dy="20.900000000000002">cos(cat, 10·cat) = 1.000</tspan></text>
+</g>
+<text x="440" y="312" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Scaling a vector changes its length, not its cosine.</tspan></text>
+</svg>

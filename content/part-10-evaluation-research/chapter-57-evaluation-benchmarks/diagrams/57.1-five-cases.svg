@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" role="img" aria-label="Five test cases scored on the three metrics" class="sketch"><title>Five test cases scored on the three metrics</title>
+<text x="440" y="36" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Five cases, three scores</tspan></text>
+<path d="M30.5 98.5 C215.2 99.9, 400.8 99.6, 849.1 98.7 M30.3 97.5 C333.4 97.9, 636.9 97.5, 850.1 97.7" style="stroke:var(--sk-muted);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="84" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="40" dy="0">case</tspan></text>
+<text x="320" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="320" dy="0">F</tspan></text>
+<text x="410" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="410" dy="0">CR</tspan></text>
+<text x="500" y="84" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="500" dy="0">AR</tspan></text>
+<text x="580" y="84" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="580" dy="0">what the scores show</tspan></text>
+<text x="40" y="132" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">A grounded and on topic</tspan></text>
+<text x="320" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="320" dy="0">1.00</tspan></text>
+<text x="410" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="410" dy="0">0.33</tspan></text>
+<text x="500" y="132" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="500" dy="0">0.87</tspan></text>
+<text x="580" y="132" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="580" dy="0">all checks pass</tspan></text>
+<text x="40" y="192" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">B one invented date</tspan></text>
+<text x="320" y="192" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="320" dy="0">0.50</tspan></text>
+<text x="410" y="192" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="410" dy="0">0.33</tspan></text>
+<text x="500" y="192" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="500" dy="0">0.65</tspan></text>
+<text x="580" y="192" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="580" dy="0">the 2016 claim is not in the context</tspan></text>
+<text x="40" y="252" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">C grounded, off topic</tspan></text>
+<text x="320" y="252" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="320" dy="0">1.00</tspan></text>
+<text x="410" y="252" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="410" dy="0">0.33</tspan></text>
+<text x="500" y="252" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="500" dy="0">0.29</tspan></text>
+<text x="580" y="252" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="580" dy="0">true, but does not answer when</tspan></text>
+<text x="40" y="312" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">D right answer, wrong context</tspan></text>
+<text x="320" y="312" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="320" dy="0">0.00</tspan></text>
+<text x="410" y="312" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="410" dy="0">0.00</tspan></text>
+<text x="500" y="312" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="500" dy="0">0.87</tspan></text>
+<text x="580" y="312" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="580" dy="0">answer came from memory, not context</tspan></text>
+<text x="40" y="372" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="40" dy="0">E near miss paraphrase</tspan></text>
+<text x="320" y="372" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="320" dy="0">0.00</tspan></text>
+<text x="410" y="372" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="410" dy="0">0.33</tspan></text>
+<text x="500" y="372" class="sk-mono" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="500" dy="0">0.47</tspan></text>
+<text x="580" y="372" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="580" dy="0">claim shares half its terms with context</tspan></text>
+<text x="440" y="420" class="sk-hand" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">F: groundedness. CR: context relevance. AR: answer relevance. All values are from the lexical stub, not an LLM judge.</tspan></text>
+</svg>

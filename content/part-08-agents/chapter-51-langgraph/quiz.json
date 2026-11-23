@@ -1,54 +1,102 @@
 {
   "chapterId": "chapter-51",
-  "title": "Chapter 51 Quiz \u2014 Multi-Agent Systems",
+  "title": "Chapter 51 Quiz — LangGraph",
   "questions": [
     {
       "id": "q51.1",
-      "question": "What is the primary architectural mechanism in Multi-Agent Systems?",
+      "question": "A graph has START going to a and b, both going to join, then END. The state starts with n = 0 and log = [], and log uses operator.add. n has no reducer and join sets n = len(log). What is the final n?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "1, because only one of a and b is counted"},
+        {"id": "b", "text": "2, because a and b append one entry each in the first superstep"},
+        {"id": "c", "text": "4, because each node appends twice"},
+        {"id": "d", "text": "The run raises InvalidUpdateError, because join and a both touch the state"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Multi-Agent Systems, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "a and b run together in superstep 1 and append to log, so log holds two entries. join runs in superstep 2 and sets n = len(log) = 2. The fan-out output in Lesson 51.1 shows this."
     },
     {
       "id": "q51.2",
-      "question": "How does Multi-Agent Systems optimize performance in modern AI systems?",
+      "question": "The schema has x: int with no reducer. Nodes a and b both start from START and both return x in the same superstep. What happens in langgraph 1.2.24?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "x becomes 2, because the last node to finish wins"},
+        {"id": "b", "text": "x becomes 1, because the first node wins"},
+        {"id": "c", "text": "x becomes 3, because the two writes are summed"},
+        {"id": "d", "text": "The run raises InvalidUpdateError, because two writes reach one key without a reducer"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "The engine has no rule for choosing between two values written in one superstep, so it refuses. The fix is a reducer for x or a design where only one node writes it. Lesson 51.1 reproduces the error."
+    },
+    {
+      "id": "q51.3",
+      "question": "The state has x = 3 and no reducers. Node a sets x = x + 2 in superstep 1, and node b, which runs after a, sets x = x * 3 in superstep 2. What is the final x?",
+      "options": [
+        {"id": "a", "text": "9, from 3 + 2 * 3"},
+        {"id": "b", "text": "11, from 3 * 3 + 2"},
+        {"id": "c", "text": "15, from (3 + 2) * 3"},
+        {"id": "d", "text": "5, because b's write is discarded"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "a gives 3 + 2 = 5 in superstep 1. b gives 5 * 3 = 15 in superstep 2. The writes are in different supersteps, so the second write overwrites the first without a conflict."
+    },
+    {
+      "id": "q51.4",
+      "question": "The cycle a → b → a has no path to END. The measured run with recursion_limit = 25 reports a = 13 and b = 12 before GraphRecursionError. What does the limit count in this graph?",
+      "options": [
+        {"id": "a", "text": "Only calls to a, which is 12 for this limit"},
+        {"id": "b", "text": "The total node executions, 13 + 12 = 25, which here equals the number of supersteps"},
+        {"id": "c", "text": "The number of tokens produced by a and b"},
+        {"id": "d", "text": "Only calls to b, which is 25 for this limit"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Each superstep runs one node in this cycle, so the 25 executions (13 + 12) match the limit of 25 supersteps. Lesson 51.2 shows the same equality at limits 5, 10 and 25."
+    },
+    {
+      "id": "q51.5",
+      "question": "The critic returns exactly 0.8 and the route checks state[\"score\"] >= THRESHOLD with THRESHOLD = 0.8. Which change would send a score of 0.8 back to write?",
+      "options": [
+        {"id": "a", "text": "Changing the check to score > THRESHOLD"},
+        {"id": "b", "text": "Adding a reducer to score"},
+        {"id": "c", "text": "Raising recursion_limit"},
+        {"id": "d", "text": "Moving the check into the write node"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "With >=, 0.8 >= 0.8 is true, so the route returns done. With >, 0.8 > 0.8 is false, so the route returns revise and the loop runs again. Lesson 51.2 notes this boundary as a policy decision to make on purpose."
+    },
+    {
+      "id": "q51.6",
+      "question": "A child subgraph records steps = ['retrieve', 'summarise'] in its own state. The parent graph calls it from a wrapper node. Why does the parent's final state have no steps key?",
+      "options": [
+        {"id": "a", "text": "The reducer on the parent deletes keys that are lists"},
+        {"id": "b", "text": "The child and parent have separate state schemas, and the wrapper copies only the keys it returns"},
+        {"id": "c", "text": "Subgraphs cannot write any state"},
+        {"id": "d", "text": "The recursion limit cut the child run before steps was saved"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Child state does not leak into the parent. The wrapper in Lesson 51.2 returns report and a log entry that contains the child's steps, so the parent sees only those keys."
+    },
+    {
+      "id": "q51.7",
+      "question": "This node runs before a human answers, and it charges a card before the interrupt. What is the problem, and what is the fix?",
+      "options": [
+        {"id": "a", "text": "Nothing, because interrupt() saves the state before the charge runs"},
+        {"id": "b", "text": "Every resume runs the charge again, even after a no answer, so move the charge into a later node reached only when approved"},
+        {"id": "c", "text": "The charge runs only once, so switch to an in-memory checkpointer"},
+        {"id": "d", "text": "The charge fails with KeyError, so add a reducer for receipt"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "On resume, the paused node runs again from its first line, so the charge line runs again. Lesson 51.3 recommends moving the side effect after the interrupt, into a node reached through a conditional edge only when approved is true."
+    },
+    {
+      "id": "q51.8",
+      "question": "The LangGraph run in Lesson 51.3 has 5 checkpoints before any fork, counting the input as step -1. After one update_state fork and one resume with \"no\", how many checkpoints are in the history?",
+      "options": [
+        {"id": "a", "text": "5, because the fork replaces the original history"},
+        {"id": "b", "text": "6, because only the update_state checkpoint is added"},
+        {"id": "c", "text": "7, because the update_state and the final resume add one checkpoint each"},
+        {"id": "d", "text": "10, because each of the 5 checkpoints is copied"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The update_state call adds a checkpoint at step 2, and the resume that finishes the branch adds one at step 3, so 5 + 2 = 7. The original history stays in place, as the lesson's output shows."
     }
   ]
 }

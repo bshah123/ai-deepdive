@@ -1,0 +1,88 @@
+{
+  "python": "3.12.13",
+  "platform": "darwin",
+  "gc_thresholds": [
+    700,
+    10,
+    10
+  ],
+  "A_acyclic_held": 104,
+  "A_cyclic_held_before_collect": 3831776,
+  "A_counts_before_collect": [
+    40002,
+    0,
+    0
+  ],
+  "A_collect_return": 40000,
+  "A_cyclic_held_after_collect": 284,
+  "A_N_pairs": 20000,
+  "A2_gc_enabled_peak_growth": 72766,
+  "A2_gc_enabled_held_after_loop": 9352,
+  "B_count_after_10_pairs": [
+    21,
+    0,
+    0
+  ],
+  "B_collect_return_10_pairs": 20,
+  "B_count_after_collect": [
+    0,
+    0,
+    0
+  ],
+  "C_weak_backref_held": 104,
+  "C_strong_backref_held_before": 2880000,
+  "C_strong_backref_held_after_collect": -44,
+  "D_alive_after_del": true,
+  "D_alive_after_collect": false,
+  "E_weak_cache_unowned_len": 0,
+  "E_weak_cache_owned_len": 1000,
+  "E_weak_cache_after_owner_gone_len": 0,
+  "F_checkpoints": [
+    1000,
+    2000,
+    4000,
+    8000
+  ],
+  "F_unbounded_held": {
+    "1000": 1141960,
+    "2000": 2292008,
+    "4000": 4591776,
+    "8000": 9191256
+  },
+  "F_bounded_held": {
+    "1000": 317736,
+    "2000": 317928,
+    "4000": 317960,
+    "8000": 317992
+  },
+  "F_bounded_cache_len": 256,
+  "F_unbounded_len": 8000,
+  "G_top_file": "2.10_experiment.py",
+  "G_top_line": 54,
+  "G_top_size_diff": 1117888,
+  "G_top_count_diff": 2001,
+  "C_N_families": 20000,
+  "H_getsizeof_bytearray_1024": 1081,
+  "H_unbounded_per_entry": 1148.907,
+  "I_weakrefable": {
+    "int": false,
+    "tuple": false,
+    "str": false,
+    "list": false,
+    "dict": false,
+    "list_subclass": true,
+    "dict_subclass": true
+  },
+  "J_bound_method_stdout": [
+    "collect returned 7",
+    "end of script",
+    "finalizer ran"
+  ],
+  "J_bound_method_returncode": 0,
+  "J_module_function_stdout": [
+    "finalizer ran",
+    "collect returned 7",
+    "end of script"
+  ],
+  "J_module_function_returncode": 0
+}

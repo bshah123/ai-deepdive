@@ -1,54 +1,102 @@
 {
   "chapterId": "chapter-34",
-  "title": "Chapter 34 Quiz \u2014 BM25 Scoring Algorithm",
+  "title": "Chapter 34 Quiz — Dense Embeddings",
   "questions": [
     {
       "id": "q34.1",
-      "question": "What is the primary architectural mechanism in BM25 Scoring Algorithm?",
+      "question": "Why can a bi-encoder compute its document vectors once, offline, while a cross-encoder cannot?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "A bi-encoder encodes each document without reference to any query, so its vector can be stored and reused."},
+        {"id": "b", "text": "A bi-encoder skips the attention layers, so each document costs fewer operations."},
+        {"id": "c", "text": "A bi-encoder stores documents as integer token ids, which need no encoder pass."},
+        {"id": "d", "text": "A bi-encoder uses a smaller vocabulary, so the same vectors fit every query."}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In BM25 Scoring Algorithm, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "a",
+      "explanation": "Lesson 34.1: in a bi-encoder the query and document are encoded separately, so document vectors do not depend on the query and are cached. A cross-encoder reads the query and document together, so each pair needs its own forward pass."
     },
     {
       "id": "q34.2",
-      "question": "How does BM25 Scoring Algorithm optimize performance in modern AI systems?",
+      "question": "An encoder outputs token vectors (2, 2) and (6, 0) for two real tokens, followed by one [PAD] row (8, 8). The mask is (1, 1, 0). What is the masked mean-pooled vector, before normalisation?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "(4, 1)"},
+        {"id": "b", "text": "(5.33, 3.33)"},
+        {"id": "c", "text": "(8, 4)"},
+        {"id": "d", "text": "(4, 2)"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "a",
+      "explanation": "Sum of the real rows is (8, 2); dividing by the 2 real tokens gives (4, 1). Without the mask, the pad row is included and the mean is (16, 10)/3 = (5.33, 3.33), which is the distortion Lesson 34.1 warns about."
+    },
+    {
+      "id": "q34.3",
+      "question": "Let q = (1, 0) and d2 = (2, 1). What is the cosine similarity between q and d2?",
+      "options": [
+        {"id": "a", "text": "0.8944"},
+        {"id": "b", "text": "2.0000, because the dot product equals the cosine"},
+        {"id": "c", "text": "0.4472"},
+        {"id": "d", "text": "0.6000"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The dot product is 2 and the lengths are 1 and √5 ≈ 2.236, so the cosine is 2/√5 ≈ 0.8944. This is the d2 value in the Lesson 34.1 example. The raw dot product of 2.0 is not the cosine, because d2 is not a unit vector."
+    },
+    {
+      "id": "q34.4",
+      "question": "One query has a positive with cosine 0.8 and two negatives with cosines 0.1 and −0.2. The temperature is τ = 0.1. What is the InfoNCE loss for this query, to five decimal places?",
+      "options": [
+        {"id": "a", "text": "0.00096"},
+        {"id": "b", "text": "0.99904"},
+        {"id": "c", "text": "1.01860"},
+        {"id": "d", "text": "0.31396"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The logits are 8, 1 and −2. The softmax probability of the positive is 2980.958 / 2983.811 = 0.99904, and the loss is −log 0.99904 = 0.00096 (Lesson 34.2). The value 0.99904 is the probability, not the loss; 1.01860 is the loss at τ = 1 with four similarities, and 0.31396 is the loss at τ = 0.1 with a different set of four similarities."
+    },
+    {
+      "id": "q34.5",
+      "question": "The sentence-transformers MultipleNegativesRankingLoss has a default scale of 20. Which temperature τ does this correspond to, if scale = 1/τ?",
+      "options": [
+        {"id": "a", "text": "0.05"},
+        {"id": "b", "text": "0.2"},
+        {"id": "c", "text": "20"},
+        {"id": "d", "text": "0.5"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Scale is the inverse of temperature, so τ = 1/20 = 0.05 (Lesson 34.2 and the sentence-transformers losses documentation). In the lesson's temperature sweep, τ = 0.2 gave a higher recall@1 than 0.05, so the default is not the tuned optimum."
+    },
+    {
+      "id": "q34.6",
+      "question": "Take q = (1, 1, 1, 1), a = (0, 0, 3, 3) and b = (2, 1, −1, −1). Using the dot product on the first m coordinates, which document ranks first at m = 1, and which at m = 4?",
+      "options": [
+        {"id": "a", "text": "b at m = 1; a at m = 4"},
+        {"id": "b", "text": "a at m = 1; b at m = 4"},
+        {"id": "c", "text": "a at both sizes"},
+        {"id": "d", "text": "b at both sizes"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "At m = 1 the scores are a: 0 and b: 2, so b ranks first. At m = 4 the scores are a: 6 and b: 1, so a ranks first (Lesson 34.3). The ranking flips as the prefix shrinks, which is why a cut standard embedding is not safe."
+    },
+    {
+      "id": "q34.7",
+      "question": "A 10-million-document index stores float32 vectors of 384 dimensions. How many gigabytes does the full index take, and how many does it take if only the first 96 dimensions are kept? Ignore index overhead, and use 1 GB = 10^9 bytes.",
+      "options": [
+        {"id": "a", "text": "15.36 GB and 3.84 GB"},
+        {"id": "b", "text": "3.84 GB and 0.96 GB"},
+        {"id": "c", "text": "1.536 GB and 0.384 GB"},
+        {"id": "d", "text": "15.36 GB and 1.44 GB"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Full size: 384 × 4 bytes × 10^7 = 1.536 × 10^10 bytes = 15.36 GB. Prefix: 96 × 4 bytes × 10^7 = 3.84 × 10^9 bytes = 3.84 GB. The ratio is 4, the same as 384 divided by 96 (Lesson 34.3 storage arithmetic)."
+    },
+    {
+      "id": "q34.8",
+      "question": "In the lesson's sweep at batch size 64, which temperature gave the highest mean recall@1, and what was it?",
+      "options": [
+        {"id": "a", "text": "τ = 0.2, with recall@1 of 0.618 ± 0.005"},
+        {"id": "b", "text": "τ = 0.05, with recall@1 of 0.596 ± 0.011"},
+        {"id": "c", "text": "τ = 0.02, with recall@1 of 0.532 ± 0.022"},
+        {"id": "d", "text": "τ = 0.5, with recall@1 of 0.529 ± 0.019"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Lesson 34.2 reports an interior optimum: τ = 0.2 gives 0.618 ± 0.005 over five seeds, τ = 0.1 is close at 0.609, and the default-equivalent τ = 0.05 gives 0.596. These numbers come from one synthetic setup, so the ranking of temperatures is specific to that setup and must be tuned on validation data."
     }
   ]
 }

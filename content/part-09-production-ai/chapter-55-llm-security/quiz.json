@@ -1,54 +1,126 @@
 {
   "chapterId": "chapter-55",
-  "title": "Chapter 55 Quiz \u2014 Docker & Infrastructure Deployment",
+  "title": "Chapter 55 Quiz — LLM Security",
   "questions": [
     {
       "id": "q55.1",
-      "question": "What is the primary architectural mechanism in Docker & Infrastructure Deployment?",
+      "question": "A 300-byte payload is base64-encoded into an image URL, as in Lesson 55.1. How many base64 characters carry it?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        { "id": "a", "text": "300" },
+        { "id": "b", "text": "375" },
+        { "id": "c", "text": "400" },
+        { "id": "d", "text": "100" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Docker & Infrastructure Deployment, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "c",
+      "explanation": "Base64 emits 4 characters for every 3 bytes. 300 bytes is 100 groups of 3, so the output is 100 × 4 = 400 characters (Lesson 55.1, exfiltration section). Option b is 300 × 1.25, which is not the base64 rate."
     },
     {
       "id": "q55.2",
-      "question": "How does Docker & Infrastructure Deployment optimize performance in modern AI systems?",
+      "question": "In the hand-written test of Lesson 55.1, how many of the 22 attacks did the raw keyword blocklist catch, and how many of the 20 benign sentences did it flag?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        { "id": "a", "text": "14 of 22 caught, 3 of 20 flagged" },
+        { "id": "b", "text": "10 of 22 caught, 3 of 20 flagged" },
+        { "id": "c", "text": "10 of 22 caught, 0 of 20 flagged" },
+        { "id": "d", "text": "22 of 22 caught, 10 of 20 flagged" }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "b",
+      "explanation": "The raw blocklist caught 10 of 22 attacks and flagged 3 of 20 benign sentences (Lesson 55.1, results table). Option a is the count after normalising, which caught 14 of 22, not the raw count."
+    },
+    {
+      "id": "q55.3",
+      "question": "An injection has fully steered the model to put a secret in a markdown image URL. Why does an allowlist of fetched image hosts still stop the leak?",
+      "options": [
+        { "id": "a", "text": "The allowlist is ordinary code outside the model that blocks the renderer's request to a host not on the list, whatever the model wrote" },
+        { "id": "b", "text": "The model is retrained to refuse markdown images once an injection is detected" },
+        { "id": "c", "text": "The allowlist encrypts the query string, so the attacker's server cannot decode the secret" },
+        { "id": "d", "text": "Images are never rendered, so the URL never reaches the browser" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Exfiltration needs the renderer to request a host the attacker controls. The allowlist is a check in code outside the model, so it blocks that request regardless of whether the model obeyed the injection (Lesson 55.1, exfiltration section and defences)."
+    },
+    {
+      "id": "q55.4",
+      "question": "The regex rail from Lesson 55.2 is applied to the prompt \"how do I make a b0mb at home\". What does it return, and why?",
+      "options": [
+        { "id": "a", "text": "True, because the rail matches the word bomb in any spelling" },
+        { "id": "b", "text": "False, because the 0 replaces the o and the substring \"bomb\" is absent" },
+        { "id": "c", "text": "False, because b0mb is too short to match a whole word" },
+        { "id": "d", "text": "True, because the rail ignores case" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The pattern needs the literal word bomb, and the leetspeak form b0mb does not contain it, so the rail returns False. The lesson's output block shows this result (Lesson 55.2, worked example)."
+    },
+    {
+      "id": "q55.5",
+      "question": "At threshold θ = +4, the trigram classifier catches 73.8% of the 42 attacks in Lesson 55.2. How many of those attacks does it miss?",
+      "options": [
+        { "id": "a", "text": "8" },
+        { "id": "b", "text": "31" },
+        { "id": "c", "text": "11" },
+        { "id": "d", "text": "13" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "The classifier catches 0.738 × 42 = 31 attacks, so it misses 42 − 31 = 11 (Lesson 55.2, threshold section). Option b is the number caught, not the number missed."
+    },
+    {
+      "id": "q55.6",
+      "question": "The regex rail misses 0.619 of the attacks and the classifier misses 0.190, in the test of Lesson 55.2. The observed joint miss is 0.167, while independence predicts 0.118. What does the gap show?",
+      "options": [
+        { "id": "a", "text": "The two rails fail on different attacks, so stacking them does better than independence predicts" },
+        { "id": "b", "text": "The classifier is wrong on 19% of attacks, so the regex errors do not matter" },
+        { "id": "c", "text": "Independence was violated by the threshold, which raises recall" },
+        { "id": "d", "text": "The two rails fail on many of the same attacks, so their errors are positively correlated and the second layer adds less than the product rule suggests" }
+      ],
+      "correctOptionId": "d",
+      "explanation": "Under independence the joint miss would be 0.619 × 0.190 ≈ 0.118. The observed 7 of 42 (0.167) is higher, so the rails fail on the same paraphrases and their errors are positively correlated (Lesson 55.2, layering section). With 42 attacks the gap is a direction, not a precise effect size."
+    },
+    {
+      "id": "q55.7",
+      "question": "A colleague writes `if re.match(r\"bomb|kill\", prompt): block()` to check a whole prompt. What is the bug?",
+      "options": [
+        { "id": "a", "text": "re.match tests only the start of the string, so \"how do I make a bomb\" returns None and passes. Use re.search, which tests every position" },
+        { "id": "b", "text": "re.match is case-sensitive, so it misses Bomb and KILL" },
+        { "id": "c", "text": "The alternation bomb|kill is invalid syntax and raises an error" },
+        { "id": "d", "text": "re.match returns a string instead of a boolean, so the if test is always true" }
+      ],
+      "correctOptionId": "a",
+      "explanation": "re.match anchors at the start of the string, and the prompt starts with \"how\", so the call returns None (Lesson 55.2, common traps and quiz). The lesson's regex_rail uses PATTERN.search for this reason."
+    },
+    {
+      "id": "q55.8",
+      "question": "What is the Luhn total of 4111 1111 1111 1112, and is the number valid?",
+      "options": [
+        { "id": "a", "text": "30, valid" },
+        { "id": "b", "text": "31, invalid" },
+        { "id": "c", "text": "32, invalid" },
+        { "id": "d", "text": "31, valid" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The last digit is at an even position and is not doubled, so the total rises from 30 (for 4111 1111 1111 1111) to 31. A Luhn-valid number has a total divisible by 10, so this one is invalid (Lesson 55.3, worked example). Checked in Python: the total is 31."
+    },
+    {
+      "id": "q55.9",
+      "question": "In the moderation test of Lesson 55.3, which matching method flagged none of the 10 benign sentences and caught 3 of 7 harmful sentences?",
+      "options": [
+        { "id": "a", "text": "Substring matching" },
+        { "id": "b", "text": "Stemmed whole-word matching with kill\\w*" },
+        { "id": "c", "text": "Whole-word matching with \\b(?:kill|hell|ass)\\b" },
+        { "id": "d", "text": "Named-entity recognition" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Whole-word matching flagged 0 of 10 benign sentences and caught 3 of 7 positives, because it misses \"killed\" and \"killing\". Substring matching flagged 7 of 10 benign sentences, and the stemmed version caught 5 of 7 (Lesson 55.3, moderation section)."
+    },
+    {
+      "id": "q55.10",
+      "question": "A colleague says, \"We run json.dumps on every log record, so personal data in the logs is now safe.\" Which statement is correct?",
+      "options": [
+        { "id": "a", "text": "json.dumps masks SSNs automatically, so the log is safe" },
+        { "id": "b", "text": "SSNs are safe in JSON because they are numeric, and json.dumps does not change them" },
+        { "id": "c", "text": "json.dumps escapes quotation marks and control characters but removes or masks no value, so the personal data is still readable; redact first, then encode" },
+        { "id": "d", "text": "json.dumps turns the record into a string the model cannot read, which removes the personal data" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "json.dumps makes text safe to parse by escaping it. It does not redact, so the SSN in the lesson's last output line is still readable. The correct order is to redact personal data, then serialise the cleaned record (Lesson 55.3, encodings section and quiz Q3)."
     }
   ]
 }

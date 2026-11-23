@@ -1,0 +1,123 @@
+{
+ "python": "3.12.13",
+ "platform": "darwin",
+ "minrun": {
+  "10": 10,
+  "63": 63,
+  "64": 32,
+  "100": 50,
+  "1000": 63,
+  "1024": 32,
+  "2112": 33,
+  "100000": 49
+ },
+ "minrun_in_32_64_for_n_ge_64": true,
+ "minrun_power_of_2_is_32": true,
+ "n": 1024,
+ "n_log2_n": 10240.0,
+ "lg_n_factorial": 8769.0,
+ "cpython_comparisons": {
+  "random": 8908,
+  "sorted": 1023,
+  "reversed": 1023,
+  "8 sorted blocks": 4087,
+  "sorted + 10 swaps": 1937,
+  "all equal": 1023
+ },
+ "teaching_comparisons": {
+  "random": 8900,
+  "sorted": 1023,
+  "reversed": 1023,
+  "8 sorted blocks": 4080,
+  "sorted + 10 swaps": 5029,
+  "all equal": 1023
+ },
+ "all_sorted_correctly": {
+  "random": true,
+  "sorted": true,
+  "reversed": true,
+  "8 sorted blocks": true,
+  "sorted + 10 swaps": true,
+  "all equal": true
+ },
+ "stability_example": [
+  "Ben",
+  "Eli",
+  "Dara",
+  "Asha",
+  "Chen"
+ ],
+ "stable_real_300_trials": true,
+ "stable_teaching_300_trials": true,
+ "key_calls_for_1000_items": 1000,
+ "worked_example_input": [
+  5,
+  6,
+  8,
+  1,
+  2,
+  9,
+  4,
+  3,
+  7,
+  10,
+  0,
+  11
+ ],
+ "worked_example_events": [
+  [
+   "run",
+   0,
+   3,
+   4
+  ],
+  [
+   "run",
+   4,
+   2,
+   4
+  ],
+  [
+   "merge",
+   0,
+   4,
+   4
+  ],
+  [
+   "run",
+   8,
+   2,
+   4
+  ],
+  [
+   "merge",
+   0,
+   8,
+   4
+  ]
+ ],
+ "worked_example_output": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11
+ ],
+ "worked_example_ok": true,
+ "teaching_random_arrays_ok": true,
+ "big_n": 100000,
+ "pointer_array_bytes": 800000,
+ "peak_sort_bytes": {
+  "random": 399832,
+  "sorted": 0,
+  "reversed": 0,
+  "8 sorted blocks": 399976
+ }
+}

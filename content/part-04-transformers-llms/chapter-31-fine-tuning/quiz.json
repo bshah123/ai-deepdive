@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-31",
-  "title": "Chapter 31 Quiz \u2014 Fine-Tuning & PEFT",
-  "questions": [
-    {
-      "id": "q31.1",
-      "question": "What is the primary architectural mechanism in Fine-Tuning & PEFT?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Fine-Tuning & PEFT, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q31.2",
-      "question": "How does Fine-Tuning & PEFT optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-31", "title": "Chapter 31 Quiz — Fine-Tuning & PEFT", "questions": [
+{"id": "q31.1", "question": "A linear layer has d_in = d_out = 1024. LoRA with rank r = 4 trains how many parameters, and what share of the full 1024 × 1024 update is that?", "options": [{"id": "a", "text": "4,096 parameters, 0.39%"}, {"id": "b", "text": "8,192 parameters, 0.78125%"}, {"id": "c", "text": "1,048,576 parameters, 100%"}, {"id": "d", "text": "8,192 parameters, 0.39%"}], "correctOptionId": "b", "explanation": "LoRA trains r(d_in + d_out) = 4 × 2048 = 8,192 numbers. The full update has 1,048,576, so the share is 8192 / 1048576 = 0.78125%. Lesson 31.1 gives this calculation as its first quiz question."},
+{"id": "q31.2", "question": "You initialise a LoRA layer with B = 0 and A drawn from a Gaussian, then run one forward and backward pass on a batch. Which gradient is exactly zero, and why?", "options": [{"id": "a", "text": "The gradient with respect to B, because A is nonzero"}, {"id": "b", "text": "Both gradients, because the loss is flat at the start"}, {"id": "c", "text": "The gradient with respect to A, because it depends on B through B^T g, which is zero when B = 0"}, {"id": "d", "text": "Neither gradient, because W0 is frozen and is included in the gradient calculation"}], "correctOptionId": "c", "explanation": "The gradient with respect to A is s (B^T g) x^T, which is zero when B = 0. The gradient with respect to B is s g (Ax)^T, which does not involve B and is generally nonzero, so B moves first."},
+{"id": "q31.3", "question": "A target update has singular values 0.8^i for i = 1..64. What is the Eckart–Young floor, as a fraction of the update's squared Frobenius norm, for a rank-1 LoRA update?", "options": [{"id": "a", "text": "0.64"}, {"id": "b", "text": "0.80"}, {"id": "c", "text": "0.36"}, {"id": "d", "text": "0.20"}], "correctOptionId": "a", "explanation": "The rank-1 floor is the energy outside the top singular direction: the sum of 0.64^i for i ≥ 2 divided by the sum for i ≥ 1, which is 0.64 (the lesson's table prints 0.64 for r = 1). No rank-1 LoRA update can go below it, whatever the optimiser."},
+{"id": "q31.4", "question": "A 65B-parameter model is stored in NF4 with 32-bit scales per block of 64 weights. How many GB does double quantization save on the weights, to two decimal places?", "options": [{"id": "a", "text": "0.37 GB"}, {"id": "b", "text": "33.53 GB"}, {"id": "c", "text": "36.56 GB"}, {"id": "d", "text": "3.03 GB"}], "correctOptionId": "d", "explanation": "Double quantization saves 0.373 bits per parameter (4.5 minus 4.127). 65e9 × 0.373 / 8 ≈ 3.03 × 10^9 bytes, or 3.03 GB. The 33.53 GB figure is the total with double quantization, and 36.56 GB is the total without it."},
+{"id": "q31.5", "question": "On Gaussian data, NF4 has an SQNR of 20.73 dB at block size 64 and 19.25 dB at block size 4096. How does moving from block 64 to block 4096 change the SQNR?", "options": [{"id": "a", "text": "It rises by 1.48 dB, because larger blocks average out outliers"}, {"id": "b", "text": "It is unchanged, because the codebook is the same"}, {"id": "c", "text": "It falls by 1.48 dB, because one scale covers more values and typical weights get coarser levels"}, {"id": "d", "text": "It falls by 3.20 dB, which is the uniform codebook's drop"}], "correctOptionId": "c", "explanation": "The table gives 20.73 − 19.25 = 1.48 dB for NF4. One scale over 4096 values is set by the largest weight in the block, so the levels are coarser for typical weights. The 3.20 dB figure is the uniform codebook's drop, not NF4's."},
+{"id": "q31.6", "question": "In a QLoRA layer, the frozen base weight is stored as NF4 codes. During the forward pass, what precision does the matrix multiply use for the base weight?", "options": [{"id": "a", "text": "4-bit integer arithmetic on the codes"}, {"id": "b", "text": "BF16 after the codes are dequantized"}, {"id": "c", "text": "FP8 arithmetic with the second-level scales"}, {"id": "d", "text": "Full FP32 arithmetic with the codes stored in memory"}], "correctOptionId": "b", "explanation": "QLoRA stores the base in 4 bits, dequantizes it to BF16, and multiplies in 16-bit arithmetic. So 4-bit storage saves memory, not multiply-accumulate operations."},
+{"id": "q31.7", "question": "A model has 32 layers of width 4096, with LoRA on the query and value projections at r = 8 and fp16 weights. What is the memory for 16 merged copies of the attention projections (q, k, v, o in every layer)?", "options": [{"id": "a", "text": "4.125 GiB"}, {"id": "b", "text": "128 MiB"}, {"id": "c", "text": "64 GiB"}, {"id": "d", "text": "16 GiB"}], "correctOptionId": "c", "explanation": "One copy of the attention projections is 4 GiB, so 16 merged copies are 64 GiB. The 4.125 GiB figure is one shared base plus 16 adapters, which is the alternative to merging. The adapters are 8 MiB each, so the 128 MiB option counts adapters only."},
+{"id": "q31.8", "question": "With alpha fixed at 4, a LoRA layer is changed from rank r = 2 to rank r = 4. What happens to the scale s = alpha/r, and what is the effect?", "options": [{"id": "a", "text": "s rises from 2 to 4, doubling the update"}, {"id": "b", "text": "s falls from 2 to 1, halving the update's scale"}, {"id": "c", "text": "s stays at 2, so the update is unchanged"}, {"id": "d", "text": "s falls from 2 to 0.5, quartering the update"}], "correctOptionId": "b", "explanation": "s = alpha / r goes from 4/2 = 2 to 4/4 = 1, so the scale of the update halves for the same B and A. The lesson's trap warns about exactly this: changing r without changing alpha changes the scale."},
+{"id": "q31.9", "question": "In the toy experiment (16-dimensional, target = frozen weight plus a rank-2 change), which is the smallest rank that reaches zero final loss, and how many trainable numbers does it use?", "options": [{"id": "a", "text": "Rank 1, with 16 numbers"}, {"id": "b", "text": "Rank 2, with 64 numbers"}, {"id": "c", "text": "Rank 4, with 128 numbers"}, {"id": "d", "text": "Rank 2, with 256 numbers"}], "correctOptionId": "b", "explanation": "Rank 1 stalls at a final loss of 26.66, because it cannot represent a rank-2 change. Rank 2 reaches 0.0 with r(d_in + d_out) = 2 × 2 × 16 = 64 numbers, against 256 for full fine-tuning. The 256 figure is the full-update count, not the rank-2 count."},
+{"id": "q31.10", "question": "A mixed batch has six tokens and three adapters. Why is W0 x computed once for the whole batch, while the adapter term is gathered per token?", "options": [{"id": "a", "text": "W0 is different for each token, so each token needs its own multiply"}, {"id": "b", "text": "The adapter term is the expensive one, so it is shared while W0 x is gathered"}, {"id": "c", "text": "W0 is the same for every token and is the expensive term, while each token's adapter depends on its adapter id"}, {"id": "d", "text": "Each token needs a full copy of W0, so W0 is merged with its adapter first"}], "correctOptionId": "c", "explanation": "W0 is shared by every token, so one matrix multiply serves the batch. Each token's adapter (A_k, B_k) depends on its adapter id, so only the low-rank delta is gathered per token. Sharing the expensive term is what makes one base serve many adapters."}
+]}

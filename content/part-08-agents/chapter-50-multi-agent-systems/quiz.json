@@ -1,54 +1,11 @@
-{
-  "chapterId": "chapter-50",
-  "title": "Chapter 50 Quiz \u2014 Agent Architectures (ReAct)",
-  "questions": [
-    {
-      "id": "q50.1",
-      "question": "What is the primary architectural mechanism in Agent Architectures (ReAct)?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Agent Architectures (ReAct), predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q50.2",
-      "question": "How does Agent Architectures (ReAct) optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-50", "title": "Chapter 50 Quiz — Multi-Agent Systems", "questions": [
+  {"id": "q50.1", "question": "A supervisor (star) design has eight agents: one hub and seven workers. How many links does the design have?", "options": [{"id": "a", "text": "8"}, {"id": "b", "text": "14"}, {"id": "c", "text": "7"}, {"id": "d", "text": "28"}], "correctOptionId": "c", "explanation": "A star on n agents has n − 1 links, one per worker, so 8 − 1 = 7. Lesson 50.1 gives the same count for the binary tree on eight agents. Twenty-eight is the count for the complete graph."},
+  {"id": "q50.2", "question": "Three agents each answer wrongly with probability 0.3. Their errors are independent, and all wrong answers are identical. What is the probability that the majority is wrong?", "options": [{"id": "a", "text": "0.216"}, {"id": "b", "text": "0.300"}, {"id": "c", "text": "0.027"}, {"id": "d", "text": "0.163"}], "correctOptionId": "a", "explanation": "The majority is wrong when at least two agents are wrong: 3(0.3)²(0.7) + (0.3)³ = 0.189 + 0.027 = 0.216. This is below the 0.300 error of one agent. The figure 0.163 is the five-agent value."},
+  {"id": "q50.3", "question": "Five peer agents run two all-to-all debate rounds. How many messages does the debate send?", "options": [{"id": "a", "text": "10"}, {"id": "b", "text": "20"}, {"id": "c", "text": "25"}, {"id": "d", "text": "40"}], "correctOptionId": "d", "explanation": "A debate sends R · n(n − 1) messages, here 2 · 5 · 4 = 40. The 20 is the count for one round, not two."},
+  {"id": "q50.4", "question": "A binary tree of eight agents has agent 0 at the root, agent 1 as its child, and agents 3 and 4 as children of agent 1. After agent 1 is removed, what share of ordered pairs of surviving agents can still reach each other?", "options": [{"id": "a", "text": "0.429"}, {"id": "b", "text": "0.333"}, {"id": "c", "text": "0.571"}, {"id": "d", "text": "0.875"}], "correctOptionId": "b", "explanation": "Removing agent 1 leaves three pieces: {0, 2, 5, 6} (4 agents), {3, 7} (2 agents) and {4} (1 agent). Reachable ordered pairs are 4 · 3 + 2 · 1 = 14, out of 7 · 6 = 42, which is 0.333. Lesson 50.1 gives 0.429 for removing the root, not agent 1."},
+  {"id": "q50.5", "question": "A contract net has six contractors, and every message is point-to-point. How many messages does one round use?", "options": [{"id": "a", "text": "12"}, {"id": "b", "text": "18"}, {"id": "c", "text": "30"}, {"id": "d", "text": "36"}], "correctOptionId": "b", "explanation": "Each contractor costs one announcement, one reply and at most one award, so one round costs 3N = 3 · 6 = 18. An all-to-all round among six agents would cost 30."},
+  {"id": "q50.6", "question": "A Byzantine agreement protocol must tolerate f = 2 faulty nodes in a group of n = 7. What is the smallest quorum size that makes any two quorums share at least f + 1 = 3 nodes?", "options": [{"id": "a", "text": "4"}, {"id": "b", "text": "3"}, {"id": "c", "text": "7"}, {"id": "d", "text": "5"}], "correctOptionId": "d", "explanation": "Two quorums of size q out of n share at least 2q − n nodes, which must be at least f + 1. For n = 7 and f = 2 this gives 2q − 7 ≥ 3, so q ≥ 5. A quorum of 4 shares only 1 node. Lesson 50.2 uses ⌈(n + f + 1)/2⌉ = ⌈10/2⌉ = 5."},
+  {"id": "q50.7", "question": "Nine voters each answer correctly with probability 0.7, and their errors are correlated with ρ = 0.3, meaning a shared draw happens 30% of the time. As the panel grows large, what is the ceiling on majority-vote accuracy?", "options": [{"id": "a", "text": "0.70"}, {"id": "b", "text": "0.91"}, {"id": "c", "text": "0.99"}, {"id": "d", "text": "1.00"}], "correctOptionId": "b", "explanation": "The accuracy is ρp + (1 − ρ) × maj(k, p), and maj tends to 1 as k grows. The ceiling is 0.3 · 0.7 + 0.7 = 0.91. Independent voters reach 0.99 at k = 31, but correlation caps the gain."},
+  {"id": "q50.8", "question": "In a sequential crew with default context, the writer receives the analyst's 90-word reply. The writer's system prompt and task together are 55 words. How many prompt words does the writer send?", "options": [{"id": "a", "text": "55"}, {"id": "b", "text": "90"}, {"id": "c", "text": "145"}, {"id": "d", "text": "265"}], "correctOptionId": "c", "explanation": "By default the writer receives only the previous task's output, so the prompt is 55 + 90 = 145 words. With context listing both earlier tasks, the prompt would be 55 + 120 + 90 = 265 words."},
+  {"id": "q50.9", "question": "A round-robin group chat stops after 25 messages of 60 words each. The prompt at turn t is 55 + 60t words, counting from t = 0. What is the total number of prompt words over the chat?", "options": [{"id": "a", "text": "19375"}, {"id": "b", "text": "1375"}, {"id": "c", "text": "2120"}, {"id": "d", "text": "38875"}], "correctOptionId": "a", "explanation": "The total is Σ(55 + 60t) for t = 0 to 24, which is 55 · 25 + 60 · 25 · 24 / 2 = 1375 + 18000 = 19375. The 1375 is only the fixed role and task part. The selector variant doubles the total to 38875."}
+]}

@@ -1,0 +1,128 @@
+{
+  "python": "3.12.13",
+  "samples": [
+    {
+      "name": "café, NFC (U+00E9)",
+      "repr": "'café'",
+      "code_points": 4,
+      "utf8_bytes": 5,
+      "utf16_units": 4,
+      "utf8_hex": "63 61 66 c3 a9"
+    },
+    {
+      "name": "café, NFD (e + U+0301)",
+      "repr": "'café'",
+      "code_points": 5,
+      "utf8_bytes": 6,
+      "utf16_units": 5,
+      "utf8_hex": "63 61 66 65 cc 81"
+    },
+    {
+      "name": "ASCII 'hello'",
+      "repr": "'hello'",
+      "code_points": 5,
+      "utf8_bytes": 5,
+      "utf16_units": 5,
+      "utf8_hex": "68 65 6c 6c 6f"
+    },
+    {
+      "name": "CJK '世界'",
+      "repr": "'世界'",
+      "code_points": 2,
+      "utf8_bytes": 6,
+      "utf16_units": 2,
+      "utf8_hex": "e4 b8 96 e7 95 8c"
+    },
+    {
+      "name": "emoji U+1F600",
+      "repr": "'😀'",
+      "code_points": 1,
+      "utf8_bytes": 4,
+      "utf16_units": 2,
+      "utf8_hex": "f0 9f 98 80"
+    },
+    {
+      "name": "family emoji (3 people + 2 ZWJ)",
+      "repr": "'👨\\u200d👩\\u200d👧'",
+      "code_points": 5,
+      "utf8_bytes": 18,
+      "utf16_units": 8,
+      "utf8_hex": "f0 9f 91 a8 e2 80 8d f0 9f 91 a9 e2 80 8d f0 9f 91 a7"
+    }
+  ],
+  "e_acute_encodings": {
+    "latin-1": 1,
+    "utf-8": 2,
+    "utf-16-le": 2
+  },
+  "e_acute_ascii": "UnicodeEncodeError",
+  "worked": {
+    "text": "é世😀",
+    "code_points": 3,
+    "utf8_hex": "c3 a9 e4 b8 96 f0 9f 98 80",
+    "utf16_units": 4
+  },
+  "nfc_eq_nfd": false,
+  "nfd_normalized_eq_nfc": true,
+  "nfc_len": 4,
+  "nfd_len": 5,
+  "sizes": [
+    {
+      "name": "ASCII 'a'",
+      "getsizeof_1000": 1041,
+      "bytes_per_char": 1.0,
+      "getsizeof_empty": 41
+    },
+    {
+      "name": "Latin-1 'é' (U+00E9)",
+      "getsizeof_1000": 1057,
+      "bytes_per_char": 1.0,
+      "getsizeof_empty": 41
+    },
+    {
+      "name": "BMP '世' (U+4E16)",
+      "getsizeof_1000": 2058,
+      "bytes_per_char": 2.0,
+      "getsizeof_empty": 41
+    },
+    {
+      "name": "astral '😀' (U+1F600)",
+      "getsizeof_1000": 4060,
+      "bytes_per_char": 4.0,
+      "getsizeof_empty": 41
+    }
+  ],
+  "getsizeof_1000_mixed_bmp_plus_one_ascii": 2058,
+  "item_assign_error": "'str' object does not support item assignment",
+  "after_plus_eq": {
+    "s": "Hello, world",
+    "t": "Hello",
+    "s_is_t": false
+  },
+  "bytearray_after_assign": "Jello",
+  "identity": {
+    "f() is g()  (same text, two code objects, space in text)": true,
+    "h() folds 'hello '+'world' into a constant": true,
+    "h() is f()": true,
+    "joined 'hello' is literal 'hello'": false,
+    "sys.intern(joined 'hello') is literal 'hello'": true,
+    "runtime 'hello world' is f()": false,
+    "sys.intern(runtime 'hello world') is f()": false,
+    "sys.intern(runtime) is sys.intern(runtime 2)": true,
+    "joined 'hello_world' is literal 'hello_world'": false,
+    "sys.intern(joined 'hello_world') is literal": true,
+    "equal values": true
+  },
+  "single_char_cache": {
+    "join(['a']) is 'a'": true,
+    "chr(97) is 'a'": true
+  },
+  "cross_unit_literal_is": false,
+  "cross_unit_literal_is_sys_intern": false,
+  "getsizeof_single": {
+    "'a'": 42,
+    "'é'": 61,
+    "'世'": 60,
+    "''": 41
+  }
+}

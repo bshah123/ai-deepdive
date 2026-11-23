@@ -1,0 +1,91 @@
+{
+ "toy": {
+  "chain": {
+   "P1": [
+    "f93145a1",
+    "945ec185"
+   ],
+   "P2": [
+    "07836b57",
+    "97a791c9"
+   ],
+   "P3": [
+    "f93145a1",
+    "945ec185"
+   ]
+  },
+  "leading_P1_P2": 0,
+  "leading_P1_P3": 2,
+  "naive_false_hits_P2": 1
+ },
+ "granularity": [
+  {
+   "S": 16,
+   "block_reuse": 16,
+   "token_reuse": 16
+  },
+  {
+   "S": 40,
+   "block_reuse": 32,
+   "token_reuse": 40
+  },
+  {
+   "S": 100,
+   "block_reuse": 96,
+   "token_reuse": 100
+  },
+  {
+   "S": 2048,
+   "block_reuse": 2048,
+   "token_reuse": 2048
+  }
+ ],
+ "trap_front": 0.0,
+ "trap_back": 0.7293023255813953,
+ "sweep": [
+  {
+   "cap": 0,
+   "hit": 0.0
+  },
+  {
+   "cap": 16,
+   "hit": 0.1410876753787808
+  },
+  {
+   "cap": 32,
+   "hit": 0.20332595832810677
+  },
+  {
+   "cap": 64,
+   "hit": 0.3387129059032958
+  },
+  {
+   "cap": 128,
+   "hit": 0.5022832268895003
+  },
+  {
+   "cap": 256,
+   "hit": 0.6257135918054707
+  },
+  {
+   "cap": 512,
+   "hit": 0.6747569317487303
+  },
+  {
+   "cap": 1024,
+   "hit": 0.6801587449858416
+  },
+  {
+   "cap": 4096,
+   "hit": 0.6805003616332478
+  }
+ ],
+ "memory": {
+  "bytes_per_token": 131072,
+  "block16_MiB": 2.0,
+  "sys_copy_MiB": 256.0,
+  "no_sharing_GiB": 16.0,
+  "shared_GiB": 0.25,
+  "prefill_fraction_computed": 0.058823529411764705
+ }
+}

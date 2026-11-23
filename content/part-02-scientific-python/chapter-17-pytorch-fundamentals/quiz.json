@@ -1,54 +1,222 @@
 {
   "chapterId": "chapter-17",
-  "title": "Chapter 17 Quiz \u2014 PyTorch Fundamentals",
+  "title": "Chapter 17 Quiz — PyTorch Fundamentals",
   "questions": [
     {
       "id": "q17.1",
-      "question": "What is the primary architectural mechanism in PyTorch Fundamentals?",
+      "question": "In NumPy, `a = np.arange(6, dtype=np.float32).reshape(2, 3)` and `at = a.T`. What does `at.strides` report?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
+          "id": "a",
+          "text": "(12, 4)"
         },
         {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
+          "id": "b",
+          "text": "(4, 12)"
         },
         {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
+          "id": "c",
+          "text": "(3, 1)"
         },
         {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
+          "id": "d",
+          "text": "(1, 3)"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In PyTorch Fundamentals, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "The array a is C-contiguous with strides (12, 4) bytes. Transposing swaps the strides, so at.strides is (4, 12). NumPy reports strides in bytes, unlike PyTorch (lesson 17.1)."
     },
     {
       "id": "q17.2",
-      "question": "How does PyTorch Fundamentals optimize performance in modern AI systems?",
+      "question": "`x = torch.arange(12, dtype=torch.float32).reshape(3, 4)` and `y = x[:, 2:4]`. What is `y.storage_offset()`, and how many bytes into x's storage is y[0, 0]?",
       "options": [
         {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
+          "id": "a",
+          "text": "offset 4, 16 bytes"
         },
         {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
+          "id": "b",
+          "text": "offset 2, 2 bytes"
         },
         {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
+          "id": "c",
+          "text": "offset 2, 8 bytes"
         },
         {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
+          "id": "d",
+          "text": "offset 1, 4 bytes"
         }
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "The slice starts at column 2, so the offset is 2. y[0, 0] is x[0, 2], which holds the value 2 at storage index 2. At 4 bytes per float32 that is 8 bytes (lesson 17.1)."
+    },
+    {
+      "id": "q17.3",
+      "question": "```python\\nimport numpy as np\\nimport torch\\n\\na = np.zeros(4, dtype=np.float32)\\nt = torch.as_tensor(a)\\nu = t[::2]\\nu[1] = 7.0\\nprint(a)\\n```\\nWhat is printed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "[0. 0. 0. 7.]"
+        },
+        {
+          "id": "b",
+          "text": "[7. 0. 0. 0.]"
+        },
+        {
+          "id": "c",
+          "text": "[0. 7. 0. 0.]"
+        },
+        {
+          "id": "d",
+          "text": "[0. 0. 7. 0.]"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "u is a view of t holding elements 0 and 2. u[1] is t[2], which is the same buffer slot as a[2]. as_tensor shares the NumPy buffer because the dtype and device match (lesson 17.1)."
+    },
+    {
+      "id": "q17.4",
+      "question": "A batch is 256 MB, pinned bandwidth is 12 GB/s, the kernel takes 15 ms, there are 8 batches, and there are two streams with two buffers. Using the timeline model in lesson 17.2, what is the total time?",
+      "options": [
+        {
+          "id": "a",
+          "text": "185.67 ms"
+        },
+        {
+          "id": "b",
+          "text": "170.67 ms"
+        },
+        {
+          "id": "c",
+          "text": "290.67 ms"
+        },
+        {
+          "id": "d",
+          "text": "461.33 ms"
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Each copy takes 256e6 / 12e9 s = 21.33 ms, which is longer than the 15 ms kernel, so the copy-bound formula applies: 8 × 21.33 + 15 = 185.67 ms."
+    },
+    {
+      "id": "q17.5",
+      "question": "A batch is 256 MB, pinned bandwidth is 12 GB/s, the kernel takes 10 ms, there are 4 batches, and there is one buffer with two streams. What total does the reasoning in lesson 17.2 give?",
+      "options": [
+        {
+          "id": "a",
+          "text": "95.33 ms"
+        },
+        {
+          "id": "b",
+          "text": "85.33 ms"
+        },
+        {
+          "id": "c",
+          "text": "125.33 ms"
+        },
+        {
+          "id": "d",
+          "text": "290.67 ms"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "With one buffer, each copy must wait for the previous kernel, so the stages serialise: 4 × (21.33 + 10) = 125.33 ms. The 95.33 ms answer assumes two buffers, which lets copies overlap kernels."
+    },
+    {
+      "id": "q17.6",
+      "question": "Why does `non_blocking=True` not help when the source tensor is pageable memory?",
+      "options": [
+        {
+          "id": "a",
+          "text": "The driver copies pageable data into a pinned buffer in the background, so overlap still occurs."
+        },
+        {
+          "id": "b",
+          "text": "Without pinned host buffers the copy reverts to synchronous behaviour, which the CUDA guide says will not overlap with other work."
+        },
+        {
+          "id": "c",
+          "text": "The flag is ignored by PyTorch, so the call is treated as a plain copy on the same stream."
+        },
+        {
+          "id": "d",
+          "text": "Pageable memory cannot be copied to a GPU, so PyTorch raises an error."
+        }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The CUDA programming guide says that without pinned and page-locked host buffers, cudaMemcpyAsync reverts to synchronous behaviour that does not overlap other work (lesson 17.2)."
+    },
+    {
+      "id": "q17.7",
+      "question": "```python\\nbase = torch.arange(6.0)\\nv = base[1:4]\\nv.mul_(2)\\nprint(base.sum())\\n```\\nWhat is printed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "15.0"
+        },
+        {
+          "id": "b",
+          "text": "18.0"
+        },
+        {
+          "id": "c",
+          "text": "12.0"
+        },
+        {
+          "id": "d",
+          "text": "21.0"
+        }
+      ],
+      "correctOptionId": "d",
+      "explanation": "The view covers elements 1 to 3, holding 1, 2 and 3. Multiplying them by 2 gives 2, 4 and 6, so base becomes [0, 2, 4, 6, 4, 5], whose sum is 21 (lesson 17.3)."
+    },
+    {
+      "id": "q17.8",
+      "question": "```python\\nz = torch.sigmoid(x)\\nh = z\\nh.mul_(0.5)\\nh.sum().backward()\\n```\\nWhat happens?",
+      "options": [
+        {
+          "id": "a",
+          "text": "A RuntimeError: a variable needed for gradient computation was modified by an in-place operation."
+        },
+        {
+          "id": "b",
+          "text": "The gradient of 0.5 times sigmoid(x) is returned silently."
+        },
+        {
+          "id": "c",
+          "text": "backward() does nothing, because mul_ removes the graph."
+        },
+        {
+          "id": "d",
+          "text": "A warning is printed and the gradient is zero."
+        }
+      ],
+      "correctOptionId": "a",
+      "explanation": "Sigmoid saves its output for the backward pass. mul_ overwrites that output and increments its version counter, so autograd raises a RuntimeError. Writing h = torch.sigmoid(x) * 0.5 avoids this (lesson 17.3). Here z and h name the same tensor, so the code above is the same as calling h.mul_ directly on the sigmoid output."
+    },
+    {
+      "id": "q17.9",
+      "question": "```python\\nx = torch.tensor([1.0, 2.0, 3.0])\\nz = x\\nx.add_(1)\\nprint(z.tolist())\\n```\\nWhat is printed?",
+      "options": [
+        {
+          "id": "a",
+          "text": "[1.0, 2.0, 3.0]"
+        },
+        {
+          "id": "b",
+          "text": "[0.0, 1.0, 2.0]"
+        },
+        {
+          "id": "c",
+          "text": "[2.0, 3.0, 4.0]"
+        },
+        {
+          "id": "d",
+          "text": "An error, because z is an alias of x"
+        }
+      ],
+      "correctOptionId": "c",
+      "explanation": "z = x makes a second name for the same object. add_ writes into that shared buffer, so z sees the change. Only a rebinding such as x = x + 1 would leave z unchanged (lesson 17.3)."
     }
   ]
 }

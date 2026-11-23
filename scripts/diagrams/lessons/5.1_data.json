@@ -1,0 +1,90 @@
+{
+ "sizes": [
+  {
+   "n": 0,
+   "tuple": 40,
+   "list_range": 56,
+   "list_append": 56,
+   "allocated": 0
+  },
+  {
+   "n": 1,
+   "tuple": 48,
+   "list_range": 72,
+   "list_append": 88,
+   "allocated": 4
+  },
+  {
+   "n": 2,
+   "tuple": 56,
+   "list_range": 72,
+   "list_append": 88,
+   "allocated": 4
+  },
+  {
+   "n": 3,
+   "tuple": 64,
+   "list_range": 88,
+   "list_append": 88,
+   "allocated": 4
+  },
+  {
+   "n": 4,
+   "tuple": 72,
+   "list_range": 88,
+   "list_append": 88,
+   "allocated": 4
+  },
+  {
+   "n": 5,
+   "tuple": 80,
+   "list_range": 104,
+   "list_append": 120,
+   "allocated": 8
+  },
+  {
+   "n": 6,
+   "tuple": 88,
+   "list_range": 104,
+   "list_append": 120,
+   "allocated": 8
+  },
+  {
+   "n": 7,
+   "tuple": 96,
+   "list_range": 120,
+   "list_append": 120,
+   "allocated": 8
+  },
+  {
+   "n": 8,
+   "tuple": 104,
+   "list_range": 120,
+   "list_append": 120,
+   "allocated": 8
+  },
+  {
+   "n": 9,
+   "tuple": 112,
+   "list_range": 136,
+   "list_append": 184,
+   "allocated": 16
+  },
+  {
+   "n": 10,
+   "tuple": 120,
+   "list_range": 136,
+   "list_append": 184,
+   "allocated": 16
+  }
+ ],
+ "worked": {
+  "tuple3": 64,
+  "list3": 88,
+  "list3_allocated": 4
+ },
+ "concat": {
+  "N": 20000,
+  "pointers_copied": 199990000
+ }
+}

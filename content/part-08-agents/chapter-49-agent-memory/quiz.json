@@ -1,54 +1,115 @@
 {
   "chapterId": "chapter-49",
-  "title": "Chapter 49 Quiz \u2014 Tool Calling & Function Definitions",
+  "title": "Chapter 49 Quiz — Agent Memory",
   "questions": [
     {
       "id": "q49.1",
-      "question": "What is the primary architectural mechanism in Tool Calling & Function Definitions?",
+      "question": "Using a sliding window with a 16-word budget on five messages of 9, 5, 5, 5 and 5 words (msg 1 to msg 5), which messages are visible at turn 4, and how many words do they total?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "msg 1 to msg 4, 24 words"},
+        {"id": "b", "text": "msg 2, msg 3 and msg 4, 15 words"},
+        {"id": "c", "text": "msg 4 only, 5 words"},
+        {"id": "d", "text": "msg 3, msg 4 and msg 5, 15 words"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In Tool Calling & Function Definitions, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "At turn 4 the history is 9 + 5 + 5 + 5 = 24 words, over 16. Starting from the newest message, msg 4 (5), msg 3 (10) and msg 2 (15) fit; msg 1 would make 24, so it is dropped. msg 3 to msg 5 is the window at turn 5, not turn 4."
     },
     {
       "id": "q49.2",
-      "question": "How does Tool Calling & Function Definitions optimize performance in modern AI systems?",
+      "question": "A conversation has 80 turns of about 40 words each, and no compression is applied. Using the lesson's approximation $\\mu N(N+1)/2$, about how many words of total input does the conversation send?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "3,200 words"},
+        {"id": "b", "text": "6,400 words"},
+        {"id": "c", "text": "129,600 words"},
+        {"id": "d", "text": "259,200 words"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "c",
+      "explanation": "With $\\mu = 40$ and $N = 80$, $\\mu N(N+1)/2 = 40 \\times 80 \\times 81 / 2 = 129{,}600$. The measured value in the lesson, 132,323, is close; the extra comes from the planted facts. The 3,200 and 6,400 options are $\\mu N$ and $2\\mu N$, which are linear, not the sum over turns."
+    },
+    {
+      "id": "q49.3",
+      "question": "A rolling summary uses a lead-keep summariser that keeps half of the text it compresses (keep ratio $\\rho = 0.5$). Under the lesson's model, what is the survival probability of a fact after four rounds of compression?",
+      "options": [
+        {"id": "a", "text": "0.0625"},
+        {"id": "b", "text": "0.5"},
+        {"id": "c", "text": "0.125"},
+        {"id": "d", "text": "0.25"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "Survival after $k$ rounds is about $\\rho^k$, so $0.5^4 = 0.0625$. The lesson's exact enumeration gives 0.065 because of the ceiling in the lead-keep rule; the $\\rho^k$ value is the approximation. This is a model of a position-blind stub, not a measured property of LLM summaries."
+    },
+    {
+      "id": "q49.4",
+      "question": "A store holds $m_1 = [2, 1, 0]$, $m_2 = [0, 1, 2]$ and $m_3 = [1, 2, 0.5]$. For the query $q = [1, 2, 0]$, what is the cosine similarity of the best match, and which memory is it?",
+      "options": [
+        {"id": "a", "text": "5.0, the dot product with $m_3$"},
+        {"id": "b", "text": "0.800, memory $m_1$"},
+        {"id": "c", "text": "0.400, memory $m_2$"},
+        {"id": "d", "text": "0.976, memory $m_3$"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The cosine of $q$ with $m_3$ is $5 / (\\sqrt{5} \\cdot \\sqrt{5.25}) \\approx 0.976$, the highest of the three. $m_1$ gives 0.800 and $m_2$ gives 0.400. The 5.0 option is the raw dot product, which is not a cosine."
+    },
+    {
+      "id": "q49.5",
+      "question": "On the nine labelled fact pairs in Lesson 49.2, a single cosine threshold is applied to decide whether two memories are the same fact. Which statement about the threshold $t = 0.3$ is correct?",
+      "options": [
+        {"id": "a", "text": "It merges all five same-fact pairs and no different-fact pairs."
+        },
+        {"id": "b", "text": "It merges two different-fact pairs wrongly, at cosines 0.333 and 0.342."},
+        {"id": "c", "text": "It misses every same-fact pair and merges none."},
+        {"id": "d", "text": "It merges only the Priya pair, at cosine 0.857."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "At $t = 0.3$ the two different-fact pairs with cosines 0.333 and 0.342 are merged wrongly. The Priya pair at 0.857 is the only pair that a threshold of 0.6 merges. The point is that no single threshold separates the two groups in this test."
+    },
+    {
+      "id": "q49.6",
+      "question": "Using equal weights and min-max normalisation as in Park et al. (2023), a store contains four timeless facts and one deadline episode. For the query about the quarterly report deadline, why does the deadline episode drop to fifth place?",
+      "options": [
+        {"id": "a", "text": "Its relevance is negative after normalisation."},
+        {"id": "b", "text": "The four facts have zero relevance but reach the maximum on recency and importance, so each scores 2.00, while the deadline episode scores 1.87."},
+        {"id": "c", "text": "Timeless facts are removed from the store before ranking."},
+        {"id": "d", "text": "The deadline episode has importance 0 and so cannot be ranked."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "The four timeless facts are set to recency 1.0 and importance 9, so after min-max normalisation they reach 1 on recency and importance and 0 on relevance, for a total of 2.00 each. The deadline episode has the highest relevance, 0.577, but its total is 1.87, so it is fifth. This is a consequence of the equal weights, which the lesson treats as a setting, not a law."
+    },
+    {
+      "id": "q49.7",
+      "question": "In the Lesson 49.3 worked example (Alice's facts, one-hop retrieval, gold fact Bob likes Phone), what are the precision with supersession and without it?",
+      "options": [
+        {"id": "a", "text": "0.25 with supersession and 0.20 without"},
+        {"id": "b", "text": "0.20 with supersession and 0.25 without"},
+        {"id": "c", "text": "0.25 with supersession and 0.25 without"},
+        {"id": "d", "text": "1.00 with supersession and 0.20 without"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "With supersession, one-hop retrieval returns 4 facts (Mumbai, friend Bob, Laptop, Bob likes Phone), one of which is gold: precision 1/4 = 0.25. Without supersession the Delhi fact is also returned, giving 5 facts and precision 1/5 = 0.20."
+    },
+    {
+      "id": "q49.8",
+      "question": "In the synthetic experiment, a fact budget of 20 with shallow-first ordering gives identical results for one-hop and two-hop retrieval. Why?",
+      "options": [
+        {"id": "a", "text": "Two-hop retrieval is not implemented for the budget case."},
+        {"id": "b", "text": "Depth-2 facts are never retrieved, because friendship is not symmetric."},
+        {"id": "c", "text": "Depth 0 holds about 8 facts per user, leaving about 12 slots for depth-1 facts, so the budget is used up before any depth-2 fact is reached."},
+        {"id": "d", "text": "The budget discards every depth-1 fact, so only depth-0 facts remain."}
+      ],
+      "correctOptionId": "c",
+      "explanation": "Facts are sorted shallow first. Depth 0 holds 8.0 facts per user, so 12 of the 20 slots go to depth-1 facts, which number about 33 per user. No depth-2 fact gets a slot, so both hop settings return the same 20 facts. Friendship in the experiment is symmetric, so option b is wrong."
+    },
+    {
+      "id": "q49.9",
+      "question": "In the Lesson 49.3 name-matching experiment (40 positive and 80 negative synthetic pairs), which threshold avoids every hard false merge while keeping the most true matches?",
+      "options": [
+        {"id": "a", "text": "t = 1.0, with recall 0.500 and no hard false merges"},
+        {"id": "b", "text": "t = 0.8, with recall 0.825 and one hard false merge"},
+        {"id": "c", "text": "t = 0.7, with recall 0.950 and 12 hard false merges"},
+        {"id": "d", "text": "t = 0.9, with recall 0.750 and no hard false merges"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "Only t = 1.0 and t = 0.9 avoid every hard false merge. Of those two, t = 0.9 has the higher recall (0.750 against 0.500), because typos match at 0.9 but initials still do not. t = 0.8 has higher recall but merges one hard negative."
     }
   ]
 }

@@ -1,0 +1,105 @@
+{
+ "fft_bins": 201,
+ "bin_hz": 40.0,
+ "mel_1s_shape": [
+  80,
+  100
+ ],
+ "mel_30s_shape": [
+  80,
+  3000
+ ],
+ "frames_1s": 100,
+ "frames_30s": 3000,
+ "log_mel_min": -0.4988,
+ "log_mel_max": 1.5012,
+ "mel_of_1000Hz": 15.0,
+ "mel_of_2000Hz": 25.0819,
+ "mel_of_440Hz": 6.6,
+ "band_nearest_440_hz": 446.9,
+ "peak_band_frame40": 11,
+ "peak_band_centre_hz": 446.9,
+ "stem_len_30s": 1500,
+ "stem_len_1s": 50,
+ "enc_positions_per_s": 50,
+ "audio_streams": {
+  "encodec_nq2": {
+   "codes_per_s": 150,
+   "kbps": 1.5,
+   "codes_per_min": 9000
+  },
+  "encodec_nq8": {
+   "codes_per_s": 600,
+   "kbps": 6.0,
+   "codes_per_min": 36000
+  },
+  "encodec_nq32": {
+   "codes_per_s": 2400,
+   "kbps": 24.0,
+   "codes_per_min": 144000
+  },
+  "whisper_enc": {
+   "codes_per_s": 50,
+   "kbps": null,
+   "codes_per_min": 3000
+  }
+ },
+ "rvq_K": 16,
+ "rvq_bits_per_stage": 4,
+ "rvq_mse_by_nq": [
+  8.3759,
+  1.4498,
+  0.7303,
+  0.4255,
+  0.2478,
+  0.1445,
+  0.0853,
+  0.0501,
+  0.0298
+ ],
+ "rvq_example_x": [
+  -3.46,
+  2.59,
+  -2.53,
+  3.39,
+  2.85,
+  -3.31,
+  3.89,
+  4.68
+ ],
+ "rvq_example_stages": [
+  {
+   "code": 12,
+   "residual_norm": 3.499
+  },
+  {
+   "code": 15,
+   "residual_norm": 2.779
+  },
+  {
+   "code": 13,
+   "residual_norm": 2.249
+  }
+ ],
+ "rvq_norm_x0": 9.627,
+ "video": {
+  "frames": 16,
+  "h": 224,
+  "w": 224,
+  "tokens_2d_patch16_per_frame": 3136,
+  "tokens_tubelet_2x16x16": 1568,
+  "tokens_tubelet_4x16x16": 784,
+  "values_per_tubelet_2x16x16": 1536,
+  "linear_params_tubelet_to_768": 1180416,
+  "conv3d_3x3x3_c64_params": 5248,
+  "macs_conv3d_3x3x3_full_res": 4161798144,
+  "macs_tubelet_linear_768": 1849688064
+ },
+ "equiv_shape": [
+  5,
+  2,
+  4,
+  4
+ ],
+ "equiv_max_abs_diff": 7.815970093361102e-14
+}

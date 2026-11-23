@@ -1,0 +1,157 @@
+{
+  "python": "3.12.13",
+  "numpy": "2.5.5",
+  "fp16": {
+    "max": 65504.0,
+    "eps": 0.0009765625,
+    "smallest_normal": 6.103515625e-05,
+    "exp_bits": 5,
+    "mant_bits": 10
+  },
+  "fp32": {
+    "max": 3.4028234663852886e+38,
+    "eps": 1.1920928955078125e-07,
+    "smallest_normal": 1.1754943508222875e-38,
+    "exp_bits": 8,
+    "mant_bits": 23
+  },
+  "bf16": {
+    "max": 3.3895313892515355e+38,
+    "eps": 0.0078125,
+    "smallest_normal": 1.1754943508222875e-38,
+    "exp_bits": 8,
+    "mant_bits": 7
+  },
+  "bf16_max_check_bits_hex": "0x7f7f0000",
+  "pi_in_fp16": 3.140625,
+  "pi_in_bf16": 3.140625,
+  "pi_in_fp32": 3.141590118408203,
+  "one_plus_2e-8_in_bf16": 1.0,
+  "one_plus_0p005_in_fp16": 1.0048828125,
+  "one_plus_0p005_in_bf16": 1.0078125,
+  "70000_in_fp16": "inf",
+  "70000_in_bf16": 70144.0,
+  "worked": {
+    "x": [
+      -1.5,
+      -0.2,
+      0.0,
+      0.7,
+      2.3
+    ],
+    "min": -1.5,
+    "max": 2.3,
+    "scale": 0.2533333333333333,
+    "zero_point": 6,
+    "codes": [
+      0,
+      5,
+      6,
+      9,
+      15
+    ],
+    "dequant": [
+      -1.5199999999999998,
+      -0.2533333333333333,
+      0.0,
+      0.7599999999999999,
+      2.28
+    ],
+    "abs_err": [
+      0.019999999999999796,
+      0.05333333333333329,
+      0.0,
+      0.05999999999999994,
+      0.020000000000000018
+    ],
+    "half_step_bound": 0.12666666666666665,
+    "zero_roundtrip": 0.0
+  },
+  "error_model_gaussian": {
+    "8": {
+      "step": 0.03618068521103802,
+      "max_abs_err": 0.01809001975350999,
+      "half_step_bound": 0.01809034260551901,
+      "mse_measured": 0.00010855602997337187,
+      "mse_predicted_step2_over_12": 0.00010908683186168543,
+      "levels_used": 221
+    },
+    "4": {
+      "step": 0.6150716485876463,
+      "max_abs_err": 0.3075338367193929,
+      "half_step_bound": 0.30753582429382315,
+      "mse_measured": 0.031484410995899964,
+      "mse_predicted_step2_over_12": 0.03152609440802709,
+      "levels_used": 16
+    }
+  },
+  "outlier": {
+    "no_outlier": {
+      "step": 0.02829400601824629,
+      "bulk_rel_err": 0.008124686670848662,
+      "bulk_levels_used": 205
+    },
+    "one_outlier_60": {
+      "step": 0.2496946445512445,
+      "bulk_rel_err": 0.07187655038248744,
+      "bulk_levels_used": 28
+    },
+    "symmetric_step_with_outlier": 0.47244094488188976
+  },
+  "granularity": {
+    "8": {
+      "per-tensor": {
+        "weight_rel_err": 0.057953864690312065,
+        "output_rel_err": 0.05812244144350977
+      },
+      "per-channel": {
+        "weight_rel_err": 0.007060767999257737,
+        "output_rel_err": 0.007300919277073875
+      },
+      "per-group-128": {
+        "weight_rel_err": 0.0057524360556742045,
+        "output_rel_err": 0.005904320873493357
+      }
+    },
+    "4": {
+      "per-tensor": {
+        "weight_rel_err": 0.25752654508586653,
+        "output_rel_err": 0.2604530212081677
+      },
+      "per-channel": {
+        "weight_rel_err": 0.1191225354829995,
+        "output_rel_err": 0.12280553589738667
+      },
+      "per-group-128": {
+        "weight_rel_err": 0.10217329501067246,
+        "output_rel_err": 0.09842058037237342
+      }
+    }
+  },
+  "granularity_setup": {
+    "rows": 256,
+    "cols": 512,
+    "outlier_rows": 6,
+    "outlier_factor": 30,
+    "base_std": 0.02,
+    "n_inputs": 64
+  },
+  "int_matmul": {
+    "acc_max_abs": 124785,
+    "acc_fits_int32": true,
+    "max_diff_int_vs_dequant_float": 7.105427357601002e-14,
+    "output_rel_err_vs_fp": 0.011123654163790752
+  },
+  "bits_per_weight": {
+    "fp16": 16.0,
+    "int8": 8.0,
+    "int4": 4.0,
+    "int4_group128": 4.15625
+  },
+  "gb_7b_model": {
+    "fp16": 14.0,
+    "int8": 7.0,
+    "int4": 3.5,
+    "int4_group128": 3.63671875
+  }
+}

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" role="img" aria-label="Distances seen in training versus at test time" class="sketch"><title>Distances seen in training versus at test time</title>
+<text x="440" y="40" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Distances seen in training and at test time</tspan></text>
+<path d="M59.1 91.2 L438.1 89.4 L437.6 141.1 L62.4 141.9" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M61.2 88.7 C139.3 93.0, 220.8 91.3, 439.4 89.7 M60.0 90.3 C194.1 89.8, 326.7 89.7, 440.0 90.4 M439.5 90.7 C438.1 103.2, 437.1 121.6, 440.1 141.4 M439.7 89.7 C439.3 103.9, 438.8 118.8, 440.5 139.0 M439.8 139.0 C327.5 137.1, 217.0 137.7, 60.5 141.1 M439.1 140.2 C337.8 138.0, 235.0 137.3, 60.1 140.5 M58.7 138.9 C60.6 121.5, 62.4 103.4, 59.1 89.3 M60.2 140.9 C60.6 126.2, 59.5 114.6, 60.0 90.3" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M439.4 88.1 L821.9 89.2 L820.5 141.4 L440.9 141.4" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M440.2 90.8 C520.4 88.5, 598.9 87.5, 820.4 91.4 M440.0 89.7 C581.7 91.5, 723.8 91.1, 820.4 90.2 M819.2 91.0 C822.4 103.1, 822.2 119.0, 819.6 138.0 M819.1 89.9 C819.5 107.5, 820.2 126.9, 819.9 140.6 M819.3 140.3 C703.8 138.4, 585.3 138.6, 440.2 139.4 M819.4 139.4 C726.3 141.1, 633.2 141.7, 439.9 139.8 M440.1 140.9 C439.7 127.7, 439.5 112.6, 442.1 90.2 M439.1 140.9 C441.0 128.5, 440.5 118.3, 439.1 90.2" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="249.90718124084026" y="122" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="249.90718124084026" dy="0">seen in training: 0..1023</tspan></text>
+<text x="629.9071812408403" y="122" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="629.9071812408403" dy="0">new at test: 1024..2047</tspan></text>
+<text x="60" y="168" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="60" dy="0">0</tspan></text>
+<text x="439.8143624816805" y="168" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="439.8143624816805" dy="0">1023</tspan></text>
+<text x="820" y="168" class="sk-mono" font-size="15" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="820" dy="0">2047</tspan></text>
+<text x="60" y="232" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="60" dy="0">head</tspan></text>
+<text x="170" y="232" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="170" dy="0">m</tspan></text>
+<text x="330" y="232" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="330" dy="0">bias at 1023</tspan></text>
+<text x="520" y="232" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="520" dy="0">bias at 2047</tspan></text>
+<text x="700" y="232" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)" font-weight="700"><tspan x="700" dy="0">log10 w at 2047</tspan></text>
+<text x="60" y="264" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">1</tspan></text>
+<text x="170" y="264" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="170" dy="0">1/2</tspan></text>
+<text x="330" y="264" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">-511.5</tspan></text>
+<text x="520" y="264" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">-1023.5</tspan></text>
+<text x="700" y="264" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">-444.5</tspan></text>
+<text x="60" y="296" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">4</tspan></text>
+<text x="170" y="296" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="170" dy="0">1/16</tspan></text>
+<text x="330" y="296" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">-63.9</tspan></text>
+<text x="520" y="296" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">-127.9</tspan></text>
+<text x="700" y="296" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">-55.6</tspan></text>
+<text x="60" y="328" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="60" dy="0">8</tspan></text>
+<text x="170" y="328" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="170" dy="0">1/256</tspan></text>
+<text x="330" y="328" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="330" dy="0">-4.0</tspan></text>
+<text x="520" y="328" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="520" dy="0">-8.0</tspan></text>
+<text x="700" y="328" class="sk-mono" font-size="15" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="700" dy="0">-3.5</tspan></text>
+<text x="440" y="370" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Log10 w is the log of the weight relative to the nearest key, before normalisation.</tspan></text>
+<text x="440" y="396" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Reasoning, not a measurement: the flat head sees new bias values beyond 1023 but tiny weights.</tspan></text>
+</svg>

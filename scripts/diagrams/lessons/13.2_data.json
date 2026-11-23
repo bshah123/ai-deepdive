@@ -1,0 +1,92 @@
+{
+  "python": "3.12.13",
+  "matrix": {
+    "python test_package.py (cwd = project root)": {
+      "returncode": 0,
+      "stdout": "Hello, Alice!\nGoodbye, Alice!",
+      "stderr_last": ""
+    },
+    "python my_package/sub_package1/module2.py": {
+      "returncode": 1,
+      "stdout": "",
+      "stderr_last": "ImportError: attempted relative import with no known parent package"
+    },
+    "python -m my_package.sub_package1.module2": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr_last": ""
+    },
+    "python my_package/sub_package2/module3.py": {
+      "returncode": 1,
+      "stdout": "",
+      "stderr_last": "ModuleNotFoundError: No module named 'my_package'"
+    },
+    "python -m my_package.sub_package2.module3": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr_last": ""
+    },
+    "cd / && python <root>/test_package.py": {
+      "returncode": 0,
+      "stdout": "Hello, Alice!\nGoodbye, Alice!",
+      "stderr_last": ""
+    },
+    "cd / && python -c 'import my_package' (no PYTHONPATH)": {
+      "returncode": 1,
+      "stdout": "",
+      "stderr_last": "ModuleNotFoundError: No module named 'my_package'"
+    },
+    "cd / && PYTHONPATH=<root> python -c 'from ... import greet_from_module2'": {
+      "returncode": 0,
+      "stdout": "Hello, Dana!",
+      "stderr_last": ""
+    }
+  },
+  "module2_facts": {
+    "returncode": 0,
+    "stdout": "'my_package.sub_package1'\nmy_package.sub_package1\nHello, Eve!",
+    "stderr_last": ""
+  },
+  "resolve_name": {
+    "'..module1' in 'my_package.sub_package1'": "my_package.module1",
+    "'.' in 'my_package.sub_package1'": "my_package.sub_package1",
+    "'..' in 'my_package.sub_package1'": "my_package",
+    "'...top' in 'my_package.sub_package1'": "ImportError: attempted relative import beyond top-level package",
+    "'..module1' in 'my_package'": "ImportError: attempted relative import beyond top-level package"
+  },
+  "import_order": {
+    "returncode": 0,
+    "stdout": "1 run my_package/__init__.py\n2 run my_package/sub_package1/__init__.py\n2b start my_package/sub_package1/module2.py\n3 run my_package/module1.py\n4 end my_package/sub_package1/module2.py",
+    "stderr_last": ""
+  },
+  "import_order_twice": {
+    "returncode": 0,
+    "stdout": "1 run my_package/__init__.py\n2 run my_package/sub_package1/__init__.py\n2b start my_package/sub_package1/module2.py\n3 run my_package/module1.py\n4 end my_package/sub_package1/module2.py\ndone",
+    "stderr_last": ""
+  },
+  "regular_package": {
+    "returncode": 0,
+    "stdout": "__init__.py\nlist",
+    "stderr_last": ""
+  },
+  "namespace_package": {
+    "returncode": 0,
+    "stdout": "None\n_NamespacePath",
+    "stderr_last": ""
+  },
+  "namespace_import_leaf": {
+    "returncode": 0,
+    "stdout": "leaf",
+    "stderr_last": ""
+  },
+  "split_namespace_two_portions": {
+    "returncode": 0,
+    "stdout": "3",
+    "stderr_last": ""
+  },
+  "regular_hides_portion": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr_last": "ModuleNotFoundError: No module named 'shared.b'"
+  }
+}

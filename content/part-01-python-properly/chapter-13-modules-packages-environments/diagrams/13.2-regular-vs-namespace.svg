@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 364" role="img" aria-label="Regular package versus namespace package" class="sketch"><title>Regular package versus namespace package</title>
+<text x="440" y="36" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">With and without __init__.py</tspan></text>
+<path d="M289.5 62.0 L561.6 59.5 L560.2 110.2 L288.0 108.2" style="stroke:none;fill:var(--sk-blue-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M289.9 61.1 C345.9 59.5, 402.9 58.0, 560.5 59.9 M290.5 60.6 C368.9 60.1, 447.7 59.3, 559.1 59.5 M560.2 57.6 C560.2 77.2, 560.6 101.4, 558.2 110.1 M560.5 61.2 C560.2 71.6, 560.4 82.7, 558.9 110.9 M559.0 111.1 C462.4 112.6, 363.5 112.4, 291.2 111.3 M560.0 109.6 C482.9 108.5, 407.1 108.8, 290.1 109.5 M291.4 108.9 C288.5 97.6, 289.1 86.0, 290.2 62.3 M291.0 110.8 C290.7 89.9, 291.4 72.0, 290.0 59.0" style="stroke:var(--sk-blue);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="425" y="92" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="425" dy="0">Regular package</tspan></text>
+<path d="M590.0 58.9 L860.5 59.3 L858.1 110.5 L591.5 107.7" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M588.8 60.1 C643.7 61.2, 700.5 60.7, 861.6 58.3 M590.8 59.9 C674.1 61.6, 758.4 62.2, 859.5 59.3 M859.6 57.9 C859.5 72.0, 860.7 78.8, 862.2 111.5 M859.7 59.0 C860.2 75.2, 859.3 88.3, 860.6 110.1 M858.1 109.0 C757.3 110.5, 655.3 113.6, 591.1 109.0 M860.0 110.4 C790.2 113.1, 719.9 113.2, 590.0 110.5 M588.2 110.9 C592.6 93.8, 591.2 79.9, 588.5 58.5 M590.0 110.8 C589.8 92.1, 588.7 75.7, 589.3 59.0" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="725" y="92" class="sk-hand" font-size="20" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="725" dy="0">Namespace package</tspan></text>
+<path d="M40.8 183.6 C204.6 179.5, 369.9 179.8, 839.5 184.3 M39.6 183.6 C306.8 179.8, 574.6 179.8, 839.9 184.5" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150" y="156" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">has __init__.py?</tspan></text>
+<text x="425" y="156" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="425" dy="0">yes</tspan></text>
+<text x="725" y="156" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="725" dy="0">no (PEP 420)</tspan></text>
+<path d="M40.2 245.1 C205.4 244.8, 368.7 245.6, 840.1 245.5 M39.8 246.2 C324.5 244.3, 608.4 244.1, 840.1 246.4" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150" y="218" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">type of __path__</tspan></text>
+<text x="425" y="218" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="425" dy="0">list</tspan></text>
+<text x="725" y="218" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="725" dy="0">_NamespacePath</tspan></text>
+<path d="M39.7 308.5 C204.3 312.0, 369.4 311.4, 840.6 308.7 M40.0 307.8 C341.3 308.9, 643.1 309.3, 840.3 308.2" style="stroke:var(--sk-muted);fill:none;stroke-dasharray:6 8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150" y="280" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="150" dy="0">same name in two folders</tspan></text>
+<text x="425" y="280" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="425" dy="0">regular one wins;</tspan><tspan x="425" dy="19.8">shared.b is not found</tspan></text>
+<text x="725" y="280" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="725" dy="0">both folders merge;</tspan><tspan x="725" dy="19.8">shared.a + shared.b = 3</tspan></text>
+<text x="440" y="344" class="sk-hand" font-size="16" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Measured on Python 3.12.13, one fresh interpreter per run.</tspan></text>
+</svg>

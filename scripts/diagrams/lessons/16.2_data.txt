@@ -1,0 +1,31 @@
+versions pandas 3.1.1 pyarrow 26.0.1 numpy 2.5.5
+E1 pa.array(ndarray): arrow[0] after mutating the ndarray = 99
+E2a pd.DataFrame(copy=False) -> Table.from_pandas: arrow[0] after mutating source = -1.0
+E2a default pd.DataFrame -> Table.from_pandas: arrow[0] after mutating source = 0.0
+E2b to_pandas(split_blocks=True): float column reuses Arrow buffer = True
+E2b to_pandas() default: float column reuses Arrow buffer = False
+E3 pandas [int, None] -> dtype float64 | value 9007199254740992 | exact False
+E3 arrow [int, null] -> type int64 | value 9007199254740993 | exact True | null_count 1
+E3 arrow buffers in bytes (validity, data) = 1 16
+E4 object-dtype column, pandas deep bytes = 11600132
+E4 Arrow string array, buffers (validity, offsets, data) in bytes = [None, 800004, 1800000] total 2600000
+E4 Arrow large_string array, total bytes = 3400000
+E4 Table.from_pandas(object column) -> type string | nbytes 2600000
+E4 pandas default string column -> dtype str | storage ArrowStringArray | deep bytes 3400132
+E5 file size csv = 36.16 MB
+E5 file size parquet = 13.81 MB
+E5 file size arrow_ipc = 33.00 MB
+E5 in-memory Arrow table nbytes = 33.00 MB
+E5 in-memory pandas deep bytes = 33.00 MB
+E6 memory-mapped read: pool bytes allocated = 0 | rows 1000000 | sum(id) = 499999500000
+E6 copying read: pool bytes allocated = 33000320 | rows 1000000
+E7 read_parquet(dtype_backend='pyarrow') dtypes = {'id': 'int64[pyarrow]', 'value': 'double[pyarrow]', 'label': 'large_string[pyarrow]'}
+E7 pyarrow-backed deep bytes = 33.25 MB
+E8 validity byte (LSB first, 1 = valid) = 11 = 1101 (slots 0..3, LSB first)
+E8 offsets (int32, length+1) = [0, 3, 6, 6, 8]
+E8 data bytes = b'annbobcy'
+E8 null_count = 1 | to_pylist = ['ann', 'bob', None, 'cy']
+E9 tracemalloc: list of 200,000 str objects = 11.62 MB
+E9 tracemalloc: plus pandas object Series = 13.23 MB
+E9 pandas object column deep bytes, same data = 11.60 MB
+E9 Arrow string array allocated from pool = 2.60 MB

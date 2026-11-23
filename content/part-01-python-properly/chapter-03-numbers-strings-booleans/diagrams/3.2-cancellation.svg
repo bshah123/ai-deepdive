@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-label="Catastrophic cancellation in sqrt(x+1) - sqrt(x) at x = 1e15" class="sketch"><title>Catastrophic cancellation in sqrt(x+1) - sqrt(x) at x = 1e15</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Subtracting two nearly equal numbers</tspan></text>
+<text x="110" y="84" class="sk-mono" font-size="22" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="110" dy="0">sqrt(1e15 + 1)  =  31622776.60168381</tspan></text>
+<text x="110" y="118" class="sk-mono" font-size="22" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="110" dy="0">sqrt(1e15)      =  31622776.60168379</tspan></text>
+<text x="110" y="150" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="110" dy="0">each root is off by up to half an ulp = 1.86e-9</tspan></text>
+<path d="M109.9 171.5 L768.7 172.4 L771.7 175.7 L108.0 173.3" style="stroke:none;fill:var(--sk-ink)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M110.7 173.0 C242.2 172.1, 376.4 172.9, 770.9 171.8 M110.1 172.3 C316.2 173.3, 522.4 173.4, 770.5 171.8 M770.1 171.8 C769.9 172.6, 769.7 173.3, 770.0 173.9 M770.1 172.0 C770.0 172.5, 770.0 173.1, 770.0 173.9 M770.5 173.5 C518.3 173.5, 267.5 172.6, 110.1 174.4 M770.1 174.1 C602.4 177.7, 436.0 177.3, 110.2 174.4 M110.0 173.8 C110.1 173.7, 110.0 172.8, 110.1 172.0 M110.1 174.1 C109.9 173.4, 110.0 172.5, 110.1 171.9" style="stroke:var(--sk-ink);fill:none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="110" y="216" class="sk-mono" font-size="20" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="110" dy="0">naive difference   1.862645e-08</tspan></text>
+<text x="560" y="216" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-rose)"><tspan x="560" dy="0">error 17.8%</tspan></text>
+<text x="110" y="254" class="sk-mono" font-size="20" text-anchor="start" style="fill:var(--sk-green)"><tspan x="110" dy="0">true value         1.581139e-08</tspan></text>
+<text x="560" y="254" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-green)"><tspan x="560" dy="0">1 / (sqrt(x+1) + sqrt(x))</tspan></text>
+<text x="110" y="300" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="110" dy="0">rewritten form: relative error 3.8e-18, about one bit</tspan></text>
+</svg>

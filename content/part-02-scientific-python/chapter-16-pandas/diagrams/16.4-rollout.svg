@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" role="img" aria-label="Status of the free-threaded build from PEP 703 and PEP 779" class="sketch"><title>Status of the free-threaded build from PEP 703 and PEP 779</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">From experiment to possible default</tspan></text>
+<text x="125" y="92" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="125" dy="0">24 Oct 2023</tspan></text>
+<g transform="rotate(-1.5 125 185)">
+<path d="M29.5 110.5 L219.9 109.2 L221.2 259.1 L28.7 260.8" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M28.4 111.4 C67.6 112.6, 107.5 113.0, 218.7 111.3 M30.9 109.3 C92.3 110.1, 153.2 109.1, 219.4 110.3 M219.9 108.4 C220.5 168.5, 221.9 228.2, 219.5 261.7 M219.7 109.3 C219.9 155.8, 219.6 204.1, 219.4 259.5 M219.9 260.8 C146.7 257.2, 73.8 259.0, 30.9 260.2 M220.1 259.6 C148.0 260.6, 76.4 260.1, 30.5 260.8 M28.7 260.9 C32.0 231.4, 30.4 199.7, 31.4 110.0 M30.5 260.1 C29.8 200.9, 30.2 142.0, 29.1 109.4" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="134" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="44" dy="0">PEP 703 accepted.</tspan><tspan x="44" dy="17.6">Build flag removes</tspan><tspan x="44" dy="17.6">the GIL, with a gradual</tspan><tspan x="44" dy="17.6">rollout required.</tspan></text>
+</g>
+<text x="335" y="92" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="335" dy="0">CPython 3.13</tspan></text>
+<g transform="rotate(-1.5 335 185)">
+<path d="M239.9 111.8 L429.1 109.1 L429.6 259.4 L241.3 260.4" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M241.0 110.5 C279.1 109.3, 318.8 107.2, 429.8 109.8 M239.4 110.5 C305.9 111.1, 370.5 111.4, 429.7 110.1 M429.5 108.6 C427.3 140.4, 429.3 173.8, 429.0 259.1 M430.9 109.5 C428.1 166.2, 428.7 223.8, 430.6 260.7 M429.0 258.8 C352.9 258.9, 278.1 260.1, 240.7 261.6 M430.1 260.4 C363.4 258.1, 295.4 259.1, 240.5 259.9 M239.9 258.8 C241.8 215.2, 242.2 172.0, 240.1 110.7 M239.8 260.1 C240.7 206.7, 239.7 152.9, 240.4 109.4" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="254" y="134" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="254" dy="0">Experimental build,</tspan><tspan x="254" dy="17.6">python3.13t. Not the</tspan><tspan x="254" dy="17.6">default. GIL can be</tspan><tspan x="254" dy="17.6">turned back on.</tspan></text>
+</g>
+<text x="545" y="92" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="545" dy="0">16 Jun 2025</tspan></text>
+<g transform="rotate(-1.5 545 185)">
+<path d="M450.3 109.5 L638.2 108.9 L641.7 259.6 L450.4 260.0" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M449.9 109.6 C490.6 110.2, 530.1 109.0, 640.9 108.4 M449.7 109.8 C519.4 112.1, 589.6 111.9, 640.1 109.9 M639.1 108.8 C641.0 142.4, 640.0 179.3, 638.4 260.2 M640.2 109.6 C641.3 146.6, 641.1 185.2, 640.1 260.1 M641.8 260.4 C600.6 256.9, 558.4 257.6, 450.6 259.5 M640.2 259.3 C577.0 261.5, 516.1 260.5, 450.4 260.8 M451.0 260.4 C451.6 202.6, 450.4 147.9, 448.8 111.4 M450.9 260.1 C451.5 212.4, 451.0 163.9, 449.9 109.4" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="464" y="134" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="464" dy="0">PEP 779 accepted.</tspan><tspan x="464" dy="17.6">Phase II: supported</tspan><tspan x="464" dy="17.6">but optional, for</tspan><tspan x="464" dy="17.6">Python 3.14.</tspan></text>
+</g>
+<text x="755" y="92" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="755" dy="0">Phase III</tspan></text>
+<g transform="rotate(-1.5 755 185)">
+<path d="M660.6 110.7 L851.0 108.7 L850.1 259.8 L659.4 259.6" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M658.9 108.6 C698.5 107.0, 737.8 106.8, 848.3 110.5 M660.0 109.2 C733.0 109.0, 806.8 108.3, 850.5 109.7 M848.6 109.0 C851.0 147.9, 850.7 184.9, 851.5 261.2 M849.6 109.8 C849.5 157.0, 850.2 204.9, 849.6 259.5 M850.9 258.4 C806.8 258.5, 762.8 258.7, 660.4 260.9 M850.2 260.1 C792.4 259.0, 735.1 259.6, 660.4 260.0 M658.6 258.3 C661.4 220.0, 662.2 180.2, 661.2 108.5 M660.2 260.1 C659.1 216.4, 659.0 174.9, 659.4 109.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="674" y="134" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="674" dy="0">Not decided by</tspan><tspan x="674" dy="17.6">PEP 779. Making it</tspan><tspan x="674" dy="17.6">the default needs</tspan><tspan x="674" dy="17.6">a future PEP.</tspan></text>
+</g>
+<text x="440" y="282" class="sk-hand" font-size="15" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">Phase II and III are the PEP 779 plan. Check the release notes for the status of your version.</tspan></text>
+</svg>

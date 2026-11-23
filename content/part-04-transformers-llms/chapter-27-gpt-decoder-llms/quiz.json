@@ -1,54 +1,11 @@
-{
-  "chapterId": "chapter-27",
-  "title": "Chapter 27 Quiz \u2014 GPT / Decoder-Only LLMs",
-  "questions": [
-    {
-      "id": "q27.1",
-      "question": "What is the primary architectural mechanism in GPT / Decoder-Only LLMs?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In GPT / Decoder-Only LLMs, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q27.2",
-      "question": "How does GPT / Decoder-Only LLMs optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-27", "title": "Chapter 27 Quiz — Decoder-Only GPT, KV Cache and Sampling", "questions": [
+  {"id": "q27.1", "question": "For logits $z = [3, 2, 1, 0, -1]$ at temperature $T = 2$, what is the probability of \"the\"?", "options": [{"id": "a", "text": "0.2341"}, {"id": "b", "text": "0.6364"}, {"id": "c", "text": "0.4287"}, {"id": "d", "text": "0.8647"}], "correctOptionId": "c", "explanation": "Dividing the logits by 2 gives [1.5, 1, 0.5, 0, -0.5]. The exponentials sum to 10.455, and $e^{1.5} = 4.482$, so $p(\\text{the}) = 4.482 / 10.455 = 0.4287$. The value 0.8647 is the probability at $T = 0.5$, not $T = 2$."},
+  {"id": "q27.2", "question": "The worked example has logits $[3, 2, 1, 0, -1]$ at $T = 1$, with probabilities $[0.6364, 0.2341, 0.0861, 0.0317, 0.0117]$. Top-k with $k = 3$ removes the last two tokens and renormalizes. What is the new probability of \"the\"?", "options": [{"id": "a", "text": "0.6364"}, {"id": "b", "text": "0.6652"}, {"id": "c", "text": "0.7311"}, {"id": "d", "text": "0.9566"}], "correctOptionId": "b", "explanation": "The three kept probabilities sum to 0.9566, so $0.6364 / 0.9566 = 0.6652$. The value 0.7311 is the probability after top-k followed by top-p and renormalization, and 0.9566 is the mass kept, not the renormalized share."},
+  {"id": "q27.3", "question": "Apply top-k with $k = 3$, then top-p with $p = 0.9$, to the worked-example distribution at $T = 1$. Each step renormalizes. How many tokens remain before min-p?", "options": [{"id": "a", "text": "1"}, {"id": "b", "text": "3"}, {"id": "c", "text": "4"}, {"id": "d", "text": "2"}], "correctOptionId": "d", "explanation": "After top-k and renormalization the probabilities are $[0.6652, 0.2447, 0.0900]$. The cumulative sum is 0.6652 and then about 0.910, which reaches 0.9 at the second token, so two tokens remain. Top-p on the original distribution keeps three, because its two-token sum is only 0.8705."},
+  {"id": "q27.4", "question": "A 4-token prompt is followed by 16 generated tokens. How many token positions run through the network with recomputation, and with a KV cache?", "options": [{"id": "a", "text": "184 and 19"}, {"id": "b", "text": "64 and 16"}, {"id": "c", "text": "120 and 19"}, {"id": "d", "text": "184 and 16"}], "correctOptionId": "a", "explanation": "Recomputation runs $NP + N(N-1)/2 = 64 + 120 = 184$ positions. The cache runs $P + N - 1 = 4 + 15 = 19$ positions: 4 in the prefill and 15 single-token decode steps. These match the N = 16 row of the lesson's table."},
+  {"id": "q27.5", "question": "A hypothetical model has 32 layers, 8 key-value heads, head size 128 and fp16 values. How many bytes does its KV cache need per token?", "options": [{"id": "a", "text": "524,288"}, {"id": "b", "text": "131,072"}, {"id": "c", "text": "16,384"}, {"id": "d", "text": "65,536"}], "correctOptionId": "b", "explanation": "The formula is $2 \\times L \\times H_{kv} \\times d_{\\text{head}} \\times b = 2 \\times 32 \\times 8 \\times 128 \\times 2 = 131{,}072$ bytes. The factor 2 counts keys and values. The 524,288 figure in the lesson uses 32 key-value heads, not 8."},
+  {"id": "q27.6", "question": "Which check gives the strongest evidence that a KV cache implementation is correct?", "options": [{"id": "a", "text": "The generated tokens match the recomputed tokens."}, {"id": "b", "text": "Generation with the cache runs faster than recomputation on the same machine."}, {"id": "c", "text": "The logits match a full recomputation of the same tokens after every step."}, {"id": "d", "text": "The cache uses fewer bytes than the model's weights."}], "correctOptionId": "c", "explanation": "Matching tokens is a weaker test, because two different logit vectors can still produce the same argmax. Comparing logits with a full recomputation after every step detects errors that the token choice hides. Timing depends on hardware and overhead, and memory size does not test correctness."},
+  {"id": "q27.7", "question": "Why can a KV cache store keys and values but not attention weights?", "options": [{"id": "a", "text": "Attention weights are too large to store in float64."}, {"id": "b", "text": "A new key changes the softmax denominator, so every stored weight would become stale."}, {"id": "c", "text": "Keys and values change when the query at the same position changes."}, {"id": "d", "text": "Attention weights are not defined for positions before the current one."}], "correctOptionId": "b", "explanation": "A position's keys and values are fixed once computed. Its attention weights are a softmax over all keys, so appending a key changes the denominator and every weight. The lesson's worked example makes this concrete: the weights $(0.090, 0.245, 0.665)$ would all change if another key were added."},
+  {"id": "q27.8", "question": "With the causal mask on, you change the token at position 10 in a 16-token sequence. Which logits can change?", "options": [{"id": "a", "text": "All 16 positions"}, {"id": "b", "text": "Positions 0 to 9"}, {"id": "c", "text": "Positions 10 to 15"}, {"id": "d", "text": "Only position 10"}], "correctOptionId": "c", "explanation": "Position 10 changes because it holds the edited token. Positions 11 to 15 attend to it. Positions 0 to 9 cannot see position 10 under the causal mask, so they are unchanged. The lesson's leakage check shows this: with the mask on, the change is exactly zero at positions 0 to 9."},
+  {"id": "q27.9", "question": "A 28-symbol model predicts uniformly at initialization. What is its cross-entropy loss, in nats?", "options": [{"id": "a", "text": "4.807"}, {"id": "b", "text": "0.036"}, {"id": "c", "text": "28"}, {"id": "d", "text": "3.332"}], "correctOptionId": "d", "explanation": "A uniform prediction assigns probability $1/28$ to the correct symbol, so the loss is $\\ln 28 = 3.332$ nats. The value 4.807 is $\\log_2 28$, which is the same quantity in bits, not nats. The value 0.036 is $1/28$ itself."}
+]}

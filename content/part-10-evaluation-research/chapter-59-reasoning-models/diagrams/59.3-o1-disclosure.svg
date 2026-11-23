@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-label="What OpenAI discloses about o1" class="sketch"><title>What OpenAI discloses about o1</title>
+<text x="440" y="36" class="sk-hand" font-size="23" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">What OpenAI disclosed about o1 (September 2024 post)</tspan></text>
+<text x="170" y="88" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="170" dy="0">Shown to the user</tspan></text>
+<path d="M37.8 104.8 L302.4 101.8 L297.7 310.2 L41.7 311.6" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38.2 103.7 C98.8 102.4, 158.3 101.3, 301.8 104.7 M39.6 104.4 C114.5 107.0, 187.3 107.1, 300.9 103.4 M298.1 105.7 C299.9 177.1, 299.4 247.7, 299.1 308.4 M299.8 104.3 C301.4 160.0, 301.4 217.3, 300.6 310.0 M300.8 309.7 C210.7 308.9, 118.5 307.4, 40.3 311.1 M299.1 309.3 C204.6 309.5, 110.8 310.5, 40.5 309.1 M40.9 312.1 C42.3 265.8, 40.1 222.7, 38.5 102.0 M39.0 310.5 C36.8 261.1, 37.0 211.8, 40.6 104.3" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="170" y="146" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="170" dy="0">final answer</tspan></text>
+<text x="170" y="182" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="170" dy="0">model-written summary</tspan></text>
+<text x="170" y="218" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="170" dy="0">of the chain of thought</tspan></text>
+<text x="460" y="88" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="460" dy="0">Hidden by design</tspan></text>
+<path d="M328.3 101.7 L591.2 106.3 L590.4 310.5 L330.4 311.0" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M331.0 102.8 C390.4 104.0, 449.6 104.0, 589.1 103.2 M330.0 103.7 C409.5 102.5, 487.5 102.1, 589.3 103.2 M591.9 106.0 C590.3 179.8, 590.6 255.3, 588.5 309.6 M589.0 104.5 C590.9 174.2, 589.8 246.6, 590.0 309.3 M589.9 311.4 C495.7 310.6, 400.7 308.6, 330.1 308.8 M589.2 310.1 C501.7 312.1, 413.1 312.8, 330.4 310.1 M328.0 309.6 C332.2 248.4, 332.5 189.2, 331.3 102.8 M330.3 310.5 C328.0 269.0, 328.8 226.9, 330.0 104.3" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="460" y="146" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="460" dy="0">raw chain of thought</tspan></text>
+<text x="460" y="182" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="460" dy="0">(the reasoning text)</tspan></text>
+<text x="750" y="88" class="sk-hand" font-size="19" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="750" dy="0">Not disclosed</tspan></text>
+<path d="M618.8 103.4 L880.1 106.1 L878.3 310.8 L619.1 310.5" style="stroke:none;fill:var(--sk-amber-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M619.9 105.6 C678.2 105.6, 737.2 106.6, 880.2 105.5 M620.3 104.9 C704.5 104.1, 789.6 103.1, 879.7 104.8 M881.4 102.0 C880.8 182.6, 881.8 262.9, 882.1 310.8 M880.4 104.7 C878.3 147.3, 878.3 191.3, 879.4 310.8 M878.9 309.2 C780.7 308.5, 682.8 309.8, 620.0 310.4 M879.2 310.9 C798.8 310.7, 715.4 311.1, 620.4 309.2 M619.4 311.5 C616.9 231.0, 619.6 151.5, 619.7 103.7 M619.4 310.5 C619.3 233.5, 620.6 159.5, 619.4 104.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="750" y="146" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="750" dy="0">architecture</tspan></text>
+<text x="750" y="182" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="750" dy="0">parameter count</tspan></text>
+<text x="750" y="218" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="750" dy="0">RL algorithm</tspan></text>
+<text x="750" y="254" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="750" dy="0">reward-model design</tspan></text>
+<text x="750" y="290" class="sk-mono" font-size="17" text-anchor="middle" style="fill:var(--sk-ink)"><tspan x="750" dy="0">reasoning-token count</tspan></text>
+<g transform="rotate(-1.5 440 339)">
+<path d="M39.4 326.8 L839.2 327.4 L840.8 352.8 L38.4 351.9" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39.5 326.2 C221.6 324.3, 402.8 325.0, 840.5 326.0 M40.2 326.1 C317.3 327.6, 594.9 327.7, 840.1 326.2 M840.8 324.5 C838.3 329.8, 839.7 336.8, 841.2 353.7 M839.7 326.8 C841.1 332.8, 840.2 341.0, 840.7 352.1 M840.7 352.4 C526.2 351.0, 211.0 349.9, 39.9 352.7 M839.7 351.9 C606.7 349.2, 373.3 349.3, 40.1 352.1 M40.6 351.2 C38.6 345.3, 39.3 339.3, 38.5 326.4 M40.6 352.5 C39.9 343.0, 39.7 335.6, 40.8 326.3" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="350" class="sk-hand" font-size="16" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="54" dy="0">Public statement only: the post does not describe how the reasoning is produced.</tspan></text>
+</g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" role="img" aria-label="Two vectors in the same direction, one twice as long: cosine is 1, distance is not 0" class="sketch"><title>Two vectors in the same direction, one twice as long: cosine is 1, distance is not 0</title>
+<text x="440" y="34" class="sk-hand" font-size="24" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Cosine compares direction, not length</tspan></text>
+<path d="M119.2 299.0 C176.9 301.9, 231.7 300.8, 399.1 299.5 M119.4 299.1 C221.2 298.7, 321.7 299.5, 400.5 299.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M398.6 301.4 C396.6 300.1, 396.0 301.0, 389.4 306.6 M399.8 300.2 C395.4 301.4, 392.0 303.7, 389.9 305.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M400.6 300.6 C397.9 300.1, 397.1 296.9, 390.2 295.0 M400.0 299.7 C398.4 298.1, 395.1 298.4, 388.8 294.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119.7 299.8 C123.6 262.9, 120.8 222.4, 118.4 108.4 M120.5 301.0 C122.0 258.2, 122.3 214.5, 119.8 109.0" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M119.0 109.1 C120.6 112.2, 122.7 113.8, 125.1 121.6 M120.5 110.0 C121.1 113.2, 122.3 114.9, 125.4 121.4" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M121.0 111.3 C119.7 111.5, 116.6 113.9, 115.5 120.4 M119.4 109.5 C118.2 113.2, 117.9 116.2, 115.3 121.3" style="stroke:var(--sk-muted);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="400" y="328" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="400" dy="0">cat</tspan></text>
+<text x="94" y="112" class="sk-hand" font-size="18" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="94" dy="0">fish</tspan></text>
+<path d="M120.4 300.9 C127.6 279.7, 137.8 263.3, 162.9 212.2 M119.3 300.7 C134.2 273.8, 146.2 247.2, 163.9 210.5" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M164.4 209.8 C165.3 213.5, 165.8 214.9, 164.5 222.2 M164.9 209.9 C165.1 213.8, 165.6 216.8, 164.5 222.1" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M163.6 209.0 C161.8 212.1, 160.2 213.3, 156.0 216.3 M165.1 209.4 C161.4 212.4, 158.6 215.1, 155.5 217.3" style="stroke:var(--sk-blue);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M121.0 301.7 C136.8 263.6, 155.2 228.3, 212.0 121.1 M120.5 300.4 C152.8 237.1, 182.5 173.3, 210.4 119.6" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M209.8 120.4 C211.2 121.7, 211.1 125.5, 209.2 131.6 M210.6 119.7 C210.4 124.2, 210.1 129.6, 210.4 131.6" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M209.0 119.7 C207.6 120.2, 205.5 123.8, 200.7 128.6 M209.4 120.7 C206.1 122.5, 201.9 125.9, 199.9 126.7" style="stroke:var(--sk-amber);fill:none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="181" y="232" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-blue)"><tspan x="181" dy="0">A: (1, 2)</tspan></text>
+<text x="226" y="126" class="sk-hand" font-size="18" text-anchor="start" style="fill:var(--sk-amber)"><tspan x="226" dy="0">B = 2A: (2, 4)</tspan></text>
+<path d="M166.7 208.2 C173.8 193.8, 182.3 175.7, 211.8 120.2 M164.5 210.2 C173.5 189.8, 184.5 170.4, 209.5 121.1" style="stroke:var(--sk-rose);fill:none;stroke-dasharray:6 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g transform="rotate(-1.5 690 205)">
+<path d="M540.3 151.4 L840.7 151.3 L841.7 261.1 L540.4 259.7" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M540.2 151.0 C599.4 148.4, 661.8 149.1, 839.1 149.1 M539.9 149.6 C612.2 147.3, 683.0 148.3, 840.0 150.4 M840.6 151.0 C841.2 186.7, 840.5 221.6, 838.4 260.7 M839.3 150.3 C839.3 187.6, 838.9 224.6, 839.1 260.1 M839.0 259.8 C751.2 261.4, 661.2 261.2, 539.6 259.2 M840.2 259.4 C745.6 259.5, 651.3 259.5, 540.4 260.6 M539.9 259.6 C539.3 229.6, 538.5 197.3, 541.5 151.2 M540.4 260.5 C539.7 233.2, 539.2 205.7, 539.1 150.2" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="554" y="177" class="sk-hand" font-size="19" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="554" dy="0">cosine(A, B) = 1.000</tspan><tspan x="554" dy="20.900000000000002">same direction</tspan><tspan x="554" dy="20.900000000000002">Euclidean distance = 2.236</tspan></text>
+</g>
+</svg>

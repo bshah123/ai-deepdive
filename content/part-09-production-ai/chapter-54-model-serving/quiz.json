@@ -1,54 +1,10 @@
-{
-  "chapterId": "chapter-54",
-  "title": "Chapter 54 Quiz \u2014 LLM Serving Engines (vLLM & TGI)",
-  "questions": [
-    {
-      "id": "q54.1",
-      "question": "What is the primary architectural mechanism in LLM Serving Engines (vLLM & TGI)?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LLM Serving Engines (vLLM & TGI), predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q54.2",
-      "question": "How does LLM Serving Engines (vLLM & TGI) optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-54", "title": "Chapter 54 Quiz — Model Serving", "questions": [
+  {"id": "q54.1", "question": "A decoder has 32 layers, 8 KV heads, head dimension 128 and fp16 values (2 bytes). How many bytes of KV cache does one token take?", "options": [{"id": "a", "text": "65,536 bytes"}, {"id": "b", "text": "131,072 bytes"}, {"id": "c", "text": "262,144 bytes"}, {"id": "d", "text": "524,288 bytes"}], "correctOptionId": "b", "explanation": "Bytes per token = 2 × L × H_kv × d × b = 2 × 32 × 8 × 128 × 2 = 131,072 bytes (128 KiB). The factor 2 counts one key and one value vector. Lesson 54.1 uses this same configuration."},
+  {"id": "q54.2", "question": "Using the same configuration (131,072 bytes per token), how many tokens fit in a 16 GiB KV cache?", "options": [{"id": "a", "text": "32,768 tokens"}, {"id": "b", "text": "65,536 tokens"}, {"id": "c", "text": "131,072 tokens"}, {"id": "d", "text": "1,048,576 tokens"}], "correctOptionId": "c", "explanation": "16 GiB = 16 × 2^30 bytes, and 16 × 2^30 / 131,072 = 131,072 tokens. Lesson 54.1 prints this value in its first code block."},
+  {"id": "q54.3", "question": "Blocks hold 16 tokens. A request has a 40-token prompt. How many blocks does the prompt need, and in which logical block and offset does token 37 sit (counting from 0)?", "options": [{"id": "a", "text": "2 blocks; logical block 2, offset 5"}, {"id": "b", "text": "3 blocks; logical block 1, offset 5"}, {"id": "c", "text": "3 blocks; logical block 2, offset 8"}, {"id": "d", "text": "3 blocks; logical block 2, offset 5"}], "correctOptionId": "d", "explanation": "ceil(40/16) = 3 blocks. Token 37 is in logical block floor(37/16) = 2 at offset 37 − 32 = 5. Its physical block is whatever the block table maps logical block 2 to; the lesson's example maps it to physical block 9."},
+  {"id": "q54.4", "question": "In the Lesson 54.1 simulation (200 requests, 8,192 KV slots, 2,048-token reservation), what fraction of KV memory held real tokens under reserve-the-maximum allocation, and under paged allocation?", "options": [{"id": "a", "text": "about 22% under reservation and about 98% under paging"}, {"id": "b", "text": "about 98% under reservation and about 22% under paging"}, {"id": "c", "text": "about 60% under reservation and about 95% under paging"}, {"id": "d", "text": "about 22% under reservation and about 100% under paging"}], "correctOptionId": "a", "explanation": "The simulation prints utilization=0.219 for the contiguous (reserve-maximum) run and utilization=0.983 for the paged run. Paging also costs 305 preemptions that discard 3,777 tokens, which must be generated again."},
+  {"id": "q54.5", "question": "Six requests with 3, 8, 2, 5, 4 and 6 output tokens run on three slots. Static batching takes 14 steps and continuous batching takes 13. Both produce 28 tokens. Why is continuous batching faster here?", "options": [{"id": "a", "text": "It produces more tokens per request than static batching"}, {"id": "b", "text": "It refills a slot as soon as its request ends, so fewer slots sit idle"}, {"id": "c", "text": "It skips the prefill step for short requests"}, {"id": "d", "text": "It holds every request in a fixed group until the longest one finishes"}], "correctOptionId": "b", "explanation": "Static batching waits for the whole group before taking new requests, so slots that finish early sit idle. Continuous batching re-decides the batch at every step. The two schedules produce the same 28 tokens, and the trace in Lesson 54.1 shows the 14-step and 13-step schedules."},
+  {"id": "q54.6", "question": "A fused kernel reads x and r and writes y, each an 8 × 4096 fp16 tensor. The unfused three-kernel chain moves 7 tensor passes. What is the ratio of unfused to fused memory traffic?", "options": [{"id": "a", "text": "1.50"}, {"id": "b", "text": "2.00"}, {"id": "c", "text": "2.33"}, {"id": "d", "text": "3.00"}], "correctOptionId": "c", "explanation": "S = 8 × 4096 = 32,768 values. Unfused traffic is 7S × 2 = 458,752 bytes. Fused traffic is 3S × 2 = 196,608 bytes. The ratio is 7/3 ≈ 2.333, which Lesson 54.2 prints. This counts bytes only; run time is not measured."},
+  {"id": "q54.7", "question": "A Triton config declares max_batch_size: 8. An input has a per-request shape of 1024 features. Which dims value is correct?", "options": [{"id": "a", "text": "dims: [8, 1024]"}, {"id": "b", "text": "dims: [1, 1024]"}, {"id": "c", "text": "dims: [1024, 8]"}, {"id": "d", "text": "dims: [1024]"}], "correctOptionId": "d", "explanation": "The Triton model configuration documentation says dims excludes the batch dimension. Triton adds the batch dimension from max_batch_size, so including 8 or 1 in dims gives a second batch dimension."},
+  {"id": "q54.8", "question": "A script calls Ollama's /api/generate with the default settings and reads the answer from response[\"text\"]. Which is the correct way to get the answer as one JSON object?", "options": [{"id": "a", "text": "Read response[\"response\"] and send \"stream\": false in the request"}, {"id": "b", "text": "Read response[\"text\"] and send \"stream\": true"}, {"id": "c", "text": "Read response[\"generated_text\"] and send \"stream\": false"}, {"id": "d", "text": "Read response[\"response\"] and send \"num_predict\": 0"}], "correctOptionId": "a", "explanation": "The text is in the response field, and /api/generate streams by default, so the request must set \"stream\": false to get a single object. Lesson 54.3 lists both mistakes as traps."}
+]}

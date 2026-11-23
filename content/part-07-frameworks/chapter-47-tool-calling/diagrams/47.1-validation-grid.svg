@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" role="img" aria-label="Validation results for seven candidate outputs" class="sketch"><title>Validation results for seven candidate outputs</title>
+<text x="440" y="34" class="sk-hand" font-size="26" text-anchor="middle" style="fill:var(--sk-ink)" font-weight="700"><tspan x="440" dy="0">Which rules does each candidate break?</tspan></text>
+<text x="70" y="76" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-muted)"><tspan x="70" dy="0">candidate (days field)</tspan></text>
+<text x="330" y="76" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="330" dy="0">required</tspan></text>
+<text x="440" y="76" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="440" dy="0">enum</tspan></text>
+<text x="550" y="76" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="550" dy="0">minimum</tspan></text>
+<text x="660" y="76" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="660" dy="0">integer</tspan></text>
+<text x="790" y="76" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="790" dy="0">result</tspan></text>
+<path d="M40.7 88.2 C201.0 89.8, 361.2 90.2, 840.5 87.0 M40.4 88.0 C342.2 92.4, 644.5 92.4, 839.9 87.9" style="stroke:var(--sk-muted);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="70" y="124" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c1  days = 3</tspan></text>
+<text x="330" y="124" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="124" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">pass</tspan></text>
+<text x="550" y="124" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="550" dy="0">pass</tspan></text>
+<text x="660" y="124" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="660" dy="0">pass</tspan></text>
+<path d="M744.0 102.5 L836.6 100.2 L834.8 129.7 L744.2 134.2" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M745.4 101.1 C762.3 100.6, 779.9 103.0, 834.9 102.5 M744.0 101.1 C780.8 101.2, 819.5 100.3, 837.3 101.4 M834.9 101.8 C838.6 106.5, 837.7 113.0, 836.1 130.1 M837.8 101.6 C838.3 108.6, 837.6 117.7, 836.9 132.3 M837.5 129.6 C815.0 132.0, 795.9 132.0, 746.4 130.1 M838.0 131.0 C808.8 130.7, 778.3 130.8, 745.9 132.4 M747.1 130.8 C746.9 120.1, 744.0 109.8, 746.1 101.7 M745.5 133.0 C745.4 124.7, 745.5 115.0, 744.3 101.7" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="124" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="791" dy="0">OK</tspan></text>
+<text x="70" y="164" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c2  days omitted</tspan></text>
+<text x="330" y="164" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="164" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">pass</tspan></text>
+<text x="550" y="164" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="550" dy="0">-</tspan></text>
+<text x="660" y="164" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="660" dy="0">-</tspan></text>
+<path d="M744.5 144.2 L835.5 140.0 L837.5 170.0 L742.9 173.7" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M744.0 139.9 C764.3 140.7, 781.6 139.6, 836.4 140.6 M744.4 142.6 C766.1 141.7, 785.6 142.6, 837.8 141.2 M839.2 142.1 C837.8 150.9, 837.7 154.4, 835.3 171.5 M837.0 141.9 C837.1 150.9, 837.6 160.6, 836.2 171.6 M836.4 171.8 C817.2 174.2, 793.4 173.5, 746.2 172.0 M838.1 172.1 C809.7 173.7, 782.5 173.4, 745.8 171.2 M743.9 172.9 C746.1 164.0, 745.9 159.2, 744.5 142.7 M744.6 173.0 C745.0 166.2, 745.7 157.3, 746.0 141.7" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="164" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="791" dy="0">OK</tspan></text>
+<text x="70" y="204" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c7  days = 3.0</tspan></text>
+<text x="330" y="204" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="204" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">pass</tspan></text>
+<text x="550" y="204" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="550" dy="0">pass</tspan></text>
+<text x="660" y="204" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="660" dy="0">pass</tspan></text>
+<path d="M745.0 181.1 L839.1 179.8 L835.4 210.3 L746.4 213.1" style="stroke:none;fill:var(--sk-green-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M742.6 183.4 C761.6 180.7, 783.3 181.0, 837.8 183.4 M744.9 181.7 C767.4 182.2, 788.4 182.4, 835.9 180.9 M838.6 182.4 C836.1 190.5, 836.8 195.9, 834.6 212.9 M836.1 182.1 C835.9 193.1, 837.7 205.9, 837.9 213.2 M835.3 213.9 C814.6 211.5, 790.9 210.2, 746.0 214.0 M838.1 213.1 C813.0 211.7, 786.7 211.1, 745.7 212.5 M745.4 210.1 C745.4 202.0, 743.1 191.8, 742.8 183.6 M746.1 213.0 C745.4 199.3, 744.4 187.6, 745.3 181.7" style="stroke:var(--sk-green);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="204" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="791" dy="0">OK</tspan></text>
+<text x="70" y="244" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c4  unit = kelvin</tspan></text>
+<text x="330" y="244" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="244" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="440" dy="0">fail</tspan></text>
+<text x="550" y="244" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="550" dy="0">-</tspan></text>
+<text x="660" y="244" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="660" dy="0">-</tspan></text>
+<path d="M745.4 222.8 L838.0 224.4 L838.1 250.6 L745.1 252.5" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M746.0 222.2 C763.6 222.9, 780.2 219.7, 839.3 221.5 M745.3 220.9 C768.7 220.1, 793.6 222.0, 836.4 223.0 M838.1 222.7 C835.2 230.1, 836.8 237.4, 838.7 254.2 M837.7 222.3 C837.9 229.3, 836.1 236.9, 837.2 252.4 M838.9 251.3 C812.0 253.7, 788.4 251.7, 745.8 251.1 M838.2 251.7 C813.9 252.0, 790.8 251.1, 745.6 251.3 M746.9 252.2 C744.6 245.9, 745.0 241.2, 745.9 219.8 M745.1 253.0 C745.8 240.8, 745.4 229.9, 744.7 221.7" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="244" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="791" dy="0">ERR</tspan></text>
+<text x="70" y="284" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c6  days = 0</tspan></text>
+<text x="330" y="284" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="284" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">pass</tspan></text>
+<text x="550" y="284" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="550" dy="0">fail</tspan></text>
+<text x="660" y="284" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="660" dy="0">pass</tspan></text>
+<path d="M745.9 259.7 L836.8 264.1 L836.0 290.9 L743.8 292.0" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M744.7 261.0 C765.6 263.0, 782.0 261.1, 835.9 264.4 M745.7 262.4 C770.0 260.6, 796.5 261.9, 836.9 262.7 M837.5 263.0 C839.2 269.7, 836.7 278.9, 837.9 290.8 M836.8 262.6 C836.7 271.5, 836.2 282.2, 836.4 291.6 M837.8 293.4 C809.4 291.0, 785.9 293.2, 745.6 293.0 M835.9 292.7 C817.2 292.6, 795.0 291.3, 745.6 292.6 M743.7 294.3 C743.8 283.9, 747.0 273.8, 744.2 260.7 M744.2 293.0 C746.3 282.3, 744.0 272.2, 744.0 261.7" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="284" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="791" dy="0">ERR</tspan></text>
+<text x="70" y="324" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c8  days = 2.5</tspan></text>
+<text x="330" y="324" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="324" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">pass</tspan></text>
+<text x="550" y="324" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="550" dy="0">pass</tspan></text>
+<text x="660" y="324" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="660" dy="0">fail</tspan></text>
+<path d="M746.4 301.4 L835.7 303.9 L838.7 331.1 L747.4 331.4" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M743.3 299.7 C762.8 300.4, 783.7 299.8, 837.4 302.4 M746.1 301.5 C773.7 303.6, 801.7 301.7, 837.4 302.4 M837.0 303.3 C837.4 309.3, 835.9 320.4, 837.2 332.1 M836.0 302.8 C836.4 313.7, 837.0 325.1, 838.1 330.9 M836.6 330.7 C811.6 333.2, 783.4 329.9, 745.4 330.1 M835.9 331.4 C799.7 330.5, 764.8 331.4, 745.5 331.4 M745.2 331.5 C743.1 321.9, 744.1 311.2, 747.3 301.7 M745.6 333.0 C744.3 323.8, 745.1 314.5, 745.7 301.6" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="324" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="791" dy="0">ERR</tspan></text>
+<text x="70" y="364" class="sk-mono" font-size="18" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="70" dy="0">c9  days = true</tspan></text>
+<text x="330" y="364" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="330" dy="0">pass</tspan></text>
+<text x="440" y="364" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-green)"><tspan x="440" dy="0">pass</tspan></text>
+<text x="550" y="364" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-muted)"><tspan x="550" dy="0">-</tspan></text>
+<text x="660" y="364" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="660" dy="0">fail</tspan></text>
+<path d="M746.9 343.1 L839.4 343.7 L836.6 371.4 L746.1 370.8" style="stroke:none;fill:var(--sk-rose-soft)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M746.7 343.3 C764.8 340.4, 780.6 341.2, 838.8 340.5 M744.2 343.0 C775.0 344.1, 804.5 344.0, 837.9 342.1 M836.4 343.6 C836.6 349.0, 835.8 361.8, 836.5 373.5 M837.5 343.1 C837.6 350.0, 837.1 358.5, 837.4 372.5 M835.5 372.9 C809.0 370.5, 780.9 371.4, 745.2 372.0 M836.0 372.4 C803.1 373.5, 769.0 371.6, 745.4 372.7 M746.7 373.6 C747.1 365.8, 746.1 355.8, 745.6 342.6 M744.7 373.0 C744.7 365.3, 746.1 356.8, 745.0 341.6" style="stroke:var(--sk-rose);fill:none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="791" y="364" class="sk-hand" font-size="17" text-anchor="middle" style="fill:var(--sk-rose)"><tspan x="791" dy="0">ERR</tspan></text>
+<g transform="rotate(-1.5 440 409)">
+<path d="M41.8 390.5 L840.9 393.1 L841.7 425.8 L39.8 424.7" style="stroke:none;fill:var(--sk-note)" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40.1 392.0 C200.0 395.1, 360.9 394.3, 839.5 392.4 M39.9 392.0 C318.7 390.5, 598.1 390.3, 839.7 391.9 M839.1 393.4 C839.1 404.3, 839.1 415.5, 839.1 424.5 M839.8 391.2 C839.5 403.3, 840.1 414.0, 839.8 425.8 M840.7 425.5 C580.6 425.6, 321.9 425.7, 40.0 426.6 M839.7 425.7 C559.5 424.6, 279.6 424.6, 40.1 425.9 M38.9 425.1 C40.3 415.8, 38.0 403.9, 39.2 393.2 M40.9 426.7 C39.5 417.9, 39.2 411.4, 39.5 391.7" style="stroke:var(--sk-amber);fill:none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="417" class="sk-hand" font-size="17" text-anchor="start" style="fill:var(--sk-ink)"><tspan x="54" dy="0">all 10 candidates: 3 accepted, jsonschema agrees on every one</tspan></text>
+</g>
+</svg>

@@ -1,54 +1,126 @@
 {
   "chapterId": "chapter-46",
-  "title": "Chapter 46 Quiz \u2014 LangChain Fundamentals",
+  "title": "Chapter 46 Quiz — DSPy",
   "questions": [
     {
       "id": "q46.1",
-      "question": "What is the primary architectural mechanism in LangChain Fundamentals?",
+      "question": "In the lesson's renderer, the prompt has 14 whitespace words with zero demonstrations and 60 with four. What is the average number of words each demonstration adds?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
+        {"id": "a", "text": "3.5"},
+        {"id": "b", "text": "11.5"},
+        {"id": "c", "text": "14"},
+        {"id": "d", "text": "46"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LangChain Fundamentals, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
+      "correctOptionId": "b",
+      "explanation": "(60 - 14) / 4 = 11.5 words per demonstration. The 46 is the total added across four demonstrations, not the per-demonstration figure."
     },
     {
       "id": "q46.2",
-      "question": "How does LangChain Fundamentals optimize performance in modern AI systems?",
+      "question": "A Predict module follows the output format with probability 0.7 per attempt, independently. A failed parse is retried once. What are the success probability and the expected number of LM calls per request?",
       "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
+        {"id": "a", "text": "0.70 success and 1.0 calls"},
+        {"id": "b", "text": "0.91 success and 1.7 calls"},
+        {"id": "c", "text": "0.97 success and 1.3 calls"},
+        {"id": "d", "text": "0.91 success and 1.3 calls"}
       ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
+      "correctOptionId": "d",
+      "explanation": "Both attempts must fail for a failure: (1 - 0.7)^2 = 0.09, so success is 0.91. The second call happens only after a failure, which has probability 0.3, so the expected number of calls is 1 + 0.3 = 1.3. This assumes independent attempts."
+    },
+    {
+      "id": "q46.3",
+      "question": "Which statement about ChainOfThought is correct?",
+      "options": [
+        {"id": "a", "text": "It prepends a reasoning output field to the signature, and one predictor call produces the reasoning and then the answer."},
+        {"id": "b", "text": "It makes two LM calls per input, one to write the reasoning and one to write the answer."},
+        {"id": "c", "text": "It changes the input fields, so the caller must pass a plan."},
+        {"id": "d", "text": "It replaces the answer attribute with reasoning, so the caller reads .reasoning."}
+      ],
+      "correctOptionId": "a",
+      "explanation": "ChainOfThought adds a reasoning output field to the signature and calls the same predictor once. The inputs and the .answer attribute are unchanged, so the caller's code stays the same."
+    },
+    {
+      "id": "q46.4",
+      "question": "What happens when the line qa = Predict(\"question, answer\", lm) runs?",
+      "options": [
+        {"id": "a", "text": "It returns a prediction whose answer field is the string 'question, answer'."},
+        {"id": "b", "text": "It raises a TypeError because the lm argument is missing."},
+        {"id": "c", "text": "It raises ValueError: not enough values to unpack (expected 2, got 1)."},
+        {"id": "d", "text": "It runs and makes one LM call with an empty prompt."}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The string has no '->', so Signature.__init__ splits it into one part and fails while unpacking into two names. The fix is Predict(\"question -> answer\", lm)."
+    },
+    {
+      "id": "q46.5",
+      "question": "MultiHopQA makes 2 model calls per question: one Predict for the search query and one ChainOfThought for the answer. If the corpus lookup were a second Predict module, how many model calls would 10 questions make?",
+      "options": [
+        {"id": "a", "text": "20"},
+        {"id": "b", "text": "30"},
+        {"id": "c", "text": "40"},
+        {"id": "d", "text": "10"}
+      ],
+      "correctOptionId": "b",
+      "explanation": "Three calls per question, so 30 in total. The lookup in the lesson is plain code and costs no call; a Predict module would be a model call."
+    },
+    {
+      "id": "q46.6",
+      "question": "In the lesson's parser, what does parse(qa, \"[[ ## answer ## ]]\\n51\\n[[ ## answer ## ]]\\n99\") return?",
+      "options": [
+        {"id": "a", "text": "{'answer': '99'}"},
+        {"id": "b", "text": "{'answer': '51\\n99'}"},
+        {"id": "c", "text": "An AdapterParseError, because the marker appears twice."},
+        {"id": "d", "text": "{'answer': '51'}"}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The parser keeps the first occurrence of each marker and drops later sections with the same name, so the value 99 never appears. A repeated marker is not an error in this parser."
+    },
+    {
+      "id": "q46.7",
+      "question": "A program answers 14 of 20 minibatch items correctly, and its true accuracy is 0.7. What are its minibatch score and the standard deviation of that score?",
+      "options": [
+        {"id": "a", "text": "0.70 and 0.102"},
+        {"id": "b", "text": "0.70 and 0.0105"},
+        {"id": "c", "text": "0.60 and 0.205"},
+        {"id": "d", "text": "0.14 and 0.102"}
+      ],
+      "correctOptionId": "a",
+      "explanation": "The score is 14/20 = 0.70. The standard deviation is sqrt(0.7 * 0.3 / 20) = sqrt(0.0105), which is about 0.102. The 0.0105 is the variance, not the standard deviation, and 0.205 is the value for a 5-item minibatch."
+    },
+    {
+      "id": "q46.8",
+      "question": "In the lesson's BootstrapFewShot stub, the teacher passes examples 0, 1, 2 and 6 among the first seven, and examples 3, 4 and 5 fail. Which examples become demonstrations, and how many traces are rejected?",
+      "options": [
+        {"id": "a", "text": "Examples 0, 1, 2 and 3; 4 rejected"},
+        {"id": "b", "text": "Examples 0, 1, 2 and 3; 3 rejected"},
+        {"id": "c", "text": "Examples 0, 1, 2 and 6; 3 rejected"},
+        {"id": "d", "text": "Examples 0, 1, 2 and 6; 0 rejected"}
+      ],
+      "correctOptionId": "c",
+      "explanation": "The loop scans in order, keeps passing traces, and stops at four demonstrations. Examples 0, 1, 2 and 6 pass; examples 3, 4 and 5 are rejected, so three traces are discarded."
+    },
+    {
+      "id": "q46.9",
+      "question": "A colleague passes metric=\"accuracy\" to BootstrapFewShot. What happens?",
+      "options": [
+        {"id": "a", "text": "The optimizer runs, because the string selects a built-in exact-match metric."},
+        {"id": "b", "text": "It raises a TypeError when the metric is first called, because a string is not callable."},
+        {"id": "c", "text": "It accepts every trace, because a string is truthy."},
+        {"id": "d", "text": "It raises a ValueError only if max_bootstrapped_demos is also set."}
+      ],
+      "correctOptionId": "b",
+      "explanation": "BootstrapFewShot calls metric(example, prediction, trace). A string is not callable, so the call fails with a TypeError. The metric must be a Python function that takes those three arguments."
+    },
+    {
+      "id": "q46.10",
+      "question": "In the 500-run simulation, rule B (top 3 by minibatch score, then compared on a separate 100-item confirmation set) reaches higher mean test accuracy than rule A (the single best minibatch score). Why?",
+      "options": [
+        {"id": "a", "text": "Rule B uses more demonstrations per candidate than rule A."},
+        {"id": "b", "text": "Rule A never scores candidates on validation data."},
+        {"id": "c", "text": "Rule B ignores the minibatch and picks a candidate at random."},
+        {"id": "d", "text": "Rule A picks the maximum of noisy minibatch scores, so lucky candidates win, while rule B re-scores its top three on items that selection did not use."}
+      ],
+      "correctOptionId": "d",
+      "explanation": "The winner of a maximum over 12 noisy scores is biased upward (the winner's curse). Rule B moves the final choice to a set that the selection did not see. The 0.023 gap is specific to the stub's accuracy spread and independent-error assumption, so it is not a general figure."
     }
   ]
 }

@@ -1,54 +1,12 @@
-{
-  "chapterId": "chapter-47",
-  "title": "Chapter 47 Quiz \u2014 LangChain Internals",
-  "questions": [
-    {
-      "id": "q47.1",
-      "question": "What is the primary architectural mechanism in LangChain Internals?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "Zero-copy memory layouts and contiguous hardware alignment"
-        },
-        {
-          "id": "opt-1",
-          "text": "Recursive overallocation on every function call"
-        },
-        {
-          "id": "opt-2",
-          "text": "Implicit string conversions for all numerical operations"
-        },
-        {
-          "id": "opt-3",
-          "text": "Single-threaded blocking execution without vectorization"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "In LangChain Internals, predictable memory layouts and contiguous strides enable zero-copy views and high-throughput execution."
-    },
-    {
-      "id": "q47.2",
-      "question": "How does LangChain Internals optimize performance in modern AI systems?",
-      "options": [
-        {
-          "id": "opt-0",
-          "text": "By eliminating pointer indirection and utilizing SIMD / CUDA hardware acceleration"
-        },
-        {
-          "id": "opt-1",
-          "text": "By disabling GPU acceleration and running purely on interpreted CPU bytecode"
-        },
-        {
-          "id": "opt-2",
-          "text": "By duplicating entire arrays in memory on every slice"
-        },
-        {
-          "id": "opt-3",
-          "text": "By executing all gradient calculations using finite difference numerical approximations"
-        }
-      ],
-      "correctOptionId": "opt-0",
-      "explanation": "Modern AI frameworks bypass Python object overhead to directly execute SIMD vector instructions and CUDA GPU kernels."
-    }
-  ]
-}
+{"chapterId": "chapter-47", "title": "Chapter 47 Quiz — Tool Calling", "questions": [
+  {"id": "q47.1", "question": "With p = 0.4, R = 0.7 and K = 3 calls, what is the closed-form episode success probability under the validated policy?", "options": [{"id": "a", "text": "0.216"}, {"id": "b", "text": "0.896"}, {"id": "c", "text": "0.209"}, {"id": "d", "text": "0.964"}], "correctOptionId": "b", "explanation": "The per-call failure probability is p(1-R)^2 = 0.4 × 0.09 = 0.036, so the per-call success is 0.964. Over K = 3 calls the episode succeeds with probability 0.964^3 ≈ 0.896, which matches the 0.898 Monte Carlo value in Lesson 47.2 within sampling error. The value 0.964 is per call, not per episode."},
+  {"id": "q47.2", "question": "A checker uses isinstance(v, int) with a minimum of 1 for the days field. Which pair of inputs does it get wrong?", "options": [{"id": "a", "text": "3.0 is wrongly rejected and True is wrongly accepted"}, {"id": "b", "text": "3.0 is wrongly accepted and True is wrongly rejected"}, {"id": "c", "text": "2.5 is wrongly accepted and 0 is wrongly rejected"}, {"id": "d", "text": "\"3\" is wrongly accepted and 0 is wrongly rejected"}], "correctOptionId": "a", "explanation": "isinstance(3.0, int) is False, but 3.0 is an integer under the JSON Schema specification, so it is wrongly rejected. isinstance(True, int) is True and True >= 1 holds, so True passes, although JSON Schema says a boolean is not a number. Lesson 47.1 gives the fix: exclude bool, then test float(v).is_integer()."},
+  {"id": "q47.3", "question": "Under the TOOL schema in Lesson 47.1, which candidate does the validator accept?", "options": [{"id": "a", "text": "{\"location\": \"Roorkee, IN\", \"unit\": \"kelvin\"}"}, {"id": "b", "text": "{\"location\": \"Roorkee, IN\", \"unit\": \"celsius\", \"days\": 0}"}, {"id": "c", "text": "{\"location\": \"Roorkee, IN\", \"unit\": \"fahrenheit\"}"}, {"id": "d", "text": "{\"location\": \"Roorkee, IN\", \"unit\": \"celsius\", \"days\": \"3\"}"}], "correctOptionId": "c", "explanation": "The days field is optional, so omitting it passes the required check, and fahrenheit is in the enum. Kelvin fails the enum, days 0 fails the minimum of 1, and the string \"3\" fails the integer type. The lesson's table shows the same result: c2 (days omitted) is accepted."},
+  {"id": "q47.4", "question": "The validated dispatcher receives {\"location\": \"Tokyo\", \"unit\": 22}. Which step rejects it, and what does the model see?", "options": [{"id": "a", "text": "json.loads raises an exception, and the run stops"}, {"id": "b", "text": "validate returns \"'unit' must be str, got int\", and dispatch returns that text with is_error set to true"}, {"id": "c", "text": "The tool converts 22 to a string and returns a normal result"}, {"id": "d", "text": "run_agent raises RuntimeError at once"}], "correctOptionId": "b", "explanation": "json.loads accepts the number 22 without complaint, since parsing checks only well-formedness. The schema check in validate then fails on the type, and dispatch returns the message with is_error true, so the model can retry. The lesson's trace shows this exact message for call_1."},
+  {"id": "q47.5", "question": "Under the validated policy with p = 0.2, R = 0 and K = 3, what is the closed-form episode success probability?", "options": [{"id": "a", "text": "0.947"}, {"id": "b", "text": "0.949"}, {"id": "c", "text": "0.512"}, {"id": "d", "text": "0.982"}], "correctOptionId": "c", "explanation": "With R = 0 the per-call failure probability is p(1-R)^2 = p = 0.2, so the success is (1 - 0.2)^3 = 0.8^3 = 0.512. This equals the naive policy, which shows that the gain comes from the retry, not from the error message alone."},
+  {"id": "q47.6", "question": "Three independent calls take 1.0 s, 0.5 s and 0.7 s, and the 0.7 s call depends on the 1.0 s call. What is the wall-clock time under the dependent schedule?", "options": [{"id": "a", "text": "2.2 s"}, {"id": "b", "text": "1.0 s"}, {"id": "c", "text": "1.2 s"}, {"id": "d", "text": "1.7 s"}], "correctOptionId": "d", "explanation": "The independent 0.5 s call runs alongside. The dependent chain is 1.0 + 0.7 = 1.7 s, which is the critical path and longer than 0.5 s, so the total is 1.7 s. Running everything in parallel would ignore the dependency and give 1.0 s, and running all three in sequence would give 2.2 s."},
+  {"id": "q47.7", "question": "Three tool calls in one assistant turn return results. Which message shape does the lesson recommend?", "options": [{"id": "a", "text": "One user message whose content holds all three tool_result blocks, each with its tool_use_id, in request order"}, {"id": "b", "text": "Three separate user messages, one per tool_result, so each call gets its own turn"}, {"id": "c", "text": "One assistant message that repeats the three tool_use blocks with the results inside them"}, {"id": "d", "text": "A single tool_result that concatenates the three outputs as text"}], "correctOptionId": "a", "explanation": "Results go back in the next user message, each matched to its call by tool_use_id. The lesson notes that separate user messages are accepted by the API but teach the model to make one call per turn, which reduces parallel calling."},
+  {"id": "q47.8", "question": "A decoder allows any token whose text is a prefix of a valid string. In the toy language it sometimes stops with \"Probabilities contain NaN\". What is the cause, and what fixes it?", "options": [{"id": "a", "text": "The temperature is too high, so the softmax overflows; lower the temperature"}, {"id": "b", "text": "The vocabulary is too large; drop tokens until the vocabulary has fewer than 30 entries"}, {"id": "c", "text": "It reached a legal prefix such as {\"city\": with no legal continuation, so every logit is masked; allow a token only if the resulting state is live"}, {"id": "d", "text": "The EOS token was never emitted; always stop after the cap"}], "correctOptionId": "c", "explanation": "Prefix checks alone allow dead ends. After {\"city\": there is no token that continues it to a valid string, so every logit becomes minus infinity and softmax returns NaN. Lesson 47.3 fixes this with a live-state check, and the count of reachable dead ends drops to 0 with the full vocabulary."},
+  {"id": "q47.9", "question": "In the constrained 14-token run, 97.2% of outputs named London and every output was schema-valid. What does the remaining 2.8% show?", "options": [{"id": "a", "text": "Some outputs were invalid JSON, so the mask failed for them"}, {"id": "b", "text": "Some outputs were schema-valid but named a different city, so the mask guarantees form and not content"}, {"id": "c", "text": "The mask removed the intended string from the language"}, {"id": "d", "text": "The sampler ran out of tokens before reaching the end-of-string token"}], "correctOptionId": "b", "explanation": "The constrained run gave 100.0% valid JSON, so the 2.8% were not invalid. The lesson's key insight is that the mask guarantees the form of the output, while the choice among legal values is still made by the model. Checking the value needs a separate test."},
+  {"id": "q47.10", "question": "A toy language needs at least 9 tokens to complete any valid string. What is the fraction of outputs that finish under a 5-token cap with the constrained decoder?", "options": [{"id": "a", "text": "100%, because the mask keeps every output valid"}, {"id": "b", "text": "0%, because no complete string fits in 5 tokens, so a cut-off output is not valid"}, {"id": "c", "text": "57.7%, the unconstrained finish rate"}, {"id": "d", "text": "39.1%, the unconstrained validity rate"}], "correctOptionId": "b", "explanation": "The lesson's run with a 5-token cap gave 0.0% valid and 0.0% finished, since the shortest complete string in the toy language needs 9 tokens. A truncated output is not valid JSON, so check the stop reason before parsing. The 57.7% and 39.1% figures are unconstrained results at a 14-token cap."}
+]}

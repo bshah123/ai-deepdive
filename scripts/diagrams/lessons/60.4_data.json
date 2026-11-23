@@ -1,0 +1,93 @@
+{
+  "worked": {
+    "x0": 1.0,
+    "abar": 0.25,
+    "eps": 0.5,
+    "sqrt_abar": 0.5,
+    "sqrt_1m_abar": 0.8660254037844386,
+    "xt": 0.9330127018922193
+  },
+  "schedule": {
+    "0": {
+      "abar": 0.9999,
+      "signal": 0.9999499987499375,
+      "noise": 0.009999999999999449
+    },
+    "250": {
+      "abar": 0.5214230306185275,
+      "signal": 0.722096275172866,
+      "noise": 0.6917925768476216
+    },
+    "500": {
+      "abar": 0.07779665836502389,
+      "signal": 0.2789205233843933,
+      "noise": 0.9603141890209558
+    },
+    "750": {
+      "abar": 0.003300158361569426,
+      "signal": 0.057447004809384326,
+      "noise": 0.9983485571875339
+    },
+    "999": {
+      "abar": 4.035829765375676e-05,
+      "signal": 0.006352818087570016,
+      "noise": 0.99997982064757
+    }
+  },
+  "schedule_abar_T": 4.035829765375676e-05,
+  "compress_image": {
+    "pixel_values": 786432,
+    "latent_values": 16384,
+    "ratio": 48.0
+  },
+  "compress_video_illustrative": {
+    "pixel_values": 3145728,
+    "latent_values": 32768,
+    "ratio": 96.0
+  },
+  "tokens_image": {
+    "latent64_p2": 1024,
+    "latent64_p4": 256,
+    "latent32_p2": 256,
+    "token_dim_p2_C4": 16
+  },
+  "tokens_video": {
+    "T4_H32_W32_p1x2x2": 1024,
+    "T4_H32_W32_p2x2x2": 512,
+    "T8_H32_W32_p2x2x2": 1024,
+    "T16_H32_W32_p2x2x2": 2048
+  },
+  "attention_pairs": {
+    "image_latent64_p4": {
+      "tokens": 256,
+      "pairs": 65536,
+      "relative_to_1024": 0.0625
+    },
+    "image_latent64_p2": {
+      "tokens": 1024,
+      "pairs": 1048576,
+      "relative_to_1024": 1.0
+    },
+    "video_p1x2x2": {
+      "tokens": 1024,
+      "pairs": 1048576,
+      "relative_to_1024": 1.0
+    },
+    "video_p2x2x2": {
+      "tokens": 512,
+      "pairs": 262144,
+      "relative_to_1024": 0.25
+    },
+    "video_T16_p2x2x2": {
+      "tokens": 2048,
+      "pairs": 4194304,
+      "relative_to_1024": 4.0
+    }
+  },
+  "recover_x0_max_err_true_eps": 6.661338147750939e-16,
+  "mse_predict_zero": 1.000267602301189,
+  "mse_predict_true_noise": 0.0,
+  "adaln_zero_identity_max_diff": 0.0,
+  "adaln_random_max_diff": 8.86943771921838,
+  "sampling_evals_ddpm": 1000
+}

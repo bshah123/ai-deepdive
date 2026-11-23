@@ -1,0 +1,86 @@
+{
+  "python": "3.12.13",
+  "mro_zde": [
+    "ZeroDivisionError",
+    "ArithmeticError",
+    "Exception",
+    "BaseException"
+  ],
+  "direct_base": [
+    "BaseExceptionGroup",
+    "Exception",
+    "GeneratorExit",
+    "KeyboardInterrupt",
+    "SystemExit"
+  ],
+  "direct_exception": [
+    "ArithmeticError",
+    "AssertionError",
+    "AttributeError",
+    "BufferError",
+    "EOFError",
+    "ExceptionGroup",
+    "ImportError",
+    "LookupError",
+    "MemoryError",
+    "NameError",
+    "OSError",
+    "ReferenceError",
+    "RuntimeError",
+    "StopAsyncIteration",
+    "StopIteration",
+    "SyntaxError",
+    "SystemError",
+    "TypeError",
+    "ValueError",
+    "Warning"
+  ],
+  "catch_matrix": {
+    "ZeroDivisionError": {
+      "matches": [
+        "ArithmeticError",
+        "Exception",
+        "BaseException"
+      ],
+      "first": "ArithmeticError"
+    },
+    "KeyError": {
+      "matches": [
+        "LookupError",
+        "Exception",
+        "BaseException"
+      ],
+      "first": "LookupError"
+    },
+    "NameError": {
+      "matches": [
+        "Exception",
+        "BaseException"
+      ],
+      "first": "Exception"
+    },
+    "KeyboardInterrupt": {
+      "matches": [
+        "BaseException"
+      ],
+      "first": "BaseException"
+    }
+  },
+  "events": [
+    "enter a",
+    "enter b",
+    "enter c",
+    "enter d",
+    "finally d",
+    "finally c",
+    "finally b",
+    "finally a",
+    "caught in main_chain"
+  ],
+  "unwind_tb_entries": 5,
+  "reraise_bare": 3,
+  "reraise_named": 4,
+  "wrong_order": "Exception clause",
+  "right_order": "ZeroDivisionError clause",
+  "typo_total": null
+}
